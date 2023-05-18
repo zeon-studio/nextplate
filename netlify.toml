@@ -1,0 +1,20 @@
+[build]
+publish = ".next"
+command = "yarn build"
+
+[functions]
+included_files = ["src/content/**"]
+
+[build.environment]
+NODE_VERSION = "18"
+__NEXT_PRIVATE_PREBUNDLED_REACT = "next"
+# NEXT_FORCE_EDGE_IMAGES = true
+
+# [[headers]]
+# for = "/*" # This defines which paths this specific [[headers]] block will cover.
+
+# [headers.values]
+# X-Frame-Options = "DENY"
+# X-XSS-Protection = "1; mode=block"
+# Referrer-Policy = "same-origin"
+# Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
