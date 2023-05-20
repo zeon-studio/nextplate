@@ -16,20 +16,21 @@ import {
   FaRegFolder,
   FaRegUserCircle,
 } from "react-icons/fa/index.js";
+import { Post } from "types";
 const { blog_folder } = config.settings;
 
-export const generateStaticParams = () => {
-  const posts = getSinglePage(blog_folder);
+export const generateStaticParams: () => {single: string}[] = () => {
+  const posts: Post[] = getSinglePage(blog_folder);
 
   const paths = posts.map((post) => ({
-    single: post.slug,
+    single: post.slug!,
   }));
 
   return paths;
 };
 
 const PostSingle = ({ params }: { params: { single: string } }) => {
-  const posts = getSinglePage(blog_folder);
+  const posts: Post[] = getSinglePage(blog_folder);
   posts[0].notFound && notFound();
   const post = posts.filter((page) => page.slug === params.single)[0];
   !post && notFound();
@@ -45,7 +46,7 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
     date,
     tags,
   } = frontmatter;
-  const similarPosts = similerItems(post, posts, post.slug);
+  const similarPosts = similerItems(post, posts, post.slug!);
 
   return (
     <>
@@ -93,10 +94,11 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
                     </Link>
                   ))}
                 </li>
-                <li className="mr-4 inline-block">
+                {date && <li className="mr-4 inline-block">
                   <FaRegClock className="-mt-1 mr-2 inline-block" />
                   {dateFormat(date)}
-                </li>
+                </li>}
+                
               </ul>
               <div className="content mb-10">
                 <MDXContent content={content} />
@@ -123,7 +125,7 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
                     className="social-icons"
                     title={title}
                     description={description}
-                    slug={post.slug}
+                    slug={post.slug!}
                   />
                 </div>
               </div>

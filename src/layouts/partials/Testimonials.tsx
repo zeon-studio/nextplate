@@ -5,8 +5,20 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Testimonial } from "types";
 
-const Testimonials = ({ data }: { data: any }) => {
+interface PageData {
+  notFound?: boolean,
+  content?: string,
+  frontmatter: {
+    enable?: boolean,
+    title: string,
+    description?: string,
+    testimonials: Array<Testimonial>
+  }
+}
+
+const Testimonials = ({ data }: { data:  PageData}) => {
   return (
     <>
       {data.frontmatter.enable && (
@@ -20,7 +32,7 @@ const Testimonials = ({ data }: { data: any }) => {
                 />
                 <p
                   dangerouslySetInnerHTML={markdownify(
-                    data.frontmatter.description
+                    data.frontmatter.description!
                   )}
                 />
               </div>
@@ -47,12 +59,7 @@ const Testimonials = ({ data }: { data: any }) => {
                 >
                   {data.frontmatter.testimonials.map(
                     (
-                      item: {
-                        avatar: string;
-                        content: string;
-                        name: string;
-                        designation: string;
-                      },
+                      item:Testimonial,
                       index: number
                     ) => (
                       <SwiperSlide key={index}>

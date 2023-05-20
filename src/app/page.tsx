@@ -5,13 +5,14 @@ import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import { FaCheck } from "react-icons/fa/index.js";
+import { Feature, Button } from "types";
 
 const Home = () => {
   const homepage = getListPage("_index.md");
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const { frontmatter } = homepage;
-  const { banner, features } = frontmatter;
+  const { banner, features }: {banner: {title: string, image: string, content?: string, button?: Button}, features: Feature[]} = frontmatter;
 
   return (
     <>
@@ -26,11 +27,11 @@ const Home = () => {
               />
               <p
                 className="mb-8"
-                dangerouslySetInnerHTML={markdownify(banner.content)}
+                dangerouslySetInnerHTML={markdownify(banner.content ?? '')}
               />
-              {banner.button.enable && (
-                <a className="btn btn-primary" href={banner.button.link}>
-                  {banner.button.label}
+              {banner.button!.enable && (
+                <a className="btn btn-primary" href={banner.button!.link}>
+                  {banner.button!.label}
                 </a>
               )}
             </div>
@@ -51,13 +52,7 @@ const Home = () => {
 
       {features.map(
         (
-          feature: {
-            button: any;
-            image: string;
-            bulletpoints: any;
-            content: string;
-            title: string;
-          },
+          feature,
           index: number
         ) => (
           <section

@@ -7,9 +7,10 @@ import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { notFound } from "next/navigation";
+import { Author, Post } from "types";
 
-export const generateStaticParams = () => {
-  const authors = getSinglePage("authors");
+export const generateStaticParams : () => {single?: string}[] = () => {
+  const authors: Author[] = getSinglePage("authors");
 
   const paths = authors.map((author) => ({
     single: author.slug,
@@ -19,15 +20,15 @@ export const generateStaticParams = () => {
 };
 
 const AuthorSingle = ({ params }: { params: { single: string } }) => {
-  const authors = getSinglePage("authors");
+  const authors: Author[] = getSinglePage("authors");
   authors[0].notFound && notFound();
   const author = authors.filter((page) => page.slug === params.single)[0];
   !author && notFound();
   const { frontmatter, content } = author;
-  const { title, social, meta_title, description, image } = frontmatter;
+  const { title, socials, meta_title, description, image } = frontmatter;
   const { blog_folder } = config.settings;
-  const posts = getSinglePage(blog_folder);
-  const postFilterByAuthor = posts.filter(
+  const posts: Post[] = getSinglePage(blog_folder);
+  const postFilterByAuthor: Post[] = posts.filter(
     (post) => slugify(post.frontmatter.author) === slugify(title)
   );
 
@@ -56,12 +57,12 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
               <div className="content">
                 <MDXContent content={content} />
               </div>
-              <Social source={social} className="social-icons" />
+              <Social source={socials} className="social-icons" />
             </div>
           </div>
 
           <div className="row justify-center pb-16 pt-14">
-            {postFilterByAuthor.map((post: any, index: number) => (
+            {postFilterByAuthor.map((post, index: number) => (
               <div className="mb-12 md:col-6 lg:col-4" key={index}>
                 <BlogCard data={post} />
               </div>

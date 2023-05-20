@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { KeyboardEvent, ReactElement, RefObject, useEffect, useRef, useState } from "react";
 
-function Tabs({ children }: { children: any }) {
+function Tabs({ children }: { children: ReactElement[] }) {
   const [active, setActive] = useState(0);
   //select tabItems
-  const tabItemsRef: any = useRef([]);
+  const tabItemsRef: RefObject<HTMLElement[]> = useRef([]);
   const [defaultFocus, setDefaultFocus] = useState(false);
 
   useEffect(() => {
     if (defaultFocus) {
-      tabItemsRef.current[active]?.focus();
+      //@ts-ignore
+      tabItemsRef.current[active].focus();
     } else {
       setDefaultFocus(true);
     }
@@ -18,8 +19,7 @@ function Tabs({ children }: { children: any }) {
   }, [active]);
 
   //change tab item on click
-  const handleKeyDown = (event: any, index: number) => {
-    console.log(event);
+  const handleKeyDown = (event: KeyboardEvent<EventTarget>, index: number) => {
     if (event.key === "Enter" || event.key === " ") {
       setActive(index);
     } else if (event.key === "ArrowRight") {
@@ -32,7 +32,7 @@ function Tabs({ children }: { children: any }) {
   return (
     <div className="tab">
       <ul className="tab-nav" role="tablist">
-        {children.map((item: any, index: number) => (
+        {children.map((item: ReactElement, index: number) => (
           <li
             key={index}
             className={`tab-nav-item ${index === active && "active"}`}
@@ -40,6 +40,7 @@ function Tabs({ children }: { children: any }) {
             tabIndex={index === active ? 0 : -1}
             onClick={() => setActive(index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
+            //@ts-ignore
             ref={(ref) => (tabItemsRef.current[index] = ref)}
           >
             {item.props.name}
@@ -47,7 +48,7 @@ function Tabs({ children }: { children: any }) {
         ))}
       </ul>
 
-      {children.map((data: any, index: number) => (
+      {children.map((data: ReactElement, index: number) => (
         <div
           key={index}
           className={`tab-content ${index === active ? "block" : "hidden"}`}

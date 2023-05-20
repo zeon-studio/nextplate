@@ -17,7 +17,7 @@ const Categories = () => {
       <section className="section">
         <div className="container text-center">
           <ul>
-            {categories.map((category: any) => {
+            {categories.map((category: string) => {
               const count = allCategories.filter(
                 (c: string) => c === category
               ).length;

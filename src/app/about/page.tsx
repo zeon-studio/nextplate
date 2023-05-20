@@ -3,9 +3,11 @@ import MDXContent from "@/components/MDXContent";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
+import { RegularPage } from "types";
+
 
 const About = () => {
-  const data = getListPage("pages/about.md");
+  const data: RegularPage = getListPage("pages/about.md");
   const { frontmatter, content } = data;
   const { title, meta_title, description, image } = frontmatter;
 

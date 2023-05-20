@@ -7,13 +7,14 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
 import SeoMeta from "@/partials/SeoMeta";
+import { Post } from "types";
 const { blog_folder, pagination } = config.settings;
 
 // for all regular pages
 const Posts = () => {
-  const postIndex = getListPage(`${blog_folder}/_index.md`);
+  const postIndex: Post = getListPage(`${blog_folder}/_index.md`);
   const { title, meta_title, description, image } = postIndex.frontmatter;
-  const posts = getSinglePage(blog_folder);
+  const posts: Post[] = getSinglePage(blog_folder);
   const allCategories = getAllTaxonomy(blog_folder, "categories");
   const categories = getTaxonomy(blog_folder, "categories");
   const tags = getTaxonomy(blog_folder, "tags");
