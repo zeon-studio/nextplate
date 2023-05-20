@@ -6,9 +6,9 @@ const PostSidebar = ({
   categories,
   allCategories,
 }: {
-  tags: any;
-  categories: any;
-  allCategories: any;
+  tags: string[];
+  categories: string[];
+  allCategories: string[];
 }) => {
   return (
     <div className="lg:col-4">
@@ -17,9 +17,9 @@ const PostSidebar = ({
         <h5 className="mb-6">Categories</h5>
         <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
           <ul className="space-y-4">
-            {categories.map((category: any) => {
+            {categories.map((category: string) => {
               const count = allCategories.filter(
-                (c: any) => c === category
+                (c: string) => c === category
               ).length;
               return (
                 <li key={category}>
@@ -40,7 +40,7 @@ const PostSidebar = ({
         <h5 className="mb-6">Tags</h5>
         <div className="rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
           <ul>
-            {tags.map((tag: any) => {
+            {tags.map((tag: string) => {
               return (
                 <li className="inline-block" key={tag}>
                   <Link

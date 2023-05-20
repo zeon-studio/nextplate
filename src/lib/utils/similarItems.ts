@@ -1,7 +1,9 @@
+import { Post } from "types";
+
 // similer products
-const similerItems = (currentItem: any, allItems: any, slug: string) => {
-  let categories: [] = [];
-  let tags: [] = [];
+const similerItems = (currentItem: Post, allItems: Post[], slug: string): Post[] => {
+  let categories: string[] = [];
+  let tags: string[] = [];
 
   // set categories
   if (currentItem.frontmatter.categories.length > 0) {
@@ -15,7 +17,7 @@ const similerItems = (currentItem: any, allItems: any, slug: string) => {
 
   // filter by categories
   const filterByCategories = allItems.filter(
-    (item: { frontmatter: { categories: string } }) =>
+    (item: { frontmatter: { categories: string[] } }) =>
       categories.find((category) =>
         item.frontmatter.categories.includes(category)
       )
@@ -23,7 +25,7 @@ const similerItems = (currentItem: any, allItems: any, slug: string) => {
 
   // filter by tags
   const filterByTags = allItems.filter(
-    (item: { frontmatter: { tags: string } }) =>
+    (item: { frontmatter: { tags: string[] } }) =>
       tags.find((tag) => item.frontmatter.tags.includes(tag))
   );
 

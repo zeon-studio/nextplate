@@ -8,13 +8,14 @@ import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
 import SeoMeta from "@/partials/SeoMeta";
 import { notFound } from "next/navigation";
+import { Post } from "types";
 const { blog_folder, pagination } = config.settings;
 
 export const generateStaticParams = () => {
-  const allPost = getSinglePage(blog_folder);
-  const allSlug = allPost.map((item) => item.slug);
+  const allPost: Post[] = getSinglePage(blog_folder);
+  const allSlug: string[] = allPost.map((item) => item.slug!);
   const totalPages = Math.ceil(allSlug.length / pagination);
-  let paths = [];
+  let paths:{page:string}[] = [];
 
   for (let i = 1; i < totalPages; i++) {
     paths.push({
@@ -25,7 +26,7 @@ export const generateStaticParams = () => {
   return paths;
 };
 
-function spreadPages(num: number) {
+function spreadPages (num: number): number[] {
   let pages = [];
 
   for (let i = 2; i <= num; i++) {
@@ -37,9 +38,9 @@ function spreadPages(num: number) {
 
 // for all regular pages
 const Posts = ({ params }: { params: { page: number } }) => {
-  const postIndex = getListPage(`${blog_folder}/_index.md`);
+  const postIndex: Post = getListPage(`${blog_folder}/_index.md`);
   const { title, meta_title, description, image } = postIndex.frontmatter;
-  const posts = getSinglePage(blog_folder);
+  const posts: Post[] = getSinglePage(blog_folder);
   const allCategories = getAllTaxonomy(blog_folder, "categories");
   const categories = getTaxonomy(blog_folder, "categories");
   const tags = getTaxonomy(blog_folder, "tags");

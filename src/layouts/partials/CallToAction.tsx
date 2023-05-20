@@ -1,7 +1,14 @@
 import ImageFallback from "@/components/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
+import { Call_to_action } from "types";
 
-const CallToAction = ({ data }: { data: any }) => {
+interface PageData {
+  notFound?: boolean,
+  content?: string,
+  frontmatter: Call_to_action
+}
+
+const CallToAction = ({ data }: { data: PageData }) => {
   return (
     <>
       {data.frontmatter.enable && (

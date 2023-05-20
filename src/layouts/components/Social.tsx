@@ -65,7 +65,7 @@ const Social = ({ source, className }: { source: any; className: string }) => {
     address,
     skype,
     website,
-  } = source;
+  } = source || {};
   return (
     <ul className={className}>
       {facebook && (

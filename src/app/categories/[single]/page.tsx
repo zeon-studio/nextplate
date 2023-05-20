@@ -7,9 +7,12 @@ import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { notFound } from "next/navigation";
+import { Post } from "types";
 const { blog_folder } = config.settings;
 
-export const generateStaticParams = () => {
+type StaticParams = () => {single: string} []
+
+export const generateStaticParams: StaticParams = () => {
   const categories = getTaxonomy(blog_folder, "categories");
 
   const paths = categories.map((category) => ({
@@ -20,7 +23,7 @@ export const generateStaticParams = () => {
 };
 
 const CategorySingle = ({ params }: { params: { single: string } }) => {
-  const posts = getSinglePage(blog_folder);
+  const posts: Post[] = getSinglePage(blog_folder);
   posts[0].notFound && notFound();
   const filterByCategories = taxonomyFilter(posts, "categories", params.single);
   filterByCategories.length < 1 && notFound();
@@ -32,7 +35,7 @@ const CategorySingle = ({ params }: { params: { single: string } }) => {
       <div className="section-sm pb-0">
         <div className="container">
           <div className="row">
-            {filterByCategories.map((post: any, index: number) => (
+            {filterByCategories.map((post: Post, index: number) => (
               <div className="mb-14 md:col-6 lg:col-4" key={index}>
                 <BlogCard data={post} />
               </div>

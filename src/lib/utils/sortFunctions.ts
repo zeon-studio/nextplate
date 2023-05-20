@@ -1,5 +1,7 @@
+import { Post } from "types";
+
 // sort by date
-export const sortByDate = (array: any[]) => {
+export const sortByDate = (array: Post[]) => {
   const sortedArray = array.sort(
     (a: any, b: any) =>
       new Date(b.frontmatter.date && b.frontmatter.date).valueOf() -

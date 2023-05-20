@@ -3,10 +3,12 @@ import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa/index.js";
 import ImageFallback from "./ImageFallback";
+import { Post } from "types";
+import dateFormat from "@/lib/utils/dateFormat";
 
-const BlogCard = ({ data }: { data: any }) => {
+const BlogCard = ({ data }: { data: Post }) => {
   const { summary_length, blog_folder } = config.settings;
-  const { title, image, date, author, categories } = data.frontmatter;
+  const { title, image, author, categories, date } = data.frontmatter;
   return (
     <div className="bg-body dark:bg-darkmode-body">
       {image && (
@@ -37,9 +39,12 @@ const BlogCard = ({ data }: { data: any }) => {
             </Link>
           ))}
         </li>
+        { date && <li className="inline-block">
+          {dateFormat(date)}
+        </li>}
       </ul>
       <p className="mb-6">
-        {plainify(data.content?.slice(0, Number(summary_length)))}
+        {plainify(data.content!.slice(0, Number(summary_length)))}
       </p>
       <Link
         className="btn btn-outline-primary btn-sm"

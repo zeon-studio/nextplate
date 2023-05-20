@@ -2,7 +2,7 @@ import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 
 // get all taxonomies from frontmatter
-export const getTaxonomy = (folder: string, name: string) => {
+export const getTaxonomy = (folder: string, name: string): Array<string> => {
   const singlePages = getSinglePage(folder);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
   let taxonomies = [];
