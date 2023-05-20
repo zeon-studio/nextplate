@@ -5,18 +5,18 @@ import path from "path";
 const contentPath = "src/content";
 
 // Helper function to read file content
-const readFile = (filePath:string) => {
+const readFile = (filePath: string) => {
   return fs.readFileSync(filePath, "utf-8");
 };
 
 // Helper function to parse frontmatter
-const parseFrontmatter = (frontmatter:any) => {
+const parseFrontmatter = (frontmatter: any) => {
   const frontmatterString = JSON.stringify(frontmatter);
   return JSON.parse(frontmatterString);
 };
 
 // get list page data, ex: _index.md
-export const getListPage = (filePath:string) => {
+export const getListPage = (filePath: string) => {
   const pageDataPath = path.join(contentPath, filePath);
 
   if (!fs.existsSync(pageDataPath)) {
@@ -38,7 +38,7 @@ export const getListPage = (filePath:string) => {
 };
 
 // get all single pages, ex: blog/post.md
-export const getSinglePage = (folder:string) => {
+export const getSinglePage = (folder: string) => {
   const folderPath = path.join(contentPath, folder);
 
   if (!fs.existsSync(folderPath) || !fs.lstatSync(folderPath).isDirectory()) {

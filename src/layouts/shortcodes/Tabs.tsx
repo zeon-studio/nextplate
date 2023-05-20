@@ -1,6 +1,13 @@
 "use client";
 
-import { KeyboardEvent, ReactElement, RefObject, useEffect, useRef, useState } from "react";
+import {
+  KeyboardEvent,
+  ReactElement,
+  RefObject,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 function Tabs({ children }: { children: ReactElement[] }) {
   const [active, setActive] = useState(0);

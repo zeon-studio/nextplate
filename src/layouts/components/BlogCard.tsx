@@ -1,10 +1,10 @@
 import config from "@/config/config.json";
+import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa/index.js";
-import ImageFallback from "./ImageFallback";
 import { Post } from "types";
-import dateFormat from "@/lib/utils/dateFormat";
+import ImageFallback from "./ImageFallback";
 
 const BlogCard = ({ data }: { data: Post }) => {
   const { summary_length, blog_folder } = config.settings;
@@ -32,16 +32,14 @@ const BlogCard = ({ data }: { data: Post }) => {
         </li>
         <li className="mr-4 inline-block">
           <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
-          {categories.map((category: string, index: number) => (
+          {categories?.map((category: string, index: number) => (
             <Link key={index} href={`/categories/${slugify(category)}`}>
               {humanize(category)}
               {index !== categories.length - 1 && ", "}
             </Link>
           ))}
         </li>
-        { date && <li className="inline-block">
-          {dateFormat(date)}
-        </li>}
+        {date && <li className="inline-block">{dateFormat(date)}</li>}
       </ul>
       <p className="mb-6">
         {plainify(data.content!.slice(0, Number(summary_length)))}

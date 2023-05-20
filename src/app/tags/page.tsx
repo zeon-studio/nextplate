@@ -18,7 +18,9 @@ const tags = () => {
         <div className="container text-center">
           <ul>
             {tags.map((tag: string) => {
-              const count:number = alltags.filter((c: string) => c === tag).length;
+              const count: number = alltags.filter(
+                (c: string) => c === tag
+              ).length;
               return (
                 <li className="m-3 inline-block" key={tag}>
                   <Link

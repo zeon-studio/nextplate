@@ -5,7 +5,6 @@ import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "types";
 
-
 const About = () => {
   const data: RegularPage = getListPage("pages/about.md");
   const { frontmatter, content } = data;

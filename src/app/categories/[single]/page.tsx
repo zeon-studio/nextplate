@@ -10,7 +10,7 @@ import { notFound } from "next/navigation";
 import { Post } from "types";
 const { blog_folder } = config.settings;
 
-type StaticParams = () => {single: string} []
+type StaticParams = () => { single: string }[];
 
 export const generateStaticParams: StaticParams = () => {
   const categories = getTaxonomy(blog_folder, "categories");

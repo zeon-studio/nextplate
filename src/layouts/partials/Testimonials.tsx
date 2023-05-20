@@ -8,17 +8,17 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Testimonial } from "types";
 
 interface PageData {
-  notFound?: boolean,
-  content?: string,
+  notFound?: boolean;
+  content?: string;
   frontmatter: {
-    enable?: boolean,
-    title: string,
-    description?: string,
-    testimonials: Array<Testimonial>
-  }
+    enable?: boolean;
+    title: string;
+    description?: string;
+    testimonials: Array<Testimonial>;
+  };
 }
 
-const Testimonials = ({ data }: { data:  PageData}) => {
+const Testimonials = ({ data }: { data: PageData }) => {
   return (
     <>
       {data.frontmatter.enable && (
@@ -58,10 +58,7 @@ const Testimonials = ({ data }: { data:  PageData}) => {
                   }}
                 >
                   {data.frontmatter.testimonials.map(
-                    (
-                      item:Testimonial,
-                      index: number
-                    ) => (
+                    (item: Testimonial, index: number) => (
                       <SwiperSlide key={index}>
                         <div className="rounded-lg bg-theme-light px-7 py-10 dark:bg-darkmode-theme-light">
                           <div className="text-dark dark:text-white">

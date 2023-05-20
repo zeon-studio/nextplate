@@ -1,7 +1,11 @@
 import { Post } from "types";
 
 // similer products
-const similerItems = (currentItem: Post, allItems: Post[], slug: string): Post[] => {
+const similerItems = (
+  currentItem: Post,
+  allItems: Post[],
+  slug: string
+): Post[] => {
   let categories: string[] = [];
   let tags: string[] = [];
 

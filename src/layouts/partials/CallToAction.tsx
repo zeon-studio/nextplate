@@ -3,9 +3,9 @@ import { markdownify } from "@/lib/utils/textConverter";
 import { Call_to_action } from "types";
 
 interface PageData {
-  notFound?: boolean,
-  content?: string,
-  frontmatter: Call_to_action
+  notFound?: boolean;
+  content?: string;
+  frontmatter: Call_to_action;
 }
 
 const CallToAction = ({ data }: { data: PageData }) => {

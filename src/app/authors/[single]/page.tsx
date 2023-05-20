@@ -9,7 +9,7 @@ import SeoMeta from "@/partials/SeoMeta";
 import { notFound } from "next/navigation";
 import { Author, Post } from "types";
 
-export const generateStaticParams : () => {single?: string}[] = () => {
+export const generateStaticParams: () => { single?: string }[] = () => {
   const authors: Author[] = getSinglePage("authors");
 
   const paths = authors.map((author) => ({

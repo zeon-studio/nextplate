@@ -19,7 +19,7 @@ import {
 import { Post } from "types";
 const { blog_folder } = config.settings;
 
-export const generateStaticParams: () => {single: string}[] = () => {
+export const generateStaticParams: () => { single: string }[] = () => {
   const posts: Post[] = getSinglePage(blog_folder);
 
   const paths = posts.map((post) => ({
@@ -84,7 +84,7 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
                 </li>
                 <li className="mr-4 inline-block">
                   <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
-                  {categories.map((category: string, index: number) => (
+                  {categories?.map((category: string, index: number) => (
                     <Link
                       key={category}
                       href={`/categories/${slugify(category)}`}
@@ -94,11 +94,12 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
                     </Link>
                   ))}
                 </li>
-                {date && <li className="mr-4 inline-block">
-                  <FaRegClock className="-mt-1 mr-2 inline-block" />
-                  {dateFormat(date)}
-                </li>}
-                
+                {date && (
+                  <li className="mr-4 inline-block">
+                    <FaRegClock className="-mt-1 mr-2 inline-block" />
+                    {dateFormat(date)}
+                  </li>
+                )}
               </ul>
               <div className="content mb-10">
                 <MDXContent content={content} />
@@ -107,7 +108,7 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">
                   <h5 className="mr-3">Tags :</h5>
                   <ul>
-                    {tags.map((tag: string) => (
+                    {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">
                         <Link
                           className="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark"
