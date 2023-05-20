@@ -35,7 +35,7 @@ const Logo = ({ src }: { src?: string }) => {
   const logoPath = src ? src : resolvedLogo;
 
   return (
-    <Link href="/" className="navbar-brand block">
+    <Link href="/" className="navbar-brand inline-block">
       {logoPath ? (
         <Image
           width={logo_width.replace("px", "") * 2}
