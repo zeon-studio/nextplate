@@ -16,16 +16,16 @@ const Categories = () => {
       <PageHeader title={"Categories"} />
       <section className="section">
         <div className="container text-center">
-          <ul className="space-x-4">
+          <ul>
             {categories.map((category: any) => {
               const count = allCategories.filter(
                 (c: string) => c === category
               ).length;
               return (
-                <li className="inline-block" key={category}>
+                <li className="m-3 inline-block" key={category}>
                   <Link
                     href={`/categories/${category}`}
-                    className="rounded bg-theme-light px-4 py-2 text-xl text-dark dark:bg-darkmode-theme-light dark:text-darkmode-dark"
+                    className="block rounded bg-theme-light px-4 py-2 text-xl text-dark dark:bg-darkmode-theme-light dark:text-darkmode-dark"
                   >
                     {humanize(category)}{" "}
                     <span className="ml-2 rounded bg-body px-2 dark:bg-darkmode-body">
