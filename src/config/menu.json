@@ -9,18 +9,22 @@
       "url": "/about"
     },
     {
-      "name": "Posts",
-      "url": "/posts"
-    },
-    {
-      "name": "Contact",
-      "url": "/contact"
+      "name": "Elements",
+      "url": "/elements"
     },
     {
       "name": "Pages",
       "url": "",
       "hasChildren": true,
       "children": [
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Blog",
+          "url": "/blog"
+        },
         {
           "name": "Authors",
           "url": "/authors"
@@ -30,12 +34,12 @@
           "url": "/categories"
         },
         {
-          "name": "Tags",
-          "url": "/tags"
+          "name": "Search",
+          "url": "/search"
         },
         {
-          "name": "Elements",
-          "url": "/elements"
+          "name": "404 Page",
+          "url": "/404"
         }
       ]
     }
