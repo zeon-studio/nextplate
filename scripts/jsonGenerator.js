@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
 const config = require("../src/config/config.json");
+
 const { blog_folder } = config.settings;
 const jsonDir = "./.json";
 
@@ -10,19 +11,19 @@ const getData = (folder) => {
   const getPath = fs.readdirSync(path.join(folder));
   const sanitizeData = getPath.filter((item) => item.includes(".md"));
   const filterData = sanitizeData.filter((item) => item.match(/^(?!_)/));
-  const getData = filterData.map((filename) => {
+  const allData = filterData.map((filename) => {
     const file = fs.readFileSync(path.join(folder, filename), "utf-8");
     const { data } = matter(file);
-    const content = matter(file).content;
+    const { content } = matter(file);
     const slug = data.slug ? data.slug : filename.replace(".md", "");
 
     return {
       frontmatter: data,
-      content: content,
-      slug: slug,
+      content,
+      slug,
     };
   });
-  const publishedPages = getData.filter(
+  const publishedPages = allData.filter(
     (page) => !page.frontmatter?.draft && page
   );
   return publishedPages;
