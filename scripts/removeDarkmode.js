@@ -2,15 +2,24 @@ const fs = require("fs");
 const path = require("path");
 
 const rootDirs = ["src/app", "src/hooks", "src/layouts", "src/styles"];
-const configFiles = ["tailwind.config.js", "src/config/theme.json"];
+const configFiles = [
+  {
+    filePath: "tailwind.config.js",
+    patterns: ["darkmode:\\s*{[^}]*},", 'darkMode:\\s*"class",'],
+  },
+  { filePath: "src/config/theme.json", patterns: ["colors.darkmode"] },
+];
 
-rootDirs.forEach((rootDir) => removeDarkModeFromPages(rootDir));
-configFiles.forEach((configFile) => removeDarkmode(configFile));
+rootDirs.forEach(removeDarkModeFromPages);
+configFiles.forEach(removeDarkMode);
 
-function removeDarkModeFromFiles(filePath, regexPattern) {
+function removeDarkModeFromFiles(filePath, regexPatterns) {
   const fileContent = fs.readFileSync(filePath, "utf8");
-  const regex = new RegExp(regexPattern, "g");
-  const updatedContent = fileContent.replace(regex, "");
+  let updatedContent = fileContent;
+  regexPatterns.forEach((pattern) => {
+    const regex = new RegExp(pattern, "g");
+    updatedContent = updatedContent.replace(regex, "");
+  });
   fs.writeFileSync(filePath, updatedContent, "utf8");
 }
 
@@ -23,17 +32,34 @@ function removeDarkModeFromPages(directoryPath) {
     if (stats.isDirectory()) {
       removeDarkModeFromPages(filePath);
     } else if (stats.isFile()) {
-      removeDarkModeFromFiles(filePath, '(?:(?!["])S)*dark:(?:(?![,;"])S)*');
+      removeDarkModeFromFiles(filePath, [
+        '(?:(?!["])\\S)*dark:(?:(?![,;"])\\S)*',
+      ]);
     }
   });
 }
 
-function removeDarkmode(configFile) {
-  if (configFile === "tailwind.config.js") {
-    removeDarkModeFromFiles(configFile, "darkmode:\\s*{[^}]*},");
+function removeDarkMode(configFile) {
+  const { filePath, patterns } = configFile;
+  if (filePath === "tailwind.config.js") {
+    removeDarkModeFromFiles(filePath, patterns);
   } else {
-    const contentfile = JSON.parse(fs.readFileSync(configFile, "utf8"));
-    delete contentfile.colors.darkmode;
-    fs.writeFileSync(configFile, JSON.stringify(contentfile));
+    const contentFile = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    patterns.forEach((pattern) => deleteNestedProperty(contentFile, pattern));
+    fs.writeFileSync(filePath, JSON.stringify(contentFile));
   }
+}
+
+function deleteNestedProperty(obj, propertyPath) {
+  const properties = propertyPath.split(".");
+  let currentObj = obj;
+  for (let i = 0; i < properties.length - 1; i++) {
+    const property = properties[i];
+    if (currentObj.hasOwnProperty(property)) {
+      currentObj = currentObj[property];
+    } else {
+      return; // Property not found, no need to continue
+    }
+  }
+  delete currentObj[properties[properties.length - 1]];
 }
