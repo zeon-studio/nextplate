@@ -1,5 +1,7 @@
 ---
 title: "Elements"
+meta_title: ""
+description: "this is meta description"
 draft: false
 ---
 
@@ -131,7 +133,7 @@ window.addEventListener("load", (e) => {
 
 ### Button
 
-<Button label="Button" link="#" style="solid"/>
+<Button href="#" style="solid">Button</Button>
 
 ---
 

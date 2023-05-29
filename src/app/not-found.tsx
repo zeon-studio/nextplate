@@ -1,9 +1,14 @@
 import ImageFallback from "@/components/ImageFallback";
 import MDXContent from "@/components/MDXContent";
+import { getListPage } from "@/lib/contentParser";
+import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
+import { RegularPage } from "types";
 
-const NotFound = () => {
+const NotFound = async () => {
+  const data: RegularPage = getListPage("pages/404.md");
+  const { image, title } = data.frontmatter;
   return (
     <>
       <SeoMeta title={"Page Not Found"} image={"/images/404.png"} />
@@ -13,18 +18,17 @@ const NotFound = () => {
             <div className="text-center sm:col-10 md:col-8 lg:col-6">
               <ImageFallback
                 className="mb-8 w-full"
-                src="/images/404.png"
+                src={image}
                 alt="page not found"
                 height={320}
                 width={630}
               />
-              <h1 className="h2 mb-4">Something Went Wrong!</h1>
+              <h1
+                className="h2 mb-4"
+                dangerouslySetInnerHTML={markdownify(title)}
+              ></h1>
               <div className="content">
-                <MDXContent
-                  content={
-                    "This page doesn't exist or has been removed, <br /> we suggest you go back to Home."
-                  }
-                />
+                <MDXContent content={data.content} />
               </div>
               <Link href="/" className="btn btn-primary mt-8">
                 Back To Home

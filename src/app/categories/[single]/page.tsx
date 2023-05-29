@@ -6,12 +6,15 @@ import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
-import { notFound } from "next/navigation";
 import { Post } from "types";
-const { blog_folder } = config.settings;
 
+const { blog_folder } = config.settings;
 type StaticParams = () => { single: string }[];
 
+// remove dynamicParams
+export const dynamicParams = false;
+
+// generate static params
 export const generateStaticParams: StaticParams = () => {
   const categories = getTaxonomy(blog_folder, "categories");
 
@@ -24,9 +27,7 @@ export const generateStaticParams: StaticParams = () => {
 
 const CategorySingle = ({ params }: { params: { single: string } }) => {
   const posts: Post[] = getSinglePage(blog_folder);
-  posts[0].notFound && notFound();
   const filterByCategories = taxonomyFilter(posts, "categories", params.single);
-  filterByCategories.length < 1 && notFound();
 
   return (
     <>

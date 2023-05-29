@@ -6,9 +6,12 @@ import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
-import { notFound } from "next/navigation";
 import { Author, Post } from "types";
 
+// remove dynamicParams
+export const dynamicParams = false;
+
+// generate static params
 export const generateStaticParams: () => { single?: string }[] = () => {
   const authors: Author[] = getSinglePage("authors");
 
@@ -21,9 +24,7 @@ export const generateStaticParams: () => { single?: string }[] = () => {
 
 const AuthorSingle = ({ params }: { params: { single: string } }) => {
   const authors: Author[] = getSinglePage("authors");
-  authors[0].notFound && notFound();
   const author = authors.filter((page) => page.slug === params.single)[0];
-  !author && notFound();
   const { frontmatter, content } = author;
   const { title, socials, meta_title, description, image } = frontmatter;
   const { blog_folder } = config.settings;

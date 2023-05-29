@@ -7,10 +7,14 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
 import SeoMeta from "@/partials/SeoMeta";
-import { notFound } from "next/navigation";
 import { Post } from "types";
+
 const { blog_folder, pagination } = config.settings;
 
+// remove dynamicParams
+export const dynamicParams = false;
+
+// generate static params
 export const generateStaticParams = () => {
   const allPost: Post[] = getSinglePage(blog_folder);
   const allSlug: string[] = allPost.map((item) => item.slug!);
@@ -51,8 +55,6 @@ const Posts = ({ params }: { params: { page: number } }) => {
   const indexOfLastPost = currentPage * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
   const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
-
-  !spreadPages(totalPages).includes(Number(params.page)) && notFound();
 
   return (
     <>

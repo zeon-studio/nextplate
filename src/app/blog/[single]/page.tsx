@@ -10,15 +10,19 @@ import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import {
   FaRegClock,
   FaRegFolder,
   FaRegUserCircle,
 } from "react-icons/fa/index.js";
 import { Post } from "types";
+
 const { blog_folder } = config.settings;
 
+// remove dynamicParams
+export const dynamicParams = false;
+
+// generate static params
 export const generateStaticParams: () => { single: string }[] = () => {
   const posts: Post[] = getSinglePage(blog_folder);
 
@@ -31,9 +35,7 @@ export const generateStaticParams: () => { single: string }[] = () => {
 
 const PostSingle = ({ params }: { params: { single: string } }) => {
   const posts: Post[] = getSinglePage(blog_folder);
-  posts[0].notFound && notFound();
   const post = posts.filter((page) => page.slug === params.single)[0];
-  !post && notFound();
 
   const { frontmatter, content } = post;
   const {
