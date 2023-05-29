@@ -1,19 +1,19 @@
 import Link from "next/link";
 
 const Button = ({
-  href,
+  label,
+  link,
   style,
   rel,
-  children,
 }: {
-  href: string;
+  label: string;
+  link: string;
   style?: string;
   rel?: string;
-  children: string;
 }) => {
   return (
     <Link
-      href={href}
+      href={link}
       target="_blank"
       rel={`noopener noreferrer ${
         rel ? (rel === "follow" ? "" : rel) : "nofollow"
@@ -22,7 +22,7 @@ const Button = ({
         style === "outline" ? "btn-outline-primary" : "btn-primary"
       } border-primary no-underline hover:text-white`}
     >
-      {children}
+      {label}
     </Link>
   );
 };
