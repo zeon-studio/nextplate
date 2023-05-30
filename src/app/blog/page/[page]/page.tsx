@@ -7,7 +7,7 @@ import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
 import SeoMeta from "@/partials/SeoMeta";
-import { Post } from "types";
+import { Post } from "@/types";
 
 const { blog_folder, pagination } = config.settings;
 

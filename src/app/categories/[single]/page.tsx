@@ -6,7 +6,7 @@ import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
-import { Post } from "types";
+import { Post } from "@/types";
 
 const { blog_folder } = config.settings;
 type StaticParams = () => { single: string }[];

@@ -2,7 +2,7 @@ import config from "@/config/config.json";
 import Search from "@/layouts/Search";
 import { getSinglePage } from "@/lib/contentParser";
 import SeoMeta from "@/partials/SeoMeta";
-import { Post } from "types";
+import { Post } from "@/types";
 
 const { blog_folder } = config.settings;
 

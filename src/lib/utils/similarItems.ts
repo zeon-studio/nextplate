@@ -1,4 +1,4 @@
-import { Post } from "types";
+import { Post } from "@/types";
 
 // similer products
 const similerItems = (

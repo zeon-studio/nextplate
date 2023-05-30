@@ -2,10 +2,10 @@
 
 import ImageFallback from "@/components/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
+import { Testimonial } from "@/types";
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Testimonial } from "types";
 
 interface PageData {
   notFound?: boolean;

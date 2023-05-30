@@ -9,13 +9,13 @@ import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
+import { Post } from "@/types";
 import Link from "next/link";
 import {
   FaRegClock,
   FaRegFolder,
   FaRegUserCircle,
 } from "react-icons/fa/index.js";
-import { Post } from "types";
 
 const { blog_folder } = config.settings;
 

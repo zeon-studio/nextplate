@@ -1,9 +1,9 @@
 import config from "@/config/config.json";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
+import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa/index.js";
-import { Post } from "types";
 import ImageFallback from "./ImageFallback";
 
 const BlogCard = ({ data }: { data: Post }) => {

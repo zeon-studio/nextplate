@@ -2,7 +2,7 @@ import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
-import { RegularPage } from "types";
+import { RegularPage } from "@/types";
 
 const Contact = async () => {
   const data: RegularPage = getListPage("pages/contact.md");

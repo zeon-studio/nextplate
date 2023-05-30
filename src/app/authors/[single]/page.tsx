@@ -6,7 +6,7 @@ import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
-import { Author, Post } from "types";
+import { Author, Post } from "@/types";
 
 // remove dynamicParams
 export const dynamicParams = false;
