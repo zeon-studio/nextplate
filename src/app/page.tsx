@@ -45,8 +45,9 @@ const Home = () => {
               <div className="col-12">
                 <ImageFallback
                   src={banner.image}
-                  width="1272"
-                  height="403"
+                  className="mx-auto"
+                  width="800"
+                  height="420"
                   alt="banner image"
                   priority
                 />
