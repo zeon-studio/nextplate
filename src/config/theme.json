@@ -40,5 +40,8 @@
       "base": "16",
       "scale": "1.250"
     }
+  },
+  "backgroundImage":{
+    "scenic-roads": "url('/images/scenic_future_roads.png')"
   }
 }
