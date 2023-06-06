@@ -49,6 +49,8 @@ export type Feature = {
   bulletpoints: string[];
   content: string;
   title: string;
+  contentwidth: int;
+  backgroundclass: string;
 };
 
 export type Testimonial = {

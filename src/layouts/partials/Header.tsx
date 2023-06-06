@@ -35,7 +35,7 @@ const Header = () => {
       <nav className="navbar container">
         {/* logo */}
         <div className="order-0">
-          <Logo />
+          <h3>H Road</h3>
         </div>
         {/* navbar toggler */}
         <input id="nav-toggle" type="checkbox" className="hidden" />
