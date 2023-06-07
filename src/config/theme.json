@@ -16,16 +16,16 @@
     },
     "darkmode": {
       "theme_color": {
-        "primary": "#fff",
-        "body": "#1c1c1c",
-        "border": "#3E3E3E",
-        "theme_light": "#222222",
+        "primary": "#121212",
+        "body": "#fff",
+        "border": "#eaeaea",
+        "theme_light": "#f6f6f6",
         "theme_dark": ""
       },
       "text_color": {
-        "default": "#B4AFB6",
-        "dark": "#fff",
-        "light": "#B4AFB6"
+        "default": "#444444",
+        "dark": "#040404",
+        "light": "#717171"
       }
     }
   },
@@ -41,7 +41,7 @@
       "scale": "1.250"
     }
   },
-  "backgroundImage":{
+  "backgroundImage": {
     "scenic-roads": "url('/images/scenic_future_roads.png')"
   }
 }
