@@ -1,44 +1,37 @@
 import ImageFallback from "@/components/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
-import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import { Button, Feature, Testimonial } from "@/types";
-import { FaCheck } from "react-icons/fa/index.js"; 
-
+import { FaCheck } from "react-icons/fa/index.js";
 
 const Home = () => {
   const homepage = getListPage("_index.md");
-  // const testimonial = getListPage("sections/testimonial.md");
-  const callToAction = getListPage("sections/call-to-action.md");
   const { frontmatter } = homepage;
   const {
     banner,
     features,
-    testimonials
+    testimonials,
   }: {
     banner: { title: string; image: string; content?: string; button?: Button };
     features: Feature[];
     testimonials: Testimonial[];
   } = frontmatter;
-  console.log(testimonials)
-
-
-
-
 
   return (
     <>
       <SeoMeta />
-      <section className={`section relative`} style={{backgroundImage:`url(${banner?.image})`}}>
-      <div className="absolute inset-0 bg-gray-500 opacity-70"> 
-      </div>
+      <section
+        className={`section relative`}
+        style={{ backgroundImage: `url(${banner?.image})` }}
+      >
+        <div className="absolute inset-0 bg-gray-500 opacity-70"></div>
         <div className="container relative">
-          <div className="row justify-center align-center text-center">
-            <div className="mb-16 lg:col-8 text-white">
+          <div className="align-center row justify-center text-center">
+            <div className="mb-16 text-white lg:col-8">
               <h1
-                className="mb-4 text-white text-shadow-18px-18px-black"
+                className="text-shadow-18px-18px-black mb-4 text-white"
                 dangerouslySetInnerHTML={markdownify(banner?.title)}
               />
               <h4
@@ -58,7 +51,9 @@ const Home = () => {
       {features.map((feature, index: number) => (
         <section
           key={index}
-          className={`section-sm bg-theme-light ${index === 0 && "bg-gradient"}`}
+          className={`section-sm bg-theme-light ${
+            index === 0 && "bg-gradient"
+          }`}
         >
           <div className="container">
             <div className="row items-center justify-between">
@@ -108,25 +103,21 @@ const Home = () => {
           </div>
         </section>
       ))}
-  <div className="container"> 
-  <div className="row items-center justify-between">
-             
-              <div
-                className={`mb:md-0 mb-6 md:col-12`}
-              >
-      <Testimonials data={{"frontmatter":{"testimonials": testimonials, "title":"Our Value Proposition", "description":"some desc"}}} /></div>
-      {/* <div
-                className={`mb:md-0 mb-6 md:col-4`}
-              >
-                <ImageFallback
-                  src={"/images/undraw_to_the_stars.svg"}
-                  height={480}
-                  width={520}
-                />
-              </div> */}
+      <div className="container">
+        <div className="row items-center justify-between">
+          <div className={`mb:md-0 mb-6 md:col-12`}>
+            <Testimonials
+              data={{
+                frontmatter: {
+                  testimonials: testimonials,
+                  title: "Our Value Proposition",
+                  description: "some desc",
+                },
+              }}
+            />
+          </div>
+        </div>
       </div>
-      </div>
-      {/* <CallToAction data={callToAction} /> */}
     </>
   );
 };
