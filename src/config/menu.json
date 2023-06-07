@@ -9,12 +9,12 @@
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
       "name": "Mission",
       "url": "/mission"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
     }
   ],
   "footer": [
