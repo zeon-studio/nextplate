@@ -1,4 +1,10 @@
 ---
+title: "Mission"
+meta_title: ""
+description: "this is meta description"
+layout: "mission"
+draft: false
+
 # Features
 features:
   - title: "About us"
