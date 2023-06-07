@@ -2,7 +2,7 @@
 
 <p align=center>Nextplate is a free starter template built with Nextjs, TailwindCSS & TypeScript, providing everything you need to jumpstart your Next project and save valuable time.</p>
 
-<p align=center>Made with ♥ by<a href="https://zeon.studio/">Zeon Studio</a></p>
+<p align=center>Made with ♥ by<a href="https://amit.badala/">Amit Badala</a></p>
 
 <h2 align="center"> <a target="_blank" href="https://nextplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-nextplate-netlify-app/zttnq0z42d?form_factor=desktop">Page Speed (100%)🚀</a>
 </h2>
@@ -13,13 +13,13 @@
     <img src="https://img.shields.io/static/v1?label=NEXTJS&message=13.4&color=000&logo=nextjs" />
   </a>
 
-  <a href="https://github.com/zeon-studio/nextplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/nextplate" alt="license"></a>
+  <a href="https://github.com/amit-badala/nextplate/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/amit-badala/nextplate" alt="license"></a>
 
-  <img src="https://img.shields.io/github/languages/code-size/zeon-studio/nextplate" alt="code size">
+  <img src="https://img.shields.io/github/languages/code-size/amit-badala/nextplate" alt="code size">
 
-  <a href="https://github.com/zeon-studio/nextplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/nextplate" alt="contributors"></a>
+  <a href="https://github.com/amit-badala/nextplate/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/amit-badala/nextplate" alt="contributors"></a>
 </p>
 
 ## 📌 Key Features
@@ -79,19 +79,19 @@ npm run build
 
 ## 🐞 Reporting Issues
 
-We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/zeon-studio/nextplate/issues). It’s possible someone has already reported the same problem.
-If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/zeon-studio/nextplate/issues).
+We use GitHub Issues as the official bug tracker for this Template. Please Search [existing issues](https://github.com/amit-badala/nextplate/issues). It’s possible someone has already reported the same problem.
+If your problem or idea has not been addressed yet, feel free to [open a new issue](https://github.com/amit-badala/nextplate/issues).
 
 <!-- licence -->
 
 ## 📝 License
 
-Copyright (c) 2023 - Present, Designed & Developed by [Zeon Studio](https://zeon.studio/)
+Copyright (c) 2023 - Present, Designed & Developed by [Amit Badala](https://amit.badala/)
 
-**Code License:** Released under the [MIT](https://github.comzeon-studio/nextplate/blob/main/LICENSE) license.
+**Code License:** Released under the [MIT](https://github.comamit-badala/nextplate/blob/main/LICENSE) license.
 
 **Image license:** The images are only for demonstration purposes. They have their license, we don't have permission to share those images.
 
 ## 💻 Need Custom Development Services?
 
-If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://zeon.studio/).
+If you need a custom theme, theme customization, or complete website development services from scratch you can [Hire Us](https://amit.badala/).

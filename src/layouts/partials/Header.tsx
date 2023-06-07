@@ -30,12 +30,14 @@ const Header = () => {
 
   return (
     <header
-      className={`header z-30 ${settings.sticky_header && "sticky top-0"}`}
+      className={`header z-30 ${
+        settings.sticky_header && "sticky top-0"
+      } border-b-2`}
     >
       <nav className="navbar container">
         {/* logo */}
         <div className="order-0">
-          <Logo/>
+          <Logo />
         </div>
         {/* navbar toggler */}
         <input id="nav-toggle" type="checkbox" className="hidden" />
@@ -131,7 +133,7 @@ const Header = () => {
           )}
         </ul>
         {/* <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0"> */}
-          {/* {settings.search && (
+        {/* {settings.search && (
             <Link
               className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary dark:border-darkmode-border dark:text-white"
               href="/search"
@@ -140,7 +142,7 @@ const Header = () => {
               <IoSearch />
             </Link>
           )} */}
-          {/* <ThemeSwitcher className="mr-5" />
+        {/* <ThemeSwitcher className="mr-5" />
           {navigation_button.enable && (
             <Link
               className="btn btn-outline-primary btn-sm hidden lg:inline-block"

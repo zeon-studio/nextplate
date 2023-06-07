@@ -21,7 +21,6 @@ const Mission = () => {
         <div className="bg-yellow-50 px-4 py-16 xl:p-20">
           <div className="row items-center justify-between">
             <div className="text-center md:col-12 md:order-1">
-              <h2 className="mb-4 font-light text-blue-600">Mission 🚀</h2>
               <h2 className="mb-2">
                 We make your journey to scale, globalize and drive sustainable
                 growth Easy, Effective and Delightful.
@@ -35,12 +34,8 @@ const Mission = () => {
         .map((feature, index: number) => (
           <section key={index} className={`section-sm`}>
             <div className="container">
-              <div className="row items-center justify-between">
-                <div
-                  className={`mb:md-0 mb-6 lg:col-${
-                    12 - feature.contentwidth
-                  } ${index % 2 !== 0 && "md:order-2"} `}
-                >
+              <div className="align-center row items-center justify-center">
+                <div className={`mb:md-0 mb-6 lg:col-6`}>
                   <ImageFallback
                     width={500}
                     height={400}
@@ -48,11 +43,7 @@ const Mission = () => {
                     alt={feature.title}
                   />
                 </div>
-                <div
-                  className={`lg:col-${feature.contentwidth} ${
-                    index % 2 !== 0 && "md:order-1"
-                  }`}
-                >
+                <div className={`lg:col-12`}>
                   <h2
                     className="mb-4 text-blue-600"
                     dangerouslySetInnerHTML={markdownify(feature.title)}
