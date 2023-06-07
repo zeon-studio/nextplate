@@ -9,9 +9,9 @@ import { FaCheck } from "react-icons/fa/index.js";
 import PageHeader from "@/partials/PageHeader";
 
 
-const About = () => {
-  const aboutPage = getListPage("pages/about.md");
-  const { frontmatter } = aboutPage;
+const Mission = () => {
+  const AboutPage = getListPage("pages/about.md");
+  const { frontmatter } = AboutPage;
   const {
     features,
   }: {
@@ -55,9 +55,22 @@ const About = () => {
             )}
           </div>
         </div>
-      </section> */}
-    <PageHeader title="About" />
-      {features.filter((feature)=> !feature.title.includes("in a Name")).map((feature, index: number) => (
+      </section> */} 
+      <PageHeader title="Mission" />
+      <section>
+        <div className="bg-yellow-50 px-4 py-16 xl:p-20">
+          <div className="row items-center justify-between">
+            <div className="text-center md:col-12 md:order-1">
+              <h2 className="mb-4 font-light text-blue-600">Mission 🚀</h2>
+              <h2 className="mb-2">
+                We make your journey to scale, globalize and drive sustainable
+                growth Easy, Effective and Delightful.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      {features.filter((feature)=> feature.title.includes("in a Name")).map((feature, index: number) => (
         <section
           key={index}
           className={`section-sm`}
@@ -114,4 +127,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Mission;

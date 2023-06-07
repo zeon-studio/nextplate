@@ -25,7 +25,7 @@ Through these experiences, Naresh has developed an appreciation for the critical
 
   - title: "What’s in a Name"
     image: "/images/undraw_adventure_map.svg"
-    backgroundclass: bg-gray-100
+    backgroundclass: bg-white-500
     contentwidth: 7
     content: "The name “H Road” represents our purpose and goal we have set forth for our . The “H” represents Hyper. The “Road” represents to Scale, Growth & Globalization. We strive to bring keenness of execution in empowering our customer’s journey.<br /><br />
 The name “H Road” also represents our purpose and goal we have set forth for our . The “H” represents High Standards. We are building a place where curiosity, creativity, collaboration, and clarity, which are the bedrock of innovation, flourish for us and our customers. The “Road” represents to have fun in learning, trusting and growing together with our customers. We are creating an experience we can be proud of."

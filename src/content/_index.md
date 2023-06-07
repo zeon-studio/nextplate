@@ -7,7 +7,7 @@ banner:
   button:
     enable: true
     label: "Get Started"
-    link: "https://github.com/zeon-studio/nextplate"
+    link: "https://github.com/amitbadala"
 
 # Features
 features:
@@ -35,11 +35,11 @@ features:
     button:
       enable: true
       label: "Get Started Now"
-      link: "https://github.com/zeon-studio/nextplate"
+      link: "https://github.com/amitbadala"
 
 enable: true
-title: "What Users Are Saying About Nextplate"
-description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about Nextplate."
+title: "What Users Are Saying About HRoad"
+description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about HRoad."
 
 # Testimonials
 testimonials:
