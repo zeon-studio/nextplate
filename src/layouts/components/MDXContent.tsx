@@ -8,7 +8,7 @@ const MDXContent = ({ content }: { content: any }) => {
   };
   return (
     <>
-      {/* @ts-expect-error Async Server Component */}
+      {/* @ts-ignore */}
       <MDXRemote
         source={content}
         components={shortcodes}

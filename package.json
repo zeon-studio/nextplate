@@ -24,7 +24,7 @@
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
-    "marked": "^5.0.4",
+    "marked": "^5.0.5",
     "next": "13.4.4",
     "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",
@@ -54,6 +54,6 @@
     "sass": "^1.62.1",
     "tailwindcss": "^3.3.2",
     "tailwind-bootstrap-grid": "^5.0.1",
-    "typescript": "5.0.4"
+    "typescript": "5.1.3"
   }
 }
