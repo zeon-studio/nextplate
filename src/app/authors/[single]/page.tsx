@@ -43,7 +43,7 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
       />
       <section className="section-sm pb-0">
         <div className="container">
-          <div className="row justify-center border-b border-border pb-14 dark:border-darkmode-border">
+          <div className="row justify-center border-b border-border pb-14 ">
             <div className="text-center lg:col-4">
               {image && (
                 <ImageFallback

@@ -127,7 +127,7 @@ const Search = ({ searchList }: Props) => {
           ) : (
             searchResults?.map(({ item }, index) => (
               <div className="mb-12 md:col-6 lg:col-4" key={`search-${index}`}>
-                <div className="bg-body dark:bg-darkmode-body">
+                <div className="bg-body ">
                   {item.frontmatter.image && (
                     <ImageFallback
                       className="mb-6 w-full rounded"

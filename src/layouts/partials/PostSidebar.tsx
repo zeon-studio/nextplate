@@ -15,7 +15,7 @@ const PostSidebar = ({
       {/* <!-- categories --> */}
       <div className="mb-8">
         <h5 className="mb-6">Categories</h5>
-        <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
+        <div className="rounded bg-theme-light p-8 ">
           <ul className="space-y-4">
             {categories.map((category: string) => {
               const count = allCategories.filter(
@@ -24,7 +24,7 @@ const PostSidebar = ({
               return (
                 <li key={category}>
                   <Link
-                    className="flex justify-between hover:text-primary dark:hover:text-darkmode-primary"
+                    className="flex justify-between hover:text-primary "
                     href={`/categories/${category}`}
                   >
                     {humanize(category)} <span>({count})</span>
@@ -38,13 +38,13 @@ const PostSidebar = ({
       {/* <!-- tags --> */}
       <div className="mb-8">
         <h5 className="mb-6">Tags</h5>
-        <div className="rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
+        <div className="rounded bg-theme-light p-6 ">
           <ul>
             {tags.map((tag: string) => {
               return (
                 <li className="inline-block" key={tag}>
                   <Link
-                    className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-dark"
+                    className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white   "
                     href={`/tags/${tag}`}
                   >
                     {humanize(tag)}

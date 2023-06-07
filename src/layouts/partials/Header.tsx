@@ -44,7 +44,7 @@ const Header = () => {
         <label
           id="show-button"
           htmlFor="nav-toggle"
-          className="order-3 flex cursor-pointer items-center text-dark dark:text-white lg:order-1 lg:hidden"
+          className="order-3 flex cursor-pointer items-center text-dark  lg:order-1 lg:hidden"
         >
           <svg className="h-6 fill-current" viewBox="0 0 20 20">
             <title>Menu Open</title>
@@ -54,7 +54,7 @@ const Header = () => {
         <label
           id="hide-button"
           htmlFor="nav-toggle"
-          className="order-3 hidden cursor-pointer items-center text-dark dark:text-white lg:order-1"
+          className="order-3 hidden cursor-pointer items-center text-dark  lg:order-1"
         >
           <svg className="h-6 fill-current" viewBox="0 0 20 20">
             <title>Menu Close</title>
@@ -135,7 +135,7 @@ const Header = () => {
         {/* <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0"> */}
         {/* {settings.search && (
             <Link
-              className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary dark:border-darkmode-border dark:text-white"
+              className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary  "
               href="/search"
               aria-label="search"
             >

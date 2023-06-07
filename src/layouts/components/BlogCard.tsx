@@ -10,7 +10,7 @@ const BlogCard = ({ data }: { data: Post }) => {
   const { summary_length, blog_folder } = config.settings;
   const { title, image, author, categories, date } = data.frontmatter;
   return (
-    <div className="bg-body dark:bg-darkmode-body">
+    <div className="bg-body ">
       {image && (
         <ImageFallback
           className="mb-6 w-full rounded"

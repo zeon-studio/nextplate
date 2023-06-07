@@ -30,7 +30,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
             <span className="sr-only">theme switcher</span>
             <span>
               <svg
-                className="absolute left-[4px] top-[4px] z-10 opacity-100 dark:opacity-0"
+                className="absolute left-[4px] top-[4px] z-10 opacity-100 "
                 viewBox="0 0 56 56"
                 fill="#fff"
                 height="16"
@@ -40,7 +40,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
               </svg>
 
               <svg
-                className="absolute left-[4px] top-[4px] z-10 opacity-0 dark:opacity-100"
+                className="absolute left-[4px] top-[4px] z-10 opacity-0 "
                 viewBox="0 0 24 24"
                 fill="none"
                 height="16"
