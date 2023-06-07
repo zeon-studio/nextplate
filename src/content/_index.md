@@ -11,43 +11,50 @@ banner:
 
 # Features
 features:
-  - title: "What's Included in Nextplate"
-    image: "/images/service-1.png"
-    content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
+  - title: "Delivery Offering"
+    image: "/images/undraw_cloud_docs.svg"
+    content: "Road to Globalize Delivery Capabilities:
+(Consulting, Technical, Data Science, Analytics, Integration and Software Engineering)"
     bulletpoints:
-      - "10+ Pre-build pages"
-      - "95+ Google Pagespeed Score"
-      - "Build with Next and TailwindCSS for easy and customizable styling"
-      - "Fully responsive on all devices"
-      - "SEO-optimized for better search engine rankings"
-      - "**Open-source and free** for personal and commercial use"
+      - "Build proven, dedicated and industry leading scalable teams"
+      - "Integrate to your custom methodologies and best practices"
+      - "Govern and measure for optimal efficiency"
     button:
       enable: false
       label: "Get Started Now"
       link: "#"
 
-  - title: "Discover the Key Features Of Next"
-    image: "/images/service-2.png"
-    content: "Next is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
+  - title: "Go-To-Market Offering"
+    image: "/images/undraw_all_the_data.svg"
+    content: "Road to Globalize Go-To-Market Capabilities: 
+(Inside Sales, Market Research, Partner Management, Marketing, Customer Advocacy)"
     bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
-      - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
+      - "Build a data and process centric multi-pillar GTM Framework"
+      - "Integrate to your custom pre-sales and sales framework"
+      - "Govern and measure for optimal efficiency"
     button:
       enable: true
       label: "Get Started Now"
       link: "https://github.com/zeon-studio/nextplate"
 
-  - title: "The Top Reasons to Choose Next for Your Next Project"
-    image: "/images/service-3.png"
-    content: "With Next, you can build modern and content-focused websites without sacrificing performance or ease of use."
-    bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Next a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
-      - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
-    button:
-      enable: false
-      label: ""
-      link: ""
+enable: true
+title: "What Users Are Saying About Nextplate"
+description: "Don't just take our word for it - hear from some of our satisfied users!  Check out some of our testimonials below to see what others are saying about Nextplate."
+
+# Testimonials
+testimonials:
+  - name: "Accelerate Revenue"
+    designation: "Web Designer"
+    avatar: "/images/avatar-sm.png"
+    content: "Opportunity through scaling your GTM with a data and process centric approach "
+
+  - name: "Increase Customer Success"
+    designation: "Web Designer"
+    avatar: "/images/avatar-sm.png"
+    content: "A best-in-class and proven approach to optimally leverage all the pillars for maximum effectiveness"
+
+  - name: "Improve Brand"
+    designation: "Web Designer"
+    avatar: "/images/avatar-sm.png"
+    content: "A structured approach for mining and customer advocacy, Mitigate Risk:  Scale your GTM through a hybrid approach with lower costs while maintaining effectiveness through economic cycles"
 ---

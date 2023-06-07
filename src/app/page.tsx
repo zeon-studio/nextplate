@@ -4,41 +4,49 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
-import { Button, Feature } from "@/types";
+import { Button, Feature, Testimonial } from "@/types";
 import { FaCheck } from "react-icons/fa/index.js"; 
+
 
 const Home = () => {
   const homepage = getListPage("_index.md");
-  const testimonial = getListPage("sections/testimonial.md");
+  // const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const { frontmatter } = homepage;
   const {
     banner,
     features,
+    testimonials
   }: {
     banner: { title: string; image: string; content?: string; button?: Button };
     features: Feature[];
+    testimonials: Testimonial[];
   } = frontmatter;
+  console.log(testimonials)
+
+
+
+
 
   return (
     <>
       <SeoMeta />
-      <section className={`section relative`} style={{backgroundImage:`url(${banner.image})`}}>
-      <div class="absolute inset-0 bg-gray-500 opacity-70"> 
+      <section className={`section relative`} style={{backgroundImage:`url(${banner?.image})`}}>
+      <div className="absolute inset-0 bg-gray-500 opacity-70"> 
       </div>
         <div className="container relative">
           <div className="row justify-center align-center text-center">
             <div className="mb-16 lg:col-8 text-white">
               <h1
                 className="mb-4 text-white text-shadow-18px-18px-black"
-                dangerouslySetInnerHTML={markdownify(banner.title)}
+                dangerouslySetInnerHTML={markdownify(banner?.title)}
               />
               <h4
                 className="mb-8 text-white"
-                dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
+                dangerouslySetInnerHTML={markdownify(banner?.content ?? "")}
               />
               {banner.button!.enable && (
-                <a className="btn btn-primary" href={banner.button!.link}>
+                <a className="btn btn-primary" href={banner?.button!.link}>
                   {banner.button!.label}
                 </a>
               )}
@@ -50,7 +58,7 @@ const Home = () => {
       {features.map((feature, index: number) => (
         <section
           key={index}
-          className={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
+          className={`section-sm bg-theme-light ${index === 0 && "bg-gradient"}`}
         >
           <div className="container">
             <div className="row items-center justify-between">
@@ -72,7 +80,7 @@ const Home = () => {
                 }`}
               >
                 <h2
-                  className="mb-4"
+                  className="mb-4 text-blue-600"
                   dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
                 <p
@@ -100,9 +108,25 @@ const Home = () => {
           </div>
         </section>
       ))}
-
-      <Testimonials data={testimonial} />
-      <CallToAction data={callToAction} />
+  <div className="container"> 
+  <div className="row items-center justify-between">
+             
+              <div
+                className={`mb:md-0 mb-6 md:col-12`}
+              >
+      <Testimonials data={{"frontmatter":{"testimonials": testimonials, "title":"Our Value Proposition", "description":"some desc"}}} /></div>
+      {/* <div
+                className={`mb:md-0 mb-6 md:col-4`}
+              >
+                <ImageFallback
+                  src={"/images/undraw_to_the_stars.svg"}
+                  height={480}
+                  width={520}
+                />
+              </div> */}
+      </div>
+      </div>
+      {/* <CallToAction data={callToAction} /> */}
     </>
   );
 };
