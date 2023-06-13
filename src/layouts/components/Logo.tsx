@@ -6,8 +6,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Logo = ({ src, ...rest }: { src?: string, rest?: any }) => {
+const Logo = ({ src, rest }: { src?: string; rest?: any }) => {
   // destructuring items from config object
+  console.log(rest);
   const {
     logo,
     logo_darkmode,
@@ -44,8 +45,9 @@ const Logo = ({ src, ...rest }: { src?: string, rest?: any }) => {
           alt={title}
           priority
           style={{
-            height: logo_height.replace("px", "") + "px",
-            width: logo_width.replace("px", "") + "px" || "auto",
+            height: (rest?.height || logo_height.replace("px", "")) + "px",
+            width:
+              (rest?.width || logo_width.replace("px", "")) + "px" || "auto",
           }}
           {...rest}
         />

@@ -8,7 +8,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 const Contact = async () => {
   const data: RegularPage = getListPage("pages/contact.md");
   const { frontmatter } = data;
-  const { title, description, meta_title, image } = frontmatter;
+  const { title, description } = frontmatter;
   const { contact_form_action } = config.params;
 
   return (
@@ -18,7 +18,7 @@ const Contact = async () => {
         <div className="container">
           <h4
             className="pb-20 text-center"
-            dangerouslySetInnerHTML={markdownify(description)}
+            dangerouslySetInnerHTML={markdownify(description || "")}
           ></h4>
           <div className="row">
             <div className="mx-auto md:col-10 lg:col-6">
