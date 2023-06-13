@@ -176,3 +176,7 @@
   @apply prose-tr:border-border;
   @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px];
 }
+
+.hero-section {
+  height: calc(100vh - 78px);
+}

@@ -30,7 +30,7 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx}",
   ],
   safelist: [{ pattern: /^swiper-/ }],
-  
+
   theme: {
     screens: {
       sm: "540px",
@@ -54,7 +54,9 @@ module.exports = {
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
-        
+        blue: {
+          600: "#5F18E7",
+        },
       },
       fontSize: {
         base: font_base + "px",

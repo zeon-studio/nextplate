@@ -23,26 +23,30 @@ const Home = () => {
     <>
       <SeoMeta />
       <section
-        className={`section relative`}
+        className={`section hero-section relative flex`}
         style={{ backgroundImage: `url(${banner?.image})` }}
       >
         <div className="absolute inset-0 bg-gray-500 opacity-70"></div>
-        <div className="container relative">
+        <div className="container relative self-center">
           <div className="align-center row justify-center text-center">
             <div className="mb-16 text-white lg:col-8">
               <h1
                 className="text-shadow-18px-18px-black mb-4 text-white"
                 dangerouslySetInnerHTML={markdownify(banner?.title)}
               />
-              <h4
-                className="mb-8 text-white"
-                dangerouslySetInnerHTML={markdownify(banner?.content ?? "")}
-              />
-              {banner.button!.enable && (
+              <h4 className="mb-8 text-white">
+                Making our customer’s journey to scale, globalize and drive
+                sustainable growth
+                <strong className="text-4xl">
+                  {" "}
+                  Easy, Effective and Delightful
+                </strong>
+              </h4>
+              {/* {banner.button!.enable && (
                 <a className="btn btn-primary" href={banner?.button!.link}>
                   {banner.button!.label}
                 </a>
-              )}
+              )} */}
             </div>
           </div>
         </div>

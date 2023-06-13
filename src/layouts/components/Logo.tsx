@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Logo = ({ src }: { src?: string }) => {
+const Logo = ({ src, ...rest }: { src?: string, rest?: any }) => {
   // destructuring items from config object
   const {
     logo,
@@ -47,6 +47,7 @@ const Logo = ({ src }: { src?: string }) => {
             height: logo_height.replace("px", "") + "px",
             width: logo_width.replace("px", "") + "px" || "auto",
           }}
+          {...rest}
         />
       ) : logo_text ? (
         logo_text
