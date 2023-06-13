@@ -5,10 +5,10 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo_hroad_only.png",
+    "logo": "/images/logo_hroad.png",
     "logo_darkmode": "/images/logo_hroad_only.png",
-    "logo_width": "150",
-    "logo_height": "41",
+    "logo_width": "160",
+    "logo_height": "65",
     "logo_text": "HRoad"
   },
 
