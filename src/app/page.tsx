@@ -5,6 +5,7 @@ import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import { Button, Feature, Testimonial } from "@/types";
 import { FaCheck } from "react-icons/fa/index.js";
+import MyCarousel from "./custom-carousel";
 
 const Home = () => {
   const homepage = getListPage("_index.md");
@@ -20,13 +21,12 @@ const Home = () => {
   } = frontmatter;
 
   return (
-    <>
-      <SeoMeta />
+    <> 
       <section
-        className={`section hero-section relative flex`}
-        style={{ backgroundImage: `url(${banner?.image})` }}
+        className={`section hero-section relative flex`} 
       >
-        <div className="absolute inset-0 bg-gray-500 opacity-70"></div>
+        <MyCarousel />
+        {/* <div className="absolute inset-0 bg-gray-500 opacity-70"></div>
         <div className="container relative self-center">
           <div className="align-center row justify-center text-center">
             <div className="mb-16 text-white lg:col-8">
@@ -46,10 +46,10 @@ const Home = () => {
                 <a className="btn btn-primary" href={banner?.button!.link}>
                   {banner.button!.label}
                 </a>
-              )} */}
+              )}
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
 
       {features.map((feature, index: number) => (

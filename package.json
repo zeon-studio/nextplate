@@ -33,6 +33,7 @@
     "react-gtm-module": "^2.0.11",
     "react-icons": "^4.9.0",
     "react-lite-youtube-embed": "^2.3.52",
+    "react-responsive-carousel": "^3.2.23",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "sharp": "^0.32.1",
@@ -52,8 +53,8 @@
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "sass": "^1.62.1",
-    "tailwindcss": "^3.3.2",
     "tailwind-bootstrap-grid": "^5.0.1",
+    "tailwindcss": "^3.3.2",
     "typescript": "5.0.4"
   }
 }
