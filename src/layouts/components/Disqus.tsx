@@ -10,12 +10,12 @@ const Disqus = ({ className }: { className?: string }) => {
 
   return (
     <div className={className} key={theme}>
-      {disqus.enable && (
+      {/* {disqus.enable && (
         <DiscussionEmbed
           shortname={disqus.shortname}
           config={disqus.settings}
         />
-      )}
+      )} */}
     </div>
   );
 };

@@ -132,7 +132,7 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
                   />
                 </div>
               </div>
-              <Disqus className="mt-20" />
+              {/* <Disqus className="mt-20" /> */}
             </article>
           </div>
 
