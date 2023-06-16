@@ -17,11 +17,13 @@
     },
     {
       "name": "About",
-      "url": "/about"
+      "url": "#about",
+      "scroll": true
     },
     {
       "name": "Contact",
-      "url": "/contact"
+      "url": "#contact",
+      "scroll": true
     }
   ],
   "footer": [
