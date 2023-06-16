@@ -2,6 +2,7 @@
 
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import ScrollLink from "@/components/ScrollLink"
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import Link from "next/link";
@@ -19,6 +20,8 @@ export interface NavigationLink {
   url: string;
   hasChildren?: boolean;
   children?: ChildNavigationLink[];
+  scroll?: boolean;
+  id?: string;
 }
 
 const Header = () => {
@@ -108,15 +111,23 @@ const Header = () => {
                 </li>
               ) : (
                 <li className="nav-item">
+                  {!menu.scroll ?
                   <Link
+                  href={menu.url}
+                  className={`nav-link block ${
+                    (pathname === `${menu.url}/` || pathname === menu.url) &&
+                    "active"
+                  }`}
+                  >
+                    {menu.name}
+                  </Link> :
+                  <ScrollLink
                     href={menu.url}
                     className={`nav-link block ${
                       (pathname === `${menu.url}/` || pathname === menu.url) &&
                       "active"
                     }`}
-                  >
-                    {menu.name}
-                  </Link>
+                  >{menu.name}</ScrollLink>}
                 </li>
               )}
             </React.Fragment>

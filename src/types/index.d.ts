@@ -51,6 +51,7 @@ export type Feature = {
   title: string;
   contentwidth: int;
   backgroundclass: string;
+  id: string;
 };
 
 export type Testimonial = {

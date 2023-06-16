@@ -26,34 +26,25 @@ const Home = () => {
         className={`section hero-section relative flex`} 
       >
         <MyCarousel />
-        {/* <div className="absolute inset-0 bg-gray-500 opacity-70"></div>
-        <div className="container relative self-center">
-          <div className="align-center row justify-center text-center">
-            <div className="mb-16 text-white lg:col-8">
-              <h1
-                className="text-shadow-18px-18px-black mb-4 text-white"
-                dangerouslySetInnerHTML={markdownify(banner?.title)}
-              />
-              <h4 className="mb-8 text-white">
-                Making our customer’s journey to scale, globalize and drive
-                sustainable growth
-                <strong className="text-4xl">
-                  {" "}
-                  Easy, Effective and Delightful
-                </strong>
-              </h4>
-              {/* {banner.button!.enable && (
-                <a className="btn btn-primary" href={banner?.button!.link}>
-                  {banner.button!.label}
-                </a>
-              )}
+      </section>
+      <section id="mission">
+        <div className="bg-white px-4 py-16 xl:p-20">
+          <div className="row items-center justify-between">
+            <div className="text-center md:col-12 md:order-1">
+            <h2 className="mb-4 text-blue-600">
+                Mission 🚀
+              </h2>
+              <h3 className="mb-2">
+                We make your journey to scale, globalize and drive sustainable
+                growth Easy, Effective and Delightful.
+              </h3>
             </div>
           </div>
-        </div> */}
+        </div>
       </section>
-
       {features.map((feature, index: number) => (
         <section
+         id={feature.id || "section" + index}
           key={index}
           className={`section-sm bg-theme-light ${
             index === 0 && "bg-gradient"
@@ -94,14 +85,6 @@ const Home = () => {
                     </li>
                   ))}
                 </ul>
-                {feature.button.enable && (
-                  <a
-                    className="btn btn-primary mt-5"
-                    href={feature.button.link}
-                  >
-                    {feature.button.label}
-                  </a>
-                )}
               </div>
             </div>
           </div>

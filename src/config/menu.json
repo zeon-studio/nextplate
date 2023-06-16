@@ -1,16 +1,23 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
+      "name": "Mission",
+      "url": "#mission",
+      "scroll": true
+    },
+    {
+      "name": "Delivery Services",
+      "url": "#delivery-services",
+      "scroll": true
+    },
+    {
+      "name": "Go-To-Market Services",
+      "url": "#market-offering",
+      "scroll": true
     },
     {
       "name": "About",
       "url": "/about"
-    },
-    {
-      "name": "Mission",
-      "url": "/mission"
     },
     {
       "name": "Contact",

@@ -32,10 +32,8 @@ const Testimonials = ({ data }: { data: any }) => {
               <h3 className="mb-2 ">1. An Easy and Trustworthy Button</h3>
               <p>
                 {" "}
-                A Turnkey Operation with low overheads that gives you a
-                jumpstart and speed to globalization. We do the heavy lifting in
-                the background and have built a best-in-class approach to the
-                necessary infrastructure.
+                An Easy and Trustworthy Button: 
+A Turnkey Operation with low overheads that gives you a jumpstart and speed to globalization. We do the heavy lifting in the background and have built a best-in-class approach to the necessary infrastructure.
               </p>
             </div>
             <div className="col-12">
@@ -83,10 +81,7 @@ const Testimonials = ({ data }: { data: any }) => {
               <h3 className="mb-2">3. Increasing Value Creation over Time</h3>
               <p>
                 {" "}
-                This team-based approach is different from a traditional
-                consulting-based approach. The value creation increases for you
-                because of increased cultural fit, increased knowledge of your
-                operations and increased ownership by the team over time.
+                The value creation increases for you because of increased cultural fit, increased knowledge of your operations and increased ownership by the team over time.
               </p>
             </div>
           </div>

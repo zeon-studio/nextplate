@@ -12,13 +12,13 @@ Easy, Effective and Delightful"
 
 # Features
 features:
-  - title: "Delivery Offering"
+  - title: "Delivery Services"
+    id: "delivery-services"
     image: "/images/undraw_cloud_docs.svg"
-    content: "Road to Globalize Delivery Capabilities:
-(Consulting, Technical, Data Science, Analytics, Integration and Software Engineering)"
+    content: "We collaborate with you closely to build world-class teams that are value accretive and are extensions of your current consulting, technical, data science, analytics, integration, or software engineering teams. We have done so for over 25 years successfully and follow the below approach. To learn more about our methodology, please contact us."
     bulletpoints:
-      - "Build proven, dedicated and industry leading scalable teams"
-      - "Integrate to your custom methodologies and best practices"
+      - "Build proven, dedicated, and industry-leading scalable teams and processes"
+      - "Integrate into your custom methodologies and best practices"
       - "Govern and measure for optimal efficiency"
     button:
       enable: false
@@ -26,9 +26,9 @@ features:
       link: "#"
 
   - title: "Go-To-Market Offering"
+    id: "market-offering"
     image: "/images/undraw_all_the_data.svg"
-    content: "Road to Globalize Go-To-Market Capabilities: 
-(Inside Sales, Market Research, Partner Management, Marketing, Customer Advocacy)"
+    content: "We collaborate with you closely to build world-class teams that are value accretive and are extensions of your current inside sales, market research, partner management, marketing, customer advocacy or customer success teams. We have done so for over 25 years successfully and follow the below approach. To learn more about our methodology, please contact us."
     bulletpoints:
       - "Build a data and process centric multi-pillar GTM Framework"
       - "Integrate to your custom pre-sales and sales framework"
