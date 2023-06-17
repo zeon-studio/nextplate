@@ -20,17 +20,15 @@ const similerItems = (
   }
 
   // filter by categories
-  const filterByCategories = allItems.filter(
-    (item: { frontmatter: { categories: string[] } }) =>
-      categories.find((category) =>
-        item.frontmatter.categories.includes(category)
-      )
+  const filterByCategories = allItems.filter((item: any) =>
+    categories.find((category) =>
+      item.frontmatter.categories.includes(category)
+    )
   );
 
   // filter by tags
-  const filterByTags = allItems.filter(
-    (item: { frontmatter: { tags: string[] } }) =>
-      tags.find((tag) => item.frontmatter.tags.includes(tag))
+  const filterByTags = allItems.filter((item: any) =>
+    tags.find((tag) => item.frontmatter.tags.includes(tag))
   );
 
   // merged after filter
