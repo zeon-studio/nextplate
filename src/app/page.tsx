@@ -9,7 +9,6 @@ import MyCarousel from "./custom-carousel";
 import { RegularPage } from "@/types";
 import config from "@/config/config.json";
 
-
 const Home = () => {
   const homepage = getListPage("_index.md");
   const { frontmatter } = homepage;
@@ -25,7 +24,7 @@ const Home = () => {
   // ABOUT PAGE
 
   const aboutPage = getListPage("pages/about.md");
-  const { frontmatter : aboutFrontMatter } = aboutPage;
+  const { frontmatter: aboutFrontMatter } = aboutPage;
   const {
     features: aboutFeatures,
   }: {
@@ -36,23 +35,20 @@ const Home = () => {
 
   const data: RegularPage = getListPage("pages/contact.md");
   const { frontmatter: contactMatter } = data;
-  const { title: contactTitle, description: contactDescription } = contactMatter;
+  const { title: contactTitle, description: contactDescription } =
+    contactMatter;
   const { contact_form_action } = config.params;
 
   return (
-    <> 
-      <section
-        className={`section hero-section relative flex`} 
-      >
+    <>
+      <section className={`section hero-section relative flex`}>
         <MyCarousel />
       </section>
       <section id="mission">
         <div className="bg-white px-4 py-16 xl:p-20">
           <div className="row items-center justify-between">
             <div className="text-center md:col-12 md:order-1">
-            <h2 className="mb-4 text-blue-600">
-                Mission 🚀
-              </h2>
+              <h2 className="mb-4 text-blue-600">Mission 🚀</h2>
               <h3 className="mb-2">
                 We make your journey to scale, globalize and drive sustainable
                 growth Easy, Effective and Delightful.
@@ -63,7 +59,7 @@ const Home = () => {
       </section>
       {features.map((feature, index: number) => (
         <section
-         id={feature.id || "section" + index}
+          id={feature.id || "section" + index}
           key={index}
           className={`section-sm bg-theme-light ${
             index === 0 && "bg-gradient"
@@ -125,67 +121,69 @@ const Home = () => {
         </div>
       </div>
       <section id="about" className="bg-theme-light">
-      {aboutFeatures
-        .filter((feature) => !feature.title.includes("in a Name"))
-        .map((feature, index: number) => (
-          <section key={index} className={`section-sm`}>
-            <div className="container">
-              <div className="row items-center justify-between">
-                <div
-                  className={`mb:md-0 mb-6 lg:col-${
-                    12 - feature.contentwidth
-                  } ${index % 2 !== 0 && "md:order-2"} `}
-                >
-                  <ImageFallback
-                    width={500}
-                    height={400}
-                    src={feature.image}
-                    alt={feature.title}
-                  />
-                </div>
-                <div
-                  className={`lg:col-${feature.contentwidth} ${
-                    index % 2 !== 0 && "md:order-1"
-                  }`}
-                >
-                  <h2
-                    className="mb-4 text-blue-600"
-                    dangerouslySetInnerHTML={markdownify(feature.title)}
-                  />
-                  <p
-                    className="mb-8 text-lg"
-                    dangerouslySetInnerHTML={markdownify(feature.content)}
-                  />
-                  <ul>
-                    {feature.bulletpoints?.map((bullet: string) => (
-                      <li className="relative mb-4 pl-6" key={bullet}>
-                        <FaCheck className={"absolute left-0 top-1.5"} />
-                        <span dangerouslySetInnerHTML={markdownify(bullet)} />
-                      </li>
-                    ))}
-                  </ul>
-                  {feature.button?.enable && (
-                    <a
-                      className="btn btn-primary mt-5"
-                      href={feature.button.link}
-                    >
-                      {feature.button.label}
-                    </a>
-                  )}
+        {aboutFeatures
+          .filter((feature) => !feature.title.includes("in a Name"))
+          .map((feature, index: number) => (
+            <section
+              key={index}
+              className={`section-sm ${feature.backgroundclass}`}
+            >
+              <div className="container">
+                <div className="row items-center justify-between">
+                  <div
+                    className={`mb:md-0 mb-6 lg:col-${
+                      12 - feature.contentwidth
+                    } ${index % 2 !== 0 && "md:order-2"} `}
+                  >
+                    <ImageFallback
+                      width={500}
+                      height={400}
+                      src={feature.image}
+                      alt={feature.title}
+                      style={{ borderRadius: "10px", width: "75%" }}
+                    />
+                  </div>
+                  <div
+                    className={`lg:col-${feature.contentwidth} ${
+                      index % 2 !== 0 && "md:order-1"
+                    }`}
+                  >
+                    <h2
+                      className="mb-4 text-blue-600"
+                      dangerouslySetInnerHTML={markdownify(feature.title)}
+                    />
+                    <p
+                      className="mb-8 text-lg"
+                      dangerouslySetInnerHTML={markdownify(feature.content)}
+                    />
+                    <ul>
+                      {feature.bulletpoints?.map((bullet: string) => (
+                        <li className="relative mb-4 pl-6" key={bullet}>
+                          <FaCheck className={"absolute left-0 top-1.5"} />
+                          <span dangerouslySetInnerHTML={markdownify(bullet)} />
+                        </li>
+                      ))}
+                    </ul>
+                    {feature.button?.enable && (
+                      <a
+                        className="btn btn-primary mt-5"
+                        href={feature.button.link}
+                      >
+                        {feature.button.label}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        ))}
+            </section>
+          ))}
       </section>
       <section id="contact" className="section-sm">
-        <div className="container"> 
-            <h2 className="mb-4 text-blue-600 text-center">
-                Contact 
-            </h2>
+        <div className="container">
+          <h2 className="mb-4 text-center text-blue-600">Contact</h2>
           <h4
             className="pb-20 text-center"
-            style={{fontWeight:100}}
+            style={{ fontWeight: 100 }}
             dangerouslySetInnerHTML={markdownify(contactDescription || "")}
           ></h4>
           <div className="row">
