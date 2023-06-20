@@ -8,7 +8,7 @@
     "logo": "/images/logo_hroad.png",
     "logo_darkmode": "/images/logo_hroad.png",
     "logo_width": "160",
-    "logo_height": "65", 
+    "logo_height": "65",
     "logo_text": "HRoad"
   },
 
@@ -23,7 +23,7 @@
   },
 
   "params": {
-    "contact_form_action": "#",
+    "contact_form_action": "mailto:you@yourdmainhere.com",
     "copyright": "Designed And Developed by @amitbadala"
   },
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from "@/components/Logo";
+import ScrollLink from "@/components/ScrollLink";
 import Social from "@/components/Social";
 import config from "@/config/config.json";
 import menu from "@/config/menu.json";
@@ -21,21 +22,21 @@ const Footer = () => {
               rest={{
                 height: "50",
                 width: "123",
-                className: "grayscale filter",
               }}
             />
           </div>
           <div className="mb-8 text-center lg:col-2 lg:mb-0 lg:mt-0 lg:text-center">
-            <p>All Rights Reserved 2022</p>
+            <p>@ Copyrights Hroad 2023</p>
             {/* <Social source={social} className="social-icons" /> */}
           </div>
           <div className="mb-8 text-right lg:col-5 lg:mb-0">
             <ul>
-              {menu.footer.map((menu) => (
-                <li className="m-3 inline-block" key={menu.name}>
-                  <Link href={menu.url}>{menu.name}</Link>
-                </li>
-              ))}
+              <li className="m-3 inline-block" key="About">
+                <ScrollLink href="#about">About</ScrollLink>
+              </li>
+              <li className="m-3 inline-block" key="Privacy Policy">
+                <Link href="/privacy-policy">Privacy Policy</Link>
+              </li>
             </ul>
           </div>
         </div>

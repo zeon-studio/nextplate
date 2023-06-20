@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 
 const Logo = ({ src, rest }: { src?: string; rest?: any }) => {
   // destructuring items from config object
-  console.log(rest);
   const {
     logo,
     logo_darkmode,

@@ -1,7 +1,6 @@
 import ImageFallback from "@/components/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
-import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import { Button, Feature, Testimonial } from "@/types";
 import { FaCheck } from "react-icons/fa/index.js";
@@ -194,7 +193,7 @@ const Home = () => {
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
-                    id="name"
+                    name="name"
                     className="form-input"
                     placeholder="John Doe"
                     type="text"
@@ -205,7 +204,7 @@ const Home = () => {
                     Email id <span className="text-red-500">*</span>
                   </label>
                   <input
-                    id="mail"
+                    name="mail"
                     className="form-input"
                     placeholder="john.doe@email.com"
                     type="email"
@@ -216,7 +215,7 @@ const Home = () => {
                     Company
                   </label>
                   <input
-                    id="company"
+                    name="company"
                     className="form-input"
                     placeholder="eg: Tesla"
                     type="text"
@@ -229,7 +228,7 @@ const Home = () => {
                   <textarea
                     className="form-input"
                     placeholder="Message goes here..."
-                    id="message"
+                    name="message"
                     rows={8}
                   ></textarea>
                 </div>
