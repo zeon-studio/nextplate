@@ -19,7 +19,7 @@ const Footer = () => {
     <footer className="bg-theme-light ">
       <div className="container">
         <div className="row items-center py-2">
-          <div className="mb-8 text-left lg:col-5 lg:mb-0 lg:text-left">
+          <div className="mb-8 text-left lg:col-4 lg:mb-0 lg:text-left">
             <Logo
               rest={{
                 height: "50",
@@ -27,11 +27,14 @@ const Footer = () => {
               }}
             />
           </div>
-          <div className="mb-8 text-center lg:col-2 lg:mb-0 lg:mt-0 lg:text-center">
+          <div className="mb-8 text-center lg:col-4 lg:mb-0 lg:mt-0 lg:text-center">
+            <p style={{ borderBottom: "1px solid" }}>
+              contact: <strong>info@thehroad.com</strong>
+            </p>
             <p>@ Copyrights Hroad 2023</p>
             {/* <Social source={social} className="social-icons" /> */}
           </div>
-          <div className="mb-8 text-right lg:col-5 lg:mb-0">
+          <div className="mb-8 text-right lg:col-4 lg:mb-0">
             <ul>
               {pathname !== "/privacy-policy" ? (
                 <li className="m-3 inline-block" key="About">
