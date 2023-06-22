@@ -1,0 +1,56 @@
+.custom-carousel-slide {
+  position: relative;
+  height: calc(100vh - 82px);
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.carousel-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  width: 60%;
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.carousel-subtitle {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+// Responsive styles for mobile screens
+@media (max-width: 768px) {
+  .carousel-content {
+    width: 90%;
+  }
+  .carousel-title {
+    font-size: 36px;
+  }
+  .carousel-subtitle {
+    font-size: 22px;
+  }
+
+  .custom-carousel-slide {
+    height: calc(70vh - 82px);
+  }
+}

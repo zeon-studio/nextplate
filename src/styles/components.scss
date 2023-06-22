@@ -181,3 +181,10 @@
   height: calc(100vh - 78px);
   padding: unset;
 }
+
+// Responsive styles for mobile screens
+@media (max-width: 768px) {
+  .hero-section {
+    height: calc(70vh - 78px);
+  }
+}
