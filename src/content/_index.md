@@ -25,7 +25,7 @@ features:
       label: "Get Started Now"
       link: "#"
 
-  - title: "Go-To-Market Offering"
+  - title: "Go-To-Market Services"
     id: "market-offering"
     image: "/images/undraw_all_the_data.svg"
     content: "We collaborate with you closely to build world-class teams that are value accretive and are extensions of your current inside sales, market research, partner management, marketing, customer advocacy or customer success teams. We have done so for over 25 years successfully and follow the below approach. To learn more about our methodology, please contact us."
