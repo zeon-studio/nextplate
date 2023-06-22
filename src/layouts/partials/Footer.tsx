@@ -28,10 +28,10 @@ const Footer = () => {
             />
           </div>
           <div className="mb-8 text-center lg:col-4 lg:mb-0 lg:mt-0 lg:text-center">
-            <p style={{ borderBottom: "1px solid" }}>
+            <p style={{ borderBottom: "1px solid #bcbcbc" }}>
               contact: <strong>info@thehroad.com</strong>
             </p>
-            <p>@ Copyrights Hroad 2023</p>
+            <p>© 2023 H Road. All rights reserved.</p>
             {/* <Social source={social} className="social-icons" /> */}
           </div>
           <div className="mb-8 text-right lg:col-4 lg:mb-0">

@@ -31,8 +31,6 @@ const Header = () => {
   // get current path
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <header
       className={`header z-30 ${
