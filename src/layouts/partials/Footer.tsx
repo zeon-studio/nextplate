@@ -9,9 +9,11 @@ import menu from "@/config/menu.json";
 // import social from "@/config/social.json";
 // import { markdownify } from "@/lib/utils/textConverter";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
   const { copyright } = config.params;
+  const pathname = usePathname();
 
   return (
     <footer className="bg-theme-light ">
@@ -31,11 +33,23 @@ const Footer = () => {
           </div>
           <div className="mb-8 text-right lg:col-5 lg:mb-0">
             <ul>
-              <li className="m-3 inline-block" key="About">
-                <ScrollLink href="#about">About</ScrollLink>
-              </li>
+              {pathname !== "/privacy-policy" ? (
+                <li className="m-3 inline-block" key="About">
+                  <ScrollLink href="/home#about">About</ScrollLink>
+                </li>
+              ) : (
+                <li className="m-3 inline-block" key="About">
+                  <Link href="/">Home</Link>
+                </li>
+              )}
               <li className="m-3 inline-block" key="Privacy Policy">
-                <Link href="/privacy-policy">Privacy Policy</Link>
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="/privacy-policy"
+                >
+                  Privacy Policy
+                </Link>
               </li>
             </ul>
           </div>
