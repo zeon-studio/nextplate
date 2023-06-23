@@ -56,6 +56,38 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className={`section-sm bg-gradient bg-theme-light`}>
+        <div className="container">
+          <div className="row items-center justify-between">
+            <div className={`md:col-7 lg:col-6 `}>
+              <h3 className="mb-4 text-blue-600">What’s in a Name</h3>
+              <p className="mb-8 text-lg">
+                The name “H Road” represents our purpose and goal we have set
+                forth for our . The “H” represents Hyper. The “Road” represents
+                to Scale, Growth & Globalization. We strive to bring keenness of
+                execution in empowering our customer’s journey.
+                <br />
+                <br />
+                The name “H Road” also represents our purpose and goal we have
+                set forth for our . The “H” represents High Standards. We are
+                building a place where curiosity, creativity, collaboration, and
+                clarity, which are the bedrock of innovation, flourish for us
+                and our customers. The “Road” represents to have fun in
+                learning, trusting and growing together with our customers. We
+                are creating an experience we can be proud of.
+              </p>
+            </div>
+            <div className={`mb:md-0 mb-6 md:col-5`}>
+              <ImageFallback
+                src="/images/mission.svg"
+                height={480}
+                width={520}
+                alt="mission"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
       {features.map((feature, index: number) => (
         <section
           id={feature.id || "section" + index}

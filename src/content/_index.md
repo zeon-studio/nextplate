@@ -14,7 +14,7 @@ Easy, Effective and Delightful"
 features:
   - title: "Delivery Services"
     id: "delivery-services"
-    image: "/images/undraw_cloud_docs.svg"
+    image: "/images/delivery_services.svg"
     content: "We collaborate with you closely to build world-class teams that are value accretive and are extensions of your current consulting, technical, data science, analytics, integration, or software engineering teams. We have done so for over 25 years successfully and follow the below approach. To learn more about our methodology, please contact us."
     bulletpoints:
       - "Build proven, dedicated, and industry-leading scalable teams and processes"
