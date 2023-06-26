@@ -6,27 +6,34 @@ import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import { IoSearch } from "react-icons/io5/index.js";
 
-export interface ChildNavigationLink {
+//  child navigation link interface
+export interface IChildNavigationLink {
   name: string;
   url: string;
 }
 
-export interface NavigationLink {
+// navigation link interface
+export interface INavigationLink {
   name: string;
   url: string;
   hasChildren?: boolean;
-  children?: ChildNavigationLink[];
+  children?: IChildNavigationLink[];
 }
 
 const Header = () => {
   // distructuring the main menu from menu object
-  const { main }: { main: NavigationLink[] } = menu;
+  const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
   // get current path
   const pathname = usePathname();
+
+  // scroll to top on route change
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [pathname]);
 
   return (
     <header
