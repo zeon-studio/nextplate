@@ -4,7 +4,7 @@ import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa/index.js";
-import ImageFallback from "./ImageFallback";
+import ImageFallback from "../helpers/ImageFallback";
 
 const BlogCard = ({ data }: { data: Post }) => {
   const { summary_length, blog_folder } = config.settings;

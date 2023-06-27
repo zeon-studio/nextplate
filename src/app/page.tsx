@@ -1,4 +1,4 @@
-import ImageFallback from "@/components/ImageFallback";
+import ImageFallback from "@/helpers/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";

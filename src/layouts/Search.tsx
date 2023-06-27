@@ -10,7 +10,7 @@ import {
   FaRegUserCircle,
   FaSearch,
 } from "react-icons/fa/index.js";
-import ImageFallback from "./components/ImageFallback";
+import ImageFallback from "./helpers/ImageFallback";
 
 const { summary_length, blog_folder } = config.settings;
 

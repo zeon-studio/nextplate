@@ -1,4 +1,4 @@
-import ImageFallback from "@/components/ImageFallback";
+import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Call_to_action } from "@/types";
 

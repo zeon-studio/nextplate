@@ -1,5 +1,5 @@
-import ImageFallback from "@/components/ImageFallback";
-import MDXContent from "@/components/MDXContent";
+import ImageFallback from "@/helpers/ImageFallback";
+import MDXContent from "@/helpers/MDXContent";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";

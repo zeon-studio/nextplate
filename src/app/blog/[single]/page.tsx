@@ -1,9 +1,9 @@
 import BlogCard from "@/components/BlogCard";
 import Disqus from "@/components/Disqus";
-import ImageFallback from "@/components/ImageFallback";
-import MDXContent from "@/components/MDXContent";
 import Share from "@/components/Share";
 import config from "@/config/config.json";
+import ImageFallback from "@/helpers/ImageFallback";
+import MDXContent from "@/helpers/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
 import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";

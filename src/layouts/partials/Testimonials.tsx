@@ -1,6 +1,6 @@
 "use client";
 
-import ImageFallback from "@/components/ImageFallback";
+import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Testimonial } from "@/types";
 import { Autoplay, Pagination } from "swiper";

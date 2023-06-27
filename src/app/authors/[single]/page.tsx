@@ -1,8 +1,8 @@
 import BlogCard from "@/components/BlogCard";
-import ImageFallback from "@/components/ImageFallback";
-import MDXContent from "@/components/MDXContent";
 import Social from "@/components/Social";
 import config from "@/config/config.json";
+import ImageFallback from "@/helpers/ImageFallback";
+import MDXContent from "@/helpers/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
