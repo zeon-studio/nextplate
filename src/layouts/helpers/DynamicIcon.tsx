@@ -1,5 +1,14 @@
 import { FC } from "react";
 import type { IconType } from "react-icons";
+import * as AiIcons from "react-icons/ai";
+import * as BsIcons from "react-icons/bs";
+import * as FaIcons from "react-icons/fa";
+import * as FaIcons6 from "react-icons/fa6";
+import * as FiIcons from "react-icons/fi";
+import * as Io5Icons from "react-icons/io5";
+import * as RiIcons from "react-icons/ri";
+import * as TbIcons from "react-icons/tb";
+import * as TfiIcons from "react-icons/tfi";
 
 type IconMap = Record<string, IconType>;
 
@@ -9,15 +18,15 @@ interface IDynamicIcon {
 }
 
 const iconLibraries: { [key: string]: IconMap } = {
-  ai: require("react-icons/ai"),
-  bs: require("react-icons/bs"),
-  fa: require("react-icons/fa"),
-  fa6: require("react-icons/fa6"),
-  fi: require("react-icons/fi"),
-  io5: require("react-icons/io5"),
-  ri: require("react-icons/ri"),
-  tb: require("react-icons/tb"),
-  tfi: require("react-icons/tfi"),
+  ai: AiIcons,
+  bs: BsIcons,
+  fa: FaIcons,
+  fa6: FaIcons6,
+  fi: FiIcons,
+  io5: Io5Icons,
+  ri: RiIcons,
+  tb: TbIcons,
+  tfi: TfiIcons,
 };
 
 const DynamicIcon: FC<IDynamicIcon> = ({ icon, ...props }) => {

@@ -33,11 +33,13 @@ export type Author = {
     image?: string;
     description?: string;
     meta_title?: string;
-    socials: {
-      facebook: string;
-      twitter: string;
-      instagram: string;
-    };
+    social: [
+      {
+        name: string;
+        icon: string;
+        link: string;
+      }
+    ];
   };
   content?: string;
   slug?: string;
