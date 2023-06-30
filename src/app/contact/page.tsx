@@ -5,7 +5,7 @@ import emailjs from "emailjs-com";
 
 emailjs.init("XYCXeYWt28fkRnocH");
 
-const Contact = async () => {
+const Contact = () => {
   const handleContactForm = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
