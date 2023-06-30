@@ -55,6 +55,24 @@ export default function MyCarousel() {
           </h4>
         </div>
       </div>
+      <div className="custom-carousel-slide">
+        <img
+          src="/images/hroad_banner.png"
+          alt="Slide 2"
+          className="carousel-image"
+        />
+        <div className="carousel-overlay"></div>
+
+        <div className="carousel-content">
+          <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
+            Accelerating Product and Service Innovation & Lifecycles
+          </h1>
+          {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
+            Making our employee’s journey fun and rewarding by ideating,
+            learning, trusting, and growing together with our customers
+          </h4> */}
+        </div>
+      </div>
     </Carousel>
   );
 }
