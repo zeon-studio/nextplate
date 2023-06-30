@@ -35,6 +35,7 @@
     "react-icons": "^4.9.0",
     "react-lite-youtube-embed": "^2.3.52",
     "react-responsive-carousel": "^3.2.23",
+    "react-toastify": "^9.1.3",
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "sharp": "^0.32.1",

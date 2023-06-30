@@ -2,6 +2,8 @@
 
 import React, { FormEvent } from "react";
 import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 emailjs.init("XYCXeYWt28fkRnocH");
 
@@ -13,7 +15,6 @@ const Contact = () => {
     formData.forEach((value, key) => {
       data[key] = value as string;
     });
-    console.log(data);
     emailjs
       .send("service_xvdnhxd", "template_cecilgl", {
         to_name: "amitbadala07@gmail.com",
@@ -21,9 +22,10 @@ const Contact = () => {
         message: JSON.stringify(data, null, 2),
       })
       .then((response) => {
-        console.log("Email successfully sent!", response);
+        toast.success("Contact form sent successfully");
       })
       .catch((error) => {
+        toast.error("Something went wrong");
         console.error("Error sending email:", error);
       });
   };
@@ -94,6 +96,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </section>
   );
 };
