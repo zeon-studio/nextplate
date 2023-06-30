@@ -7,6 +7,7 @@ import { FaCheck } from "react-icons/fa/index.js";
 import MyCarousel from "./custom-carousel";
 import { RegularPage } from "@/types";
 import config from "@/config/config.json";
+import Contact from "./contact/page";
 
 const Home = () => {
   const homepage = getListPage("_index.md");
@@ -209,69 +210,7 @@ const Home = () => {
             </section>
           ))}
       </section>
-      <section id="contact" className="section-sm">
-        <div className="container">
-          <h2 className="mb-4 text-center text-blue-600">Contact</h2>
-          <h4
-            className="pb-20 text-center"
-            style={{ fontWeight: 100 }}
-            dangerouslySetInnerHTML={markdownify(contactDescription || "")}
-          ></h4>
-          <div className="row">
-            <div className="mx-auto md:col-10 lg:col-6">
-              <form action={contact_form_action} method="POST">
-                <div className="mb-6">
-                  <label htmlFor="name" className="form-label">
-                    Full Name <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="name"
-                    className="form-input"
-                    placeholder="John Doe"
-                    type="text"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="mail" className="form-label">
-                    Email id <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="mail"
-                    className="form-input"
-                    placeholder="john.doe@email.com"
-                    type="email"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="company" className="form-label">
-                    Company
-                  </label>
-                  <input
-                    name="company"
-                    className="form-input"
-                    placeholder="eg: Tesla"
-                    type="text"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="message" className="form-label">
-                    Message
-                  </label>
-                  <textarea
-                    className="form-input"
-                    placeholder="Message goes here..."
-                    name="message"
-                    rows={8}
-                  ></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Send
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Contact />
     </>
   );
 };
