@@ -31,10 +31,10 @@ export default function MyCarousel() {
             Empowering businesses worldwide as a catalyst for Growth &
             Innovation
           </h1>
-          <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
+          {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our customer’s journey to scale, globalize and drive
             sustainable growth Easy, Effective and Delightful
-          </h4>
+          </h4> */}
         </div>
       </div>
       <div className="custom-carousel-slide">
@@ -47,12 +47,12 @@ export default function MyCarousel() {
 
         <div className="carousel-content">
           <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
-            Empowering a Culture of Ownership, Integrity & Collaboration
+            Powering a Culture of Ownership, Integrity & Collaboration
           </h1>
-          <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
+          {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our employee’s journey fun and rewarding by ideating,
             learning, trusting, and growing together with our customers
-          </h4>
+          </h4> */}
         </div>
       </div>
       <div className="custom-carousel-slide">
@@ -65,7 +65,7 @@ export default function MyCarousel() {
 
         <div className="carousel-content">
           <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
-            Accelerating Product and Service Innovation & Lifecycles
+            Accelerating Product and Service Innovation.r
           </h1>
           {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our employee’s journey fun and rewarding by ideating,

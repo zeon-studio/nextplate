@@ -1,9 +1,4 @@
-import config from "@/config/config.json";
-import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
-import SeoMeta from "@/partials/SeoMeta";
-import { RegularPage } from "@/types";
-import { markdownify } from "@/lib/utils/textConverter";
 
 const PrivacyPolicy = async () => {
   return (
