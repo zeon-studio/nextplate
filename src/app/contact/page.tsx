@@ -39,6 +39,7 @@ const Contact = () => {
         backgroundSize: "contain",
         backgroundPosition: "bottom",
         backgroundRepeat: "no-repeat",
+        paddingBottom: 400,
       }}
     >
       <div className="container">
