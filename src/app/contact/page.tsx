@@ -31,7 +31,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-sm">
+    <section
+      id="contact"
+      className="section-sm"
+      style={{
+        backgroundImage: 'url("/images/world_map_light.png")',
+        backgroundSize: "contain",
+        backgroundPosition: "bottom",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container">
         <h2 className="mb-4 text-center text-blue-600">Contact</h2>
         <h4 className="pb-20 text-center" style={{ fontWeight: 100 }}>
