@@ -1,6 +1,6 @@
 {
   "name": "nextplate",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Nextjs and Tailwindcss boilerplate",
   "author": "zeon.studio",
   "license": "MIT",
@@ -25,7 +25,7 @@
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^5.1.0",
-    "next": "13.4.7",
+    "next": "13.4.8",
     "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",
     "react": "18.2.0",
@@ -36,24 +36,24 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "sharp": "^0.32.1",
-    "swiper": "^9.4.1"
+    "swiper": "^10.0.3"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
     "@types/marked": "^5.0.0",
-    "@types/node": "20.3.2",
+    "@types/node": "20.4.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.43.0",
-    "eslint-config-next": "13.4.7",
+    "eslint": "^8.44.0",
+    "eslint-config-next": "13.4.8",
     "postcss": "^8.4.24",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "sass": "^1.63.6",
     "tailwindcss": "^3.3.2",
     "tailwind-bootstrap-grid": "^5.0.1",
-    "typescript": "5.1.3"
+    "typescript": "5.1.6"
   }
 }

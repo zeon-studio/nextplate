@@ -3,8 +3,8 @@
 import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Testimonial } from "@/types";
-import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 interface PageData {
@@ -32,7 +32,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                 />
                 <p
                   dangerouslySetInnerHTML={markdownify(
-                    data.frontmatter.description!
+                    data.frontmatter.description!,
                   )}
                 />
               </div>
@@ -96,7 +96,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                               />
                               <p
                                 dangerouslySetInnerHTML={markdownify(
-                                  item.designation
+                                  item.designation,
                                 )}
                                 className="text-dark dark:text-white"
                               />
@@ -104,7 +104,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                           </div>
                         </div>
                       </SwiperSlide>
-                    )
+                    ),
                   )}
                 </Swiper>
               </div>
