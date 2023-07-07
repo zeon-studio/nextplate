@@ -19,7 +19,7 @@ features:
       link: "#"
 
   - title: "About Naresh Hingorani, Founder & CEO"
-    image: "/images/ceo_cartoon_2.jpeg"
+    image: "/images/ceo_naresh.jpeg"
     contentwidth: 8
     backgroundclass: bg-white
     content: "Naresh is a seasoned, hands-on entrepreneur with more than 25 years of experience in building and scaling organizations in Industry, Consulting and SaaS businesses. <br/> <br/>He has started and scaled a range of enterprises and functions in the industry (Sea-Land, CSX, Maersk), software providers (NeoModal, Descartes), consulting firms (IBM, Bristlecone, H Road). He has done so by building and leading some of the most successful world class teams, product innovations and processes in Go-To-Market, Product Management and Consulting Delivery. <br/> <br/>He has also collaborated closely in building effective global partnerships with firms such as SAP, Oracle, Kinaxis, Informatica, SPS Commerce, Tradeshift & Experian to name a few. His experiences have taken him across the globe to build teams in North America, Europe and Asia Pacific. Through these experiences, Naresh has developed an appreciation for the critical success factors and best practices for organizations and employees at any scale and has made it his mission to help his customers and team members reach their potential through H Road." 
