@@ -65,7 +65,7 @@ export default function MyCarousel() {
 
         <div className="carousel-content">
           <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
-            Accelerating Product and Service Innovation.r
+            Accelerating Product and Service Innovation
           </h1>
           {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our employee’s journey fun and rewarding by ideating,
