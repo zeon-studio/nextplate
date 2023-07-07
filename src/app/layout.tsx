@@ -25,7 +25,25 @@ export default function RootLayout({
         />
 
         {/* favicon */}
-        <link rel="shortcut icon" href={config.site.favicon} />
+        {/* <link rel="shortcut icon" href={config.site.favicon} /> */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={config.site.apple_favicon}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={config.site.favicon_1}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href={config.site.favicon_2}
+        />
+        {/* <link rel="manifest" href={config.site.site_manifest}></link> */}
         {/* theme meta */}
         <meta name="theme-name" content="hroad" />
         <meta name="msapplication-TileColor" content="#000000" />
