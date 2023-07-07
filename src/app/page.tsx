@@ -167,10 +167,15 @@ const Home = () => {
           <div className="row items-center justify-between">
             <div className="text-center md:col-12 md:order-1">
               <h2 className="mb-4 text-blue-600">Mission 🚀</h2>
-              <h3 className="mb-2">
-                We make your journey to scale, globalize and drive sustainable
-                growth Easy, Effective and Delightful.
-              </h3>
+              <h4 className="mb-2">
+                H Road partners with fast growing companies to help them scale
+                and drive sustainable growth in global markets. Our portfolio of
+                people, technology, and services along with our partnership
+                approach are designed to deliver an easy, cost effective and
+                delightful experience. Our commitment to our customers is:
+                &quot;<span className="text-blue-600">Growth. Delivered.</span>
+                &quot;
+              </h4>
             </div>
           </div>
         </div>
