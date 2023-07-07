@@ -1,3 +1,4 @@
+import { ReactElement } from 'react';
 import ImageFallback from "@/components/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -32,6 +33,123 @@ const Home = () => {
   } = aboutFrontMatter;
 
   // CONTACT PAGE
+  type ValueProposition = {
+    "delivery-services": ReactElement;
+    "market-offering": ReactElement;
+    [key: string]: ReactElement | undefined;
+  };
+
+  const valueProposition: ValueProposition = {
+    "delivery-services": (
+      <div className="row" style={{ marginTop: 100 }}>
+        <div>
+          <h3 className="mb-4 text-blue-600">Our Value Proposition</h3>
+          <h4 className="mb-2 text-blue-600">
+            An Easy and Trustworthy Button:
+          </h4>
+          <ul>
+            <li className="text-lg">
+              A Turnkey Operation with low overheads that gives you a jumpstart
+              and speed to globalization. We do the heavy lifting in the
+              background and have built a best-in-class approach to the
+              necessary infrastructure.
+            </li>
+          </ul>
+          <br />
+          <h4 className="mb-2 text-blue-600">Distinctive Value Creation:</h4>
+          <ul>
+            <li className="text-lg">
+              <strong>Accelerate EBITDA:</strong> Opportunity to quickly scale
+              your operation with lower cost
+            </li>
+            <li className="text-lg">
+              <strong>Accelerate Time to Market:</strong> Opportunity to shrink
+              the delivery time for your solutions
+            </li>
+            <li className="text-lg">
+              <strong>Increase customer stickiness:</strong> A clear opportunity
+              to diversify your solution offerings at a lower price point for
+              your existing customers
+            </li>
+            <li className="text-lg">
+              <strong>Expand target customers:</strong> Ability to increase your
+              target market segments both from a size and geographical market
+              perspective
+            </li>
+            <li className="text-lg">
+              <strong>Mitigate Risk:</strong> Build skills and competitive
+              differentiation through economic cycles
+            </li>
+          </ul>{" "}
+          <br />
+          <h4 className="mb-2 text-blue-600">
+            {" "}
+            Increasing Value Creation over Time:
+          </h4>
+          <ul>
+            <li className="text-lg">
+              This team-based approach is different from a traditional
+              consulting-based approach. The value creation increases for you
+              because of increased cultural fit, increased knowledge of your
+              operations and increased ownership by the team over time.
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+    "market-offering": (
+      <div className="row" style={{ marginTop: 100 }}>
+        <div>
+          <h3 className="mb-4 text-blue-600">Our Value Proposition</h3>
+          <h4 className="mb-2 text-blue-600">
+            An Easy and Trustworthy Button:
+          </h4>
+          <ul>
+            <li className="text-lg">
+              A Turnkey Operation with low overheads that gives you a jumpstart
+              and speed to globalization. We do the heavy lifting in the
+              background and have built a best-in-class approach to the
+              necessary infrastructure.
+            </li>
+          </ul>
+          <br />
+          <h4 className="mb-2 text-blue-600">Distinctive Value Creation:</h4>
+          <ul>
+            <li className="text-lg">
+              <strong>Accelerate Revenue:</strong> Opportunity through scaling
+              your GTM with a data and process centric approach
+            </li>
+            <li className="text-lg">
+              <strong>Increase Customer Success:</strong> A best-in-class and
+              proven approach to optimally leverage all the pillars for maximum
+              effectiveness
+            </li>
+            <li className="text-lg">
+              <strong>Improve Brand:</strong> A structured approach for mining
+              and customer advocacy
+            </li>
+            <li className="text-lg">
+              <strong>Mitigate Risk:</strong> Scale your GTM through a hybrid
+              approach with lower costs while maintaining effectiveness through
+              economic cycles
+            </li>
+          </ul>{" "}
+          <br />
+          <h4 className="mb-2 text-blue-600">
+            {" "}
+            Increasing Value Creation over Time:
+          </h4>
+          <ul>
+            <li className="text-lg">
+              The value creation increases for you because of increased cultural
+              fit, increased knowledge of your operations and increased
+              ownership by the team over time.
+            </li>
+          </ul>
+        </div>
+      </div>
+    ),
+  };
 
   const data: RegularPage = getListPage("pages/contact.md");
   const { frontmatter: contactMatter } = data;
@@ -134,6 +252,7 @@ const Home = () => {
                 </ul>
               </div>
             </div>
+            {valueProposition[feature.id as keyof typeof valueProposition]}
           </div>
         </section>
       ))}
