@@ -261,7 +261,7 @@ const Home = () => {
           </div>
         </section>
       ))}
-      <div className="container">
+      {/* <div className="container">
         <div className="row items-center justify-between">
           <div className={`mb:md-0 mb-6 md:col-12`}>
             <Testimonials
@@ -275,7 +275,7 @@ const Home = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <section id="about" className="bg-theme-light">
         {aboutFeatures
           .filter((feature) => !feature.title.includes("in a Name"))
