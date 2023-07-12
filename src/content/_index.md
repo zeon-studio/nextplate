@@ -6,13 +6,13 @@ banner:
   image: "/images/banner.png"
   button:
     enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/nextplate"
+    label: "Make Money Online"
+    link: "https://earnonlinemoney.org/blog/make-money-online/"
 
 # Features
 features:
-  - title: "What's Included in Nextplate"
-    image: "/images/service-1.png"
+  - title: "Side Hustles"
+    image: "/images/creative-side-hustles.jpg"
     content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
     bulletpoints:
       - "10+ Pre-build pages"
