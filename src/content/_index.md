@@ -27,7 +27,7 @@ features:
       link: "#"
 
   - title: "Discover the Key Features Of Next"
-    image: "/images/service-2.png"
+    image: "/images/make-money-online.jpg"
     content: "Next is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
     bulletpoints:
       - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
