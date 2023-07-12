@@ -4,50 +4,51 @@
       "name": "Home",
       "url": "/"
     },
+
     {
-      "name": "About",
-      "url": "/about"
+      "name": "Make Money Online",
+      "url": "https://earnonlinemoney.org/blog/make-money-online"
     },
     {
       "name": "Elements",
-      "url": "/elements"
+      "url": "https://earnonlinemoney.org/elements"
     },
     {
-      "name": "Pages",
-      "url": "",
+      "name": "Categories",
+      "url": "https://earnonlinemoney.org",
       "hasChildren": true,
       "children": [
         {
-          "name": "Contact",
+          "name": "Online Business",
           "url": "/contact"
         },
         {
-          "name": "Blog",
-          "url": "/blog"
+          "name": "A",
+          "url": "https://earnonlinemoney.org/blog"
         },
         {
           "name": "Authors",
-          "url": "/authors"
+          "url": "https://earnonlinemoney.org/authors"
         },
         {
           "name": "Categories",
-          "url": "/categories"
+          "url": "https://earnonlinemoney.org/categories"
         },
         {
-          "name": "Search",
-          "url": "/search"
+          "name": "Work From Home Jobs",
+          "url": "https://earnonlinemoney.org/work-from-home-jobs"
         },
         {
-          "name": "404 Page",
-          "url": "/404"
+          "name": "Freelancing",
+          "url": "https://earnonlinemoney.org/freelancing"
         }
       ]
     }
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "About",
+      "url": "https://earnonlinemoney.org/about"
     },
     {
       "name": "Privacy Policy",
