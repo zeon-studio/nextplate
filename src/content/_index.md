@@ -2,8 +2,8 @@
 # Banner
 banner:
   title: "Ultimate Side Hustles, Online Business Opportunities, Work From Home Jobs"
-  content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
-  image: "/images/banner.png"
+  content: "Hello, thanks for visiting! Let's cut to the chase. You landed on this page because you're searching for ways to earn money online? Right, well your journey to earning money online starts here!"
+  image: "/images/earn-money-online-gigs.jpg"
   button:
     enable: true
     label: "Make Money Online"
@@ -12,7 +12,7 @@ banner:
 # Features
 features:
   - title: "Side Hustles"
-    image: "/images/creative-side-hustles.jpg"
+    image: "/images/hustle.jpg"
     content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
     bulletpoints:
       - "10+ Pre-build pages"
@@ -27,24 +27,24 @@ features:
       link: "#"
 
   - title: "Discover the Key Features Of Next"
-    image: "/images/make-money-online.jpg"
+    image: "/images/service-2.png"
     content: "Next is an all-in-one web framework for building fast, content-focused websites. It offers a range of exciting features for developers and website creators. Some of the key features are:"
     bulletpoints:
-      - "Zero JS, by default: No JavaScript runtime overhead to slow you down."
-      - "Customizable: Tailwind, MDX, and 100+ other integrations to choose from."
+      - "Unleash your inner risk-taker and master the art of problem-solving."
+      - "Learn how to create significant value through entrepreneurial endeavors."
       - "UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more."
     button:
       enable: true
       label: "Get Started Now"
       link: "https://github.com/zeon-studio/nextplate"
 
-  - title: "The Top Reasons to Choose Next for Your Next Project"
+  - title: "Build a thriving profitable online store."
     image: "/images/service-3.png"
-    content: "With Next, you can build modern and content-focused websites without sacrificing performance or ease of use."
+    content: "Build a thriving profitable online store."
     bulletpoints:
-      - "Instantly load static sites for better user experience and SEO."
-      - "Intuitive syntax and support for popular frameworks make learning and using Next a breeze."
-      - "Use any front-end library or framework, or build custom components, for any project size."
+      - "Discover the essential elements of a successful e-commerce store."
+      - "Learn how to build trust by facilitating seamless transactions."
+      - "Explore insights into the latest trends and best practices in e-commerce."
       - "Built on cutting-edge technology to keep your projects up-to-date with the latest web standards."
     button:
       enable: false
