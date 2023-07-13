@@ -10,37 +10,37 @@
       "url": "https://earnonlinemoney.org/blog/make-money-online"
     },
     {
-      "name": "Elements",
-      "url": "https://earnonlinemoney.org/elements"
+      "name": "Side Hustles",
+      "url": "https://earnonlinemoney.org/blog/creative-side-hustles"
     },
     {
       "name": "Categories",
-      "url": "https://earnonlinemoney.org",
+      "url": "https://earnonlinemoney.org/categories",
       "hasChildren": true,
       "children": [
         {
           "name": "Online Business",
-          "url": "/contact"
+          "url": "/online-business"
         },
         {
-          "name": "A",
-          "url": "https://earnonlinemoney.org/blog"
+          "name": "Side Hustles",
+          "url": "/side-hustles"
         },
         {
-          "name": "Authors",
-          "url": "https://earnonlinemoney.org/authors"
+          "name": "Investing",
+          "url": "/investing"
         },
         {
-          "name": "Categories",
-          "url": "https://earnonlinemoney.org/categories"
+          "name": "Ecommerce",
+          "url": "/ecommerce"
         },
         {
           "name": "Work From Home Jobs",
-          "url": "https://earnonlinemoney.org/work-from-home-jobs"
+          "url": "/work-from-home-jobs"
         },
         {
           "name": "Freelancing",
-          "url": "https://earnonlinemoney.org/freelancing"
+          "url": "/freelancing"
         }
       ]
     }
@@ -48,7 +48,7 @@
   "footer": [
     {
       "name": "About",
-      "url": "https://earnonlinemoney.org/about"
+      "url": "/about"
     },
     {
       "name": "Privacy Policy",

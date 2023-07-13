@@ -3,7 +3,7 @@
 banner:
   title: "Ultimate Side Hustles, Online Business Opportunities, Work From Home Jobs"
   content: "Hello, thanks for visiting! Let's cut to the chase. You landed on this page because you're searching for ways to earn money online? Right, well your journey to earning money online starts here!"
-  image: "/images/earn-money-online-gigs.jpg"
+  image: "/images/"
   button:
     enable: true
     label: "Make Money Online"
