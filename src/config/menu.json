@@ -31,8 +31,8 @@
           "url": "/online-business"
         },
         {
-          "name": "Side Hustles",
-          "url": "/side-hustles"
+          "name": "Freelancing",
+          "url": "/freelancing"
         },
         {
           "name": "Investing",
@@ -47,8 +47,8 @@
           "url": "/work-from-home-jobs"
         },
         {
-          "name": "Freelancing",
-          "url": "/freelancing"
+          "name": "Reviews",
+          "url": "/reviews"
         }
       ]
     }
