@@ -38,7 +38,7 @@ export type Author = {
         name: string;
         icon: string;
         link: string;
-      }
+      },
     ];
   };
   content?: string;
