@@ -11,7 +11,7 @@ import * as FaIcons6 from "react-icons/fa6";
 
 type IconMap = Record<string, IconType>;
 
-interface IDynamicIcon {
+interface IDynamicIcon extends React.SVGProps<SVGSVGElement> {
   icon: string;
   className?: string;
 }
