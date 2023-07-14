@@ -1,3 +1,6 @@
 {
-  "recommendations": ["bradlc.vscode-tailwindcss"]
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "dzhavat.git-cheatsheet"
+  ]
 }
