@@ -14,6 +14,7 @@ Why do you need creative side hustle ideas these days? To start with, it's expen
 
 
 Side Hustle Benefits
+
 What are the benefits of a side hustle? What if you lose your job or your car breaks down? You may even need a vacation! Even more importantly, no one has job security these days. I think it's safe to say, we can't predict the future. Therefore, it's essential to have a backup plan to be prepared for any situation. So the primary reason for discovering side hustle ideas is to earn supplemental income.
 Most people wouldn't mind earning a few extra coins from home. But as we all know, money doesn't grow on trees. And it's nearly impossible to survive without money. Therefore, it's vital to find ways to gain more money. To tell the truth, everyone should brainstorm side hustle ideas to earn extra money from home.
 
@@ -49,6 +50,7 @@ Can you get paid to sleep? Well, it depends on what city you live in. You can fi
 Visiting websites is a fun side hustle. It will expand your horizon by visiting websites you've yet to see. Which can teach you a-lot and open your mind as well. But to be honest, you can't get rich visiting websites, but you can get paid to click ads and earn pocket change. In order to make it worth your while, you need visit these sites regularly. Additionally, use more than one site to ensure your making the most out of your time.
 
 7. Start a Laundromat Business
+
 Why not start a laundromat business? Starting a laundry business requires a huge start-up fee. However, a laundry business will pay off in the long haul. On average, a laundromat business costs around $200,000 - $100,0000 to start up. It can take anywhere between 2 and 6 years to earn back your total return on investment. The amount of revenue your business earns depends on how busy your business is and which city you live in. The average laundromat profits $3000 - $8000 per month.
 
 8. Make Money From Apps
@@ -56,6 +58,7 @@ Why not start a laundromat business? Starting a laundry business requires a huge
 Over the last ten years, the applications have taken the mobile industry by storm. This is primarily due to the innovation of businesses and technology. Millions of applications (APPS) have been launched. Consequently, thousands of developers have became rich. On the contrary, average people can make money from apps, including you!
 
 9. Make Money From Craigslist
+
 If you're seeking to get cash instantly, you can make money on Craigslist. Selling your stuff is one of the easiest ways to earn a few bucks without doing too much work. However, there are more ways to make money on CL besides selling. You can earn from gigs, find job opportunities, or post your talents to generate income.
 
 10. Sell Information
@@ -63,16 +66,21 @@ If you're seeking to get cash instantly, you can make money on Craigslist. Selli
 Most people wonder if it's possible to make money by selling information. The answer is yes! If you have extensive knowledge on a topic, why not get paid for sharing your knowledge. There are several ways to sell information. Blogging is the most popular strategy for selling information. But you can also sell info through social videos, podcasts, online courses.
 
 11. Sell Physical Products
+
 Selling physical products online can be one of the biggest moneymakers. You can resell products or sell your own products. There are many sites that will allow you to sell merchandise. A few sites are Letitgo, OfferUp, and eBay. If you are artistic, you can promote your arts and crafts.
 
 12. Sell Unwanted Items
+
 Get Paid to Store Things 
 If you sell unwanted items you gain %100 profit. Of course, minus your initial cost. You can also find wholesale products in bulk to resell, basically becoming the middle man. There are many wholesale products that you can purchase from companies. Afterwards, you can turn around and resell these products.
 
-13 Take Surveys
+13. Take Surveys
+
 Millions of dollars have been earned taking surveys. Many survey sites will give members $5 just for signing up. Not many individuals like the idea of turning down money. Taking surveys can add a few dollars to your bank account if you're looking for ways to earn extra money. Be sure you have anywhere between 15 minutes - 1 hour open, because it will take time to complete. More importantly, find the best survey sites so you can increase your earnings.
-100 Additional Creative Side Hustle Ideas
-Are you searching for legitimate ways to earn additional income from home? Well, look no further, below you'll discover over 100 additional creative side hustle ideas:
+
+_100 Additional Creative Side Hustle Ideas_
+
+Are you searching for legitimate ways to earn additional income from home? Well, look no further, below you'll discover over _100 additional creative side hustle ideas_:
     1. Advertise digital products, 
     2. Amazon jobs, 
     3. Arts and crafts, 
