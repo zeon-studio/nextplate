@@ -39,7 +39,7 @@ features:
       link: "https://earnonlinemoney.org/entrepreneurship"
 
   - title: "Unleashing Growth and Success in the Digital Marketplace"
-    image: "/images/eccomerce.jpg"
+    image: "/images/ecommerce.jpg"
     content: "Build a thriving profitable online store."
     bulletpoints:
       - "Discover the essential elements of a successful e-commerce store."

@@ -1,12 +1,12 @@
 ---
-title: Sam Wilson
+title: Dejuan Jones
 email: samwilson@email.com
-image: "/images/avatar.png"
-description: this is meta description
+image: "/images/dee.jpg"
+description: Author of earnonlinemoney.org.
 social:
 - name: github
   icon: FaGithub
-  link: https://github.com
+  link: https://github.com/Juan-Jones
 
 - name: twitter
   icon: FaTwitter
