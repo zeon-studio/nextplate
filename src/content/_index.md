@@ -3,7 +3,7 @@
 banner:
   title: "Ultimate Guide to Earn Money Online"
   content: "Hello, thanks for visiting! Let's cut to the chase. You landed on this page because you're searching for ways to earn money online? Right, well your journey to earn money online starts here!"
-  image: "/images/get-money.jpg"
+  image: "/images/get-money(1).jpg"
   button:
     enable: true
     label: "Make Money Online"
