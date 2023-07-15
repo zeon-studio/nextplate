@@ -1,12 +1,12 @@
 ---
-title: "How to build an Application with modern Technology"
+title: ""
 meta_title: ""
-description: "this is meta description"
+description: ""
 date: 2022-04-04T05:00:00Z
 image: "/images/image-placeholder.png"
-categories: ["Software"]
+categories: ["entrepreneurship", "investing"]
 author: "Dejuan Jones"
-tags: ["software", "tailwind"]
+tags: ["opportunities", "financial-advice"]
 draft: false
 ---
 
