@@ -63,6 +63,12 @@
 - npm v9.5+
 - tailwind v3.3+
 
+### 👉 Install Dependencies
+
+```
+npm install
+```
+
 ### 👉 Development Command
 
 ```
