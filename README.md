@@ -81,6 +81,13 @@ npm run dev
 npm run build
 ```
 
+### 👉 Build and Run Docker Container Command
+
+```
+docker build -t nextplate .
+docker run -p 3000:3000 nexplate
+```
+
 <!-- reporting issue -->
 
 ## 🐞 Reporting Issues
