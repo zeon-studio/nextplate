@@ -85,7 +85,7 @@ npm run build
 
 ```bash
 docker build -t nextplate .
-docker run -p 3000:3000 nexplate
+docker run -p 3000:3000 nextplate
 ```
 
 <!-- reporting issue -->
