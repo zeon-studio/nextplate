@@ -1,38 +1,24 @@
-import ImageFallback from "@/helpers/ImageFallback";
-import MDXContent from "@/helpers/MDXContent";
-import { getListPage } from "@/lib/contentParser";
-import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
-import { RegularPage } from "@/types";
-import Link from "next/link";
 
 const NotFound = async () => {
-  const data: RegularPage = getListPage("pages/404.md");
-  const { image, title } = data.frontmatter;
   return (
     <>
-      <SeoMeta title={"Page Not Found"} image={"/images/404.png"} />
-      <section className="section-sm">
+      <SeoMeta title={"Page Not Found"} />
+      <section className="section-sm text-center">
         <div className="container">
           <div className="row justify-center">
-            <div className="text-center sm:col-10 md:col-8 lg:col-6">
-              <ImageFallback
-                className="mb-8 w-full"
-                src={image}
-                alt="page not found"
-                height={320}
-                width={630}
-              />
-              <h1
-                className="h2 mb-4"
-                dangerouslySetInnerHTML={markdownify(title)}
-              ></h1>
+            <div className="sm:col-10 md:col-8 lg:col-6">
+              <span className="text-[8rem] block font-bold text-dark dark:text-darkmode-dark">
+                404
+              </span>
+              <h1 className="h2 mb-4">Page not found</h1>
               <div className="content">
-                <MDXContent content={data.content} />
+                The page you are looking for might have been removed, had its
+                name changed, or is temporarily unavailable.
               </div>
-              <Link href="/" className="btn btn-primary mt-8">
-                Back To Home
-              </Link>
+              <a href="/" className="btn btn-primary mt-8">
+                Back to home
+              </a>
             </div>
           </div>
         </div>
