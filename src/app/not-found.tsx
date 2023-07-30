@@ -13,8 +13,10 @@ const NotFound = async () => {
               </span>
               <h1 className="h2 mb-4">Page not found</h1>
               <div className="content">
-                The page you are looking for might have been removed, had its
-                name changed, or is temporarily unavailable.
+                <p>
+                  The page you are looking for might have been removed, had its
+                  name changed, or is temporarily unavailable.
+                </p>
               </div>
               <a href="/" className="btn btn-primary mt-8">
                 Back to home
