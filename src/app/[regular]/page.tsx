@@ -11,11 +11,7 @@ export const dynamicParams = false;
 export const generateStaticParams = () => {
   const getRegularPages = getSinglePage("pages");
 
-  const filterRegularPages = getRegularPages.filter(
-    (page: RegularPage) => !page.frontmatter.layout
-  );
-
-  const regularPages = filterRegularPages.map((page: RegularPage) => ({
+  const regularPages = getRegularPages.map((page: RegularPage) => ({
     regular: page.slug,
   }));
 
@@ -26,7 +22,7 @@ export const generateStaticParams = () => {
 const RegularPages = ({ params }: { params: { regular: string } }) => {
   const regularData = getSinglePage("pages");
   const data = regularData.filter(
-    (page: RegularPage) => page.slug === params.regular
+    (page: RegularPage) => page.slug === params.regular,
   )[0];
   const { frontmatter, content } = data;
   const { title, meta_title, description, image } = frontmatter;

@@ -8,7 +8,7 @@ import { Button, Feature } from "@/types";
 import { FaCheck } from "react-icons/fa/index.js";
 
 const Home = () => {
-  const homepage = getListPage("_index.md");
+  const homepage = getListPage("homepage/index.md");
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const { frontmatter } = homepage;

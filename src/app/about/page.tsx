@@ -6,7 +6,7 @@ import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 
 const About = () => {
-  const data: RegularPage = getListPage("pages/about.md");
+  const data: RegularPage = getListPage("about/index.md");
   const { frontmatter, content } = data;
   const { title, meta_title, description, image } = frontmatter;
 
