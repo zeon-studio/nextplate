@@ -5,7 +5,7 @@ import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 
 const Contact = async () => {
-  const data: RegularPage = getListPage("contact/index.md");
+  const data: RegularPage = getListPage("contact/_index.md");
   const { frontmatter } = data;
   const { title, description, meta_title, image } = frontmatter;
   const { contact_form_action } = config.params;
