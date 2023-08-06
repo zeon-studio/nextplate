@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const useLoadMore = (
   items: Array<any>,
   loadPerClick: number,
-  mounted: boolean
+  mounted: boolean,
 ) => {
   const [loadedItems, setLoadedItems] = useState<Array<any>>([]);
   const [next, setNext] = useState<number>(loadPerClick);

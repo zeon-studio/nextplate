@@ -30,7 +30,7 @@ const AuthorSingle = ({ params }: { params: { single: string } }) => {
   const { blog_folder } = config.settings;
   const posts: Post[] = getSinglePage(blog_folder);
   const postFilterByAuthor: Post[] = posts.filter(
-    (post) => slugify(post.frontmatter.author) === slugify(title)
+    (post) => slugify(post.frontmatter.author) === slugify(title),
   );
 
   return (

@@ -19,7 +19,7 @@ const tags = () => {
           <ul>
             {tags.map((tag: string) => {
               const count: number = alltags.filter(
-                (c: string) => c === tag
+                (c: string) => c === tag,
               ).length;
               return (
                 <li className="m-3 inline-block" key={tag}>

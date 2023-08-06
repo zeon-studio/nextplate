@@ -11,7 +11,7 @@ const useWindow = (size: number) => {
     function viewport() {
       var width = Math.max(
         document.documentElement.clientWidth,
-        window.innerWidth || 0
+        window.innerWidth || 0,
       );
       setWindowSize(width);
     }

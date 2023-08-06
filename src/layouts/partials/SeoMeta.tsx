@@ -49,7 +49,7 @@ const SeoMeta = ({
       <meta
         property="og:title"
         content={plainify(
-          meta_title ? meta_title : title ? title : config.site.title
+          meta_title ? meta_title : title ? title : config.site.title,
         )}
       />
 
@@ -68,7 +68,7 @@ const SeoMeta = ({
       <meta
         name="twitter:title"
         content={plainify(
-          meta_title ? meta_title : title ? title : config.site.title
+          meta_title ? meta_title : title ? title : config.site.title,
         )}
       />
 

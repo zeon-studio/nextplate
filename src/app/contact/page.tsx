@@ -30,17 +30,19 @@ const Contact = async () => {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     className="form-input"
                     placeholder="John Doe"
                     type="text"
                   />
                 </div>
                 <div className="mb-6">
-                  <label htmlFor="mail" className="form-label">
+                  <label htmlFor="email" className="form-label">
                     Working Mail <span className="text-red-500">*</span>
                   </label>
                   <input
-                    id="mail"
+                    id="email"
+                    name="email"
                     className="form-input"
                     placeholder="john.doe@email.com"
                     type="email"
@@ -51,9 +53,10 @@ const Contact = async () => {
                     Anything else? <span className="text-red-500">*</span>
                   </label>
                   <textarea
+                    id="message"
+                    name="message"
                     className="form-input"
                     placeholder="Message goes here..."
-                    id="message"
                     rows={8}
                   ></textarea>
                 </div>

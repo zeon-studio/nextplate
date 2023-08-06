@@ -163,7 +163,7 @@ const Search = ({ searchList }: Props) => {
                             {index !== item.frontmatter.categories.length - 1 &&
                               ", "}
                           </a>
-                        )
+                        ),
                       )}
                     </li>
                   </ul>

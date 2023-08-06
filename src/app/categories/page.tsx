@@ -19,7 +19,7 @@ const Categories = () => {
           <ul>
             {categories.map((category: string) => {
               const count = allCategories.filter(
-                (c: string) => c === category
+                (c: string) => c === category,
               ).length;
               return (
                 <li className="m-3 inline-block" key={category}>

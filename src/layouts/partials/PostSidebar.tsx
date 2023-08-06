@@ -19,7 +19,7 @@ const PostSidebar = ({
           <ul className="space-y-4">
             {categories.map((category: string) => {
               const count = allCategories.filter(
-                (c: string) => c === category
+                (c: string) => c === category,
               ).length;
               return (
                 <li key={category}>

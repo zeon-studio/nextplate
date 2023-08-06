@@ -22,7 +22,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
             }
             onClick={() =>
               setTheme(
-                theme === "dark" || resolvedTheme === "dark" ? "light" : "dark"
+                theme === "dark" || resolvedTheme === "dark" ? "light" : "dark",
               )
             }
           />
