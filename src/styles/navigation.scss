@@ -68,7 +68,7 @@ input#nav-toggle:checked ~ #nav-menu {
   }
 
   span {
-    @apply absolute -top-1 left-0 flex h-6 w-6 items-center justify-center rounded-full bg-dark transition-all duration-300 dark:bg-white;
+    @apply absolute -top-1 left-0 dark:lg:left-4 flex h-6 w-6 items-center justify-center rounded-full bg-dark transition-all duration-300 dark:bg-white;
   }
 
   input:checked + label {
