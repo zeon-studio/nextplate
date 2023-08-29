@@ -22,7 +22,7 @@ const Footer = () => {
           <div className="mb-8 text-left lg:col-4 lg:mb-0 lg:text-left">
             <Logo
               rest={{
-                height: "50",
+                height: "42",
                 width: "123",
               }}
             />
@@ -38,22 +38,13 @@ const Footer = () => {
             <ul>
               {pathname !== "/privacy-policy" ? (
                 <li className="m-3 inline-block" key="About">
-                  <ScrollLink href="/home#about">About</ScrollLink>
+                  <ScrollLink href="/home#our-story">Our Story</ScrollLink>
                 </li>
               ) : (
                 <li className="m-3 inline-block" key="About">
                   <Link href="/">Home</Link>
                 </li>
               )}
-              <li className="m-3 inline-block" key="Privacy Policy">
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="/privacy-policy"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

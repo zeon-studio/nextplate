@@ -15,12 +15,12 @@ const ScrollLink = ({ children, ...props }: ScrollLinkProps) => {
     const targetId = e.currentTarget.href.replace(/.*\#/, "");
     const elem = document.getElementById(targetId);
     let scrollTo = 0;
-    if(elem){
-      scrollTo = elem?.offsetTop - 80;
+    if (elem) {
+      scrollTo = elem?.offsetTop - 74;
       window.scrollTo({
-      top: scrollTo,
-      behavior: "smooth",
-    });
+        top: scrollTo,
+        behavior: "smooth",
+      });
     }
   };
   return (
