@@ -20,7 +20,7 @@ export default function MyCarousel() {
     >
       <div className="custom-carousel-slide">
         <img
-          src="/images/scenic_future_roads.png"
+          src="/images/novelty_banne_11.png"
           alt="Slide 1"
           className="carousel-image"
         />
@@ -28,8 +28,8 @@ export default function MyCarousel() {
 
         <div className="carousel-content">
           <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
-            Empowering businesses worldwide as a catalyst for Growth &
-            Innovation
+            Fueling global businesses as a beacon of Growth & Revitalizing
+            Traditions.
           </h1>
           {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our customer’s journey to scale, globalize and drive
@@ -39,7 +39,7 @@ export default function MyCarousel() {
       </div>
       <div className="custom-carousel-slide">
         <img
-          src="/images/multiculture-banner.png"
+          src="/images/ovelty_banne_12.png"
           alt="Slide 2"
           className="carousel-image"
         />
@@ -47,7 +47,8 @@ export default function MyCarousel() {
 
         <div className="carousel-content">
           <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
-            Powering a Culture of Ownership, Integrity & Collaboration
+            Amplifying our Heritage & Traditions. Infusing our roots with a
+            Contemporary Touch
           </h1>
           {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our employee’s journey fun and rewarding by ideating,
@@ -57,7 +58,7 @@ export default function MyCarousel() {
       </div>
       <div className="custom-carousel-slide">
         <img
-          src="/images/hroad_banner.png"
+          src="/images/ovelty_banne_13.png"
           alt="Slide 2"
           className="carousel-image"
         />
@@ -65,7 +66,7 @@ export default function MyCarousel() {
 
         <div className="carousel-content">
           <h1 className="carousel-title text-shadow-28px-28px-black mb-4 text-white">
-            Accelerating Product and Service Innovation
+            Crafted in Surat, Worn Worldwide
           </h1>
           {/* <h4 className="carousel-subtitle text-shadow-28px-28px-black mb-4 text-white">
             Making our employee’s journey fun and rewarding by ideating,

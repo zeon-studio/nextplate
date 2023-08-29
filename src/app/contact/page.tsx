@@ -35,7 +35,7 @@ const Contact = () => {
       id="contact"
       className="section-sm"
       style={{
-        backgroundImage: 'url("/images/world_map_light.png")',
+        backgroundImage: 'url("/images/location.png")',
         backgroundSize: "contain",
         backgroundPosition: "bottom",
         backgroundRepeat: "no-repeat",
@@ -44,17 +44,30 @@ const Contact = () => {
     >
       <div className="container">
         <h2 className="mb-4 text-center text-blue-600">Contact</h2>
-        <h4 className="pb-20 text-center" style={{ fontWeight: 100 }}>
-          Be part of a Global, Fast-Growing, Fast-Paced & World-Class Ecosystem
-          that is having great fun in learning, innovating, growing and
-          redefining the Consulting Model. <br />
-          <br />
-          If you are a prospective Customer, Partner or Employee, Get in touch
-          with us! ☎️
+        <h4
+          className="pb-10 text-center"
+          style={{
+            fontWeight: 100,
+            padding: "10px 20px",
+            background: "white",
+            border: "1px solid #5f18e7",
+          }}
+        >
+          Contact Us: Stay connected, share your feedback, or simply say hello.
         </h4>
         <div className="row">
-          <div className="mx-auto md:col-10 lg:col-6">
-            <form onSubmit={handleContactForm} method="POST">
+          <div
+            className="mx-auto md:col-10 lg:col-6"
+            style={{
+              fontWeight: 100,
+              padding: "10px 20px",
+              background: "white",
+              border: "1px solid #5f18e7",
+              borderTop: "unset",
+              textAlign: "center",
+            }}
+          >
+            {/* <form onSubmit={handleContactForm} method="POST">
               <div className="mb-6">
                 <label htmlFor="name" className="form-label">
                   Full Name <span className="text-red-500">*</span>
@@ -78,17 +91,6 @@ const Contact = () => {
                 />
               </div>
               <div className="mb-6">
-                <label htmlFor="company" className="form-label">
-                  Company
-                </label>
-                <input
-                  name="company"
-                  className="form-input"
-                  placeholder="eg: Tesla"
-                  type="text"
-                />
-              </div>
-              <div className="mb-6">
                 <label htmlFor="message" className="form-label">
                   Message
                 </label>
@@ -102,7 +104,8 @@ const Contact = () => {
               <button type="submit" className="btn btn-primary">
                 Send
               </button>
-            </form>
+            </form> */}
+            NOVELTY CREATIONS SHOP NO E-199 NEW TEXTILE MARKET RING ROAD SURAT
           </div>
         </div>
       </div>

@@ -43,55 +43,28 @@ const Home = () => {
     "delivery-services": (
       <div className="row" style={{ marginTop: 100 }}>
         <div>
-          <h3 className="mb-4 text-blue-600">Our Value Proposition</h3>
-          <h4 className="mb-2 text-blue-600">
-            An Easy and Trustworthy Button:
-          </h4>
+          <h3 className="text-black-600 mb-4">Why Choose Us?</h3>
+          <h4 className="mb-2 text-blue-600">Authenticity</h4>
           <ul>
             <li className="text-lg">
-              A Turnkey Operation with low overheads that gives you a jumpstart
-              and speed to globalization. We do the heavy lifting in the
-              background and have built a best-in-class approach to the
-              necessary infrastructure.
+              Our products are a true reflection of Surat&apos;s rich textile
+              heritage.
             </li>
           </ul>
           <br />
-          <h4 className="mb-2 text-blue-600">Distinctive Value Creation:</h4>
+          <h4 className="mb-2 text-blue-600">Versatility</h4>
           <ul>
             <li className="text-lg">
-              <strong>Accelerate EBITDA:</strong> Opportunity to quickly scale
-              your operation with lower cost
-            </li>
-            <li className="text-lg">
-              <strong>Accelerate Time to Market:</strong> Opportunity to shrink
-              the delivery time for your solutions
-            </li>
-            <li className="text-lg">
-              <strong>Increase customer stickiness:</strong> A clear opportunity
-              to diversify your solution offerings at a lower price point for
-              your existing customers
-            </li>
-            <li className="text-lg">
-              <strong>Expand target customers:</strong> Ability to increase your
-              target market segments both from a size and geographical market
-              perspective
-            </li>
-            <li className="text-lg">
-              <strong>Mitigate Risk:</strong> Build skills and competitive
-              differentiation through economic cycles
+              With a wide range of designs, our unstitched materials cater to
+              diverse tastes and occasions.
             </li>
           </ul>{" "}
           <br />
-          <h4 className="mb-2 text-blue-600">
-            {" "}
-            Increasing Value Creation over Time:
-          </h4>
+          <h4 className="mb-2 text-blue-600">Affordability</h4>
           <ul>
             <li className="text-lg">
-              This team-based approach is different from a traditional
-              consulting-based approach. The value creation increases for you
-              because of increased cultural fit, increased knowledge of your
-              operations and increased ownership by the team over time.
+              We believe in offering premium quality at prices that are
+              accessible to all.
             </li>
           </ul>
         </div>
@@ -100,50 +73,17 @@ const Home = () => {
     "market-offering": (
       <div className="row" style={{ marginTop: 100 }}>
         <div>
-          <h3 className="mb-4 text-blue-600">Our Value Proposition</h3>
+          <h3 className="mb-4 text-blue-600">Vision</h3>
           <h4 className="mb-2 text-blue-600">
             An Easy and Trustworthy Button:
           </h4>
           <ul>
             <li className="text-lg">
-              A Turnkey Operation with low overheads that gives you a jumpstart
-              and speed to globalization. We do the heavy lifting in the
-              background and have built a best-in-class approach to the
-              necessary infrastructure.
-            </li>
-          </ul>
-          <br />
-          <h4 className="mb-2 text-blue-600">Distinctive Value Creation:</h4>
-          <ul>
-            <li className="text-lg">
-              <strong>Accelerate Revenue:</strong> Opportunity through scaling
-              your GTM with a data and process centric approach
-            </li>
-            <li className="text-lg">
-              <strong>Increase Customer Success:</strong> A best-in-class and
-              proven approach to optimally leverage all the pillars for maximum
-              effectiveness
-            </li>
-            <li className="text-lg">
-              <strong>Improve Brand:</strong> A structured approach for mining
-              and customer advocacy
-            </li>
-            <li className="text-lg">
-              <strong>Mitigate Risk:</strong> Scale your GTM through a hybrid
-              approach with lower costs while maintaining effectiveness through
-              economic cycles
-            </li>
-          </ul>{" "}
-          <br />
-          <h4 className="mb-2 text-blue-600">
-            {" "}
-            Increasing Value Creation over Time:
-          </h4>
-          <ul>
-            <li className="text-lg">
-              The value creation increases for you because of increased cultural
-              fit, increased knowledge of your operations and increased
-              ownership by the team over time.
+              To be the leading choice for traditional unstitched dress
+              materials, recognized for our commitment to quality, authenticity,
+              and innovation. We envision a world where every individual feels
+              connected to their roots while embracing the future, one outfit at
+              a time.
             </li>
           </ul>
         </div>
@@ -166,40 +106,54 @@ const Home = () => {
         <div className="bg-white px-4 py-16 xl:p-20">
           <div className="row items-center justify-between">
             <div className="text-center md:col-12 md:order-1">
-              <h2 className="mb-4 text-blue-600">Mission 🚀</h2>
+              <h2 className="text-black-600 mb-4">Mission 🚀</h2>
               <h4 className="mb-2">
-                H Road partners with fast growing companies to help them scale
-                and drive sustainable growth in global markets. Our portfolio of
-                people, technology, and services along with our partnership
-                approach are designed to deliver an easy, cost effective and
-                delightful experience. Our commitment to our customers is:
-                &quot;<span className="text-blue-600">Growth. Delivered.</span>
+                At Novelty Creations, we celebrate the rich tapestry of
+                traditional fashion by offering premium unstitched dress
+                materials that empower our customers to express their
+                individuality. Rooted in the heart of Surat, our commitment is
+                to preserve the essence of our heritage while infusing it with
+                contemporary style. &quot;
+                <span className="text-blue-600">Traditional. Creations.</span>
                 &quot;
+              </h4>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div className="mt-10 text-center md:col-12 md:order-1">
+              <h2 className="text-black-600 mb-4">Vision 🎯</h2>
+              <h4 className="mb-2">
+                To be the leading choice for traditional unstitched dress
+                materials, recognized for our commitment to quality,
+                authenticity, and innovation. We envision a world where every
+                individual feels connected to their roots while embracing the
+                future, one outfit at a time. &quot;
               </h4>
             </div>
           </div>
         </div>
       </section>
-      <section className={`section-sm bg-gradient bg-theme-light`}>
+      <section
+        id="our-story"
+        className={`section-sm bg-gradient bg-theme-light`}
+      >
         <div className="container">
           <div className="row items-center justify-between">
             <div className={`md:col-7 lg:col-6 `}>
-              <h3 className="mb-4 text-blue-600">What’s in a Name</h3>
-              <p className="mb-8 text-lg">
-                The name “H Road” represents our purpose and goal we have set
-                forth for our . The “H” represents Hyper. The “Road” represents
-                to Scale, Growth & Globalization. We strive to bring keenness of
-                execution in empowering our customer’s journey.
+              <h2 className="text-black-600 mb-4">Our Story</h2>
+              <h4 className="mb-8">
+                Surat, a city known for its vibrant textile industry, is where
+                our journey began. Novelty Creations was born out of a passion
+                for traditional fashion and a desire to bring it to the modern
+                world.
                 <br />
                 <br />
-                The name “H Road” also represents our purpose and goal we have
-                set forth for our . The “H” represents High Standards. We are
-                building a place where curiosity, creativity, collaboration, and
-                clarity, which are the bedrock of innovation, flourish for us
-                and our customers. The “Road” represents to have fun in
-                learning, trusting and growing together with our customers. We
-                are creating an experience we can be proud of.
-              </p>
+                Our unstitched dress materials are more than just fabrics; they
+                are a canvas for our customers to weave their stories, to create
+                outfits that resonate with their identity. Join us in this
+                journey of tradition, elegance, and innovation.
+              </h4>
             </div>
             <div className={`mb:md-0 mb-6 md:col-5`}>
               <ImageFallback
@@ -212,7 +166,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {features.map((feature, index: number) => (
+      {features?.map((feature, index: number) => (
         <section
           id={feature.id || "section" + index}
           key={index}
@@ -278,7 +232,7 @@ const Home = () => {
       </div> */}
       <section id="about" className="bg-theme-light">
         {aboutFeatures
-          .filter((feature) => !feature.title.includes("in a Name"))
+          ?.filter((feature) => !feature.title.includes("in a Name"))
           .map((feature, index: number) => (
             <section
               key={index}
