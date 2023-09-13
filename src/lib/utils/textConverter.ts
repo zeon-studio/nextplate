@@ -33,6 +33,15 @@ export const plainify = (content: string) => {
   return stripHTML;
 };
 
+export const plainifyWithEllipsis = (content: string, maxLength: number) => {
+  if (content.length > maxLength) {
+    return plainify(content.slice(0, maxLength)).trimEnd() + '...';
+  } else {
+    return plainify(content);
+  }
+};
+
+
 // strip entities for plainify
 const htmlEntityDecoder = (htmlWithEntities: string): string => {
   let entityList: { [key: string]: string } = {

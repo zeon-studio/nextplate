@@ -7,7 +7,19 @@
     {
       "name": "Entreprise",
       "url": "/about"
+    },
+    {
+      "name": "Pages",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Notre équipe",
+          "url": "/authors"
+        }
+      ]
     }
+
   ],
   "footer": [
     {

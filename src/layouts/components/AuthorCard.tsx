@@ -1,6 +1,6 @@
 import Social from "@/components/Social";
 import ImageFallback from "@/helpers/ImageFallback";
-import { plainify } from "@/lib/utils/textConverter";
+import { plainifyWithEllipsis } from "@/lib/utils/textConverter";
 import Link from "next/link";
 
 const AuthorCard = ({ data }: { data: any }) => {
@@ -19,7 +19,7 @@ const AuthorCard = ({ data }: { data: any }) => {
       <h4 className="mb-3">
         <Link href={`/authors/${data.slug}`}>{title}</Link>
       </h4>
-      <p className="mb-4">{plainify(data.content?.slice(0, 100))}</p>
+      <p className="mb-4">{plainifyWithEllipsis(data.content, 100)}</p>
       <Social source={social} className="social-icons" />
     </div>
   );
