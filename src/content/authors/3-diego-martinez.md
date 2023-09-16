@@ -1,20 +1,16 @@
 ---
 title: Diego Martinez
 email: abc@email.com
-image: "/images/avatar.png"
-description: this is meta description
+image: "/images/profile_diego.jpg"
+description: Passionné de technologie
 social:
   - name: github
     icon: FaGithub
-    link: https://github.com
-
-  - name: twitter
-    icon: FaTwitter
-    link: https://twitter.com
+    link: https://github.com/dmarvar
 
   - name: linkedin
     icon: FaLinkedin
-    link: https://linkedin.com
+    link: https://www.linkedin.com/in/diegomartinez100/
 ---
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.
+Passionné de technologie et d'innovation, je mets mes compétences en programmation et ma créativité au service de projets informatiques pour façonner un avenir numérique meilleur.

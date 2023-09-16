@@ -1,3 +1,3 @@
 ---
-title: "Notre équipe"
+title: "Founders"
 ---

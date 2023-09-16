@@ -9,17 +9,9 @@
       "url": "/about"
     },
     {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Notre équipe",
-          "url": "/authors"
-        }
-      ]
+      "name": "Notre équipe",
+      "url": "/founders"
     }
-
   ],
   "footer": [
     {

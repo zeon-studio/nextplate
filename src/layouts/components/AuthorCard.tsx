@@ -19,7 +19,7 @@ const AuthorCard = ({ data }: { data: any }) => {
       <h4 className="mb-3">
         <Link href={`/authors/${data.slug}`}>{title}</Link>
       </h4>
-      <p className="mb-4">{plainifyWithEllipsis(data.content, 100)}</p>
+      <p className="mb-4">{plainifyWithEllipsis(data.content, 200)}</p>
       <Social source={social} className="social-icons" />
     </div>
   );
