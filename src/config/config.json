@@ -7,8 +7,8 @@
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.svg",
     "logo_darkmode": "/images/logo-darkmode.svg",
-    "logo_width": "170",
-    "logo_height": "35",
+    "logo_width": "300",
+    "logo_height": "80",
     "logo_text": "Nextplate"
   },
 
@@ -24,7 +24,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Developed by [Novotech](https://novotech.vercel.app/)"
+    "copyright": "Developed by [Lean Dev](https://leandev.fr/)"
   },
 
   "navigation_button": {

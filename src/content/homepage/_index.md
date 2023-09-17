@@ -11,7 +11,7 @@ banner:
 
 # Features
 features:
-  - title: "What's Included in Nextplate"
+  - title: "What we do ?"
     image: "/images/service-1.png"
     content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
     bulletpoints:
