@@ -27,12 +27,6 @@
     "copyright": "Developed by [Lean Dev](https://leandev.fr/)"
   },
 
-  "navigation_button": {
-    "enable": true,
-    "label": "Get Started",
-    "link": "https://github.com/zeon-studio/nextplate"
-  },
-
   "disqus": {
     "enable": true,
     "shortname": "themefisher-template",
