@@ -1,7 +1,7 @@
 ---
 title: Catalina Paez
 email: abc@email.com
-image: "/images/profile_catalina.jpg"
+image: "/images/profile_catalina.png"
 description: this is meta description
 social:
   - name: linkedin
