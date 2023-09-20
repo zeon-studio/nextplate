@@ -10,7 +10,7 @@
 
 <p align=center>
 
-  <a href="https://github.com/vercel/next.js/releases/tag/v13.4.1" alt="Contributors">
+  <a href="https://github.com/vercel/next.js/releases/tag/v13.5.1" alt="Contributors">
     <img src="https://img.shields.io/static/v1?label=NEXTJS&message=13.4&color=000&logo=nextjs" />
   </a>
 
