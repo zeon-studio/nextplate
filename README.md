@@ -10,7 +10,7 @@
 
 <p align=center>
 
-  <a href="https://github.com/vercel/next.js/releases/tag/v13.5.1" alt="Contributors">
+  <a href="https://github.com/vercel/next.js/releases/tag/v14.0.2" alt="Contributors">
     <img src="https://img.shields.io/static/v1?label=NEXTJS&message=13.4&color=000&logo=nextjs" />
   </a>
 
@@ -59,9 +59,9 @@
 
 ### 📦 Dependencies
 
-- next 13.4+
-- node v18+
-- npm v9.5+
+- next 14+
+- node v20+
+- npm v9.6+
 - tailwind v3.3+
 
 ### 👉 Install Dependencies
