@@ -24,6 +24,15 @@ export const humanize = (content: string) => {
     });
 };
 
+// titleify
+export const titleify = (content: string) => {
+  const humanized = humanize(content);
+  return humanized
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+};
+
 // plainify
 export const plainify = (content: string) => {
   const parseMarkdown: any = marked.parse(content);
