@@ -59,9 +59,9 @@
 
 ### 📦 Dependencies
 
-- next 14+
-- node v20+
-- npm v9.6+
+- next 14.0+
+- node v20.10+
+- npm v10.2+
 - tailwind v3.3+
 
 ### 👉 Install Dependencies

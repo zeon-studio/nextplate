@@ -5,6 +5,7 @@ import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import { Button, Feature } from "@/types";
+import Link from "next/link";
 import { FaCheck } from "react-icons/fa/index.js";
 
 const Home = () => {
@@ -36,9 +37,9 @@ const Home = () => {
                 dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
               />
               {banner.button!.enable && (
-                <a className="btn btn-primary" href={banner.button!.link}>
+                <Link className="btn btn-primary" href={banner.button!.link}>
                   {banner.button!.label}
-                </a>
+                </Link>
               )}
             </div>
             {banner.image && (
@@ -98,12 +99,12 @@ const Home = () => {
                   ))}
                 </ul>
                 {feature.button.enable && (
-                  <a
+                  <Link
                     className="btn btn-primary mt-5"
                     href={feature.button.link}
                   >
                     {feature.button.label}
-                  </a>
+                  </Link>
                 )}
               </div>
             </div>

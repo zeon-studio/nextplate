@@ -1,4 +1,5 @@
 import SeoMeta from "@/partials/SeoMeta";
+import Link from "next/link";
 
 const NotFound = async () => {
   return (
@@ -18,9 +19,9 @@ const NotFound = async () => {
                   name changed, or is temporarily unavailable.
                 </p>
               </div>
-              <a href="/" className="btn btn-primary mt-8">
+              <Link href="/" className="btn btn-primary mt-8">
                 Back to home
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,10 +1,10 @@
 import config from "@/config/config.json";
+import ImageFallback from "@/helpers/ImageFallback";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa/index.js";
-import ImageFallback from "../helpers/ImageFallback";
 
 const BlogCard = ({ data }: { data: Post }) => {
   const { summary_length, blog_folder } = config.settings;
@@ -25,10 +25,10 @@ const BlogCard = ({ data }: { data: Post }) => {
       </h4>
       <ul className="mb-4">
         <li className="mr-4 inline-block">
-          <a href={`/authors/${slugify(author)}`}>
+          <Link href={`/authors/${slugify(author)}`}>
             <FaRegUserCircle className={"-mt-1 mr-2 inline-block"} />
             {humanize(author)}
-          </a>
+          </Link>
         </li>
         <li className="mr-4 inline-block">
           <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
