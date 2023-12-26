@@ -140,13 +140,13 @@ const Header = () => {
         </ul>
         <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
           {settings.search && (
-            <span
-              className="mr-5 inline-block border-r border-border pr-5 text-xl text-dark hover:text-primary dark:border-darkmode-border dark:text-white cursor-pointer"
+            <button
+              className="border-border text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
               aria-label="search"
               data-search-trigger
             >
               <IoSearch />
-            </span>
+            </button>
           )}
           <ThemeSwitcher className="mr-5" />
           {navigation_button.enable && (
