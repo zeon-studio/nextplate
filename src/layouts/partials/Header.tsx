@@ -7,7 +7,7 @@ import menu from "@/config/menu.json";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
-import { IoSearch } from "react-icons/io5/index.js";
+import { IoSearch } from "react-icons/io5";
 
 //  child navigation link interface
 export interface IChildNavigationLink {

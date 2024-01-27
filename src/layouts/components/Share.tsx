@@ -4,7 +4,7 @@ import {
   IoLogoLinkedin,
   IoLogoPinterest,
   IoLogoTwitter,
-} from "react-icons/io5/index.js";
+} from "react-icons/io5";
 
 const Share = ({
   title,
