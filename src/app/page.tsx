@@ -37,7 +37,14 @@ const Home = () => {
                 dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
               />
               {banner.button!.enable && (
-                <Link className="btn btn-primary" href={banner.button!.link}>
+                <Link
+                  className="btn btn-primary"
+                  href={banner.button!.link}
+                  target={
+                    banner.button!.link.startsWith("http") ? "_blank" : "_self"
+                  }
+                  rel="noopener"
+                >
                   {banner.button!.label}
                 </Link>
               )}
