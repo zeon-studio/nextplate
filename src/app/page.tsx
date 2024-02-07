@@ -27,9 +27,9 @@ const Home = () => {
       <section className="section pt-14">
         <div className="container">
           <div className="row justify-center">
-            <div className="mb-16 text-center lg:col-7">
+            <div className="lg:col-7 md:col-9 mb-8 text-center">
               <h1
-                className="mb-4"
+                className="mb-4 text-h3 lg:text-h1"
                 dangerouslySetInnerHTML={markdownify(banner.title)}
               />
               <p
