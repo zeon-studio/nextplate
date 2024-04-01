@@ -4,7 +4,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
-import { Button, Buttons, Feature } from "@/types";
+import { Buttons, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
@@ -30,11 +30,11 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-14 relative h-[750px]">
+      <section className="section pt-14 relative md:h-[740px] h-[350px]">
         <Image
           src={banner.image}
           alt="Image"
-          className="w-full h-full brightness-75 object-cover"
+          className="w-full h-full brightness-75 object-cover lg:rounded-tr-[30%]"
           layout="fill"
           objectFit="cover"
         />
@@ -47,7 +47,7 @@ const Home = () => {
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
                 <p
-                  className="mb-8"
+                  className="mb-8 text-xl"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                 />
                 {banner.buttons &&
