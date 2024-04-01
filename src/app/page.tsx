@@ -47,7 +47,7 @@ const Home = () => {
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
                 <p
-                  className="mb-8 text-xl"
+                  className="mb-8 lg:text-xl"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                 />
                 {banner.buttons &&
@@ -56,7 +56,7 @@ const Home = () => {
                       button.enable && (
                         <Link
                           key={index}
-                          className="btn btn-primary mr-4"
+                          className={button.classname}
                           href={button.link}
                           target={
                             button.link.startsWith("http") ? "_blank" : "_self"

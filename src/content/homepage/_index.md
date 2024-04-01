@@ -7,9 +7,11 @@ banner:
   buttons:
     - enable: true
       label: "Get in Touch"
+      classname: "btn btn-primary mr-4 hover:bg-opacity-95 border"
       link: "https://github.com/zeon-studio/nextplate"
     - enable: true
       label: "Learn More"
+      classname: "btn btn-primary mr-4 bg-transparent text-black border"
       link: "https://github.com/zeon-studio/nextplate"
 # Features
 features:

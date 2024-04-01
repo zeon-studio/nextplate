@@ -5,11 +5,11 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
+    "logo": "/images/logo-ninth-avenue-foods.png",
+    "logo_darkmode": "/images/logo-ninth-avenue-foods.png",
     "logo_width": "150",
-    "logo_height": "27",
-    "logo_text": "Nextplate"
+    "logo_height": "60",
+    "logo_text": "Ninth Avenue Foods"
   },
 
   "settings": {
@@ -29,7 +29,7 @@
 
   "navigation_button": {
     "enable": true,
-    "label": "Get Started",
+    "label": "Get in Touch",
     "link": "https://github.com/zeon-studio/nextplate"
   },
 

@@ -79,5 +79,6 @@ export type Buttons = {
     enable: boolean;
     label: string;
     link: string;
+    classname: string;
   };
 };

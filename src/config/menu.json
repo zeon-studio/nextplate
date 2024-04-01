@@ -8,10 +8,7 @@
       "name": "About",
       "url": "/about"
     },
-    {
-      "name": "Elements",
-      "url": "/elements"
-    },
+
     {
       "name": "Pages",
       "url": "",
@@ -42,6 +39,16 @@
           "url": "/404"
         }
       ]
+    },
+
+    {
+      "name": "Elements",
+      "url": "/elements"
+    },
+
+    {
+      "name": "Careers",
+      "url": "/elements"
     }
   ],
   "footer": [
