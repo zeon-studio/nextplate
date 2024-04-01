@@ -73,3 +73,11 @@ export type Button = {
   label: string;
   link: string;
 };
+
+export type Buttons = {
+  [key: string]: {
+    enable: boolean;
+    label: string;
+    link: string;
+  };
+};

@@ -54,6 +54,16 @@ module.exports = {
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
+        // text colors
+        "muted-green": theme.colors.default.text_color.muted_green,
+        "dark-green": theme.colors.default.text_color.dark_green,
+        "medium-green": theme.colors.default.text_color.medium_green,
+        "light-green": theme.colors.default.text_color.light_green,
+        "army-green": theme.colors.default.text_color.army_green,
+        "pastel-green": theme.colors.default.text_color.pastel_green,
+        "lime-green": theme.colors.default.text_color.lime_green,
+        "dark-grey": theme.colors.default.text_color.dark_grey,
+        "light-grey": theme.colors.default.text_color.light_grey,
       },
       fontSize: {
         base: font_base + "px",

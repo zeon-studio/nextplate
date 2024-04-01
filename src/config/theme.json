@@ -11,7 +11,16 @@
       "text_color": {
         "default": "#444444",
         "dark": "#040404",
-        "light": "#717171"
+        "light": "#717171",
+        "muted_green": "#e2ebd4",
+        "dark_green": "#409944",
+        "medium_green": "#90c449",
+        "light_green": "#b0d572",
+        "army_green": "#789f76",
+        "pastel_green": "#c2dd98",
+        "lime_green": "#98c300",
+        "dark_grey": "#636363",
+        "light_grey": "#9b9b9b"
       }
     }
   },

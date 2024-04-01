@@ -1,14 +1,16 @@
 ---
 # Banner
 banner:
-  title: "The Ultimate Starter Template You Need To Start Your Next Project"
-  content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
+  title: "Quality Meets Innovation"
+  content: "Coupling cutting-edge technology with a long-standing commitment to doing things the right way, Ninth Avenue Foods is a manufacturing facility ready to take your product or brand to the next level."
   image: "/images/banner-image.jpg"
-  button:
-    enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/nextplate"
-
+  buttons:
+    - enable: true
+      label: "Get in Touch"
+      link: "https://github.com/zeon-studio/nextplate"
+    - enable: true
+      label: "Learn More"
+      link: "https://github.com/zeon-studio/nextplate"
 # Features
 features:
   - title: "What's Included in Nextplate"

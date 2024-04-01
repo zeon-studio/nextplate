@@ -4,7 +4,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
-import { Button, Feature } from "@/types";
+import { Button, Buttons, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
@@ -18,7 +18,12 @@ const Home = () => {
     banner,
     features,
   }: {
-    banner: { title: string; image: string; content?: string; button?: Button };
+    banner: {
+      title: string;
+      image: string;
+      content?: string;
+      buttons?: Buttons;
+    };
     features: Feature[];
   } = frontmatter;
 
@@ -29,7 +34,7 @@ const Home = () => {
         <Image
           src={banner.image}
           alt="Image"
-          className="w-full h-full brightness-50 object-cover"
+          className="w-full h-full brightness-75 object-cover"
           layout="fill"
           objectFit="cover"
         />
@@ -45,20 +50,23 @@ const Home = () => {
                   className="mb-8"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                 />
-                {banner.button!.enable && (
-                  <Link
-                    className="btn btn-primary"
-                    href={banner.button!.link}
-                    target={
-                      banner.button!.link.startsWith("http")
-                        ? "_blank"
-                        : "_self"
-                    }
-                    rel="noopener"
-                  >
-                    {banner.button!.label}
-                  </Link>
-                )}
+                {banner.buttons &&
+                  Object.values(banner.buttons).map(
+                    (button, index) =>
+                      button.enable && (
+                        <Link
+                          key={index}
+                          className="btn btn-primary mr-4"
+                          href={button.link}
+                          target={
+                            button.link.startsWith("http") ? "_blank" : "_self"
+                          }
+                          rel="noopener"
+                        >
+                          {button.label}
+                        </Link>
+                      ),
+                  )}
               </div>
             </div>
           </div>
