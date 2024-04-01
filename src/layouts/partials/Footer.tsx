@@ -12,7 +12,7 @@ const Footer = () => {
   const { copyright } = config.params;
 
   return (
-    <footer className="bg-theme-light dark:bg-darkmode-theme-light">
+    <footer className="bg-theme-light ">
       <div className="container">
         <div className="row items-center py-10">
           <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
@@ -32,8 +32,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="border-t border-border py-7 dark:border-darkmode-border">
-        <div className="container text-center text-light dark:text-darkmode-light">
+      <div className="border-t border-border py-7 ">
+        <div className="container text-center text-light ">
           <p dangerouslySetInnerHTML={markdownify(copyright)} />
         </div>
       </div>

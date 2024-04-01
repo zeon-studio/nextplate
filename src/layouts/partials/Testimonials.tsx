@@ -59,8 +59,8 @@ const Testimonials = ({ data }: { data: PageData }) => {
                   {data.frontmatter.testimonials.map(
                     (item: Testimonial, index: number) => (
                       <SwiperSlide key={index}>
-                        <div className="rounded-lg bg-theme-light px-7 py-10 dark:bg-darkmode-theme-light">
-                          <div className="text-dark dark:text-white">
+                        <div className="rounded-lg bg-theme-light px-7 py-10 ">
+                          <div className="text-dark ">
                             <svg
                               width="33"
                               height="20"
@@ -79,7 +79,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                             dangerouslySetInnerHTML={markdownify(item.content)}
                           />
                           <div className="mt-11 flex items-center">
-                            <div className="text-dark dark:text-white">
+                            <div className="text-dark ">
                               <ImageFallback
                                 height={50}
                                 width={50}
@@ -97,7 +97,7 @@ const Testimonials = ({ data }: { data: PageData }) => {
                                 dangerouslySetInnerHTML={markdownify(
                                   item.designation,
                                 )}
-                                className="text-dark dark:text-white"
+                                className="text-dark "
                               />
                             </div>
                           </div>

@@ -3,7 +3,7 @@
 banner:
   title: "The Ultimate Starter Template You Need To Start Your Next Project"
   content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
-  image: "/images/banner.png"
+  image: "/images/banner-image.jpg"
   button:
     enable: true
     label: "Get Started For Free"

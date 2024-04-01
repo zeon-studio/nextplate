@@ -48,7 +48,7 @@ const Header = () => {
         <input id="nav-toggle" type="checkbox" className="hidden" />
         <label
           htmlFor="nav-toggle"
-          className="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1"
+          className="order-3 cursor-pointer flex items-center lg:hidden text-dark  lg:order-1"
         >
           <svg
             id="show-button"
@@ -141,7 +141,7 @@ const Header = () => {
         <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
           {settings.search && (
             <button
-              className="border-border text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
+              className="border-border text-dark hover:text-primary  mr-5 inline-block border-r pr-5 text-xl  "
               aria-label="search"
               data-search-trigger
             >
