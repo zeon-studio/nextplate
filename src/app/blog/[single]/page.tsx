@@ -137,7 +137,7 @@ const PostSingle = ({ params }: { params: { single: string } }) => {
             <h2 className="h3 mb-12 text-center">Related Posts</h2>
             <div className="row justify-center">
               {similarPosts.map((post) => (
-                <div key={post.slug} className="lg:col-4 mb-7">
+                <div key={post.slug} className="lg:col-4 md:col-6 mb-14">
                   <BlogCard data={post} />
                 </div>
               ))}
