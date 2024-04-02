@@ -40,8 +40,8 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                 >
                   <div className="flex justify-center items-center -translate-y-10">
                     <ImageFallback
-                      height={120}
-                      width={120}
+                      height={100}
+                      width={100}
                       className="rounded-full"
                       src={service.image}
                       alt="Icon"
