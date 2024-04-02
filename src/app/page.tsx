@@ -4,6 +4,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
+import Services from "@/partials/Services";
 import { Buttons, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
@@ -13,6 +14,7 @@ const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
+  const service = getListPage("sections/service.md");
   const { frontmatter } = homepage;
   const {
     banner,
@@ -30,15 +32,15 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-14 relative md:h-[740px] h-[350px]">
+      <section className="section pt-0 relative md:h-[870px] h-[400px]">
         <Image
           src={banner.image}
           alt="Image"
-          className="w-full h-full brightness-75 object-cover lg:rounded-tr-[30%]"
-          layout="fill"
-          objectFit="cover"
+          className="w-full h-full brightness-75 object-cover fill lg:rounded-tr-[24%]"
+          width={2400}
+          height={1600}
         />
-        <div className="absolute inset-0 flex justify-center items-center">
+        <div className="absolute inset-0 flex justify-center items-center md:bottom-28 bottom-32">
           <div className="container relative z-10">
             <div className="row justify-center">
               <div className="lg:col-7 md:col-9 mb-8 text-center">
@@ -76,7 +78,8 @@ const Home = () => {
       {features.map((feature, index: number) => (
         <section
           key={index}
-          className={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
+          className="section-sm"
+          // className={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
         >
           <div className="container">
             <div className="row items-center justify-between">
@@ -115,7 +118,7 @@ const Home = () => {
                 </ul>
                 {feature.button.enable && (
                   <Link
-                    className="btn btn-primary mt-5"
+                    className="btn btn-primary mt-5 hover:bg-opacity-95"
                     href={feature.button.link}
                   >
                     {feature.button.label}
@@ -127,6 +130,7 @@ const Home = () => {
         </section>
       ))}
 
+      <Services data={service} />
       <Testimonials data={testimonial} />
       <CallToAction data={callToAction} />
     </>

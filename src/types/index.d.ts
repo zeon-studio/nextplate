@@ -60,6 +60,13 @@ export type Testimonial = {
   content: string;
 };
 
+export type Service = {
+  image: string;
+  title: string;
+  content: string;
+  button: Button;
+};
+
 export type Call_to_action = {
   enable?: boolean;
   title: string;
