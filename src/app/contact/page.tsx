@@ -44,7 +44,7 @@ const Contact = async () => {
                     id="email"
                     name="email"
                     className="form-input"
-                    placeholder="john.doe@email.com"
+                    placeholder="admin@3we.org"
                     type="email"
                   />
                 </div>
