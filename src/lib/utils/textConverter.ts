@@ -8,6 +8,12 @@ export const slugify = (content: string) => {
 
 // markdownify
 export const markdownify = (content: string, div?: boolean) => {
+  // Parse the content and apply styles based on underscores
+  content = content.replace(
+    /__(.*?)__/g,
+    '<span style="color:#98c300">$1</span>',
+  );
+
   const markdownContent: any = div
     ? marked.parse(content)
     : marked.parseInline(content);

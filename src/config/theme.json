@@ -2,7 +2,8 @@
   "colors": {
     "default": {
       "theme_color": {
-        "primary": "#121212",
+        "primary": "#65a30d",
+        "old_primary": "#121212",
         "body": "#fff",
         "border": "#eaeaea",
         "theme_light": "#f6f6f6",
@@ -12,15 +13,17 @@
         "default": "#444444",
         "dark": "#040404",
         "light": "#717171",
+        "custom_green": "#0d7e08",
         "muted_green": "#e2ebd4",
         "dark_green": "#409944",
         "medium_green": "#90c449",
         "light_green": "#b0d572",
         "army_green": "#789f76",
         "pastel_green": "#c2dd98",
-        "lime_green": "#98c300",
-        "dark_grey": "#636363",
-        "light_grey": "#9b9b9b"
+        "lime_green": "#a2c91a",
+        "dark_grey": "#333333",
+        "light_grey": "#9b9b9b",
+        "green_white": "#f2f8ea"
       }
     }
   },
@@ -31,6 +34,6 @@
       "secondary": "Signika:wght@500;700",
       "secondary_type": "sans-serif"
     },
-    "font_size": { "base": "16", "scale": "1.2" }
+    "font_size": { "base": "17", "scale": "1.2" }
   }
 }

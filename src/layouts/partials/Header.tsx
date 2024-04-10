@@ -37,8 +37,16 @@ const Header = () => {
 
   return (
     <header
-      className={`header z-30 ${settings.sticky_header && "sticky top-0"}`}
+      className={`header z-30${settings.sticky_header && "sticky top-0"}`}
     >
+      {/* <div className="w-full h-[50px] bg-lime-green py-3 hidden md:block">
+        <span className="px-5 text-dark-grey font-medium">
+          Ninth Avenue Foods West: (626) 666-6666
+        </span>
+        <span className="px-5 text-dark-grey font-medium">
+          Ninth Avenue Foods East: (626) 666-6666
+        </span>
+      </div> */}
       <nav className="navbar container">
         {/* logo */}
         <div className="order-0">

@@ -1,19 +1,21 @@
 ---
 enable: true
-title: "Innovative Solutions for ESL Manufacturing"
+title: "Innovative Solutions for __ESL Manufacturing__"
 description: "Elevating Standards Through Cutting-Edge Technology and Unwavering Commitment to Quality and Collaboration"
 
 # Services
 services:
-  - image: "/images/cutting-edge-tech-icon.png"
+  - image: "/images/cutting-edge-tech.jpg"
+    alt: "warehouse image"
     title: "Cutting Edge Technology"
-    content: " Our cutting-edge plant exceeds industry standards, meeting market demands with precision."
+    content: "Our cutting-edge plant exceeds industry standards, meeting market demands with precision."
     button:
       enable: true
       label: "Learn More"
       link: ""
 
-  - image: "/images/avatar-sm.png"
+  - image: "/images/commitment-to-quality.jpg"
+    alt: "workers image"
     title: "Commitment to Quality"
     content: "Food safety and quality are fundamental at Ninth Avenue Foods, guiding every aspect of our operations."
     button:
@@ -21,9 +23,10 @@ services:
       label: "Learn More"
       link: ""
 
-  - image: "/images/avatar-sm.png"
+  - image: "/images/private-label-co-packing.jpg"
+    alt: "dairy products image"
     title: "Private Label & Co-Packing"
-    content: "At Ninth Avenue Foods, we believe our expertise and capabilities create winning partnerships to elevate your products."
+    content: "At Ninth Avenue Foods, our expertise and capabilities foster winning partnerships to elevate your products."
     button:
       enable: true
       label: "Learn More"

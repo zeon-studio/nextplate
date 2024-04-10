@@ -1,17 +1,18 @@
 ---
 # Banner
 banner:
-  title: "Quality Meets Innovation"
+  title: "Quality Meets __Innovation__"
   content: "Coupling cutting-edge technology with a long-standing commitment to doing things the right way, Ninth Avenue Foods is a manufacturing facility ready to take your product or brand to the next level."
   image: "/images/banner-image.jpg"
+  subimage: "/images/sub-banner-image.jpg"
   buttons:
     - enable: true
       label: "Get in Touch"
-      classname: "btn btn-primary mr-4 hover:bg-opacity-95"
+      classname: "btn btn-primary mr-4 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey"
       link: "https://github.com/zeon-studio/nextplate"
     - enable: true
       label: "Learn More"
-      classname: "btn btn-primary mr-4 bg-transparent text-black"
+      classname: "btn btn-primary mr-4 bg-transparent border-2 text-white hover:border-white"
       link: "https://github.com/zeon-studio/nextplate"
 # Features
 features:

@@ -44,6 +44,29 @@ module.exports = {
       padding: "2rem",
     },
     extend: {
+      animation: {
+        "fade-5": "fadeIn .5s ease-in-out",
+        "fade-10": "fadeIn 1.0s ease-in-out",
+        "fade-15": "fadeIn 1.5s ease-in-out",
+        "fade-20": "fadeIn 2.0s ease-in-out",
+        "fade-25": "fadeIn 2.5s ease-in-out",
+      },
+
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+      },
+
+      brightness: {
+        45: ".45",
+        40: ".40",
+        55: ".55",
+        60: ".60",
+        65: ".65",
+        70: ".70",
+      },
       colors: {
         text: theme.colors.default.text_color.default,
         light: theme.colors.default.text_color.light,
@@ -55,6 +78,7 @@ module.exports = {
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
         // text colors
+        "custom-green": theme.colors.default.text_color.custom_green,
         "muted-green": theme.colors.default.text_color.muted_green,
         "dark-green": theme.colors.default.text_color.dark_green,
         "medium-green": theme.colors.default.text_color.medium_green,
@@ -64,6 +88,7 @@ module.exports = {
         "lime-green": theme.colors.default.text_color.lime_green,
         "dark-grey": theme.colors.default.text_color.dark_grey,
         "light-grey": theme.colors.default.text_color.light_grey,
+        "green-white": theme.colors.default.text_color.green_white,
       },
       fontSize: {
         base: font_base + "px",

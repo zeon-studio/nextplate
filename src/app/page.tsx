@@ -10,6 +10,9 @@ import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
 
+// Templates
+// https://dorik.com/blog/service-website-examples
+// https://zeon.studio/
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
@@ -23,6 +26,7 @@ const Home = () => {
     banner: {
       title: string;
       image: string;
+      subimage: string;
       content?: string;
       buttons?: Buttons;
     };
@@ -32,24 +36,37 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 relative md:h-[870px] h-[400px]">
+      <section className="section pt-0 relative md:h-[850px] h-[550px] ">
         <Image
           src={banner.image}
-          alt="Image"
-          className="w-full h-full brightness-75 object-cover fill lg:rounded-tr-[24%]"
+          alt="banner image"
+          className="w-full h-full brightness-45 object-cover fill" //lg:rounded-tr-[22%]
+          style={{
+            borderRadius: "0% 0% 50% 30% / 0% 0% 20% 10%",
+          }}
           width={2400}
           height={1600}
         />
-        <div className="absolute inset-0 flex justify-center items-center md:bottom-28 bottom-32">
+
+        <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
-            <div className="row justify-center">
+            <div className="relative xl:pl-10 pl-5 float-left md:bottom-10 bottom-0 animate-fade-15">
+              <Image
+                src={banner.subimage}
+                alt="Image"
+                className="mx-auto xl:w-[400px] md:w-[340px] sm:w-[250px] hidden sm:block"
+                width={2400}
+                height={3000}
+              />
+            </div>
+            <div className="row justify-center animate-fade-5">
               <div className="lg:col-7 md:col-9 mb-8 text-center">
                 <h1
-                  className="mb-4 text-h3 lg:text-h1"
+                  className="mb-4 text-h3 lg:text-h1 text-white"
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
                 <p
-                  className="mb-8 lg:text-xl"
+                  className="mb-8 lg:text-lg text-white"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                 />
                 {banner.buttons &&
@@ -104,6 +121,7 @@ const Home = () => {
                   className="mb-4"
                   dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
+
                 <p
                   className="mb-8 text-lg"
                   dangerouslySetInnerHTML={markdownify(feature.content)}
@@ -111,14 +129,17 @@ const Home = () => {
                 <ul>
                   {feature.bulletpoints.map((bullet: string) => (
                     <li className="relative mb-4 pl-6" key={bullet}>
-                      <FaCheck className={"absolute left-0 top-1.5"} />
+                      <FaCheck
+                        color="green"
+                        className={"absolute left-0 top-1.5 "}
+                      />
                       <span dangerouslySetInnerHTML={markdownify(bullet)} />
                     </li>
                   ))}
                 </ul>
                 {feature.button.enable && (
                   <Link
-                    className="btn btn-primary mt-5 hover:bg-opacity-95"
+                    className="btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
                     href={feature.button.link}
                   >
                     {feature.button.label}
