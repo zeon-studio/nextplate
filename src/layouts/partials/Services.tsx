@@ -20,8 +20,13 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
       {data.frontmatter.enable && (
         // <section className="section bg-gradient  bg-gradient-to-r from-blue-600"></section>
         <section
-          className="section bg-gradient"
-          style={{ borderRadius: "80% 30% 0% 0% / 5% 5% 0% 0%" }}
+          className="section bg-theme-light"
+          // style={{ borderRadius: "80% 30% 0% 0% / 5% 5% 0% 0%" }}
+          // style={{
+          //   clipPath: "polygon(0 2%, 100% 0, 100% 100%, 0% 100%)",
+
+          //   transformOrigin: "top left",
+          // }}
         >
           <div className="container">
             <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">

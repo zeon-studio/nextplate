@@ -60,12 +60,9 @@ module.exports = {
       },
 
       brightness: {
-        45: ".45",
-        40: ".40",
-        55: ".55",
-        60: ".60",
-        65: ".65",
         70: ".70",
+        75: ".75",
+        80: ".80",
       },
       colors: {
         text: theme.colors.default.text_color.default,
@@ -77,6 +74,7 @@ module.exports = {
         border: theme.colors.default.theme_color.border,
         "theme-light": theme.colors.default.theme_color.theme_light,
         "theme-dark": theme.colors.default.theme_color.theme_dark,
+
         // text colors
         "custom-green": theme.colors.default.text_color.custom_green,
         "muted-green": theme.colors.default.text_color.muted_green,

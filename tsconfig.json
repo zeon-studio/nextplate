@@ -29,6 +29,14 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/layouts/helpers/photos.js",
+    "src/layouts/helpers/photos.js",
+    "src/layouts/helpers/photos.js"
+  ],
   "exclude": ["node_modules"]
 }

@@ -5,10 +5,13 @@ import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import Services from "@/partials/Services";
+import Partners from "@/partials/Partners";
+import PhotoGallery from "@/components/PhotoGallery";
 import { Buttons, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
+import generatePhotos from "@/helpers/photos";
 
 // Templates
 // https://dorik.com/blog/service-website-examples
@@ -18,6 +21,23 @@ const Home = () => {
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
+  const partner = getListPage("sections/partner.md");
+  // Define your list of photos for this page
+  const galleryPhotos = [
+    { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
+    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
+    { src: "/images/private-label-co-packing.jpg", width: 6000, height: 4000 },
+    { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
+    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
+    { src: "/images/private-label-co-packing.jpg", width: 6000, height: 4000 },
+    { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
+    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
+    { src: "/images/private-label-co-packing.jpg", width: 6000, height: 4000 },
+  ];
+
+  // Generate the photos array using the generatePhotos function
+  const photos = generatePhotos(galleryPhotos);
+
   const { frontmatter } = homepage;
   const {
     banner,
@@ -36,17 +56,28 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 relative md:h-[850px] h-[550px] ">
-        <Image
-          src={banner.image}
-          alt="banner image"
-          className="w-full h-full brightness-45 object-cover fill" //lg:rounded-tr-[22%]
-          style={{
-            borderRadius: "0% 0% 50% 30% / 0% 0% 20% 10%",
-          }}
-          width={2400}
-          height={1600}
-        />
+      <section className="section pt-0 pb-0 relative md:h-[750px] h-[450px] ">
+        <div className="relative w-full h-full">
+          <Image
+            src={banner.image}
+            alt="banner image"
+            className="w-full h-full object-cover brightness-75"
+            // style={{
+            //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
+            //   transformOrigin: "bottom right",
+            // }}
+            width={2400}
+            height={1600}
+          />
+
+          <div
+            className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-80 opacity-20"
+            // style={{
+            //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
+            //   transformOrigin: "bottom right",
+            // }}
+          ></div>
+        </div>
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
@@ -152,6 +183,9 @@ const Home = () => {
       ))}
 
       <Services data={service} />
+      <Partners data={partner} />
+
+      <PhotoGallery photos={photos} />
       <Testimonials data={testimonial} />
       <CallToAction data={callToAction} />
     </>

@@ -68,6 +68,19 @@ export type Service = {
   button: Button;
 };
 
+export type Photo = {
+  src: string;
+  width: number;
+  height: number;
+};
+
+export type Partner = {
+  image: string;
+  alt: string;
+  height: string;
+  width: string;
+};
+
 export type Call_to_action = {
   enable?: boolean;
   title: string;

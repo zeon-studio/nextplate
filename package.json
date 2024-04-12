@@ -21,6 +21,8 @@
   "dependencies": {
     "date-fns": "^3.3.1",
     "disqus-react": "^1.1.5",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.8.0",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "marked": "^11.2.0",
@@ -33,9 +35,11 @@
     "react-gtm-module": "^2.0.11",
     "react-icons": "^5.0.1",
     "react-lite-youtube-embed": "^2.4.0",
+    "react-photo-album": "^2.3.1",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "yet-another-react-lightbox": "^3.17.2"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
