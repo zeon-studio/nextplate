@@ -7,12 +7,13 @@ export default function NextJsImage({
   wrapperStyle,
 }: RenderPhotoProps) {
   return (
-    <div style={{ ...wrapperStyle, position: "relative" }}>
+    <div style={{ ...wrapperStyle, position: "relative", margin: "4px" }}>
       <Image
         fill
         src={photo}
         placeholder={"blurDataURL" in photo ? "blur" : undefined}
-        {...{ alt, title, sizes, className, onClick }}
+        {...{ alt, title, sizes, onClick }}
+        className={`${className} rounded`}
       />
     </div>
   );

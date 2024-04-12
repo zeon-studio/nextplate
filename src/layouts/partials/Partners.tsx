@@ -17,12 +17,12 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
   return (
     <>
       {data.frontmatter.enable && (
-        <section className="section">
-          <div className="container">
-            <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
-              <h2
+        <section className="section-xs">
+          <div className="container pt-3 pb-3">
+            <div className="mx-auto text-center md:col-10">
+              <h5
                 dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-                className="mb-4"
+                className="mb-4 text-dark-grey"
               />
               <p
                 dangerouslySetInnerHTML={markdownify(
@@ -35,7 +35,7 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
                 <div
                   key={index}
                   //   className="flex justify-center items-center w-1/2 md:w-1/3 lg:w-1/5 p-4"
-                  className="flex justify-center items-center md:w-[180px] sm:w-[150px] w-[110px] p-4"
+                  className="flex justify-center items-center sm:w-[120px] w-[100px] p-4"
                 >
                   <ImageFallback
                     height={service.height}

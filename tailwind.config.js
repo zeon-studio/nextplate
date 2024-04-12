@@ -91,7 +91,7 @@ module.exports = {
       fontSize: {
         base: font_base + "px",
         "base-sm": font_base * 0.8 + "px",
-        h1: h1 + "rem",
+        h1: h1 * 1.1 + "rem",
         "h1-sm": h1 * 0.9 + "rem",
         h2: h2 + "rem",
         "h2-sm": h2 * 0.9 + "rem",

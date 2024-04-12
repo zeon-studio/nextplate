@@ -24,27 +24,50 @@ interface PhotoGalleryProps {
   photos: Photo[];
 }
 
+const imageStyles = {
+  // Define your custom image styles here
+  maxWidth: "100%", // Example: Set maximum width to 100%
+  height: "auto", // Example: Automatically adjust height
+  borderRadius: "8px", // Example: Add border radius
+  boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)", // Example: Add box shadow
+};
+
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
   const [index, setIndex] = useState(-1);
   return (
     <>
-      <PhotoAlbum
-        photos={photos}
-        layout="rows"
-        onClick={({ index }) => setIndex(index)}
-        renderPhoto={NextJsImage}
-        defaultContainerWidth={1200}
-        sizes={{ size: "calc(100vw - 240px)" }}
-      />
+      <section>
+        <div className="lg:px-10 px-4 py-24 bg-theme-light flex justify-center">
+          <div className="col-8">
+            <PhotoAlbum
+              photos={photos}
+              layout="rows"
+              onClick={({ index }) => setIndex(index)}
+              renderPhoto={NextJsImage}
+              defaultContainerWidth={1200}
+              sizes={{ size: "calc(100vw - 240px)" }}
+            />
+          </div>
 
-      <Lightbox
-        slides={photos}
-        open={index >= 0}
-        index={index}
-        close={() => setIndex(-1)}
-        // enable optional lightbox plugins
-        plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
-      />
+          <Lightbox
+            styles={{
+              container: {
+                backgroundColor: "rgba(0, 0, 0, 0.9)",
+              },
+
+              // thumbnailsContainer: {
+              //   backgroundColor: "rgba(0, 0, 0, 0.9)",
+              // },
+            }}
+            slides={photos}
+            open={index >= 0}
+            index={index}
+            close={() => setIndex(-1)}
+            // enable optional lightbox plugins
+            plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+          />
+        </div>
+      </section>
     </>
   );
 };

@@ -68,7 +68,7 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                     />
                     {service.button.enable && (
                       <Link
-                        className="btn btn-transparent border-custom-green text-custom-green mt-5 hover:bg-custom-green hover:text-white mb-5"
+                        className="btn btn-transparent border-primary text-primary mt-5 hover:bg-primary hover:text-white mb-5"
                         href={service.button.link}
                       >
                         {service.button.label}

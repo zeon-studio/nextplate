@@ -24,15 +24,14 @@ const Home = () => {
   const partner = getListPage("sections/partner.md");
   // Define your list of photos for this page
   const galleryPhotos = [
+    { src: "/images/gallery/gallery-1.jpg", width: 2400, height: 3200 },
+    { src: "/images/gallery/gallery-2.jpg", width: 2400, height: 3000 },
+    { src: "/images/gallery/gallery-3.jpg", width: 2400, height: 1133 },
+    { src: "/images/gallery/gallery-4.jpg", width: 2400, height: 1601 },
+    { src: "/images/gallery/gallery-5.jpg", width: 2400, height: 3200 },
     { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
     { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
-    { src: "/images/private-label-co-packing.jpg", width: 6000, height: 4000 },
-    { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
-    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
-    { src: "/images/private-label-co-packing.jpg", width: 6000, height: 4000 },
-    { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
-    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
-    { src: "/images/private-label-co-packing.jpg", width: 6000, height: 4000 },
+    { src: "/images/private-label-co-packing.jpg", width: 3000, height: 2000 },
   ];
 
   // Generate the photos array using the generatePhotos function
@@ -61,7 +60,7 @@ const Home = () => {
           <Image
             src={banner.image}
             alt="banner image"
-            className="w-full h-full object-cover brightness-75"
+            className="w-full h-full object-cover"
             // style={{
             //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
             //   transformOrigin: "bottom right",
@@ -71,7 +70,8 @@ const Home = () => {
           />
 
           <div
-            className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-80 opacity-20"
+            // className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-80 opacity-20"
+            className="absolute inset-0 bg-gradient-to-l from-[#18181b] to-transparent sm:opacity-32 opacity-20"
             // style={{
             //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
             //   transformOrigin: "bottom right",
@@ -85,19 +85,19 @@ const Home = () => {
               <Image
                 src={banner.subimage}
                 alt="Image"
-                className="mx-auto xl:w-[400px] md:w-[340px] sm:w-[250px] hidden sm:block"
+                className="mx-auto xl:w-[400px] md:w-[340px] sm:w-[250px] hidden sm:block shadow-xl"
                 width={2400}
                 height={3000}
               />
             </div>
             <div className="row justify-center animate-fade-5">
-              <div className="lg:col-7 md:col-9 mb-8 text-center">
+              <div className="lg:col-8 md:col-9 mb-8 text-center">
                 <h1
-                  className="mb-4 text-h3 lg:text-h1 text-white"
+                  className="mb-4 text-h3 lg:text-h1"
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
                 <p
-                  className="mb-8 lg:text-lg text-white"
+                  className="mb-8 lg:text-lg"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                 />
                 {banner.buttons &&
@@ -161,7 +161,7 @@ const Home = () => {
                   {feature.bulletpoints.map((bullet: string) => (
                     <li className="relative mb-4 pl-6" key={bullet}>
                       <FaCheck
-                        color="green"
+                        color="#65a30d"
                         className={"absolute left-0 top-1.5 "}
                       />
                       <span dangerouslySetInnerHTML={markdownify(bullet)} />
@@ -184,8 +184,8 @@ const Home = () => {
 
       <Services data={service} />
       <Partners data={partner} />
-
       <PhotoGallery photos={photos} />
+
       <Testimonials data={testimonial} />
       <CallToAction data={callToAction} />
     </>
