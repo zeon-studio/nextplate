@@ -1,7 +1,7 @@
 ---
 enable: true
 title: "Here are some of our clients"
-description: "Explore our esteemed clients who inspire us to advance standards through creative solutions and deep commitment to strong collaboration"
+description: "Explore our esteemed clients who inspire us to advance standards through creative solutions and deep commitment to strong **collaboration**"
 
 # Partners
 partners:

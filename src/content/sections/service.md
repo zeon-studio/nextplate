@@ -1,7 +1,7 @@
 ---
 enable: true
-title: "Innovative Solutions for ESL Manufacturing"
-description: "Elevating Standards Through Cutting-Edge Technology and Unwavering Commitment to Quality and Collaboration"
+title: "Innovative Solutions for __ESL Manufacturing__"
+description: "Elevating Standards Through **Cutting-Edge Technology** and Unwavering Commitment to **Quality** and **Collaboration**"
 
 # Services
 services:

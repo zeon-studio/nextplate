@@ -11,7 +11,7 @@ export const markdownify = (content: string, div?: boolean) => {
   // Parse the content and apply styles based on underscores
   content = content.replace(
     /__(.*?)__/g,
-    '<span style="color:#84cc16">$1</span>',
+    '<span style="color:#0d7e08">$1</span>',
   );
 
   const markdownContent: any = div

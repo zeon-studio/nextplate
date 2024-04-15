@@ -44,6 +44,7 @@ const Home = () => {
   }: {
     banner: {
       title: string;
+      subtitle?: string;
       image: string;
       subimage: string;
       content?: string;
@@ -71,7 +72,7 @@ const Home = () => {
 
           <div
             // className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-80 opacity-20"
-            className="absolute inset-0 bg-gradient-to-l from-[#18181b] to-transparent sm:opacity-32 opacity-20"
+            className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-40"
             // style={{
             //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
             //   transformOrigin: "bottom right",
@@ -96,6 +97,7 @@ const Home = () => {
                   className="mb-4 text-h3 lg:text-h1"
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
+
                 <p
                   className="mb-8 lg:text-lg"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
@@ -113,7 +115,28 @@ const Home = () => {
                           }
                           rel="noopener"
                         >
-                          {button.label}
+                          <div className="flex flex-row items-center">
+                            {button.label}
+                            {index === 1 && (
+                              <svg
+                                className="ml-1"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  stroke="currentColor"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="m9 5 7 7-7 7"
+                                />
+                              </svg>
+                            )}
+                          </div>
                         </Link>
                       ),
                   )}
@@ -173,7 +196,26 @@ const Home = () => {
                     className="btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
                     href={feature.button.link}
                   >
-                    {feature.button.label}
+                    <div className="flex flex-row items-center">
+                      {feature.button.label}
+                      <svg
+                        className="text-primaryhover:text-white ml-1"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m9 5 7 7-7 7"
+                        />
+                      </svg>
+                    </div>
                   </Link>
                 )}
               </div>

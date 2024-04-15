@@ -42,15 +42,21 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:px-14 sm:px-32 py-4">
               {data.frontmatter.services.map((service: Service, index) => (
-                <div className="shadow-lg bg-white rounded-lg" key={index}>
-                  <div className="flex justify-center items-center pb-3 px-4 py-4">
-                    <ImageFallback
-                      height={2400}
-                      width={1600}
-                      src={service.image}
-                      alt={service.alt}
-                      className="rounded-lg"
-                    />
+                <div className="rounded shadow-lg bg-white" key={index}>
+                  <div className="pb-3 px-4 py-4">
+                    <div className="relative rounded overflow-hidden">
+                      <ImageFallback
+                        height={2400}
+                        width={1600}
+                        src={service.image}
+                        alt={service.alt}
+                        className="rounded-lg ease-in duration-150 transform hover:scale-110"
+                        style={{
+                          transition: "transform 0.5s",
+                          transformOrigin: "center",
+                        }}
+                      />
+                    </div>
                   </div>
 
                   <div className="py-5 px-8">
@@ -68,10 +74,29 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                     />
                     {service.button.enable && (
                       <Link
-                        className="btn btn-transparent border-primary text-primary mt-5 hover:bg-primary hover:text-white mb-5"
+                        className="btn btn-transparent border-primary text-primary mt-5 mb-5 hover:bg-primary hover:text-white"
                         href={service.button.link}
                       >
-                        {service.button.label}
+                        <div className="flex flex-row items-center">
+                          {service.button.label}
+                          <svg
+                            className="text-primaryhover:text-white ml-1"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="m9 5 7 7-7 7"
+                            />
+                          </svg>
+                        </div>
                       </Link>
                     )}
                   </div>
