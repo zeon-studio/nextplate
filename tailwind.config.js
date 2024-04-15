@@ -44,6 +44,10 @@ module.exports = {
       padding: "2rem",
     },
     extend: {
+      backgroundImage: {
+        "contact-us": "url('/images/contact-us-image.jpg')",
+      },
+
       animation: {
         "fade-5": "fadeIn .5s ease-in-out",
         "fade-10": "fadeIn 1.0s ease-in-out",
@@ -60,6 +64,7 @@ module.exports = {
       },
 
       brightness: {
+        60: ".60",
         70: ".70",
         75: ".75",
         80: ".80",

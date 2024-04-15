@@ -62,22 +62,10 @@ const Home = () => {
             src={banner.image}
             alt="banner image"
             className="w-full h-full object-cover"
-            // style={{
-            //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
-            //   transformOrigin: "bottom right",
-            // }}
             width={2400}
             height={1600}
           />
-
-          <div
-            // className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-80 opacity-20"
-            className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-40"
-            // style={{
-            //   clipPath: "polygon(0 0, 100% 0, 100% 94%, 0% 100%)",
-            //   transformOrigin: "bottom right",
-            // }}
-          ></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-40"></div>
         </div>
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
@@ -227,8 +215,8 @@ const Home = () => {
       <Services data={service} />
       <Partners data={partner} />
       <PhotoGallery photos={photos} />
-
-      <Testimonials data={testimonial} />
+      {/* 
+      <Testimonials data={testimonial} /> */}
       <CallToAction data={callToAction} />
     </>
   );
