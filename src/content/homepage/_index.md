@@ -8,11 +8,11 @@ banner:
   buttons:
     - enable: true
       label: "Get in Touch"
-      classname: "btn btn-primary mr-4 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey"
+      classname: "btn btn-primary mr-4 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey animate-fade-up animate-delay-[500ms] ease-in"
       link: "https://github.com/zeon-studio/nextplate"
     - enable: true
       label: "Learn More"
-      classname: "btn btn-primary mr-4 bg-transparent border-2 text-primary hover:border-dark-grey  hover:text-dark-grey hover:text-dark-grey"
+      classname: "btn btn-primary mr-4 bg-transparent border-2 text-primary hover:border-dark-grey  hover:text-dark-grey hover:text-dark-grey animate-fade-up animate-delay-[550ms] ease-in"
       link: "https://github.com/zeon-studio/nextplate"
 # Features
 features:

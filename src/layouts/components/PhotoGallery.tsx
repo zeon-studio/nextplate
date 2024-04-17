@@ -6,6 +6,7 @@ import NextJsImage from "@/components/NextJsImage";
 import Lightbox from "yet-another-react-lightbox";
 import { useState } from "react";
 import "yet-another-react-lightbox/styles.css";
+import { useInView } from "react-intersection-observer";
 
 // import optional lightbox plugins
 import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
@@ -26,19 +27,38 @@ interface PhotoGalleryProps {
 
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
   const [index, setIndex] = useState(-1);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
   return (
     <>
       <section>
-        <div className="lg:px-10 py-24 bg-theme-light flex justify-center">
+        <div className="lg:px-10 py-28 bg-white flex justify-center items-center text-center">
           <div className="col-8">
-            <PhotoAlbum
-              photos={photos}
-              layout="rows"
-              onClick={({ index }) => setIndex(index)}
-              renderPhoto={NextJsImage}
-              defaultContainerWidth={1200}
-              sizes={{ size: "calc(100vw - 240px)" }}
-            />
+            <div className="mx-auto mb-12 text-center md:col-9">
+              <h3 className="mb-4 text-h3 lg:text-h2">
+                Elevating Your Brand with{" "}
+                <span className="text-primary">Ninth Avenue Foods</span>
+              </h3>
+
+              <p className="mb-8">
+                From Tradition to Technology: A Heritage of <b>Excellence</b> in
+                Dairy Manufacturing
+              </p>
+            </div>
+
+            <div ref={ref} className={`${inView ? "animate-fade" : ""}`}>
+              <PhotoAlbum
+                photos={photos}
+                layout="rows"
+                onClick={({ index }) => setIndex(index)}
+                renderPhoto={NextJsImage}
+                defaultContainerWidth={1200}
+                sizes={{ size: "calc(100vw - 240px)" }}
+              />
+            </div>
           </div>
 
           <Lightbox
@@ -46,9 +66,6 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
               container: {
                 backgroundColor: "rgba(0, 0, 0, 0.9)",
               },
-              // thumbnailsContainer: {
-              //   backgroundColor: "rgba(0, 0, 0, 0.9)",
-              // },
             }}
             slides={photos}
             open={index >= 0}

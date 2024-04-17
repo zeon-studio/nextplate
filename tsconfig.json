@@ -36,7 +36,10 @@
     ".next/types/**/*.ts",
     "src/layouts/helpers/photos.js",
     "src/layouts/helpers/photos.js",
-    "src/layouts/helpers/photos.js"
+    "src/layouts/helpers/photos.js",
+    "src/layouts/partials/revealOnScroll.js",
+    "src/layouts/partials/revealOnScroll.js",
+    "src/layouts/helpers/CustomInView.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -4,6 +4,7 @@ import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Service } from "@/types";
 import Link from "next/link";
+import { useInView } from "react-intersection-observer";
 
 interface PageData {
   frontmatter: {
@@ -15,34 +16,45 @@ interface PageData {
 }
 
 const ServicesComponent = ({ data }: { data: PageData }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
+
   return (
     <>
       {data.frontmatter.enable && (
-        // <section className="section bg-gradient  bg-gradient-to-r from-blue-600"></section>
-        <section
-          className="section bg-theme-light"
-          // style={{ borderRadius: "80% 30% 0% 0% / 5% 5% 0% 0%" }}
-          // style={{
-          //   clipPath: "polygon(0 2%, 100% 0, 100% 100%, 0% 100%)",
-
-          //   transformOrigin: "top left",
-          // }}
-        >
+        <section className="section bg-theme-light">
           <div className="container">
             <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
+              {/* Template for animation
+              <div
+                ref={ref}
+                className={`${
+                  inView
+                    ? "animate-fade-up animate-duration-[400ms] animate-delay-[300ms]"
+                    : ""
+                }`}
+              ></div> */}
               <h2
                 dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
                 className="mb-4"
               />
+
               <p
                 dangerouslySetInnerHTML={markdownify(
                   data.frontmatter.description!,
                 )}
               />
             </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:px-14 sm:px-32 py-4">
               {data.frontmatter.services.map((service: Service, index) => (
-                <div className="rounded shadow-lg bg-white" key={index}>
+                <div
+                  ref={ref}
+                  className={`rounded shadow-lg bg-white ${inView && index === 0 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : inView && index === 1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]" : inView && index === 2 ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]" : ""}`}
+                  key={index}
+                >
                   <div className="pb-3 px-4 py-4">
                     <div className="relative rounded overflow-hidden">
                       <ImageFallback
@@ -80,7 +92,7 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                         <div className="flex flex-row items-center">
                           {service.button.label}
                           <svg
-                            className="text-primaryhover:text-white ml-1"
+                            className="ml-1"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="18"

@@ -1,8 +1,11 @@
+"use client";
+
 import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Call_to_action } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
 
 interface PageData {
   notFound?: boolean;
@@ -11,13 +14,18 @@ interface PageData {
 }
 
 const CallToAction = ({ data }: { data: PageData }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
+
   return (
     <>
       {data.frontmatter.enable && (
-        <section className="remb-28 mt-28 mb-28">
+        <section className="remb-28 mb-28">
           <div className="container">
             {/* <div className="relative px-4 py-16 xl:p-20 bg-cover bg-top bg-contact-us bg-brightness-75 h-[450px]"> */}
-            <div className="relative h-[450px]">
+            <div className="relative h-[420px]">
               <Image
                 src="/images/contact-us-image.jpg"
                 alt="Image"
@@ -26,7 +34,14 @@ const CallToAction = ({ data }: { data: PageData }) => {
                 height={1600}
               ></Image>
 
-              <div className="absolute inset-0 px-16 row items-center justify-between">
+              <div
+                ref={ref}
+                className={`${
+                  inView
+                    ? "absolute inset-0 md:px-16 px-10 row items-center justify-between animate-delay-[800ms]"
+                    : "absolute inset-0 md:px-16 px-10 row items-center justify-between"
+                }`}
+              >
                 {/* <div className="mb-10 md:col-5 lg:col-4 md:order-2 md:mb-0">
                   <ImageFallback
                     className="w-full"
@@ -36,22 +51,45 @@ const CallToAction = ({ data }: { data: PageData }) => {
                     alt="cta-image"
                   />
                 </div> */}
-                <div className="md:col-7 md:order-1">
+                <div className="md:col-8 md:order-1">
+                  {/* <div
+                ref={ref}
+                className={`${
+                  inView
+                    ? "animate-fade-up animate-duration-[400ms] animate-delay-[300ms]"
+                    : ""
+                }`}
+              ></div> */}
                   <h2
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.title,
                     )}
-                    className="mb-2 text-white"
+                    ref={ref}
+                    className={`${
+                      inView
+                        ? "text-h3 lg:text-h2 mb-2 text-white animate-fade animate-duration-[400ms] animate-delay-[500ms]"
+                        : "text-h3 lg:text-h2 mb-2 text-white"
+                    }`}
                   />
                   <p
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.description,
                     )}
-                    className="mb-6 text-white"
+                    ref={ref}
+                    className={`${
+                      inView
+                        ? "mb-6 md:text-lg text-white animate-fade animate-duration-[400ms] animate-delay-[600ms]"
+                        : "mb-6 md:text-lg text-white"
+                    }`}
                   />
                   {data.frontmatter.button.enable && (
                     <Link
-                      className="btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
+                      ref={ref}
+                      className={`${
+                        inView
+                          ? "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey animate-fade animate-duration-[400ms] animate-delay-[650ms]"
+                          : "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
+                      }`}
                       href={data.frontmatter.button.link}
                     >
                       <div className="flex flex-row items-center">

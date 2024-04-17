@@ -56,7 +56,7 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 pb-0 relative md:h-[750px] h-[450px] ">
+      <section className="section pt-0 pb-0 relative md:h-[750px] h-[450px]">
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
@@ -70,24 +70,24 @@ const Home = () => {
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
-            <div className="relative xl:pl-10 pl-5 float-left md:bottom-10 bottom-0 animate-fade-15">
+            <div className="relative xl:pl-10 pl-5 float-left md:bottom-10 bottom-0 animate-fade animate-ease-in animate-delay-[100ms]">
               <Image
                 src={banner.subimage}
                 alt="Image"
-                className="mx-auto xl:w-[400px] md:w-[340px] sm:w-[250px] hidden sm:block shadow-xl"
+                className="rounded-xs mx-auto xl:w-[400px] md:w-[340px] sm:w-[250px] hidden sm:block shadow-xl"
                 width={2400}
                 height={3000}
               />
             </div>
-            <div className="row justify-center animate-fade-5">
+            <div className="row justify-center">
               <div className="lg:col-8 md:col-9 mb-8 text-center">
                 <h1
-                  className="mb-4 text-h3 lg:text-h1"
+                  className="mb-4 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms]"
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
 
                 <p
-                  className="mb-8 lg:text-lg"
+                  className="mb-8 lg:text-lg animate-fade-up animate-delay-[400ms] ease-in"
                   dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                 />
                 {banner.buttons &&
@@ -135,11 +135,7 @@ const Home = () => {
       </section>
 
       {features.map((feature, index: number) => (
-        <section
-          key={index}
-          className="section-sm"
-          // className={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
-        >
+        <section key={index} className="section-sm">
           <div className="container">
             <div className="row items-center justify-between">
               <div
@@ -154,6 +150,7 @@ const Home = () => {
                   alt={feature.title}
                 />
               </div>
+
               <div
                 className={`md:col-7 lg:col-6 ${
                   index % 2 !== 0 && "md:order-1"
@@ -213,10 +210,10 @@ const Home = () => {
       ))}
 
       <Services data={service} />
-      <Partners data={partner} />
       <PhotoGallery photos={photos} />
       {/* 
       <Testimonials data={testimonial} /> */}
+      <Partners data={partner} />
       <CallToAction data={callToAction} />
     </>
   );

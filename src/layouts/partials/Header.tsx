@@ -39,11 +39,11 @@ const Header = () => {
     <header
       className={`header z-30${settings.sticky_header && "sticky top-0"}`}
     >
-      {/* <div className="w-full h-[50px] bg-lime-green py-3 hidden md:block">
-        <span className="px-5 text-dark-grey font-medium">
+      {/* <div className="w-full h-[50px] bg-primary py-3 hidden md:block">
+        <span className="px-5 text-white font-medium">
           Ninth Avenue Foods West: (626) 666-6666
         </span>
-        <span className="px-5 text-dark-grey font-medium">
+        <span className="px-5 text-white font-medium">
           Ninth Avenue Foods East: (626) 666-6666
         </span>
       </div> */}
@@ -56,7 +56,7 @@ const Header = () => {
         <input id="nav-toggle" type="checkbox" className="hidden" />
         <label
           htmlFor="nav-toggle"
-          className="order-3 cursor-pointer flex items-center lg:hidden text-dark  lg:order-1"
+          className="order-3 cursor-pointer flex items-center lg:hidden text-dark-grey lg:order-1"
         >
           <svg
             id="show-button"
@@ -138,7 +138,7 @@ const Header = () => {
           {navigation_button.enable && (
             <li className="mt-4 inline-block lg:hidden">
               <Link
-                className="btn btn-outline-primary btn-sm"
+                className="btn btn-outline-primary btn-sm bg-primary"
                 href={navigation_button.link}
               >
                 {navigation_button.label}
@@ -159,7 +159,7 @@ const Header = () => {
           {/* <ThemeSwitcher className="mr-5" /> */}
           {navigation_button.enable && (
             <Link
-              className="btn btn-outline-primary btn-sm hidden lg:inline-block"
+              className="btn btn-outline-primary btn-sm hidden lg:inline-block border-primary text-primary hover:bg-dark-grey hover:border-dark-grey hover:text-white"
               href={navigation_button.link}
             >
               {navigation_button.label}

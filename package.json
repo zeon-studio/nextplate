@@ -34,11 +34,13 @@
     "react-dom": "18.2.0",
     "react-gtm-module": "^2.0.11",
     "react-icons": "^5.0.1",
+    "react-intersection-observer": "^9.8.2",
     "react-lite-youtube-embed": "^2.4.0",
     "react-photo-album": "^2.3.1",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "swiper": "^11.0.5",
+    "tailwindcss-animated": "^1.0.1",
     "yet-another-react-lightbox": "^3.17.2"
   },
   "devDependencies": {

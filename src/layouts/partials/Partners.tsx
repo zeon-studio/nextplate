@@ -18,7 +18,7 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
     <>
       {data.frontmatter.enable && (
         <section className="section-xs">
-          <div className="container pt-3">
+          <div className="container py-8">
             <div className="mx-auto text-center md:col-10">
               <h5
                 dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
@@ -30,6 +30,7 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
                 )}
               />
             </div>
+
             <div className="flex flex-wrap justify-center">
               {data.frontmatter.partners.map((service: Partner, index) => (
                 <div

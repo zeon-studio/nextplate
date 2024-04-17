@@ -1,6 +1,6 @@
 ---
 enable: true
-title: "Here are some of our clients"
+title: "__Here are some of our clients__"
 description: "Explore our esteemed clients who inspire us to advance standards through creative solutions and deep commitment to strong **collaboration**"
 
 # Partners
