@@ -24,7 +24,7 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "Designed And Developed by [Ceiara Madrigal](https://www.ceiaramadrigal.com/)"
   },
 
   "navigation_button": {
@@ -35,13 +35,13 @@
 
   "disqus": {
     "enable": true,
-    "shortname": "themefisher-template",
+    "shortname": "ninth-avenue-foods-website",
     "settings": {}
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
+    "meta_author": "Ceiara Madrigal",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Next Boilerplate"
+    "meta_description": "Experience quality and innovation at Ninth Avenue Foods, a leading name in the dairy industry. Trusted fourth-gen dairy with cutting-edge ESL facility & 50+ years' expertise. Your brand's success starts here."
   }
 }
