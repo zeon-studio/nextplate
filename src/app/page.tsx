@@ -157,15 +157,15 @@ const Home = () => {
                 }`}
               >
                 <h2
-                  className="mb-4"
+                  className="mb-4 animate-fade-up animate-duration-[600ms]"
                   dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
 
                 <p
-                  className="mb-8 text-lg"
+                  className="mb-8 text-lg animate-fade-up animate-delay-[400ms] ease-in"
                   dangerouslySetInnerHTML={markdownify(feature.content)}
                 />
-                <ul>
+                <ul className="animate-fade-up animate-delay-[400ms] ease-in">
                   {feature.bulletpoints.map((bullet: string) => (
                     <li className="relative mb-4 pl-6" key={bullet}>
                       <FaCheck

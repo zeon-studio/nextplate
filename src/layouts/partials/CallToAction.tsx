@@ -38,7 +38,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
                 ref={ref}
                 className={`${
                   inView
-                    ? "absolute inset-0 md:px-16 px-10 row items-center justify-between animate-delay-[800ms]"
+                    ? "absolute inset-0 md:px-16 px-10 row items-center justify-between animate-delay-[700ms]"
                     : "absolute inset-0 md:px-16 px-10 row items-center justify-between"
                 }`}
               >
@@ -52,14 +52,6 @@ const CallToAction = ({ data }: { data: PageData }) => {
                   />
                 </div> */}
                 <div className="md:col-8 md:order-1">
-                  {/* <div
-                ref={ref}
-                className={`${
-                  inView
-                    ? "animate-fade-up animate-duration-[400ms] animate-delay-[300ms]"
-                    : ""
-                }`}
-              ></div> */}
                   <h2
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.title,
@@ -67,7 +59,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
                     ref={ref}
                     className={`${
                       inView
-                        ? "text-h3 lg:text-h2 mb-2 text-white animate-fade animate-duration-[400ms] animate-delay-[500ms]"
+                        ? "text-h3 lg:text-h2 mb-2 text-white animate-fade animate-duration-[400ms] animate-delay-[700ms]"
                         : "text-h3 lg:text-h2 mb-2 text-white"
                     }`}
                   />
@@ -78,7 +70,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
                     ref={ref}
                     className={`${
                       inView
-                        ? "mb-6 md:text-lg text-white animate-fade animate-duration-[400ms] animate-delay-[600ms]"
+                        ? "mb-6 md:text-lg text-white animate-fade animate-duration-[400ms] animate-delay-[800ms]"
                         : "mb-6 md:text-lg text-white"
                     }`}
                   />
@@ -87,7 +79,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
                       ref={ref}
                       className={`${
                         inView
-                          ? "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey animate-fade animate-duration-[400ms] animate-delay-[650ms]"
+                          ? "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey animate-fade animate-duration-[400ms] animate-delay-[900ms]"
                           : "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
                       }`}
                       href={data.frontmatter.button.link}
