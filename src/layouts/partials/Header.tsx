@@ -89,7 +89,7 @@ const Header = () => {
               {menu.hasChildren ? (
                 <li className="nav-item nav-dropdown group relative">
                   <span
-                    className={`nav-link inline-flex items-center ${
+                    className={`nav-link inline-flex items-center${
                       menu.children?.map(({ url }) => url).includes(pathname) ||
                       menu.children
                         ?.map(({ url }) => `${url}/`)

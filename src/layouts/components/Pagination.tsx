@@ -76,7 +76,7 @@ const Pagination = ({
               {pagination === currentPage ? (
                 <span
                   aria-current="page"
-                  className="rounded bg-primary px-4 py-2 text-white  "
+                  className="rounded bg-primary px-4 py-2 text-white"
                 >
                   {pagination}
                 </span>

@@ -25,14 +25,14 @@ const Contact = async () => {
             <div className="mx-auto md:col-10 lg:col-6">
               <form action={contact_form_action} method="POST">
                 <div className="mb-6">
-                  <label htmlFor="name" className="form-label">
+                  <label htmlFor="fname" className="form-label">
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="name"
                     name="name"
-                    className="form-input"
-                    placeholder="John Doe"
+                    className="form-input bg-light-grey placeholder-dark-grey"
+                    placeholder="First Name"
                     type="text"
                   />
                 </div>

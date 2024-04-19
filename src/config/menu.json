@@ -5,12 +5,12 @@
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "About Us",
       "url": "/about"
     },
 
     {
-      "name": "Pages",
+      "name": "Capabilities",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -42,13 +42,18 @@
     },
 
     {
-      "name": "Elements",
+      "name": "Rex Creamery",
       "url": "/elements"
     },
 
     {
       "name": "Careers",
       "url": "/elements"
+    },
+
+    {
+      "name": "Contact Us",
+      "url": "/contact"
     }
   ],
   "footer": [
