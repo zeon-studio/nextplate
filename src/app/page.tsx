@@ -6,6 +6,7 @@ import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import Services from "@/partials/Services";
 import Partners from "@/partials/Partners";
+import PlantBased from "@/partials/PlantBased";
 import PhotoGallery from "@/components/PhotoGallery";
 import { Buttons, Feature } from "@/types";
 import Link from "next/link";
@@ -21,7 +22,8 @@ const Home = () => {
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
-  const partner = getListPage("sections/partner.md");
+  const plantBased = getListPage("sections/plant-based.md");
+  // const partner = getListPage("sections/partner.md");
   // Define your list of photos for this page
   const galleryPhotos = [
     { src: "/images/gallery/gallery-1.jpg", width: 2400, height: 3200 },
@@ -84,7 +86,7 @@ const Home = () => {
             <div className="row justify-center">
               <div className="lg:col-8 md:col-9 mb-8 text-center">
                 <h1
-                  className="mb-4 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms]"
+                  className="mb-4 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"
                   dangerouslySetInnerHTML={markdownify(banner.title)}
                 />
 
@@ -159,7 +161,7 @@ const Home = () => {
                 }`}
               >
                 <h2
-                  className="mb-4 animate-fade-up animate-duration-[600ms]"
+                  className="mb-4 animate-fade-up animate-duration-[600ms] text-dark-grey"
                   dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
 
@@ -213,9 +215,10 @@ const Home = () => {
 
       <Services data={service} />
       <PhotoGallery photos={photos} />
-      {/* 
-      <Testimonials data={testimonial} /> */}
-      <Partners data={partner} />
+
+      {/* <Testimonials data={testimonial} /> */}
+      {/* <Partners data={partner} /> */}
+      <PlantBased data={plantBased}></PlantBased>
       <CallToAction data={callToAction} />
     </>
   );

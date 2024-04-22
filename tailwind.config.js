@@ -92,6 +92,7 @@ module.exports = {
         "dark-grey": theme.colors.default.text_color.dark_grey,
         "light-grey": theme.colors.default.text_color.light_grey,
         "green-white": theme.colors.default.text_color.green_white,
+        white: theme.colors.default.text_color.white,
       },
       fontSize: {
         base: font_base + "px",

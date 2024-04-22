@@ -36,14 +36,14 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     <>
       <section>
         <div className="lg:px-10 py-28 bg-white flex justify-center items-center text-center">
-          <div className="col-8">
-            <div className="mx-auto mb-12 text-center md:col-9">
-              <h3 className="mb-4 text-h3 lg:text-h2">
+          <div className="md:col-8 col-9">
+            <div className="mx-auto mb-12 text-center md:col-10">
+              <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
                 Elevating Your Brand with{" "}
                 <span className="text-primary">Ninth Avenue Foods</span>
               </h3>
 
-              <p className="mb-8">
+              <p className="mb-8 text-lg">
                 From Tradition to Technology: A Heritage of <b>Excellence</b> in
                 Dairy Manufacturing
               </p>

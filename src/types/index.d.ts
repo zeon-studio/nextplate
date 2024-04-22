@@ -81,6 +81,14 @@ export type Partner = {
   width: string;
 };
 
+export type Plant_based = {
+  enable?: boolean;
+  title: string;
+  description: string;
+  image: string;
+  button: Button;
+};
+
 export type Call_to_action = {
   enable?: boolean;
   title: string;

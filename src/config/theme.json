@@ -19,20 +19,21 @@
         "medium_green": "#90c449",
         "light_green": "#b0d572",
         "army_green": "#789f76",
-        "pastel_green": "#c2dd98",
+        "pastel_green": "#d3dac9",
         "lime_green": "#a2c91a",
         "dark_grey": "#333333",
         "light_grey": "#e5e5e5",
-        "green_white": "#f2f8ea"
+        "green_white": "#f2f8ea",
+        "white": "#FFFFFF"
       }
     }
   },
   "fonts": {
     "font_family": {
       "primary": "Source Sans Pro:wght@400;600",
-      "primary_type": "Source Sans Pro",
-      "secondary": "Source Sans Pro:wght@500;700",
-      "secondary_type": "Source Sans Pro"
+      "primary_type": "sans-serif",
+      "secondary": "DM Sans:wght@500;700",
+      "secondary_type": "sans-serif"
     },
     "font_size": { "base": "17", "scale": "1.2" }
   }

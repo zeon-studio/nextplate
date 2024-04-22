@@ -26,7 +26,14 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
       {data.frontmatter.enable && (
         <section className="section bg-theme-light">
           <div className="container">
-            <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
+            <div className="mx-auto text-center md:col-10">
+              <h2
+                dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
+                className="mb-4 text-dark-grey"
+              />
+            </div>
+
+            <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-7">
               {/* Template for animation
               <div
                 ref={ref}
@@ -36,12 +43,9 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                     : ""
                 }`}
               ></div> */}
-              <h2
-                dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-                className="mb-4"
-              />
 
               <p
+                className="text-lg"
                 dangerouslySetInnerHTML={markdownify(
                   data.frontmatter.description!,
                 )}
@@ -76,12 +80,12 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                       <div>
                         <h3
                           dangerouslySetInnerHTML={markdownify(service.title)}
-                          className="h5 font-primary font-semibold"
+                          className="h5 font-primary font-semibold text-dark-grey"
                         />
                       </div>
                     </div>
                     <blockquote
-                      className="mt-4"
+                      className="mt-4 "
                       dangerouslySetInnerHTML={markdownify(service.content)}
                     />
                     {service.button.enable && (
