@@ -34,8 +34,6 @@ const Home = () => {
     { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
     { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
     { src: "/images/private-label-co-packing.jpg", width: 3000, height: 2000 },
-    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
-    { src: "/images/private-label-co-packing.jpg", width: 3000, height: 2000 },
   ];
 
   // Generate the photos array using the generatePhotos function

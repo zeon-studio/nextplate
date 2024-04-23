@@ -36,7 +36,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     <>
       <section>
         <div className="lg:px-10 py-28 bg-white flex justify-center items-center text-center">
-          <div className="md:col-8 col-9">
+          <div className="md:col-8 col-10">
             <div className="mx-auto mb-12 text-center md:col-10">
               <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
                 Elevating Your Brand with{" "}
@@ -49,7 +49,10 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
               </p>
             </div>
 
-            <div ref={ref} className={`${inView ? "animate-fade" : ""}`}>
+            <div
+              ref={ref}
+              className={`${inView ? "mx-auto col-10 animate-fade" : ""}`}
+            >
               <PhotoAlbum
                 photos={photos}
                 layout="rows"
