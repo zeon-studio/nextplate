@@ -1,8 +1,8 @@
 ---
 enable: true
-title: "Introducing Plant Based Products"
+title: "Introducing Plant Based Alternatives"
 image: "/images/plant-based.png"
-description: " Specializing in a diverse range of dairy alternatives, our products feature premium ingredients like **flax**, **date**, **oat**, **almond**, and **coconut**."
+description: "Specializing in a diverse selection of plant-based products alongside our traditional offerings, we feature natural ingredients like **flax**, **date**, **oat**, **almond**, and **coconut**"
 button:
   enable: true
   label: "Learn More"

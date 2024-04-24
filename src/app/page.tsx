@@ -17,13 +17,14 @@ import generatePhotos from "@/helpers/photos";
 // Templates
 // https://dorik.com/blog/service-website-examples
 // https://zeon.studio/
+// https://www.idahomilkproducts.com/
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
   const plantBased = getListPage("sections/plant-based.md");
-  // const partner = getListPage("sections/partner.md");
+  const partner = getListPage("sections/partner.md");
   // Define your list of photos for this page
   const galleryPhotos = [
     { src: "/images/gallery/gallery-1.jpg", width: 2400, height: 3200 },
@@ -212,11 +213,10 @@ const Home = () => {
       ))}
 
       <Services data={service} />
-      <PhotoGallery photos={photos} />
-
-      {/* <Testimonials data={testimonial} /> */}
-      {/* <Partners data={partner} /> */}
+      <Partners data={partner} />
       <PlantBased data={plantBased}></PlantBased>
+      <PhotoGallery photos={photos} />
+      {/* <Testimonials data={testimonial} /> */}
       <CallToAction data={callToAction} />
     </>
   );

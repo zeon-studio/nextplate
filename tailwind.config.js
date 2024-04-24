@@ -68,6 +68,8 @@ module.exports = {
         70: ".70",
         75: ".75",
         80: ".80",
+        85: ".85",
+        90: ".90",
       },
       colors: {
         text: theme.colors.default.text_color.default,

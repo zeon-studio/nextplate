@@ -35,7 +35,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
   return (
     <>
       <section>
-        <div className="lg:px-10 py-28 bg-white flex justify-center items-center text-center">
+        <div className="lg:px-10 pb-28 bg-white flex justify-center items-center text-center">
           <div className="md:col-8 col-10">
             <div className="mx-auto mb-12 text-center md:col-10">
               <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
