@@ -74,8 +74,9 @@ export type Photo = {
   height: number;
 };
 
-export type Partner = {
+export type Product = {
   image: string;
+  title: string;
   alt: string;
   height: string;
   width: string;

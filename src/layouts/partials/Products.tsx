@@ -2,14 +2,14 @@
 
 import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
-import { Partner } from "@/types";
+import { Product } from "@/types";
 
 interface PageData {
   frontmatter: {
     enable?: boolean;
     title: string;
     description: string;
-    partners: Array<Partner>;
+    products: Array<Product>;
   };
 }
 
@@ -32,19 +32,22 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
             </div>
 
             <div className="flex flex-wrap justify-center">
-              {data.frontmatter.partners.map((service: Partner, index) => (
+              {data.frontmatter.products.map((product: Product, index) => (
                 <div
                   key={index}
                   //   className="flex justify-center items-center w-1/2 md:w-1/3 lg:w-1/5 p-4"
-                  className="flex justify-center items-center sm:w-[120px] w-[100px] px-4 py-4 m-2"
+                  className="flex justify-center items-center text-center sm:w-[120px] w-[100px] px-4 py-4 m-2"
                 >
-                  <ImageFallback
-                    height={service.height}
-                    width={service.width}
-                    src={service.image}
-                    alt={service.alt}
-                    className="rounded-lg"
-                  />
+                  <div className="flex flex-col">
+                    <ImageFallback
+                      height={product.height}
+                      width={product.width}
+                      src={product.image}
+                      alt={product.alt}
+                      className="rounded-lg"
+                    />
+                    <p dangerouslySetInnerHTML={markdownify(product.title!)} />
+                  </div>
                 </div>
               ))}
             </div>

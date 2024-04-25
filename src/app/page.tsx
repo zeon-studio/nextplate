@@ -5,7 +5,7 @@ import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import Services from "@/partials/Services";
-import Partners from "@/partials/Partners";
+import Products from "@/partials/Products";
 import PlantBased from "@/partials/PlantBased";
 import PhotoGallery from "@/components/PhotoGallery";
 import { Buttons, Feature } from "@/types";
@@ -24,7 +24,7 @@ const Home = () => {
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
   const plantBased = getListPage("sections/plant-based.md");
-  const partner = getListPage("sections/partner.md");
+  const product = getListPage("sections/product.md");
   // Define your list of photos for this page
   const galleryPhotos = [
     { src: "/images/gallery/gallery-1.jpg", width: 2400, height: 3200 },
@@ -213,7 +213,7 @@ const Home = () => {
       ))}
 
       <Services data={service} />
-      <Partners data={partner} />
+      <Products data={product} />
       <PlantBased data={plantBased}></PlantBased>
       <PhotoGallery photos={photos} />
       {/* <Testimonials data={testimonial} /> */}
