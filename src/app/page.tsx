@@ -160,6 +160,14 @@ const Home = () => {
                   index % 2 !== 0 && "md:order-1"
                 }`}
               >
+                <div className="flex items-center sm:col-7 col-9">
+                  <div className="flex-grow border-t border-light-green"></div>
+                  <span className="mx-4 text-dark-green text-lg tracking-widest">
+                    WELCOME TO
+                  </span>
+                  <div className="flex-grow border-t border-light-green"></div>
+                </div>
+
                 <h2
                   className="mb-4 animate-fade-up animate-duration-[600ms] text-dark-grey"
                   dangerouslySetInnerHTML={markdownify(feature.title)}

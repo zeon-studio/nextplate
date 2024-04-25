@@ -56,7 +56,7 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
               {data.frontmatter.services.map((service: Service, index) => (
                 <div
                   ref={ref}
-                  className={`rounded shadow-lg bg-white ${inView && index === 0 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : inView && index === 1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]" : inView && index === 2 ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]" : ""}`}
+                  className={`rounded shadow-lg bg-white border ${inView && index === 0 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : inView && index === 1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]" : inView && index === 2 ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]" : ""}`}
                   key={index}
                 >
                   <div className="pb-3 px-4 py-4">

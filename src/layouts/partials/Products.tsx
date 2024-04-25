@@ -47,7 +47,7 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
                       className="sm:w-[100px] w-[90px]"
                     />
                     <p
-                      className="text-[#65a30d] sm:text-sm text-lg"
+                      className="text-dark-green sm:text-sm text-md pt-1"
                       dangerouslySetInnerHTML={markdownify(product.title!)}
                     />
                   </div>
