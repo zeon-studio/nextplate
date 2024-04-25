@@ -36,7 +36,7 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
                 <div
                   key={index}
                   //   className="flex justify-center items-center w-1/2 md:w-1/3 lg:w-1/5 p-4"
-                  className="flex justify-center items-center text-center sm:w-[120px] w-[100px] px-4 py-4 m-2"
+                  className="flex justify-center items-center text-center w-[124px] px-4 py-2 m-3"
                 >
                   <div className="flex flex-col">
                     <ImageFallback
@@ -44,9 +44,12 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
                       width={product.width}
                       src={product.image}
                       alt={product.alt}
-                      className="rounded-lg"
+                      className="sm:w-[100px] w-[90px]"
                     />
-                    <p dangerouslySetInnerHTML={markdownify(product.title!)} />
+                    <p
+                      className="text-[#65a30d] sm:text-sm text-lg"
+                      dangerouslySetInnerHTML={markdownify(product.title!)}
+                    />
                   </div>
                 </div>
               ))}
