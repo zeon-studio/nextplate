@@ -29,7 +29,7 @@ const Contact = async () => {
               <div className="flex items-center col-9 pb-6">
                 <div className="flex-grow border-t border-light-green"></div>
                 <span className="mx-4 text-dark-green text-xl tracking-widest">
-                  Let's Connect
+                  Let&apos;s Connect
                 </span>
                 <div className="flex-grow border-t border-light-green"></div>
               </div>
