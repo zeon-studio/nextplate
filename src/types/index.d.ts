@@ -47,10 +47,11 @@ export type Author = {
 
 export type Feature = {
   button: button;
-  image: string;
+  video: string;
   bulletpoints: string[];
   content: string;
   title: string;
+  subtitle: string;
 };
 
 export type Testimonial = {

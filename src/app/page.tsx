@@ -60,21 +60,22 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 pb-0 relative md:h-[750px] h-[450px]">
+      <section className="section pt-0 pb-0 relative md:h-[800px] h-[450px]">
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
             alt="banner image"
-            className="w-full h-full object-cover"
-            width={2400}
-            height={1600}
+            className="w-full h-full object-cover sm:object-[center_top] opacity-100 object-center"
+            width={3908}
+            height={2600}
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-40"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
+          <div className="absolute inset-0 bg-[#25252573] opacity-70 sm:opacity-0"></div>
         </div>
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
-            <div className="relative xl:pl-10 pl-5 float-left md:bottom-10 bottom-0 animate-fade animate-ease-in animate-delay-[100ms]">
+            {/* <div className="relative xl:pl-10 pl-5 float-left md:bottom-10 bottom-0 animate-fade animate-ease-in animate-delay-[100ms]">
               <Image
                 src={banner.subimage}
                 alt="Image"
@@ -82,18 +83,21 @@ const Home = () => {
                 width={2400}
                 height={3000}
               />
-            </div>
-            <div className="row justify-center">
-              <div className="lg:col-8 md:col-9 mb-8 text-center">
-                <h1
-                  className="mb-4 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"
-                  dangerouslySetInnerHTML={markdownify(banner.title)}
-                />
+            </div> */}
+            <div className="relative row sm:bottom-[130px]">
+              <div className="lg:col-8 md:col-9 sm:text-left text-center">
+                <div className="py-5">
+                  <h1
+                    className="mb-2 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-white sm:text-dark-grey"
+                    dangerouslySetInnerHTML={markdownify(banner.title)}
+                  />
 
-                <p
-                  className="mb-8 lg:text-lg animate-fade-up animate-delay-[400ms] ease-in"
-                  dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
-                />
+                  <p
+                    className="sm:col-10 lg:text-xl animate-fade-up animate-delay-[400ms] ease-in text-white sm:text-dark-grey"
+                    dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
+                  />
+                </div>
+
                 {banner.buttons &&
                   Object.values(banner.buttons).map(
                     (button, index) =>
@@ -107,7 +111,7 @@ const Home = () => {
                           }
                           rel="noopener"
                         >
-                          <div className="flex flex-row items-center">
+                          <div className="flex flex-row items-center text-xl">
                             {button.label}
                             {index === 1 && (
                               <svg
@@ -141,36 +145,41 @@ const Home = () => {
       {features.map((feature, index: number) => (
         <section key={index} className="section-sm">
           <div className="container">
-            <div className="row items-center justify-between">
+            <div className="row items-center justify-center">
               <div
-                className={`mb:md-0 mb-6 md:col-5 ${
+                className={`mb:md-0 lg:pr-10 mb-6 lg:col-6 md:col-8 animate-fade animate-duration-[600ms] ${
                   index % 2 !== 0 && "md:order-2"
                 }`}
               >
-                <ImageFallback
-                  src={feature.image}
-                  height={480}
-                  width={520}
-                  alt={feature.title}
-                />
+                <video
+                  className="w-full rounded-xs shadow-lg"
+                  controls
+                  preload="none"
+                  autoPlay
+                  loop
+                  muted
+                >
+                  <source src={feature.video} type="video/mp4" />
+                  Your browser does not support the video.
+                </video>
               </div>
 
               <div
-                className={`md:col-7 lg:col-6 ${
+                className={`md:col-8 lg:col-6 items-center${
                   index % 2 !== 0 && "md:order-1"
                 }`}
               >
-                <div className="flex items-center sm:col-7 col-9">
-                  <div className="flex-grow border-t border-light-green"></div>
-                  <span className="mx-4 text-dark-green text-lg tracking-widest">
-                    WELCOME TO
-                  </span>
-                  <div className="flex-grow border-t border-light-green"></div>
+                <div className="flex flex-col items-center col-5 pb-2">
+                  <h5
+                    className="text-dark-green font-light text-xl tracking-widest pb-1"
+                    dangerouslySetInnerHTML={markdownify(feature.title)}
+                  />
+                  <div className="flex-grow border opacity-40 border-t border-light-green w-[120px]"></div>
                 </div>
 
                 <h2
                   className="mb-4 animate-fade-up animate-duration-[600ms] text-dark-grey"
-                  dangerouslySetInnerHTML={markdownify(feature.title)}
+                  dangerouslySetInnerHTML={markdownify(feature.subtitle)}
                 />
 
                 <p

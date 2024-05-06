@@ -3,21 +3,22 @@
 banner:
   title: "Quality Meets __Innovation__"
   content: "Coupling **cutting-edge technology** with a **long-standing commitment** to doing things the **RIGHT WAY**, **__Ninth Avenue Foods__** is a manufacturing facility ready to take your product or brand to the next level."
-  image: "/images/banner-image.jpg"
+  image: "/images/banner-image9.jpg"
   subimage: "/images/sub-banner-image.jpg"
   buttons:
     - enable: true
       label: "Get in Touch"
-      classname: "btn btn-primary mr-4 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey animate-fade-up animate-delay-[500ms] ease-in"
+      classname: "btn btn-primary mr-2 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey animate-fade-up animate-delay-[500ms] ease-in"
       link: "https://github.com/zeon-studio/nextplate"
     - enable: true
       label: "Learn More"
-      classname: "btn btn-primary mr-4 bg-transparent border-2 text-primary hover:border-dark-grey  hover:text-dark-grey hover:text-dark-grey animate-fade-up animate-delay-[550ms] ease-in"
+      classname: "btn btn-primary mr-2 bg-transparent border-2 text-primary hover:border-dark-grey hover:text-dark-grey hover:text-dark-grey animate-fade-up animate-delay-[550ms] ease-in"
       link: "https://github.com/zeon-studio/nextplate"
 # Features
 features:
-  - title: "Ninth Avenue Foods"
-    image: "/images/service-1-ninth-1.png"
+  - title: "WELCOME TO"
+    subtitle: "Ninth Avenue Foods"
+    video: "/videos/ninth-ave-video1.mp4"
     content: "Ninth Avenue Foods is a fourth generation family-owned and operated company with a long-standing history of quality and service in the dairy industry. As innovation has lead to growth and success, family values and commitment to quality has remained the same."
     bulletpoints:
       - "State-of-the-art **ESL manufacturing facility**"
