@@ -75,15 +75,6 @@ const Home = () => {
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
-            {/* <div className="relative xl:pl-10 pl-5 float-left md:bottom-10 bottom-0 animate-fade animate-ease-in animate-delay-[100ms]">
-              <Image
-                src={banner.subimage}
-                alt="Image"
-                className="rounded-xs mx-auto xl:w-[400px] md:w-[340px] sm:w-[250px] hidden sm:block shadow-xl"
-                width={2400}
-                height={3000}
-              />
-            </div> */}
             <div className="relative row lg:bottom-[130px] md:bottom-[100px]">
               <div className="lg:col-8 md:col-9 md:text-left text-center">
                 <div className="py-5">
@@ -93,7 +84,7 @@ const Home = () => {
                   />
 
                   <p
-                    className="sm:col-10 lg:text-xl animate-fade-up animate-delay-[400ms] ease-in text-white md:text-dark-grey"
+                    className="sm:col-10 lg:text-xl text-lg animate-fade-up animate-delay-[400ms] ease-in text-white md:text-dark-grey"
                     dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                   />
                 </div>

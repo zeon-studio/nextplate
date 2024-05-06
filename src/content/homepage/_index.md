@@ -12,7 +12,7 @@ banner:
       link: "https://github.com/zeon-studio/nextplate"
     - enable: true
       label: "Learn More"
-      classname: "btn btn-primary mr-2 bg-transparent border-2 text-primary hover:border-dark-grey hover:text-dark-grey hover:text-dark-grey animate-fade-up animate-delay-[550ms] ease-in"
+      classname: "btn btn-primary mr-2 bg-transparent border-2 text-primary hover:border-dark-grey hover:text-dark-grey animate-fade-up animate-delay-[550ms] ease-in"
       link: "https://github.com/zeon-studio/nextplate"
 # Features
 features:

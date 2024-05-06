@@ -3,7 +3,7 @@
     "default": {
       "theme_color": {
         "primary": "#0d7e08",
-        "old_primary": "#121212",
+        "old_primary": "#0d7e08",
         "body": "#fff",
         "border": "#eaeaea",
         "theme_light": "#f4fdf2",
@@ -20,7 +20,7 @@
         "light_green": "#b0d572",
         "army_green": "#789f76",
         "pastel_green": "#d3dac9",
-        "lime_green": "#a2c91a",
+        "lime_green": "#84cc16",
         "dark_grey": "#333333",
         "light_grey": "#e5e5e5",
         "green_white": "#f2f8ea",
