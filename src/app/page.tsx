@@ -60,7 +60,7 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 pb-0 relative md:h-[800px] h-[300px]">
+      <section className="section pt-0 pb-0 relative lg:h-[800px] sm:h-full h-[300px]">
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
@@ -70,7 +70,7 @@ const Home = () => {
             height={2600}
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
-          <div className="absolute inset-0 bg-[#25252573] opacity-50 sm:opacity-0"></div>
+          <div className="absolute inset-0 bg-[#25252573] opacity-50 md:opacity-0"></div>
         </div>
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
@@ -84,16 +84,16 @@ const Home = () => {
                 height={3000}
               />
             </div> */}
-            <div className="relative row sm:bottom-[130px]">
-              <div className="lg:col-8 md:col-9 sm:text-left text-center">
+            <div className="relative row lg:bottom-[130px] md:bottom-[100px]">
+              <div className="lg:col-8 md:col-9 md:text-left text-center">
                 <div className="py-5">
                   <h1
-                    className="mb-2 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-white sm:text-dark-grey"
+                    className="mb-2 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-white md:text-dark-grey"
                     dangerouslySetInnerHTML={markdownify(banner.title)}
                   />
 
                   <p
-                    className="sm:col-10 lg:text-xl animate-fade-up animate-delay-[400ms] ease-in text-white sm:text-dark-grey"
+                    className="sm:col-10 lg:text-xl animate-fade-up animate-delay-[400ms] ease-in text-white md:text-dark-grey"
                     dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                   />
                 </div>

@@ -22,8 +22,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
     <>
       {data.frontmatter.enable && (
         <section className="remb-28 mb-28 bg-pastel-green">
-          <div className="md:grid grid-cols-[2.5fr,2fr] ">
-            <div className="relative md:h-[520px]">
+          <div className="lg:grid grid-cols-[2.5fr,2fr] h-[520px]">
+            <div className="relative lg:h-full h-1/2">
               <div
                 ref={ref}
                 className={`${inView ? "animate-fade animate-duration-300 animate-ease-in" : ""}`}
@@ -31,9 +31,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
                 <Image
                   src="/images/plant-based-milk.jpg"
                   alt="Plant-Based Milk"
-                  className="w-full md:h-[520px] object-cover"
-                  width={1200}
-                  height={627}
+                  className="w-full h-full object-cover"
+                  layout="fill"
                 ></Image>
               </div>
             </div>
@@ -42,8 +41,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
                 ref={ref}
                 className={`${
                   inView
-                    ? "inset-0 md:px-16 px-10 row items-center justify-between animate-delay-[700ms]"
-                    : "inset-0 md:px-16 px-10 row items-center justify-between"
+                    ? "inset-0 lg:px-16 px-2 py-2 row items-center justify-between animate-delay-[700ms]"
+                    : "inset-0 lg:px-16 px-2 py-2 row items-center justify-between"
                 }`}
               >
                 <div className="md:col-10 md:order-1 md:text-left text-center md:m-auto mt-5 mb-5">
@@ -74,8 +73,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
                       ref={ref}
                       className={`${
                         inView
-                          ? "btn bg-white mt-5 hover:bg-dark-grey hover:border-dark-grey hover:text-white animate-fade-up animate-delay-[500ms] ease-in"
-                          : "btn bg-white mt-5 hover:bg-dark-grey hover:border-dark-grey hover:text-white"
+                          ? "btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white animate-fade-up animate-delay-[500ms] ease-in"
+                          : "btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white"
                       }`}
                       href={data.frontmatter.button.link}
                     >
