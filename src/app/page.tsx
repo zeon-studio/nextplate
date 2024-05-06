@@ -60,7 +60,7 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 pb-0 relative md:h-[800px] h-[450px]">
+      <section className="section pt-0 pb-0 relative md:h-[800px] h-[300px]">
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
@@ -70,7 +70,7 @@ const Home = () => {
             height={2600}
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
-          <div className="absolute inset-0 bg-[#25252573] opacity-70 sm:opacity-0"></div>
+          <div className="absolute inset-0 bg-[#25252573] opacity-50 sm:opacity-0"></div>
         </div>
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
