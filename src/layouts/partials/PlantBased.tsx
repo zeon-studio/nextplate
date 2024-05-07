@@ -26,7 +26,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
             <div className="relative lg:h-full h-1/2">
               <div
                 ref={ref}
-                className={`${inView ? "animate-fade animate-duration-300 animate-ease-in" : ""}`}
+                className={`${inView ? "static animate-fade animate-duration-300 animate-ease-in" : ""}`}
               >
                 <Image
                   src="/images/plant-based-milk.jpg"

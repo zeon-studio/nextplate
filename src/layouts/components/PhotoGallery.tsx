@@ -36,8 +36,8 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     <>
       <section>
         <div className="lg:px-10 pb-28 bg-white flex justify-center items-center text-center">
-          <div className="md:col-9 col-10">
-            <div className="mx-auto mb-12 text-center md:col-10">
+          <div className="md:col-9">
+            <div className="mx-auto mb-12 text-center md:col-10 col-10">
               <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
                 Elevating Your Brand with{" "}
                 <span className="text-primary">Ninth Avenue Foods</span>
@@ -51,7 +51,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
 
             <div
               ref={ref}
-              className={`${inView ? "mx-auto col-10 animate-fade" : ""}`}
+              className={`${inView ? "mx-auto md:col-11 col-10 animate-fade" : ""}`}
             >
               <PhotoAlbum
                 photos={photos}
@@ -60,6 +60,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
                 renderPhoto={NextJsImage}
                 defaultContainerWidth={1200}
                 sizes={{ size: "calc(100vw - 240px)" }}
+                breakpoints={[100, 200, 1000]}
               />
             </div>
           </div>

@@ -11,7 +11,7 @@ export default function NextJsImage({
       style={{
         ...wrapperStyle,
         position: "relative",
-        margin: "4px",
+        margin: "3px",
         border: "5px",
       }}
     >

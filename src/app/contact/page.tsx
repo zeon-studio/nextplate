@@ -12,13 +12,16 @@ const Contact = async () => {
   const { title, description, meta_title, image } = frontmatter;
   const { contact_form_action } = config.params;
   // Explicitly typed as a tuple.
-  const position1: [number, number] = [34.02963095004345, -117.97370799183287];
-  const position2: [number, number] = [39.924201236649864, -85.96258788368951];
-  const centerPosition: [number, number] = [
-    37.97691609334666, -98.96814793776119,
+  const californiaCoord: [number, number] = [
+    34.02963095004345, -117.97370799183287,
   ];
+  const indianaCoord: [number, number] = [
+    39.924201236649864, -85.96258788368951,
+  ];
+  const centerCoord: [number, number] = [37.97691609334666, -98.96814793776119];
   // To make contact info. card
   // https://flowbite.com/docs/components/card/
+  //https://flowbite.com/blocks/marketing/contact/
 
   const Map = useMemo(
     () =>
@@ -40,12 +43,17 @@ const Contact = async () => {
       <section className="section-sm">
         <div className="container">
           <div className="row">
+            <div className="flex flex-row">
+              <h5>Email us</h5>
+              <h5>Our offices</h5>
+              <h5>Email us</h5>
+            </div>
             <div className="mx-auto md:col-10 lg:col-6">
               <div className="flex items-center col-6 pb-6">
                 <div className="flex-grow border opacity-40 border-t border-light-green"></div>
-                <span className="mx-4 text-dark-green text-xl tracking-widest">
+                <h5 className="mx-4 text-dark-green text-xl font-light tracking-widest">
                   Let&apos;s Connect
-                </span>
+                </h5>
                 <div className="flex-grow border opacity-40 border-t border-light-green"></div>
               </div>
               <form action={contact_form_action} method="POST">
@@ -135,13 +143,13 @@ const Contact = async () => {
                 </div>
               </form>
             </div>
-            <div className="h-[50vh]  my-10">
-              <Map
-                center={centerPosition}
-                position1={position1}
-                position2={position2}
-              />
-            </div>
+          </div>
+          <div className="h-[50vh] my-10">
+            <Map
+              center={centerCoord}
+              position1={californiaCoord}
+              position2={indianaCoord}
+            />
           </div>
         </div>
       </section>
