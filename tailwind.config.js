@@ -91,10 +91,12 @@ module.exports = {
         "army-green": theme.colors.default.text_color.army_green,
         "pastel-green": theme.colors.default.text_color.pastel_green,
         "lime-green": theme.colors.default.text_color.lime_green,
+        grey: theme.colors.default.text_color.grey,
         "dark-grey": theme.colors.default.text_color.dark_grey,
         "light-grey": theme.colors.default.text_color.light_grey,
         "green-white": theme.colors.default.text_color.green_white,
         white: theme.colors.default.text_color.white,
+        mischka: theme.colors.default.text_color.mischka,
       },
       fontSize: {
         base: font_base + "px",

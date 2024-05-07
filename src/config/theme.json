@@ -21,10 +21,12 @@
         "army_green": "#789f76",
         "pastel_green": "#d3dac9",
         "lime_green": "#84cc16",
+        "grey": "#52525b",
         "dark_grey": "#333333",
-        "light_grey": "#e5e5e5",
+        "light_grey": "#f5f5f4",
         "green_white": "#f2f8ea",
-        "white": "#FFFFFF"
+        "white": "#FFFFFF",
+        "mischka": "#E4E4E7"
       }
     }
   },

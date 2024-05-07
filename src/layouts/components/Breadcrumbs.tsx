@@ -33,7 +33,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
           <li className="mx-1 capitalize" role="listitem" key={index}>
             {index > 0 && <span className="inlin-block mr-1">/</span>}
             {index !== parts.length - 1 ? (
-              <Link className="text-black" {...attrs}>
+              <Link className="text-dark-grey" {...attrs}>
                 {label}
               </Link>
             ) : (

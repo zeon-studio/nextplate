@@ -1,6 +1,13 @@
 "use client";
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  Tooltip,
+} from "react-leaflet";
 import { LatLngExpression, LatLngTuple, latLngBounds } from "leaflet";
 import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
@@ -35,11 +42,19 @@ const Map = (Map: MapProps) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       <Marker position={position1} draggable={false}>
-        <Popup>Hey ! I study here</Popup>
+        <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
+          <p className="font-semibold pb-1">Ninth Avenue Foods</p>
+          <p>425 S 9th Ave, City of Industry, CA</p>
+          <p>91746, USA</p>
+        </Tooltip>
       </Marker>
 
       <Marker position={position2} draggable={false}>
-        <Popup>Hey ! I study here</Popup>
+        <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
+          <p className="font-semibold pb-1">Ninth Avenue Foods East</p>
+          <p>6350 S 175 W, Columbus, IN</p>
+          <p>47201, USA</p>
+        </Tooltip>
       </Marker>
     </MapContainer>
   );
