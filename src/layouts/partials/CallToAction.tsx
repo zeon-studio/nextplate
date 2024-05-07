@@ -23,9 +23,10 @@ const CallToAction = ({ data }: { data: PageData }) => {
     <>
       {data.frontmatter.enable && (
         <section className="remb-28 mb-28">
-          <div className="container">
+          <div className="container relative">
             {/* <div className="relative px-4 py-16 xl:p-20 bg-cover bg-top bg-contact-us bg-brightness-75 h-[450px]"> */}
-            <div className="relative h-[420px]">
+
+            <div className="md:h-[450px] h-[300px]">
               <Image
                 src="/images/contact-us-image.jpg"
                 alt="Image"
