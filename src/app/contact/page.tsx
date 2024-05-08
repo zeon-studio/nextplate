@@ -43,9 +43,9 @@ const Contact = async () => {
       <PageHeader title={title} subtitle={subtitle} />
       <section className="section-sm">
         <div className="container">
-          <div className="flex sm:flex-row flex-col-reverse">
+          <div className="flex md:flex-row flex-col-reverse">
             {/* Points of contact */}
-            <div className="flex flex-col sm:col-4 justify-center items-center sm:py-0 py-20">
+            <div className="flex flex-col md:col-4 justify-center items-center md:py-0 py-20">
               <div className="mb-5 flex flex-col items-center text-center">
                 <div className="flex items-center justify-center bg-light-grey w-16 h-16 rounded-lg shadow-sm">
                   <svg
@@ -159,17 +159,17 @@ const Contact = async () => {
             </div>
 
             {/* Form */}
-            <div className="mx-auto md:col-10 lg:col-6">
-              <div className="flex items-center sm:col-6 col-7 pb-6 py-5">
-                <div className="flex-grow border opacity-40 border-t border-light-green invisible sm:visible"></div>
-                <h5 className="mx-4 text-dark-green text-xl font-light tracking-widest">
+            <div className="mx-auto md:col-6">
+              <div className="flex items-center md:col-6 col-7 pb-6 py-5">
+                <div className="flex-grow border opacity-40 border-t border-light-green invisible lg:visible"></div>
+                <h5 className="lg:mx-4 text-dark-green text-xl font-light tracking-widest">
                   Let&apos;s Connect
                 </h5>
-                <div className="flex-grow border opacity-40 border-t border-light-green invisible sm:visible"></div>
+                <div className="flex-grow border opacity-40 border-t border-light-green invisible lg:visible"></div>
               </div>
               <form action={contact_form_action} method="POST">
-                <div className="flex flex-wrap sm:-mx-6 mx-8">
-                  <div className="w-full md:w-1/2 px-1 sm:mb-6 mb-3">
+                <div className="flex flex-wrap md:-mx-6 mx-8">
+                  <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
                     <label
                       htmlFor="fname"
                       className="form-label text-dark-grey"
@@ -184,7 +184,7 @@ const Contact = async () => {
                       type="text"
                     />
                   </div>
-                  <div className="w-full md:w-1/2 px-1 sm:mb-6 mb-3">
+                  <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
                     <label
                       htmlFor="lname"
                       className="form-label text-dark-grey"
@@ -199,7 +199,7 @@ const Contact = async () => {
                       type="text"
                     />
                   </div>
-                  <div className="w-full md:w-1/2 px-1 sm:mb-6 mb-3">
+                  <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
                     <label
                       htmlFor="email"
                       className="form-label text-dark-grey"
@@ -214,7 +214,7 @@ const Contact = async () => {
                       type="email"
                     />
                   </div>
-                  <div className="w-full md:w-1/2 px-1 sm:mb-6 mb-3">
+                  <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
                     <label
                       htmlFor="interest"
                       className="form-label text-dark-grey"
@@ -228,7 +228,7 @@ const Contact = async () => {
                       placeholder="I am interested in..."
                     />
                   </div>
-                  <div className="w-full px-1 sm:mb-6 mb-3">
+                  <div className="w-full px-1 md:mb-6 mb-3">
                     <label
                       htmlFor="message"
                       className="form-label text-dark-grey"
@@ -256,7 +256,7 @@ const Contact = async () => {
             </div>
           </div>
 
-          <div className="h-[50vh] sm:mt-24 mb-24">
+          <div className="h-[50vh] md:mt-24 mb-24">
             <h5 className="text-dark-green text-center pb-5">
               We are based in City of Industry, CA and Columbus, IN
             </h5>
