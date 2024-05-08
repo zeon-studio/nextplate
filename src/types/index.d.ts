@@ -1,7 +1,7 @@
 export type RegularPage = {
   frontmatter: {
     title: string;
-    subtitle: string;
+    subtitle?: string;
     image?: string;
     description?: string;
     meta_title?: string;
