@@ -37,10 +37,8 @@ const CallToAction = ({ data }: { data: PageData }) => {
 
               <div
                 ref={ref}
-                className={`${
-                  inView
-                    ? "absolute inset-0 md:px-16 px-10 row items-center justify-between animate-delay-[700ms]"
-                    : "absolute inset-0 md:px-16 px-10 row items-center justify-between"
+                className={`absolute inset-0 md:px-16 px-10 row items-center justify-between ${
+                  inView ? "animate-delay-[700ms]" : ""
                 }`}
               >
                 <div className="md:col-7 md:order-1">
@@ -49,10 +47,10 @@ const CallToAction = ({ data }: { data: PageData }) => {
                       data.frontmatter.title,
                     )}
                     ref={ref}
-                    className={`${
+                    className={`text-h4 lg:text-h2 mb-2 text-white ${
                       inView
-                        ? "text-h4 lg:text-h2 mb-2 text-white animate-fade animate-duration-[400ms] animate-delay-[700ms]"
-                        : "text-h4 lg:text-h2 mb-2 text-white"
+                        ? "animate-fade animate-duration-[400ms] animate-delay-[700ms]"
+                        : ""
                     }`}
                   />
                   <p
@@ -60,19 +58,19 @@ const CallToAction = ({ data }: { data: PageData }) => {
                       data.frontmatter.description,
                     )}
                     ref={ref}
-                    className={`${
+                    className={`mb-6 md:text-lg text-white ${
                       inView
-                        ? "mb-6 md:text-lg text-white animate-fade animate-duration-[400ms] animate-delay-[800ms]"
-                        : "mb-6 md:text-lg text-white"
+                        ? "animate-fade animate-duration-[400ms] animate-delay-[800ms]"
+                        : ""
                     }`}
                   />
                   {data.frontmatter.button.enable && (
                     <Link
                       ref={ref}
-                      className={`${
+                      className={`btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey ${
                         inView
-                          ? "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey animate-fade animate-duration-[400ms] animate-delay-[900ms]"
-                          : "btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
+                          ? "animate-fade animate-duration-[400ms] animate-delay-[900ms]"
+                          : ""
                       }`}
                       href={data.frontmatter.button.link}
                     >

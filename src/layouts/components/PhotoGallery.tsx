@@ -51,7 +51,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
 
             <div
               ref={ref}
-              className={`${inView ? "mx-auto md:col-11 col-10 animate-fade" : ""}`}
+              className={`mx-auto md:col-11 col-10 ${inView ? "animate-fade" : ""}`}
             >
               <PhotoAlbum
                 photos={photos}

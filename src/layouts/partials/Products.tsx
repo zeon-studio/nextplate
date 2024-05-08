@@ -3,6 +3,7 @@
 import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Product } from "@/types";
+import { useInView } from "react-intersection-observer";
 
 interface PageData {
   frontmatter: {
@@ -14,6 +15,11 @@ interface PageData {
 }
 
 const PartnersComponent = ({ data }: { data: PageData }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
+
   return (
     <>
       {data.frontmatter.enable && (
@@ -35,10 +41,12 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
               {data.frontmatter.products.map((product: Product, index) => (
                 <div
                   key={index}
-                  //   className="flex justify-center items-center w-1/2 md:w-1/3 lg:w-1/5 p-4"
                   className="flex justify-center items-center text-center sm:w-[114px] px-4 py-2 m-4"
                 >
-                  <div className="flex flex-col">
+                  <div
+                    ref={ref}
+                    className={`flex flex-col ${inView ? "animate-jump-in animate-ease-in animate-delay-[400ms]" : ""}`}
+                  >
                     <ImageFallback
                       height={product.height}
                       width={product.width}

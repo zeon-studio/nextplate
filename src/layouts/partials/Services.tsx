@@ -34,16 +34,6 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
             </div>
 
             <div className="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-7">
-              {/* Template for animation
-              <div
-                ref={ref}
-                className={`${
-                  inView
-                    ? "animate-fade-up animate-duration-[400ms] animate-delay-[300ms]"
-                    : ""
-                }`}
-              ></div> */}
-
               <p
                 className="text-lg"
                 dangerouslySetInnerHTML={markdownify(

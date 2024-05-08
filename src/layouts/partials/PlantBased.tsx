@@ -25,7 +25,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
           <div className="lg:grid grid-cols-[2.5fr,2fr] h-[520px]">
             <div
               ref={ref}
-              className={`${inView ? "relative lg:h-full h-1/2 animate-fade animate-duration-300 animate-ease-in" : "relative lg:h-full h-1/2"}`}
+              className={`relative lg:h-full h-1/2 ${inView ? "animate-fade animate-duration-300 animate-ease-in" : ""}`}
             >
               <Image
                 src={data.frontmatter.image}
@@ -37,10 +37,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
             <div className="flex flex-row">
               <div
                 ref={ref}
-                className={`${
-                  inView
-                    ? "inset-0 lg:px-16 px-2 py-2 row items-center justify-between animate-delay-[700ms]"
-                    : "inset-0 lg:px-16 px-2 py-2 row items-center justify-between"
+                className={`inset-0 lg:px-16 px-2 py-2 row items-center justify-between ${
+                  inView ? "animate-delay-[700ms]" : ""
                 }`}
               >
                 <div className="md:col-10 md:order-1 md:text-left text-center md:m-auto mt-5 mb-5">
@@ -49,10 +47,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
                       data.frontmatter.title,
                     )}
                     ref={ref}
-                    className={`${
-                      inView
-                        ? "text-dark-grey text-h4 lg:text-h2 mb-6 animate-fade-up animate-duration-[600ms]"
-                        : "text-dark-grey text-h4 lg:text-h2 mb-6"
+                    className={`text-dark-grey text-h4 lg:text-h2 mb-6 ${
+                      inView ? "animate-fade-up animate-duration-[600ms]" : ""
                     }`}
                   />
                   <p
@@ -60,19 +56,19 @@ const PlantBased = ({ data }: { data: PageData }) => {
                       data.frontmatter.description,
                     )}
                     ref={ref}
-                    className={`${
+                    className={`text-dark-grey mb-6 md:text-lg${
                       inView
-                        ? "text-dark-grey mb-6 md:text-lg animate-fade-up animate-delay-[400ms] ease-in"
-                        : "text-dark-grey mb-6 md:text-lg"
+                        ? "animate-fade-up animate-delay-[400ms] ease-in"
+                        : ""
                     }`}
                   />
                   {data.frontmatter.button.enable && (
                     <Link
                       ref={ref}
-                      className={`${
+                      className={`btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white${
                         inView
-                          ? "btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white animate-fade-up animate-delay-[500ms] ease-in"
-                          : "btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white"
+                          ? "animate-fade-up animate-delay-[500ms] ease-in"
+                          : ""
                       }`}
                       href={data.frontmatter.button.link}
                     >
