@@ -157,7 +157,7 @@ const Home = () => {
               </div>
 
               <div
-                className={`md:col-8 lg:col-6 items-center${
+                className={`md:col-8 lg:col-6 col-11 items-center${
                   index % 2 !== 0 && "md:order-1"
                 }`}
               >
@@ -166,7 +166,7 @@ const Home = () => {
                     className="text-dark-green font-light text-xl tracking-widest pb-1"
                     dangerouslySetInnerHTML={markdownify(feature.title)}
                   />
-                  <div className="flex-grow border opacity-40 border-t border-light-green w-[120px]"></div>
+                  <div className="flex-grow border opacity-40 border-t border-light-green sm:w-[100px] w-[90px]"></div>
                 </div>
 
                 <h2
