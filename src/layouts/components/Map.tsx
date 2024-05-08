@@ -26,16 +26,7 @@ interface MapProps {
   position2: LatLngExpression | LatLngTuple;
 }
 
-const defaults = {
-  zoom: 4.5,
-};
-
-const Map = ({
-  center,
-  // zoom = defaults.zoom,
-  position1,
-  position2,
-}: MapProps) => {
+const Map = ({ center, position1, position2 }: MapProps) => {
   const bounds = latLngBounds(position1, position2);
 
   const MapComponent = () => {
@@ -44,7 +35,7 @@ const Map = ({
     useEffect(() => {
       // Function to update map view dynamically based on bounds
       const updateMapView = () => {
-        map.fitBounds(bounds, { padding: [40, 40] }); // Adds padding around bounds
+        map.fitBounds(bounds, { padding: [50, 50] }); // Adds padding around bounds
       };
 
       // Update map view when component mounts and bounds change
@@ -62,33 +53,34 @@ const Map = ({
   };
 
   return (
-    <MapContainer
-      center={center}
-      // zoom={zoom}
-      scrollWheelZoom={false}
-      bounds={bounds}
-      className="h-full w-full"
-    >
-      <TileLayer
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position1} draggable={false}>
-        <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
-          <p className="font-semibold pb-1">Ninth Avenue Foods</p>
-          <p>425 S 9th Ave, City of Industry, CA</p>
-          <p>91746, USA</p>
-        </Tooltip>
-      </Marker>
-      <Marker position={position2} draggable={false}>
-        <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
-          <p className="font-semibold pb-1">Ninth Avenue Foods East</p>
-          <p>6350 S 175 W, Columbus, IN</p>
-          <p>47201, USA</p>
-        </Tooltip>
-      </Marker>
-      <MapComponent />
-    </MapContainer>
+    <>
+      <MapContainer
+        center={center}
+        scrollWheelZoom={false}
+        bounds={bounds}
+        className="h-full w-full"
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position1} draggable={false}>
+          <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
+            <p className="font-semibold pb-1">Ninth Avenue Foods</p>
+            <p>425 S 9th Ave, City of Industry, CA</p>
+            <p>91746, USA</p>
+          </Tooltip>
+        </Marker>
+        <Marker position={position2} draggable={false}>
+          <Tooltip direction="top" offset={[0, -10]} opacity={1} permanent>
+            <p className="font-semibold pb-1">Ninth Avenue Foods East</p>
+            <p>6350 S 175 W, Columbus, IN</p>
+            <p>47201, USA</p>
+          </Tooltip>
+        </Marker>
+        <MapComponent />
+      </MapContainer>
+    </>
   );
 };
 

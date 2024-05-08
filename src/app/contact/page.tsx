@@ -45,8 +45,8 @@ const Contact = async () => {
         <div className="container">
           <div className="flex md:flex-row flex-col-reverse">
             {/* Points of contact */}
-            <div className="flex flex-col md:col-4 justify-center items-center md:py-0 py-20">
-              <div className="mb-5 flex flex-col items-center text-center">
+            <div className="animate-fade-up animate-delay-[300ms] flex flex-col md:col-4 justify-center items-center md:py-0 py-20">
+              <div className="animate-fade-up animate-duration-[400ms] mb-5 flex flex-col items-center text-center">
                 <div className="flex items-center justify-center bg-light-grey w-16 h-16 rounded-lg shadow-sm">
                   <svg
                     className="w-10 h-10 text-medium-green"
@@ -84,7 +84,7 @@ const Contact = async () => {
                 </div>
               </div>
 
-              <div className="mb-5 flex flex-col items-center text-center">
+              <div className="animate-fade-up animate-duration-[400ms] mb-5 flex flex-col items-center text-center">
                 <div className="flex items-center justify-center bg-light-grey w-16 h-16 rounded-lg shadow-sm">
                   <svg
                     className="w-10 h-10 text-medium-green"
@@ -119,7 +119,7 @@ const Contact = async () => {
                 </div>
               </div>
 
-              <div className="flex flex-col items-center text-center">
+              <div className="animate-fade-up animate-duration-[400ms] flex flex-col items-center text-center">
                 <div className="flex items-center justify-center bg-light-grey w-16 h-16 rounded-lg shadow-sm">
                   <svg
                     className="w-10 h-10 text-medium-green"
@@ -159,7 +159,7 @@ const Contact = async () => {
             </div>
 
             {/* Form */}
-            <div className="mx-auto md:col-6">
+            <div className="animate-fade animate-duration-[700ms] ease-in mx-auto md:col-6">
               <div className="flex items-center md:col-6 col-7 pb-6 py-5">
                 <div className="flex-grow border opacity-40 border-t border-light-green invisible lg:visible"></div>
                 <h5 className="lg:mx-4 text-dark-green text-xl font-light tracking-widest">
@@ -260,7 +260,6 @@ const Contact = async () => {
             <h5 className="text-dark-green text-center pb-5">
               We are based in City of Industry, CA and Columbus, IN
             </h5>
-
             <Map
               center={centerCoord}
               position1={californiaCoord}
