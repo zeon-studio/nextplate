@@ -138,7 +138,7 @@ const Header = () => {
           {navigation_button.enable && (
             <li className="mt-4 inline-block lg:hidden">
               <Link
-                className="btn btn-outline-primary btn-sm bg-primary"
+                className="btn btn-outline-primary btn-sm bg-primary border-primary text-white"
                 href={navigation_button.link}
               >
                 {navigation_button.label}

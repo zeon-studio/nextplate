@@ -43,15 +43,6 @@ const CallToAction = ({ data }: { data: PageData }) => {
                     : "absolute inset-0 md:px-16 px-10 row items-center justify-between"
                 }`}
               >
-                {/* <div className="mb-10 md:col-5 lg:col-4 md:order-2 md:mb-0">
-                  <ImageFallback
-                    className="w-full"
-                    src={data.frontmatter.image}
-                    width={392}
-                    height={390}
-                    alt="cta-image"
-                  />
-                </div> */}
                 <div className="md:col-7 md:order-1">
                   <h2
                     dangerouslySetInnerHTML={markdownify(
