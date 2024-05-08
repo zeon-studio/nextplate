@@ -64,14 +64,14 @@ const Home = () => {
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
-            alt="banner image"
+            alt="Ninth Ave Foods Warehouse"
             className="w-full h-full object-cover sm:object-[center_top] opacity-100 object-center"
             width={3908}
             height={2600}
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
           <div className="absolute inset-0 bg-[#0f172a] opacity-15 md:opacity-0"></div>
-          {/* bg-[#25252573] */}
         </div>
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">

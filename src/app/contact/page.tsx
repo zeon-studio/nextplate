@@ -45,7 +45,7 @@ const Contact = async () => {
         <div className="container">
           <div className="flex sm:flex-row flex-col-reverse">
             {/* Points of contact */}
-            <div className="flex flex-col sm:col-4 justify-center items-center">
+            <div className="flex flex-col sm:col-4 justify-center items-center sm:py-0 py-20">
               <div className="mb-5 flex flex-col items-center text-center">
                 <div className="flex items-center justify-center bg-light-grey w-16 h-16 rounded-lg shadow-sm">
                   <svg
@@ -147,7 +147,7 @@ const Contact = async () => {
             </div>
 
             {/* Form */}
-            <div className="mx-auto md:col-10 lg:col-6 py-10">
+            <div className="mx-auto md:col-10 lg:col-6">
               <div className="flex items-center sm:col-6 col-7 pb-6 py-5">
                 <div className="flex-grow border opacity-40 border-t border-light-green invisible sm:visible"></div>
                 <h5 className="mx-4 text-dark-green text-xl font-light tracking-widest">
@@ -244,7 +244,7 @@ const Contact = async () => {
             </div>
           </div>
 
-          <div className="h-[50vh] mt-20">
+          <div className="h-[50vh] sm:mt-24 mb-24">
             <h5 className="text-dark-green text-center pb-5">
               We are based in City of Industry, CA and Columbus, IN
             </h5>

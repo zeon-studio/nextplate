@@ -23,18 +23,16 @@ const PlantBased = ({ data }: { data: PageData }) => {
       {data.frontmatter.enable && (
         <section className="remb-28 mb-28 bg-pastel-green">
           <div className="lg:grid grid-cols-[2.5fr,2fr] h-[520px]">
-            <div className="relative lg:h-full h-1/2">
-              <div
-                ref={ref}
-                className={`${inView ? "static animate-fade animate-duration-300 animate-ease-in" : ""}`}
-              >
-                <Image
-                  src="/images/plant-based-milk.jpg"
-                  alt="Plant-Based Milk"
-                  className="w-full h-full object-cover"
-                  layout="fill"
-                ></Image>
-              </div>
+            <div
+              ref={ref}
+              className={`${inView ? "relative lg:h-full h-1/2 animate-fade animate-duration-300 animate-ease-in" : "relative lg:h-full h-1/2"}`}
+            >
+              <Image
+                src={data.frontmatter.image}
+                alt="Plant-Based Milks"
+                className="w-full h-full object-cover"
+                fill={true}
+              ></Image>
             </div>
             <div className="flex flex-row">
               <div
