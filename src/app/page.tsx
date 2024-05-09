@@ -161,12 +161,12 @@ const Home = () => {
                   index % 2 !== 0 && "md:order-1"
                 }`}
               >
-                <div className="flex flex-col items-center col-5 pb-2">
+                <div className="flex flex-col md:items-center items-start md:col-5 pb-2">
                   <h5
                     className="text-dark-green font-light text-xl tracking-widest pb-1"
                     dangerouslySetInnerHTML={markdownify(feature.title)}
                   />
-                  <div className="flex-grow border opacity-40 border-t border-light-green sm:w-[100px] w-[90px]"></div>
+                  <div className="flex-grow border opacity-40 border-t border-light-green w-[100px] md:visible invisible"></div>
                 </div>
 
                 <h2
@@ -183,7 +183,7 @@ const Home = () => {
                     <li className="relative mb-4 pl-6" key={bullet}>
                       <FaCheck
                         color="#65a30d"
-                        className={"absolute left-0 top-1.5 "}
+                        className={"absolute left-0 top-1.5"}
                       />
                       <span dangerouslySetInnerHTML={markdownify(bullet)} />
                     </li>
