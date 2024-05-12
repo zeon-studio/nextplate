@@ -5,6 +5,7 @@ import config from "@/config/config.json";
 import languageList from "@/config/language.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
+import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
 import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
@@ -23,10 +24,7 @@ const PostSingle = ({
 }: {
   params: { single: string; lang: string };
 }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );

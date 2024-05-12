@@ -2,6 +2,7 @@ import BlogCard from "@/components/BlogCard";
 import Pagination from "@/components/Pagination";
 import config from "@/config/config.json";
 import languageList from "@/config/language.json";
+import { getLanguages } from "@/i18n/dictionary";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
@@ -16,10 +17,7 @@ const languages = languageList.languages;
 
 // for all regular pages
 const Posts = ({ params }: { params: { lang: string } }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const postIndex: Post = getListPage(
     path.join(language.contentDir, `${blog_folder}/_index.md`),
   );

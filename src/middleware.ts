@@ -1,4 +1,3 @@
-import { language } from "@/config/config.json";
 import languages from "@/config/language.json";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
@@ -6,7 +5,7 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
 let locales = languages.languages.map((lang) => lang.languageCode);
-const defaultLocale = language.default;
+const defaultLocale = "en";
 
 function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {};
@@ -37,5 +36,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|images|favicon.ico).*)"],
 };

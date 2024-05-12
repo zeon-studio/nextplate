@@ -1,7 +1,8 @@
+import { getDictionary } from "@/i18n/dictionary";
 import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
 
-const PostSidebar = ({
+const PostSidebar = async ({
   tags,
   categories,
   allCategories,
@@ -12,11 +13,12 @@ const PostSidebar = ({
   allCategories: string[];
   lang: string;
 }) => {
+  const { categories: categoryTitle } = await getDictionary(lang);
   return (
     <div className="lg:col-4">
       {/* <!-- categories --> */}
       <div className="mb-8">
-        <h5 className="mb-6">Categories</h5>
+        <h5 className="mb-6">{categoryTitle}</h5>
         <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
           <ul className="space-y-4">
             {categories.map((category: string) => {

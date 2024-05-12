@@ -1,5 +1,21 @@
 {
-  "products": {
-    "cart": "Add to Cart"
-  }
+  "contact": {
+    "fullName": {
+      "label": "Full Name",
+      "placeholder": "Enter your full name"
+    },
+    "mail": {
+      "label": "Working Mail",
+      "placeholder": "john.doe@email.com"
+    },
+    "textArea": {
+      "label": "Anything else?",
+      "placeholder": "Message goes here"
+    }
+  },
+  "submit": "Submit",
+  "readMore": "Read More",
+  "categories": "Categories",
+  "tags": "Tags",
+  "relatedPost": "Related Post"
 }

@@ -1,5 +1,6 @@
 import config from "@/config/config.json";
 import languageList from "@/config/language.json";
+import { getLanguages } from "@/i18n/dictionary";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
@@ -11,10 +12,7 @@ const languages = languageList.languages;
 
 const tags = ({ params }: { params: { lang: string } }) => {
   const { blog_folder } = config.settings;
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const tags = getTaxonomy(path.join(language.contentDir, blog_folder), "tags");
   const alltags = getAllTaxonomy(
     path.join(language.contentDir, blog_folder),

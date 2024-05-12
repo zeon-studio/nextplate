@@ -1,5 +1,6 @@
 import config from "@/config/config.json";
 import languageList from "@/config/language.json";
+import { getDictionary, getLanguages } from "@/i18n/dictionary";
 import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
@@ -8,13 +9,12 @@ import path from "path";
 const languages = languageList.languages;
 
 const Contact = async ({ params }: { params: { lang: string } }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "contact/_index.md"),
   );
+  const { contact, submit } = await getDictionary(params.lang);
+  const { fullName, mail, textArea } = contact;
   const { frontmatter } = data;
   const { title, description, meta_title, image } = frontmatter;
   const { contact_form_action } = config.params;
@@ -35,42 +35,42 @@ const Contact = async ({ params }: { params: { lang: string } }) => {
               <form action={contact_form_action} method="POST">
                 <div className="mb-6">
                   <label htmlFor="name" className="form-label">
-                    Full Name <span className="text-red-500">*</span>
+                    {fullName.label} <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="name"
                     name="name"
                     className="form-input"
-                    placeholder="John Doe"
+                    placeholder={fullName.placeholder}
                     type="text"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="email" className="form-label">
-                    Working Mail <span className="text-red-500">*</span>
+                    {mail.label} <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="email"
                     name="email"
                     className="form-input"
-                    placeholder="john.doe@email.com"
+                    placeholder={mail.placeholder}
                     type="email"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="message" className="form-label">
-                    Anything else? <span className="text-red-500">*</span>
+                    {textArea.label} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     className="form-input"
-                    placeholder="Message goes here..."
+                    placeholder={textArea.placeholder}
                     rows={8}
                   ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                  Submit
+                  {submit}
                 </button>
               </form>
             </div>

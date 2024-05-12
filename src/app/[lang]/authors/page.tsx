@@ -1,5 +1,6 @@
 import AuthorCard from "@/components/AuthorCard";
 import languageList from "@/config/language.json";
+import { getLanguages } from "@/i18n/dictionary";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
@@ -9,10 +10,7 @@ import path from "path";
 const languages = languageList.languages;
 
 const Authors = ({ params }: { params: { lang: string } }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const authorIndex: Author = getListPage(
     path.join(language.contentDir, "authors/_index.md"),
   );
@@ -34,7 +32,7 @@ const Authors = ({ params }: { params: { lang: string } }) => {
           <div className="row justify-center">
             {authors.map((author: Author, index: number) => (
               <div className="mb-14 md:col-6 lg:col-4" key={index}>
-                <AuthorCard data={author} lang={lang} />
+                <AuthorCard data={author} lang={params.lang} />
               </div>
             ))}
           </div>

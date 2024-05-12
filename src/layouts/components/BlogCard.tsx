@@ -1,5 +1,6 @@
 import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
+import { getDictionary } from "@/i18n/dictionary";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Post } from "@/types";
@@ -13,6 +14,7 @@ const BlogCard = async ({
   data: Post;
   lang: string;
 }) => {
+  const { submit } = await getDictionary(lang);
   const { summary_length, blog_folder } = config.settings;
   const { title, image, author, categories, date } = data.frontmatter;
 
@@ -55,7 +57,7 @@ const BlogCard = async ({
         className="btn btn-outline-primary btn-sm"
         href={`/${lang}/${blog_folder}/${data.slug}`}
       >
-        read more
+        {submit}
       </Link>
     </div>
   );

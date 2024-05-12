@@ -1,5 +1,6 @@
 import languageList from "@/config/language.json";
 import MDXContent from "@/helpers/MDXContent";
+import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
@@ -13,10 +14,7 @@ const RegularPages = ({
 }: {
   params: { regular: string; lang: string };
 }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const regularData = getSinglePage(path.join(language.contentDir, "pages"));
   const data = regularData.filter(
     (page: RegularPage) => page.slug === params.regular,

@@ -1,6 +1,7 @@
 import BlogCard from "@/components/BlogCard";
 import config from "@/config/config.json";
 import languageList from "@/config/language.json";
+import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
 import { getTaxonomy } from "@/lib/taxonomyParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
@@ -20,10 +21,7 @@ const TagSingle = ({
 }: {
   params: { single: string; lang: string };
 }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );

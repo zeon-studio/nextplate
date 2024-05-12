@@ -1,6 +1,7 @@
 import languageList from "@/config/language.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
+import { getLanguages } from "@/i18n/dictionary";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
@@ -10,10 +11,7 @@ import path from "path";
 const languages = languageList.languages;
 
 const About = ({ params }: { params: { lang: string } }) => {
-  const lang = params.lang;
-  const language = languages.find(
-    (language) => language.languageCode === lang,
-  )!;
+  const language = getLanguages(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "about/_index.md"),
   );
