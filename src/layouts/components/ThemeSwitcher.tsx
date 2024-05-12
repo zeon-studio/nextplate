@@ -23,6 +23,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
                 theme === "dark" || resolvedTheme === "dark" ? "light" : "dark",
               )
             }
+            readOnly
           />
           <label htmlFor="theme-switcher">
             <span className="sr-only">theme switcher</span>
