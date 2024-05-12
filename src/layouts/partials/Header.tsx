@@ -1,33 +1,24 @@
 "use client";
 
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
-import menu from "@/config/menu.json";
+import { INavigationLink } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 
-//  child navigation link interface
-export interface IChildNavigationLink {
-  name: string;
-  url: string;
-}
-
-// navigation link interface
-export interface INavigationLink {
-  name: string;
-  url: string;
-  hasChildren?: boolean;
-  children?: IChildNavigationLink[];
-}
-
-const Header = () => {
-  // distructuring the main menu from menu object
+const Header = ({
+  lang,
+  menu,
+}: {
+  lang: string;
+  menu: { main: INavigationLink[] };
+}) => {
   const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
-  // get current path
   const pathname = usePathname();
 
   // scroll to top on route change
@@ -42,7 +33,7 @@ const Header = () => {
       <nav className="navbar container">
         {/* logo */}
         <div className="order-0">
-          <Logo />
+          <Logo lang={lang} />
         </div>
         {/* navbar toggler */}
         <input id="nav-toggle" type="checkbox" className="hidden" />
@@ -99,7 +90,7 @@ const Header = () => {
                     {menu.children?.map((child, i) => (
                       <li className="nav-dropdown-item" key={`children-${i}`}>
                         <Link
-                          href={child.url}
+                          href={`/${lang}${child.url}`}
                           className={`nav-dropdown-link block ${
                             (pathname === `${child.url}/` ||
                               pathname === child.url) &&
@@ -115,7 +106,7 @@ const Header = () => {
               ) : (
                 <li className="nav-item">
                   <Link
-                    href={menu.url}
+                    href={`/${lang}${menu.url}`}
                     className={`nav-link block ${
                       (pathname === `${menu.url}/` || pathname === menu.url) &&
                       "active"
@@ -149,6 +140,11 @@ const Header = () => {
             </button>
           )}
           <ThemeSwitcher className="mr-5" />
+
+          <LanguageSwitcher
+            lang={lang}
+            className="mr-5 pl-2 py-1 dark:bg-darkmode-theme-light rounded"
+          />
           {navigation_button.enable && (
             <Link
               className="btn btn-outline-primary btn-sm hidden lg:inline-block"

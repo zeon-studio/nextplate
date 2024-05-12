@@ -16,12 +16,15 @@
     "search": true,
     "sticky_header": true,
     "theme_switcher": true,
-    "default_theme": "dark",
+    "default_theme": "light",
     "pagination": 2,
     "summary_length": 200,
     "blog_folder": "blog"
   },
-
+  "language": {
+    "default": "en",
+    "disableLanguages": []
+  },
   "params": {
     "contact_form_action": "#",
     "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"

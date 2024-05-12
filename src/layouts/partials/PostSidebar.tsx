@@ -5,10 +5,12 @@ const PostSidebar = ({
   tags,
   categories,
   allCategories,
+  lang,
 }: {
   tags: string[];
   categories: string[];
   allCategories: string[];
+  lang: string;
 }) => {
   return (
     <div className="lg:col-4">
@@ -25,7 +27,7 @@ const PostSidebar = ({
                 <li key={category}>
                   <Link
                     className="flex justify-between hover:text-primary dark:hover:text-darkmode-primary"
-                    href={`/categories/${category}`}
+                    href={`/${lang}/categories/${category}`}
                   >
                     {humanize(category)} <span>({count})</span>
                   </Link>
@@ -45,7 +47,7 @@ const PostSidebar = ({
                 <li className="inline-block" key={tag}>
                   <Link
                     className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-dark"
-                    href={`/tags/${tag}`}
+                    href={`/${lang}/tags/${tag}`}
                   >
                     {humanize(tag)}
                   </Link>
