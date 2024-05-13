@@ -63,13 +63,13 @@ const Contact = async ({ params }: { params: { lang: string } }) => {
                 </div>
                 <div className="mb-6">
                   <label htmlFor="message" className="form-label">
-                    {content.textarea} <span className="text-red-500">*</span>
+                    {content.message} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     className="form-input"
-                    placeholder={content.textarea_placeholder}
+                    placeholder={content.message_placeholder}
                     rows={8}
                   ></textarea>
                 </div>

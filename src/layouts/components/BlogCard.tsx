@@ -1,15 +1,15 @@
 import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import { getTranslations } from "@/lib/languageParser";
-import { concatenatePath } from "@/lib/utils/concatenatePath";
 import dateFormat from "@/lib/utils/dateFormat";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
 const BlogCard = async ({ data, lang }: { data: Post; lang: string }) => {
-  const { submit } = await getTranslations(lang);
+  const { read_more } = await getTranslations(lang);
   const { summary_length, blog_folder } = config.settings;
   const { title, image, author, categories, date } = data.frontmatter;
 
@@ -25,13 +25,13 @@ const BlogCard = async ({ data, lang }: { data: Post; lang: string }) => {
         />
       )}
       <h4 className="mb-3">
-        <Link href={concatenatePath(lang, `/${blog_folder}/${data.slug}`)}>
+        <Link href={slugSelector(lang, `/${blog_folder}/${data.slug}`)}>
           {title}
         </Link>
       </h4>
       <ul className="mb-4">
         <li className="mr-4 inline-block">
-          <Link href={concatenatePath(lang, `/authors/${slugify(author)}`)}>
+          <Link href={slugSelector(lang, `/authors/${slugify(author)}`)}>
             <FaRegUserCircle className={"-mt-1 mr-2 inline-block"} />
             {humanize(author)}
           </Link>
@@ -41,7 +41,7 @@ const BlogCard = async ({ data, lang }: { data: Post; lang: string }) => {
           {categories?.map((category: string, index: number) => (
             <Link
               key={index}
-              href={concatenatePath(lang, `/categories/${slugify(category)}`)}
+              href={slugSelector(lang, `/categories/${slugify(category)}`)}
             >
               {humanize(category)}
               {index !== categories.length - 1 && ", "}
@@ -55,9 +55,9 @@ const BlogCard = async ({ data, lang }: { data: Post; lang: string }) => {
       </p>
       <Link
         className="btn btn-outline-primary btn-sm"
-        href={concatenatePath(lang, `/${blog_folder}/${data.slug}`)}
+        href={slugSelector(lang, `/${blog_folder}/${data.slug}`)}
       >
-        {submit}
+        {read_more}
       </Link>
     </div>
   );

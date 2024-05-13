@@ -14,36 +14,41 @@ const getData = (folder, groupDepth) => {
   const getPaths = languages
     .map((lang) => {
       const dir = path.join(CONTENT_ROOT, lang.contentDir, folder);
-      return fs.readdirSync(dir).map((filename) => {
-        const filepath = path.join(dir, filename);
-        const stats = fs.statSync(filepath);
-        const isFolder = stats.isDirectory();
+      return fs
+        .readdirSync(dir)
+        .filter(
+          (filename) =>
+            !filename.startsWith("_") &&
+            (filename.endsWith(".md") || filename.endsWith(".mdx")),
+        )
+        .map((filename) => {
+          const filepath = path.join(dir, filename);
+          const stats = fs.statSync(filepath);
+          const isFolder = stats.isDirectory();
 
-        if (isFolder) {
-          return getData(filepath, groupDepth);
-        } else if (filename.endsWith(".md") || filename.endsWith(".mdx")) {
-          const file = fs.readFileSync(filepath, "utf-8");
-          const { data, content } = matter(file);
-          const pathParts = filepath.split(path.sep);
-          const slug =
-            data.slug ||
-            pathParts
-              .slice(CONTENT_DEPTH)
-              .join("/")
-              .replace(/\.[^/.]+$/, "");
-          const group = pathParts[groupDepth];
+          if (isFolder) {
+            return getData(filepath, groupDepth);
+          } else {
+            const file = fs.readFileSync(filepath, "utf-8");
+            const { data, content } = matter(file);
+            const pathParts = filepath.split(path.sep);
+            const slug =
+              data.slug ||
+              pathParts
+                .slice(CONTENT_DEPTH)
+                .join("/")
+                .replace(/\.[^/.]+$/, "");
+            const group = pathParts[groupDepth];
 
-          return {
-            lang: lang.languageCode,
-            group: group,
-            slug: slug,
-            frontmatter: data,
-            content: content,
-          };
-        } else {
-          return [];
-        }
-      });
+            return {
+              lang: lang.languageCode,
+              group: group,
+              slug: slug,
+              frontmatter: data,
+              content: content,
+            };
+          }
+        });
     })
     .flat();
 

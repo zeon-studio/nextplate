@@ -1,9 +1,11 @@
 "use client";
 
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { plainify, titleify } from "@/lib/utils/textConverter";
 import Image from "next/image";
 
 export interface ISearchItem {
+  lang: string;
   group: string;
   slug: string;
   frontmatter: {
@@ -35,9 +37,11 @@ export interface ISearchGroup {
 const SearchResult = ({
   searchResult,
   searchString,
+  lang,
 }: {
   searchResult: ISearchItem[];
   searchString: string;
+  lang: string;
 }) => {
   // generate search result group
   const generateSearchGroup = (searchResult: ISearchItem[]) => {
@@ -157,7 +161,7 @@ const SearchResult = ({
                     )}
                     <div className="search-result-item-body">
                       <a
-                        href={`/${item.slug}`}
+                        href={`${slugSelector(lang, item.slug)}`}
                         className="search-result-item-title search-result-item-link"
                       >
                         {matchUnderline(item.frontmatter.title, searchString)}

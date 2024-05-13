@@ -5,9 +5,13 @@ import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
-import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
+import {
+  getActiveLanguages,
+  getLanguageObj,
+  getTranslations,
+} from "@/lib/languageParser";
 import dateFormat from "@/lib/utils/dateFormat";
-import similerItems from "@/lib/utils/similarItems";
+import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { Post } from "@/types";
@@ -17,12 +21,17 @@ import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
 const { blog_folder } = config.settings;
 
-const PostSingle = ({
+const PostSingle = async ({
   params,
 }: {
   params: { single: string; lang: string };
 }) => {
   const language = getLanguageObj(params.lang);
+  const {
+    related_post,
+    share: shareTitle,
+    tags: tagTitle,
+  } = await getTranslations(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );
@@ -39,7 +48,7 @@ const PostSingle = ({
     date,
     tags,
   } = frontmatter;
-  const similarPosts = similerItems(post, posts, post.slug!);
+  const similarPosts = similarItems(post, posts, post.slug!);
 
   return (
     <>
@@ -99,7 +108,7 @@ const PostSingle = ({
               </div>
               <div className="row items-start justify-between">
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">
-                  <h5 className="mr-3">Tags :</h5>
+                  <h5 className="mr-3">{tagTitle} :</h5>
                   <ul>
                     {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">
@@ -114,7 +123,7 @@ const PostSingle = ({
                   </ul>
                 </div>
                 <div className="flex items-center lg:col-4">
-                  <h5 className="mr-3">Share :</h5>
+                  <h5 className="mr-3">{shareTitle} :</h5>
                   <Share
                     className="social-icons"
                     title={title}
@@ -129,7 +138,7 @@ const PostSingle = ({
 
           {/* <!-- Related posts --> */}
           <div className="section pb-0">
-            <h2 className="h3 mb-12 text-center">Related Posts</h2>
+            <h2 className="h3 mb-12 text-center">{related_post}</h2>
             <div className="row justify-center">
               {similarPosts.map((post) => (
                 <div key={post.slug} className="lg:col-4 md:col-6 mb-14">

@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 import Social from "@/components/Social";
 import config from "@/config/config.json";
 import social from "@/config/social.json";
-import { concatenatePath } from "@/lib/utils/concatenatePath";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { markdownify } from "@/lib/utils/textConverter";
 import { INavigationLink } from "@/types";
 import Link from "next/link";
@@ -29,9 +29,7 @@ const Footer = ({
             <ul>
               {menu.footer.map((menu) => (
                 <li className="m-3 inline-block" key={menu.name}>
-                  <Link href={concatenatePath(lang, menu.url)}>
-                    {menu.name}
-                  </Link>
+                  <Link href={slugSelector(lang, menu.url)}>{menu.name}</Link>
                 </li>
               ))}
             </ul>

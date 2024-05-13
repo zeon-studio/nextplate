@@ -5,7 +5,7 @@ import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
 import { getActiveLanguages } from "@/lib/languageParser";
-import { concatenatePath } from "@/lib/utils/concatenatePath";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { INavigationLink } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,7 +19,7 @@ const Header = ({
   lang: string;
   menu: { main: INavigationLink[] };
 }) => {
-  const activeLanguage = getActiveLanguages();
+  const activeLanguages = getActiveLanguages();
   const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
   const pathname = usePathname();
@@ -93,7 +93,7 @@ const Header = ({
                     {menu.children?.map((child, i) => (
                       <li className="nav-dropdown-item" key={`children-${i}`}>
                         <Link
-                          href={concatenatePath(lang, child.url)}
+                          href={slugSelector(lang, child.url)}
                           className={`nav-dropdown-link block ${
                             (pathname === `${child.url}/` ||
                               pathname === child.url) &&
@@ -109,7 +109,7 @@ const Header = ({
               ) : (
                 <li className="nav-item">
                   <Link
-                    href={concatenatePath(lang, menu.url)}
+                    href={slugSelector(lang, menu.url)}
                     className={`nav-link block ${
                       (pathname === `${menu.url}/` || pathname === menu.url) &&
                       "active"
@@ -144,7 +144,7 @@ const Header = ({
           )}
           <ThemeSwitcher className="mr-5" />
 
-          {activeLanguage.length > 1 && (
+          {activeLanguages.length > 1 && (
             <LanguageSwitcher
               lang={lang}
               className="mr-5 pl-2 py-1 dark:bg-darkmode-theme-light rounded"

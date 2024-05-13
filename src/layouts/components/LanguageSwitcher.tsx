@@ -1,7 +1,7 @@
 import config from "@/config/config.json";
 import languages from "@/config/language.json";
 import { getDefaultLanguage } from "@/lib/languageParser";
-import { concatenatePath } from "@/lib/utils/concatenatePath";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 
@@ -26,10 +26,10 @@ export default function LanguageSwitcher({
       } else {
         if (locale === defaultLang) {
           router.push(
-            concatenatePath("/", pathname.split("/").splice(2).join("/")),
+            slugSelector("/", pathname.split("/").splice(2).join("/")),
           );
         } else {
-          router.push(concatenatePath(locale, pathname));
+          router.push(slugSelector(locale, pathname));
         }
       }
     },

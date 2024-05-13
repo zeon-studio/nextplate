@@ -30,15 +30,15 @@
           "url": "/authors"
         },
         {
-          "name": "Categories",
+          "name": "Catégories",
           "url": "/categories"
         },
         {
-          "name": "Tags",
+          "name": "Mots-clés",
           "url": "/tags"
         },
         {
-          "name": "404 Page",
+          "name": "Page 404",
           "url": "/404"
         }
       ]
@@ -46,7 +46,7 @@
   ],
   "footer": [
     {
-      "name": "Elements",
+      "name": "Éléments",
       "url": "/elements"
     },
     {

@@ -1,7 +1,7 @@
 "use client";
 
 import config from "@/config/config.json";
-import { concatenatePath } from "@/lib/utils/concatenatePath";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,10 +36,7 @@ const Logo = ({ src, lang }: { src?: string; lang: string }) => {
   const logoPath = src ? src : resolvedLogo;
 
   return (
-    <Link
-      href={concatenatePath(lang, "")}
-      className="navbar-brand inline-block"
-    >
+    <Link href={slugSelector(lang, "")} className="navbar-brand inline-block">
       {logoPath ? (
         <Image
           width={logo_width.replace("px", "") * 2}

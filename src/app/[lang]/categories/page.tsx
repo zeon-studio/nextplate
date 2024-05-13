@@ -6,7 +6,7 @@ import {
   getTranslations,
 } from "@/lib/languageParser";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
-import { concatenatePath } from "@/lib/utils/concatenatePath";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
@@ -43,10 +43,7 @@ const Categories = async ({ params }: { params: { lang: string } }) => {
               return (
                 <li className="m-3 inline-block" key={category}>
                   <Link
-                    href={concatenatePath(
-                      params.lang,
-                      `/categories/${category}`,
-                    )}
+                    href={slugSelector(params.lang, `/categories/${category}`)}
                     className="block rounded bg-theme-light px-4 py-2 text-xl text-dark dark:bg-darkmode-theme-light dark:text-darkmode-dark"
                   >
                     {humanize(category)}{" "}
