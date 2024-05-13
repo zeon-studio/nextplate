@@ -5,7 +5,7 @@
 <p align=center>Made with ♥ by <a href="https://zeon.studio/">Zeon Studio</a></p>
 <p align=center>If you find this project useful, please give it a ⭐ to show your support. </p>
 
-<h2 align="center"> <a target="_blank" href="https://nextplate.netlify.app/" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-nextplate-netlify-app/zttnq0z42d?form_factor=desktop">Page Speed (100%)🚀</a>
+<h2 align="center"> <a target="_blank" href="https://zeon.studio/preview?project=nextplate" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-nextplate-netlify-app/zttnq0z42d?form_factor=desktop">Page Speed (100%)🚀</a>
 </h2>
 
 <p align=center>
