@@ -1,20 +1,22 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
-import { getDictionary, getLanguages } from "@/i18n/dictionary";
 import { getListPage } from "@/lib/contentParser";
+import {
+  getActiveLanguage,
+  getDictionary,
+  getLanguage,
+} from "@/lib/utils/languageParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
-const languages = languageList.languages;
 
 const Contact = async ({ params }: { params: { lang: string } }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "contact/_index.md"),
   );
-  const { contact, submit } = await getDictionary(params.lang);
-  const { fullName, mail, textArea } = contact;
+  const content = await getDictionary(params.lang);
   const { frontmatter } = data;
   const { title, description, meta_title, image } = frontmatter;
   const { contact_form_action } = config.params;
@@ -27,7 +29,9 @@ const Contact = async ({ params }: { params: { lang: string } }) => {
         description={description}
         image={image}
       />
-      <PageHeader title={title} />
+      <PageHeader title={title}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <section className="section-sm">
         <div className="container">
           <div className="row">
@@ -35,42 +39,42 @@ const Contact = async ({ params }: { params: { lang: string } }) => {
               <form action={contact_form_action} method="POST">
                 <div className="mb-6">
                   <label htmlFor="name" className="form-label">
-                    {fullName.label} <span className="text-red-500">*</span>
+                    {content.full_name} <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="name"
                     name="name"
                     className="form-input"
-                    placeholder={fullName.placeholder}
+                    placeholder={content.full_name_placeholder}
                     type="text"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="email" className="form-label">
-                    {mail.label} <span className="text-red-500">*</span>
+                    {content.mail} <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="email"
                     name="email"
                     className="form-input"
-                    placeholder={mail.placeholder}
+                    placeholder={content.mail.placeholder}
                     type="email"
                   />
                 </div>
                 <div className="mb-6">
                   <label htmlFor="message" className="form-label">
-                    {textArea.label} <span className="text-red-500">*</span>
+                    {content.textarea} <span className="text-red-500">*</span>
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     className="form-input"
-                    placeholder={textArea.placeholder}
+                    placeholder={content.textarea_placeholder}
                     rows={8}
                   ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">
-                  {submit}
+                  {content.submit}
                 </button>
               </form>
             </div>
@@ -88,7 +92,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

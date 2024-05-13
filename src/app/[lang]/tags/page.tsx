@@ -1,28 +1,35 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
-import { getLanguages } from "@/i18n/dictionary";
+import { concatenatePath } from "@/lib/concatenatePath";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
+import {
+  getActiveLanguage,
+  getDictionary,
+  getLanguage,
+} from "@/lib/utils/languageParser";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 import path from "path";
 
-const languages = languageList.languages;
-
-const tags = ({ params }: { params: { lang: string } }) => {
+const tags = async ({ params }: { params: { lang: string } }) => {
   const { blog_folder } = config.settings;
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const tags = getTaxonomy(path.join(language.contentDir, blog_folder), "tags");
   const alltags = getAllTaxonomy(
     path.join(language.contentDir, blog_folder),
     "tags",
   );
 
+  const { tags: tagTitle } = await getDictionary(params.lang);
+
   return (
     <>
-      <SeoMeta title={"Tags"} />
-      <PageHeader title={"Tags"} />
+      <SeoMeta title={tagTitle} />
+      <PageHeader title={tagTitle}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <section className="section">
         <div className="container text-center">
           <ul>
@@ -33,7 +40,7 @@ const tags = ({ params }: { params: { lang: string } }) => {
               return (
                 <li className="m-3 inline-block" key={tag}>
                   <Link
-                    href={`/${params.lang}/tags/${tag}`}
+                    href={concatenatePath(params.lang, `/tags/${tag}`)}
                     className="block rounded bg-theme-light px-4 py-2 text-xl text-dark dark:bg-darkmode-theme-light dark:text-darkmode-dark"
                   >
                     {humanize(tag)}
@@ -58,7 +65,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

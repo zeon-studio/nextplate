@@ -1,19 +1,14 @@
 import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
-import { getDictionary } from "@/i18n/dictionary";
+import { concatenatePath } from "@/lib/concatenatePath";
 import dateFormat from "@/lib/utils/dateFormat";
+import { getDictionary } from "@/lib/utils/languageParser";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
-const BlogCard = async ({
-  data,
-  lang = config.language.default,
-}: {
-  data: Post;
-  lang: string;
-}) => {
+const BlogCard = async ({ data, lang }: { data: Post; lang: string }) => {
   const { submit } = await getDictionary(lang);
   const { summary_length, blog_folder } = config.settings;
   const { title, image, author, categories, date } = data.frontmatter;
@@ -30,11 +25,13 @@ const BlogCard = async ({
         />
       )}
       <h4 className="mb-3">
-        <Link href={`/${lang}/${blog_folder}/${data.slug}`}>{title}</Link>
+        <Link href={concatenatePath(lang, `/${blog_folder}/${data.slug}`)}>
+          {title}
+        </Link>
       </h4>
       <ul className="mb-4">
         <li className="mr-4 inline-block">
-          <Link href={`/authors/${slugify(author)}`}>
+          <Link href={concatenatePath(lang, `/authors/${slugify(author)}`)}>
             <FaRegUserCircle className={"-mt-1 mr-2 inline-block"} />
             {humanize(author)}
           </Link>
@@ -42,7 +39,10 @@ const BlogCard = async ({
         <li className="mr-4 inline-block">
           <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
           {categories?.map((category: string, index: number) => (
-            <Link key={index} href={`/categories/${slugify(category)}`}>
+            <Link
+              key={index}
+              href={concatenatePath(lang, `/categories/${slugify(category)}`)}
+            >
               {humanize(category)}
               {index !== categories.length - 1 && ", "}
             </Link>
@@ -55,7 +55,7 @@ const BlogCard = async ({
       </p>
       <Link
         className="btn btn-outline-primary btn-sm"
-        href={`/${lang}/${blog_folder}/${data.slug}`}
+        href={concatenatePath(lang, `/${blog_folder}/${data.slug}`)}
       >
         {submit}
       </Link>

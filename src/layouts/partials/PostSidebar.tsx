@@ -1,4 +1,4 @@
-import { getDictionary } from "@/i18n/dictionary";
+import { getDictionary } from "@/lib/utils/languageParser";
 import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
 

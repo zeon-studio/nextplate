@@ -1,16 +1,14 @@
 import AuthorCard from "@/components/AuthorCard";
-import languageList from "@/config/language.json";
-import { getLanguages } from "@/i18n/dictionary";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author } from "@/types";
 import path from "path";
 
-const languages = languageList.languages;
-
 const Authors = ({ params }: { params: { lang: string } }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const authorIndex: Author = getListPage(
     path.join(language.contentDir, "authors/_index.md"),
   );
@@ -26,7 +24,9 @@ const Authors = ({ params }: { params: { lang: string } }) => {
         description={description}
         image={image}
       />
-      <PageHeader title={title} />
+      <PageHeader title={title}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <section className="section-sm pb-0">
         <div className="container">
           <div className="row justify-center">
@@ -49,7 +49,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

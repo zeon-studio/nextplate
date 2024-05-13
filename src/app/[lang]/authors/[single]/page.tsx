@@ -1,24 +1,21 @@
 import BlogCard from "@/components/BlogCard";
 import Social from "@/components/Social";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
-import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author, Post } from "@/types";
 import path from "path";
-
-const languages = languageList.languages;
 
 const AuthorSingle = ({
   params,
 }: {
   params: { single: string; lang: string };
 }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const authors: Author[] = getSinglePage(
     path.join(language.contentDir, "authors"),
   );
@@ -85,11 +82,10 @@ export const generateStaticParams: () => {
   single?: string;
   lang: string;
 }[] = () => {
-  const slugs = languages.map((language) => {
+  const slugs = getActiveLanguage().map((language) => {
     const authors: Author[] = getSinglePage(
       path.join(language.contentDir, "authors"),
     );
-
     return authors.map(({ slug }) => ({
       single: slug,
       lang: language.languageCode,

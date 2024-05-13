@@ -1,12 +1,11 @@
-import languageList from "@/config/language.json";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import MDXContent from "@/helpers/MDXContent";
-import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
-const languages = languageList.languages;
 
 // for all regular pages
 const RegularPages = ({
@@ -14,7 +13,7 @@ const RegularPages = ({
 }: {
   params: { regular: string; lang: string };
 }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const regularData = getSinglePage(path.join(language.contentDir, "pages"));
   const data = regularData.filter(
     (page: RegularPage) => page.slug === params.regular,
@@ -30,7 +29,9 @@ const RegularPages = ({
         description={description}
         image={image}
       />
-      <PageHeader title={title} />
+      <PageHeader title={title}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <section className="section">
         <div className="container">
           <div className="content">
@@ -49,7 +50,7 @@ export const dynamicParams = false;
 
 // generate static params
 export const generateStaticParams = () => {
-  const slugs = languages.map((language) => {
+  const slugs = getActiveLanguage().map((language) => {
     const regularPages = getSinglePage(path.join(language.contentDir, "pages"));
     return regularPages.map((page: RegularPage) => ({
       lang: language.languageCode,

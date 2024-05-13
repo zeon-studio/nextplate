@@ -1,9 +1,9 @@
 import BlogCard from "@/components/BlogCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
-import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
 import { getTaxonomy } from "@/lib/taxonomyParser";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { humanize } from "@/lib/utils/textConverter";
@@ -13,7 +13,6 @@ import { Post } from "@/types";
 import path from "path";
 
 const { blog_folder } = config.settings;
-const languages = languageList.languages;
 type StaticParams = () => { single: string; lang: string }[];
 
 const TagSingle = ({
@@ -21,7 +20,7 @@ const TagSingle = ({
 }: {
   params: { single: string; lang: string };
 }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );
@@ -31,7 +30,9 @@ const TagSingle = ({
   return (
     <>
       <SeoMeta title={humanize(params.single)} />
-      <PageHeader title={humanize(params.single)} />
+      <PageHeader title={humanize(params.single)}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <div className="section-sm pb-0">
         <div className="container">
           <div className="row">
@@ -54,7 +55,7 @@ export const dynamicParams = false;
 
 // generate static params
 export const generateStaticParams: StaticParams = () => {
-  const slugs = languages.map((language) => {
+  const slugs = getActiveLanguage().map((language) => {
     const tags = getTaxonomy(
       path.join(language.contentDir, blog_folder),
       "tags",

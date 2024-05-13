@@ -1,6 +1,7 @@
-import languageList from "@/config/language.json";
+import languages from "@/config/language.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
+import { getActiveLanguage } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
@@ -9,8 +10,6 @@ import { Button, Feature } from "@/types";
 import Link from "next/link";
 import path from "path";
 import { FaCheck } from "react-icons/fa";
-
-const languages = languageList.languages;
 
 const Home = ({ params }: { params: { lang: string } }) => {
   const lang = params.lang;
@@ -146,7 +145,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

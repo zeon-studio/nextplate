@@ -1,6 +1,6 @@
 import SearchModal from "@/components/SearchModal";
 import TwSizeIndicator from "@/helpers/TwSizeIndicator";
-import { getDictionary } from "@/i18n/dictionary";
+import { getDictionary } from "@/lib/utils/languageParser";
 import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";

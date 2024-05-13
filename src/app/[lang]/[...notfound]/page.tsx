@@ -1,12 +1,18 @@
-import Header from "@/partials/Header";
+import { getDictionary } from "@/lib/utils/languageParser";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 
-const NotFound = async () => {
+export default async function NotFound({
+  params,
+}: {
+  params: { lang: string };
+}) {
+  const { pageNotFound, pageNotFoundContent, backToHome } = await getDictionary(
+    params.lang,
+  );
   return (
     <>
       <SeoMeta title={"Page Not Found"} />
-      <Header lang="en" menu={{ main: [] }} />
       <section className="section-sm text-center">
         <div className="container">
           <div className="row justify-center">
@@ -14,15 +20,12 @@ const NotFound = async () => {
               <span className="text-[8rem] block font-bold text-dark dark:text-darkmode-dark">
                 404
               </span>
-              <h1 className="h2 mb-4">Page not found</h1>
+              <h1 className="h2 mb-4">{pageNotFound}</h1>
               <div className="content">
-                <p>
-                  The page you are looking for might have been removed, had its
-                  name changed, or is temporarily unavailable.
-                </p>
+                <p>{pageNotFoundContent}</p>
               </div>
               <Link href="/" className="btn btn-primary mt-8">
-                Back to home
+                {backToHome}
               </Link>
             </div>
           </div>
@@ -30,6 +33,4 @@ const NotFound = async () => {
       </section>
     </>
   );
-};
-
-export default NotFound;
+}

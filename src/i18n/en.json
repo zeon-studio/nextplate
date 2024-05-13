@@ -1,21 +1,16 @@
 {
-  "contact": {
-    "fullName": {
-      "label": "Full Name",
-      "placeholder": "Enter your full name"
-    },
-    "mail": {
-      "label": "Working Mail",
-      "placeholder": "john.doe@email.com"
-    },
-    "textArea": {
-      "label": "Anything else?",
-      "placeholder": "Message goes here"
-    }
-  },
+  "full_name": "Full Name",
+  "full_name_placeholder": "Enter your full name",
+  "mail": "Working Mail",
+  "mail_placeholder": "john.doe@email.com",
+  "textarea": "Anything else?",
+  "textarea_placeholder": "Message goes here...",
   "submit": "Submit",
   "readMore": "Read More",
   "categories": "Categories",
   "tags": "Tags",
-  "relatedPost": "Related Post"
+  "relatedPost": "Related Post",
+  "pageNotFound": "Page not found",
+  "pageNotFoundContent": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+  "backToHome": "back to home"
 }

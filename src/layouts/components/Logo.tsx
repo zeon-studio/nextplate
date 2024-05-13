@@ -1,18 +1,13 @@
 "use client";
 
 import config from "@/config/config.json";
+import { concatenatePath } from "@/lib/concatenatePath";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Logo = ({
-  src,
-  lang = config.language.default,
-}: {
-  src?: string;
-  lang: string;
-}) => {
+const Logo = ({ src, lang }: { src?: string; lang: string }) => {
   // destructuring items from config object
   const {
     logo,
@@ -41,7 +36,10 @@ const Logo = ({
   const logoPath = src ? src : resolvedLogo;
 
   return (
-    <Link href={`/${lang}`} className="navbar-brand inline-block">
+    <Link
+      href={concatenatePath(lang, "")}
+      className="navbar-brand inline-block"
+    >
       {logoPath ? (
         <Image
           width={logo_width.replace("px", "") * 2}

@@ -1,18 +1,21 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
-import { getLanguages } from "@/i18n/dictionary";
+import { concatenatePath } from "@/lib/concatenatePath";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
+import {
+  getActiveLanguage,
+  getDictionary,
+  getLanguage,
+} from "@/lib/utils/languageParser";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 import path from "path";
 
-const languages = languageList.languages;
-
-const Categories = ({ params }: { params: { lang: string } }) => {
+const Categories = async ({ params }: { params: { lang: string } }) => {
   const { blog_folder } = config.settings;
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const categories = getTaxonomy(
     path.join(language.contentDir, blog_folder),
     "categories",
@@ -22,10 +25,14 @@ const Categories = ({ params }: { params: { lang: string } }) => {
     "categories",
   );
 
+  const { categories: categoryTitle } = await getDictionary(params.lang);
+
   return (
     <>
-      <SeoMeta title={"Categories"} />
-      <PageHeader title={"Categories"} />
+      <SeoMeta title={categoryTitle} />
+      <PageHeader title={categoryTitle}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <section className="section">
         <div className="container text-center">
           <ul>
@@ -36,7 +43,10 @@ const Categories = ({ params }: { params: { lang: string } }) => {
               return (
                 <li className="m-3 inline-block" key={category}>
                   <Link
-                    href={`/${params.lang}/categories/${category}`}
+                    href={concatenatePath(
+                      params.lang,
+                      `/categories/${category}`,
+                    )}
                     className="block rounded bg-theme-light px-4 py-2 text-xl text-dark dark:bg-darkmode-theme-light dark:text-darkmode-dark"
                   >
                     {humanize(category)}{" "}
@@ -61,7 +71,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

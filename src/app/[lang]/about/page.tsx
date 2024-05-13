@@ -1,17 +1,15 @@
-import languageList from "@/config/language.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
-import { getLanguages } from "@/i18n/dictionary";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
+
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
 
-const languages = languageList.languages;
-
 const About = ({ params }: { params: { lang: string } }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "about/_index.md"),
   );
@@ -61,7 +59,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

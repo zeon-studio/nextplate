@@ -1,5 +1,6 @@
 import Social from "@/components/Social";
 import ImageFallback from "@/helpers/ImageFallback";
+import { concatenatePath } from "@/lib/concatenatePath";
 import { plainify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 
@@ -17,7 +18,9 @@ const AuthorCard = ({ data, lang }: { data: any; lang: string }) => {
         />
       )}
       <h4 className="mb-3">
-        <Link href={`/${lang}/authors/${data.slug}`}>{title}</Link>
+        <Link href={concatenatePath(lang, `/authors/${data.slug}`)}>
+          {title}
+        </Link>
       </h4>
       <p className="mb-4">{plainify(data.content?.slice(0, 100))}</p>
       <Social source={social} className="social-icons" />

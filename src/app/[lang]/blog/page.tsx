@@ -1,10 +1,10 @@
 import BlogCard from "@/components/BlogCard";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Pagination from "@/components/Pagination";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
-import { getLanguages } from "@/i18n/dictionary";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
@@ -13,11 +13,10 @@ import { Post } from "@/types";
 import path from "path";
 
 const { blog_folder, pagination } = config.settings;
-const languages = languageList.languages;
 
 // for all regular pages
 const Posts = ({ params }: { params: { lang: string } }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const postIndex: Post = getListPage(
     path.join(language.contentDir, `${blog_folder}/_index.md`),
   );
@@ -46,7 +45,9 @@ const Posts = ({ params }: { params: { lang: string } }) => {
         description={description}
         image={image}
       />
-      <PageHeader title={postIndex.frontmatter.title} />
+      <PageHeader title={postIndex.frontmatter.title}>
+        <Breadcrumbs lang={params.lang} />
+      </PageHeader>
       <section className="section">
         <div className="container">
           <div className="row gx-5">
@@ -85,7 +86,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return languages.map((language) => ({
+  return getActiveLanguage().map((language) => ({
     lang: language.languageCode,
   }));
 }

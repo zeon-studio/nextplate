@@ -1,8 +1,6 @@
-import languagesList from "@/config/language.json";
+import languages from "@/config/language.json";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-
-const { languages } = languagesList;
 
 export default function LanguageSwitcher({
   className,

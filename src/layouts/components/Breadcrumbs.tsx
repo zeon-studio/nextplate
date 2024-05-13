@@ -4,10 +4,19 @@ import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Breadcrumbs = ({ className }: { className?: string }) => {
+const Breadcrumbs = ({
+  className = "mt-6",
+  lang,
+}: {
+  className?: string;
+  lang: string;
+}) => {
   const pathname = usePathname();
+  const paths = pathname
+    .replace(`/${lang}`, "")
+    .split("/")
+    .filter((x) => x);
 
-  const paths = pathname.split("/").filter((x) => x);
   let parts = [
     {
       label: "Home",
@@ -31,7 +40,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
       <ol className="inline-flex" role="list">
         {parts.map(({ label, ...attrs }, index) => (
           <li className="mx-1 capitalize" role="listitem" key={index}>
-            {index > 0 && <span className="inlin-block mr-1">/</span>}
+            {index > 0 && <span className="inline-block mr-1">/</span>}
             {index !== parts.length - 1 ? (
               <Link
                 className="text-primary dark:text-darkmode-primary"

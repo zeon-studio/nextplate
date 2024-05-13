@@ -2,12 +2,11 @@ import BlogCard from "@/components/BlogCard";
 import Disqus from "@/components/Disqus";
 import Share from "@/components/Share";
 import config from "@/config/config.json";
-import languageList from "@/config/language.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
-import { getLanguages } from "@/i18n/dictionary";
 import { getSinglePage } from "@/lib/contentParser";
 import dateFormat from "@/lib/utils/dateFormat";
+import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
@@ -17,14 +16,13 @@ import path from "path";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
 const { blog_folder } = config.settings;
-const languages = languageList.languages;
 
 const PostSingle = ({
   params,
 }: {
   params: { single: string; lang: string };
 }) => {
-  const language = getLanguages(params.lang);
+  const language = getLanguage(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );
@@ -156,7 +154,7 @@ export const generateStaticParams: () => {
   single: string;
   lang: string;
 }[] = () => {
-  const slugs = languages.map((language) => {
+  const slugs = getActiveLanguage().map((language) => {
     const posts: Post[] = getSinglePage(
       path.join(language.contentDir, blog_folder),
     );

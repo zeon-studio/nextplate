@@ -4,10 +4,8 @@ import "@/styles/main.scss";
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
 }) {
   // import google font css
   const pf = theme.fonts.font_family.primary;
