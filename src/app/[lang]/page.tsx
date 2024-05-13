@@ -11,6 +11,16 @@ import Link from "next/link";
 import path from "path";
 import { FaCheck } from "react-icons/fa";
 
+// remove dynamicParams
+export const dynamicParams = false;
+
+// generate static params
+export async function generateStaticParams() {
+  return getActiveLanguages().map((language) => ({
+    lang: language.languageCode,
+  }));
+}
+
 const Home = ({ params }: { params: { lang: string } }) => {
   const lang = params.lang;
   const language = languages.find(
@@ -139,13 +149,3 @@ const Home = ({ params }: { params: { lang: string } }) => {
 };
 
 export default Home;
-
-// remove dynamicParams
-export const dynamicParams = false;
-
-// generate static params
-export async function generateStaticParams() {
-  return getActiveLanguages().map((language) => ({
-    lang: language.languageCode,
-  }));
-}

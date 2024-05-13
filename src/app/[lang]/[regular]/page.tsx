@@ -7,6 +7,21 @@ import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
 
+// remove dynamicParams
+export const dynamicParams = false;
+
+// generate static params
+export const generateStaticParams = () => {
+  const slugs = getActiveLanguages().map((language) => {
+    const regularPages = getSinglePage(path.join(language.contentDir, "pages"));
+    return regularPages.map((page: RegularPage) => ({
+      lang: language.languageCode,
+      regular: page.slug,
+    }));
+  });
+  return slugs.flat();
+};
+
 // for all regular pages
 const RegularPages = ({
   params,
@@ -44,18 +59,3 @@ const RegularPages = ({
 };
 
 export default RegularPages;
-
-// remove dynamicParams
-export const dynamicParams = false;
-
-// generate static params
-export const generateStaticParams = () => {
-  const slugs = getActiveLanguages().map((language) => {
-    const regularPages = getSinglePage(path.join(language.contentDir, "pages"));
-    return regularPages.map((page: RegularPage) => ({
-      lang: language.languageCode,
-      regular: page.slug,
-    }));
-  });
-  return slugs.flat();
-};
