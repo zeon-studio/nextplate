@@ -1,3 +1,4 @@
+import { concatenatePath } from "@/lib/concatenatePath";
 import { getDictionary } from "@/lib/utils/languageParser";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
@@ -24,7 +25,10 @@ export default async function NotFound({
               <div className="content">
                 <p>{pageNotFoundContent}</p>
               </div>
-              <Link href="/" className="btn btn-primary mt-8">
+              <Link
+                href={concatenatePath(params.lang, "/")}
+                className="btn btn-primary mt-8"
+              >
                 {backToHome}
               </Link>
             </div>

@@ -21,6 +21,10 @@ const nextConfig = {
   trailingSlash: config.site.trailing_slash,
   output: "standalone",
   async rewrites() {
+    if (config.settings.default_language_in_subdir) {
+      return [];
+    }
+
     return activeLanguages.length !== 1
       ? [
           {

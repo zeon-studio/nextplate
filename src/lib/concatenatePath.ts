@@ -1,6 +1,12 @@
+import config from "@/config/config.json";
+import { getDefaultLanguage } from "@/lib/utils/languageParser";
+
 export function concatenatePath(lang: string, href: string) {
-  const defaultLang = "en";
-  lang = lang === defaultLang ? "" : lang.replace(/^\/|\/$/g, "");
+  const defaultLang = getDefaultLanguage();
+  lang =
+    lang === defaultLang && config.settings.default_language_in_subdir
+      ? ""
+      : lang.replace(/^\/|\/$/g, "");
   href = href.replace(/^\/|\/$/g, "");
 
   if (lang !== "") {
