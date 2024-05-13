@@ -22,8 +22,10 @@ export default function LanguageSwitcher({
       if (config.settings.default_language_in_subdir) {
         const segments = pathname.split("/");
         segments[1] = locale;
+        console.log({ segments: segments.join() });
         router.push(segments.join("/"));
       } else {
+        console.log({ pathname });
         if (locale === defaultLang) {
           router.push(
             slugSelector("/", pathname.split("/").splice(2).join("/")),
