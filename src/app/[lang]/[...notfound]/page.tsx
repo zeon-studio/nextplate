@@ -1,8 +1,6 @@
-import {
-  getActiveLanguages,
-  getDefaultLanguage,
-  getTranslations,
-} from "@/lib/languageParser";
+"use client";
+
+import { getDefaultLanguage, getTranslations } from "@/lib/languageParser";
 import { slugSelector } from "@/lib/utils/slugSelector";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
@@ -45,8 +43,8 @@ export default async function NotFound({
   );
 }
 
-export function generateStaticParams() {
-  return getActiveLanguages().map((language) => ({
-    lang: language.languageCode,
-  }));
-}
+// export function generateStaticParams() {
+//   return getActiveLanguages().map((language) => ({
+//     lang: language.languageCode,
+//   }));
+// }
