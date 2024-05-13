@@ -1,4 +1,3 @@
-const { act } = require("react");
 const config = require("./src/config/config.json");
 const languages = require("./src/config/language.json");
 const disableLanguages = config.settings.disable_languages;
@@ -16,7 +15,7 @@ const activeLanguagesCodes = activeLanguages
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   basePath: config.base_path !== "/" ? config.base_path : "",
   trailingSlash: config.site.trailing_slash,
   output: "standalone",

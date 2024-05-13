@@ -1,3 +1,6 @@
+import { getDefaultLanguage, getTranslations } from "@/lib/languageParser";
+import { slugSelector } from "@/lib/utils/slugSelector";
+import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 
 export default async function NotFound({
@@ -6,9 +9,13 @@ export default async function NotFound({
   params: { lang: string };
 }) {
   console.log({ params });
+  const defaultLang = getDefaultLanguage();
+  const { page_not_found, page_not_found_content, back_to_home } =
+    await getTranslations(params.lang || defaultLang);
 
   return (
     <>
+      <SeoMeta title={"Page Not Found"} />
       <section className="section-sm text-center">
         <div className="container">
           <div className="row justify-center">
@@ -16,15 +23,15 @@ export default async function NotFound({
               <span className="text-[8rem] block font-bold text-dark dark:text-darkmode-dark">
                 404
               </span>
-              <h1 className="h2 mb-4">Page not found</h1>
+              <h1 className="h2 mb-4">{page_not_found}</h1>
               <div className="content">
-                <p>
-                  The page you are looking for might have been removed, had its
-                  name changed, or is temporarily unavailable.
-                </p>
+                <p>{page_not_found_content}</p>
               </div>
-              <Link href="/" className="btn btn-primary mt-8">
-                Back to home
+              <Link
+                href={slugSelector(params.lang, "/")}
+                className="btn btn-primary mt-8"
+              >
+                {back_to_home}
               </Link>
             </div>
           </div>
