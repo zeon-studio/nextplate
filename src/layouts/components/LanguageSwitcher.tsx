@@ -1,6 +1,12 @@
 import languages from "@/config/language.json";
-import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { concatenatePath } from "@/lib/concatenatePath";
+import { getDefaultLanguage } from "@/lib/utils/languageParser";
+import {
+  usePathname,
+  useRouter,
+  useSelectedLayoutSegments,
+} from "next/navigation";
+import { useCallback, useMemo, useState } from "react";
 
 export default function LanguageSwitcher({
   className,
@@ -9,16 +15,24 @@ export default function LanguageSwitcher({
   className?: string;
   lang: string;
 }) {
+  const defaultLang = useMemo(getDefaultLanguage, []);
   const [language, setLanguage] = useState(lang);
   const router = useRouter();
   const pathname = usePathname();
+  const segments = useSelectedLayoutSegments();
 
-  const redirectedPathName = (locale: string) => {
-    if (!pathname) return "/";
-    const segments = pathname.split("/");
-    segments[1] = locale;
-    router.push(segments.join("/"));
-  };
+  const redirectedPathName = useCallback(
+    (locale: string) => {
+      if (locale === defaultLang) {
+        router.push(
+          concatenatePath("/", pathname.split("/").splice(2).join("/")),
+        );
+      } else {
+        router.push(concatenatePath(locale, pathname));
+      }
+    },
+    [pathname],
+  );
 
   return (
     <select
