@@ -1,17 +1,14 @@
-import { getDefaultLanguage, getTranslations } from "@/lib/languageParser";
+import { getDefaultLanguage } from "@/lib/languageParser";
 import Header from "@/partials/Header";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 
-const NotFound = async ({ params }: { params: { lang: string } }) => {
-  console.log({ params });
+const NotFound = async () => {
   const defaultLang = getDefaultLanguage();
-  const { page_not_found, page_not_found_content, back_to_home } =
-    await getTranslations(params.lang || defaultLang);
   return (
     <>
       <SeoMeta title={"Page Not Found"} />
-      <Header lang="en" menu={{ main: [] }} />
+      <Header lang={defaultLang} menu={{ main: [] }} />
       <section className="section-sm text-center">
         <div className="container">
           <div className="row justify-center">
