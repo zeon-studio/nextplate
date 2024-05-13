@@ -1,4 +1,3 @@
-import setting from "@/config/config.json";
 import { getActiveLanguages, getDefaultLanguage } from "@/lib/languageParser";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
@@ -24,7 +23,7 @@ export function middleware(request: NextRequest) {
   );
 
   // Redirect if there is no locale
-  if (pathnameIsMissingLocale && setting.settings.default_language_in_subdir) {
+  if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 
     return NextResponse.redirect(
