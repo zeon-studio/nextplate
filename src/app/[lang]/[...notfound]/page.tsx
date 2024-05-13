@@ -12,6 +12,7 @@ export default async function NotFound({
   const defaultLang = getDefaultLanguage();
   const { page_not_found, page_not_found_content, back_to_home } =
     await getTranslations(params.lang || defaultLang);
+
   return (
     <>
       <SeoMeta title={"Page Not Found"} />
