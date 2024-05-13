@@ -4,7 +4,7 @@ import { getDefaultLanguage } from "@/lib/languageParser";
 export function concatenatePath(lang: string, href: string) {
   const defaultLang = getDefaultLanguage();
   lang =
-    lang === defaultLang && config.settings.default_language_in_subdir
+    lang === defaultLang && !config.settings.default_language_in_subdir
       ? ""
       : lang.replace(/^\/|\/$/g, "");
   href = href.replace(/^\/|\/$/g, "");
