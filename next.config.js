@@ -21,7 +21,7 @@ const nextConfig = {
   trailingSlash: config.site.trailing_slash,
   output: "standalone",
   async rewrites() {
-    return activeLanguages.length === 2
+    return activeLanguages.length !== 1
       ? [
           {
             source: `/:lang(!${defaultLanguage}|${activeLanguagesCodes.join("|")})/:path*`,
