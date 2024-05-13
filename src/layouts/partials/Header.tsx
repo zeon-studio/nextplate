@@ -4,8 +4,8 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
-import { concatenatePath } from "@/lib/concatenatePath";
-import { getActiveLanguage } from "@/lib/utils/languageParser";
+import { getActiveLanguages } from "@/lib/languageParser";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import { INavigationLink } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -19,7 +19,7 @@ const Header = ({
   lang: string;
   menu: { main: INavigationLink[] };
 }) => {
-  const activeLanguage = getActiveLanguage();
+  const activeLanguage = getActiveLanguages();
   const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
   const pathname = usePathname();

@@ -3,8 +3,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import Pagination from "@/components/Pagination";
 import config from "@/config/config.json";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
@@ -16,7 +16,7 @@ const { blog_folder, pagination } = config.settings;
 
 // for all regular pages
 const Posts = ({ params }: { params: { lang: string } }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const postIndex: Post = getListPage(
     path.join(language.contentDir, `${blog_folder}/_index.md`),
   );
@@ -86,7 +86,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return getActiveLanguage().map((language) => ({
+  return getActiveLanguages().map((language) => ({
     lang: language.languageCode,
   }));
 }

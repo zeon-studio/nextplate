@@ -1,7 +1,7 @@
 "use client";
 
 import config from "@/config/config.json";
-import { concatenatePath } from "@/lib/concatenatePath";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,5 +1,5 @@
 import config from "@/config/config.json";
-import { getDefaultLanguage } from "@/lib/utils/languageParser";
+import { getDefaultLanguage } from "@/lib/languageParser";
 
 export function concatenatePath(lang: string, href: string) {
   const defaultLang = getDefaultLanguage();

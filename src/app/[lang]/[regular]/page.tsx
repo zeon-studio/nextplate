@@ -1,7 +1,7 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
 import MDXContent from "@/helpers/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
@@ -13,7 +13,7 @@ const RegularPages = ({
 }: {
   params: { regular: string; lang: string };
 }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const regularData = getSinglePage(path.join(language.contentDir, "pages"));
   const data = regularData.filter(
     (page: RegularPage) => page.slug === params.regular,
@@ -50,7 +50,7 @@ export const dynamicParams = false;
 
 // generate static params
 export const generateStaticParams = () => {
-  const slugs = getActiveLanguage().map((language) => {
+  const slugs = getActiveLanguages().map((language) => {
     const regularPages = getSinglePage(path.join(language.contentDir, "pages"));
     return regularPages.map((page: RegularPage) => ({
       lang: language.languageCode,

@@ -1,14 +1,14 @@
 import AuthorCard from "@/components/AuthorCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author } from "@/types";
 import path from "path";
 
 const Authors = ({ params }: { params: { lang: string } }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const authorIndex: Author = getListPage(
     path.join(language.contentDir, "authors/_index.md"),
   );
@@ -49,7 +49,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return getActiveLanguage().map((language) => ({
+  return getActiveLanguages().map((language) => ({
     lang: language.languageCode,
   }));
 }

@@ -1,13 +1,10 @@
 import setting from "@/config/config.json";
-import {
-  getActiveLanguage,
-  getDefaultLanguage,
-} from "@/lib/utils/languageParser";
+import { getActiveLanguages, getDefaultLanguage } from "@/lib/languageParser";
 import { match as matchLocale } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { NextResponse, type NextRequest } from "next/server";
 
-const activeLanguages = getActiveLanguage();
+const activeLanguages = getActiveLanguages();
 let locales = activeLanguages?.map((lang) => lang.languageCode);
 const defaultLocale = getDefaultLanguage();
 

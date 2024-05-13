@@ -1,7 +1,7 @@
 import config from "@/config/config.json";
 import languages from "@/config/language.json";
-import { concatenatePath } from "@/lib/concatenatePath";
-import { getDefaultLanguage } from "@/lib/utils/languageParser";
+import { getDefaultLanguage } from "@/lib/languageParser";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useMemo, useState } from "react";
 

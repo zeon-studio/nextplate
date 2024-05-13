@@ -1,5 +1,5 @@
-import { concatenatePath } from "@/lib/concatenatePath";
-import { getDictionary } from "@/lib/utils/languageParser";
+import { getTranslations } from "@/lib/languageParser";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 
@@ -8,9 +8,8 @@ export default async function NotFound({
 }: {
   params: { lang: string };
 }) {
-  const { pageNotFound, pageNotFoundContent, backToHome } = await getDictionary(
-    params.lang,
-  );
+  const { pageNotFound, pageNotFoundContent, backToHome } =
+    await getTranslations(params.lang);
   return (
     <>
       <SeoMeta title={"Page Not Found"} />

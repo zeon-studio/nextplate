@@ -2,21 +2,21 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser";
 import {
-  getActiveLanguage,
-  getDictionary,
-  getLanguage,
-} from "@/lib/utils/languageParser";
+  getActiveLanguages,
+  getLanguageObj,
+  getTranslations,
+} from "@/lib/languageParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
 
 const Contact = async ({ params }: { params: { lang: string } }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "contact/_index.md"),
   );
-  const content = await getDictionary(params.lang);
+  const content = await getTranslations(params.lang);
   const { frontmatter } = data;
   const { title, description, meta_title, image } = frontmatter;
   const { contact_form_action } = config.params;
@@ -92,7 +92,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return getActiveLanguage().map((language) => ({
+  return getActiveLanguages().map((language) => ({
     lang: language.languageCode,
   }));
 }

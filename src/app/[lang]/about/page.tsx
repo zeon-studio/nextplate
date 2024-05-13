@@ -1,6 +1,6 @@
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
@@ -9,7 +9,7 @@ import { RegularPage } from "@/types";
 import path from "path";
 
 const About = ({ params }: { params: { lang: string } }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "about/_index.md"),
   );
@@ -59,7 +59,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return getActiveLanguage().map((language) => ({
+  return getActiveLanguages().map((language) => ({
     lang: language.languageCode,
   }));
 }

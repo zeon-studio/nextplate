@@ -1,12 +1,12 @@
 import Breadcrumbs from "@/components/Breadcrumbs";
 import config from "@/config/config.json";
-import { concatenatePath } from "@/lib/concatenatePath";
-import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
 import {
-  getActiveLanguage,
-  getDictionary,
-  getLanguage,
-} from "@/lib/utils/languageParser";
+  getActiveLanguages,
+  getLanguageObj,
+  getTranslations,
+} from "@/lib/languageParser";
+import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
@@ -15,14 +15,14 @@ import path from "path";
 
 const tags = async ({ params }: { params: { lang: string } }) => {
   const { blog_folder } = config.settings;
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const tags = getTaxonomy(path.join(language.contentDir, blog_folder), "tags");
   const alltags = getAllTaxonomy(
     path.join(language.contentDir, blog_folder),
     "tags",
   );
 
-  const { tags: tagTitle } = await getDictionary(params.lang);
+  const { tags: tagTitle } = await getTranslations(params.lang);
 
   return (
     <>
@@ -65,7 +65,7 @@ export const dynamicParams = false;
 
 // generate static params
 export async function generateStaticParams() {
-  return getActiveLanguage().map((language) => ({
+  return getActiveLanguages().map((language) => ({
     lang: language.languageCode,
   }));
 }

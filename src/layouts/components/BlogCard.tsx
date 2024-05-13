@@ -1,15 +1,15 @@
 import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
-import { concatenatePath } from "@/lib/concatenatePath";
+import { getTranslations } from "@/lib/languageParser";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import dateFormat from "@/lib/utils/dateFormat";
-import { getDictionary } from "@/lib/utils/languageParser";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
 const BlogCard = async ({ data, lang }: { data: Post; lang: string }) => {
-  const { submit } = await getDictionary(lang);
+  const { submit } = await getTranslations(lang);
   const { summary_length, blog_folder } = config.settings;
   const { title, image, author, categories, date } = data.frontmatter;
 

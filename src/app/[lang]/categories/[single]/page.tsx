@@ -1,8 +1,8 @@
 import BlogCard from "@/components/BlogCard";
 import config from "@/config/config.json";
 import { getSinglePage } from "@/lib/contentParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 import { getTaxonomy } from "@/lib/taxonomyParser";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import taxonomyFilter from "@/lib/utils/taxonomyFilter";
 import { humanize } from "@/lib/utils/textConverter";
@@ -18,7 +18,7 @@ const CategorySingle = ({
 }: {
   params: { single: string; lang: string };
 }) => {
-  const language = getLanguage("en");
+  const language = getLanguageObj("en");
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );
@@ -51,7 +51,7 @@ export const dynamicParams = false;
 
 // generate static params
 export const generateStaticParams = () => {
-  const slugs = getActiveLanguage().map((language) => {
+  const slugs = getActiveLanguages().map((language) => {
     const categories = getTaxonomy(
       path.join(language.contentDir, blog_folder),
       "categories",

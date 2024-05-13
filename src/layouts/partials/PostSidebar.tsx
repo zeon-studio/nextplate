@@ -1,4 +1,4 @@
-import { getDictionary } from "@/lib/utils/languageParser";
+import { getTranslations } from "@/lib/languageParser";
 import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
 
@@ -13,7 +13,7 @@ const PostSidebar = async ({
   allCategories: string[];
   lang: string;
 }) => {
-  const { categories: categoryTitle } = await getDictionary(lang);
+  const { categories: categoryTitle } = await getTranslations(lang);
   return (
     <div className="lg:col-4">
       {/* <!-- categories --> */}

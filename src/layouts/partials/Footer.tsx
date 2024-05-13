@@ -4,7 +4,7 @@ import Logo from "@/components/Logo";
 import Social from "@/components/Social";
 import config from "@/config/config.json";
 import social from "@/config/social.json";
-import { concatenatePath } from "@/lib/concatenatePath";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import { markdownify } from "@/lib/utils/textConverter";
 import { INavigationLink } from "@/types";
 import Link from "next/link";

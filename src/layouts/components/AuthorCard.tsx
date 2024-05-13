@@ -1,6 +1,6 @@
 import Social from "@/components/Social";
 import ImageFallback from "@/helpers/ImageFallback";
-import { concatenatePath } from "@/lib/concatenatePath";
+import { concatenatePath } from "@/lib/utils/concatenatePath";
 import { plainify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 

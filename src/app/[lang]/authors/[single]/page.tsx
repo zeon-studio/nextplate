@@ -4,7 +4,7 @@ import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author, Post } from "@/types";
@@ -15,7 +15,7 @@ const AuthorSingle = ({
 }: {
   params: { single: string; lang: string };
 }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const authors: Author[] = getSinglePage(
     path.join(language.contentDir, "authors"),
   );
@@ -82,7 +82,7 @@ export const generateStaticParams: () => {
   single?: string;
   lang: string;
 }[] = () => {
-  const slugs = getActiveLanguage().map((language) => {
+  const slugs = getActiveLanguages().map((language) => {
     const authors: Author[] = getSinglePage(
       path.join(language.contentDir, "authors"),
     );

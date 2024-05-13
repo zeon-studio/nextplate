@@ -1,6 +1,6 @@
 import SearchModal from "@/components/SearchModal";
 import TwSizeIndicator from "@/helpers/TwSizeIndicator";
-import { getDictionary } from "@/lib/utils/languageParser";
+import { getTranslations } from "@/lib/languageParser";
 import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
@@ -13,7 +13,7 @@ export default async function Layout({
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  const menu = await getDictionary(params.lang);
+  const menu = await getTranslations(params.lang);
 
   return (
     <>

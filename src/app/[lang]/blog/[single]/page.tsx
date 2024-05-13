@@ -5,8 +5,8 @@ import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import MDXContent from "@/helpers/MDXContent";
 import { getSinglePage } from "@/lib/contentParser";
+import { getActiveLanguages, getLanguageObj } from "@/lib/languageParser";
 import dateFormat from "@/lib/utils/dateFormat";
-import { getActiveLanguage, getLanguage } from "@/lib/utils/languageParser";
 import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
@@ -22,7 +22,7 @@ const PostSingle = ({
 }: {
   params: { single: string; lang: string };
 }) => {
-  const language = getLanguage(params.lang);
+  const language = getLanguageObj(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
   );
@@ -154,7 +154,7 @@ export const generateStaticParams: () => {
   single: string;
   lang: string;
 }[] = () => {
-  const slugs = getActiveLanguage().map((language) => {
+  const slugs = getActiveLanguages().map((language) => {
     const posts: Post[] = getSinglePage(
       path.join(language.contentDir, blog_folder),
     );
