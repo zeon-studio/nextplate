@@ -5,11 +5,9 @@ const activeLanguages = languages.filter(
   (lang) => !disableLanguages.includes(lang.languageCode),
 );
 
-const defaultLanguage =
-  activeLanguages.length === 1
-    ? activeLanguages[0].languageCode
-    : config.settings.default_language;
-const activeLanguagesCodes = activeLanguages
+const defaultLanguage = config.settings.default_language;
+
+const otherLanguages = activeLanguages
   .map((lang) => lang.languageCode)
   .filter((lang) => lang !== defaultLanguage);
 
@@ -27,7 +25,7 @@ const nextConfig = {
     return activeLanguages.length !== 1
       ? [
           {
-            source: `/:lang(!${defaultLanguage}|${activeLanguagesCodes.join("|")})/:path*`,
+            source: `/:lang(!${defaultLanguage}|${otherLanguages.join("|")})/:path*`,
             destination: `/:lang/:path*`,
           },
           {
