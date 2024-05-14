@@ -5,6 +5,9 @@ import { slugSelector } from "@/lib/utils/slugSelector";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 
+// remove dynamicParams
+export const dynamicParams = false;
+
 export default async function NotFound({
   params,
 }: {
