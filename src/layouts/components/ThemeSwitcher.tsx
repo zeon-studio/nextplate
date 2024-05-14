@@ -15,7 +15,6 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
       {theme_switcher && (
         <div className={`theme-switcher ${className}`}>
           <input
-            readOnly
             id="theme-switcher"
             type="checkbox"
             checked={mounted && (theme === "dark" || resolvedTheme === "dark")}
