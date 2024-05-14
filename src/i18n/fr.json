@@ -1,0 +1,17 @@
+{
+  "full_name": "Nom complet",
+  "full_name_placeholder": "Entrer votre nom complet",
+  "mail": "Courriel professionnel",
+  "mail_placeholder": "john.doe@email.com",
+  "message": "Quelque chose d'autre ?",
+  "message_placeholder": "Message ici...",
+  "submit": "Soumettre",
+  "read_more": "Lire la suite",
+  "categories": "Catégories",
+  "tags": "Étiquettes",
+  "share": "Partager",
+  "related_post": "Article connexe",
+  "page_not_found": "Page introuvable",
+  "page_not_found_content": "La page que vous cherchez a peut-être été supprimée, renommée ou temporairement indisponible.",
+  "back_to_home": "Retour à l'accueil"
+}

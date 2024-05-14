@@ -1,0 +1,57 @@
+{
+  "main": [
+    {
+      "name": "Maison",
+      "url": "/"
+    },
+    {
+      "name": "Propos",
+      "url": "/about"
+    },
+    {
+      "name": "éléments",
+      "url": "/elements"
+    },
+    {
+      "name": "Pages",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Blog",
+          "url": "/blog"
+        },
+        {
+          "name": "Auteures",
+          "url": "/authors"
+        },
+        {
+          "name": "Catégories",
+          "url": "/categories"
+        },
+        {
+          "name": "Mots-clés",
+          "url": "/tags"
+        },
+        {
+          "name": "Page 404",
+          "url": "/404"
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "Éléments",
+      "url": "/elements"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
+    }
+  ]
+}

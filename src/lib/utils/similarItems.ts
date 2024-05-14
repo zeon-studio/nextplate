@@ -1,7 +1,7 @@
 import { Post } from "@/types";
 
-// similer products
-const similerItems = (
+// similar products
+const similarItems = (
   currentItem: Post,
   allItems: Post[],
   slug: string,
@@ -40,4 +40,4 @@ const similerItems = (
   return filterBySlug;
 };
 
-export default similerItems;
+export default similarItems;
