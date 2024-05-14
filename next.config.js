@@ -18,7 +18,7 @@ const nextConfig = {
   reactStrictMode: false,
   basePath: config.base_path !== "/" ? config.base_path : "",
   trailingSlash: config.site.trailing_slash,
-  output: "standalone",
+  output: "export",
   async rewrites() {
     if (config.settings.default_language_in_subdir) {
       return [];
