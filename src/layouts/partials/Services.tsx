@@ -16,7 +16,6 @@ interface PageData {
 }
 
 const ServicesComponent = ({ data }: { data: PageData }) => {
-  const animationDelays = ["400ms", "450ms", "500ms"];
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0, // Adjust as needed
@@ -47,7 +46,7 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:px-14 sm:px-32 py-4">
                 {data.frontmatter.services.map((service: Service, index) => (
                   <div
-                    className={`rounded shadow-lg bg-white border ${inView && index < animationDelays.length ? `animate-fade-up animate-duration-[500ms] animate-delay-[${animationDelays[index]}]` : ""}`}
+                    className={`rounded shadow-lg bg-white border ${inView && index === 0 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : inView && index === 1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]" : inView && index === 2 ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]" : ""}`}
                     key={index}
                   >
                     <div className="pb-3 px-4 py-4">
