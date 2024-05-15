@@ -144,7 +144,7 @@ const Home = () => {
                 }`}
               >
                 <video
-                  className="w-full rounded-xs shadow-lg"
+                  className="w-full rounded-sm shadow-lg"
                   controls
                   preload="none"
                   autoPlay
