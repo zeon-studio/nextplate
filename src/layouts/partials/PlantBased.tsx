@@ -25,7 +25,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
           <div className="lg:grid grid-cols-[2.5fr,2fr] h-[520px]">
             <div
               ref={ref}
-              className={`relative lg:h-full h-1/2 ${inView ? "animate-fade" : ""}`}
+              className={`relative lg:h-full h-1/2 ${inView ? "animate-fade ease-linear" : ""}`}
             >
               <Image
                 src={data.frontmatter.image}
