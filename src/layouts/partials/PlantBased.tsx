@@ -25,7 +25,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
           <div className="lg:grid grid-cols-[2.5fr,2fr] h-[520px]">
             <div
               ref={ref}
-              className={`relative lg:h-full h-1/2 ${inView ? "animate-fade animate-duration-300 animate-ease-in" : ""}`}
+              className={`relative lg:h-full h-1/2 ${inView ? "animate-fade" : ""}`}
             >
               <Image
                 src={data.frontmatter.image}
@@ -35,64 +35,72 @@ const PlantBased = ({ data }: { data: PageData }) => {
               ></Image>
             </div>
             <div className="flex flex-row">
-              <div
-                ref={ref}
-                className={`inset-0 lg:px-16 px-2 py-2 row items-center justify-between ${
-                  inView ? "animate-delay-[700ms]" : ""
-                }`}
-              >
+              <div className="inset-0 lg:px-16 px-2 py-2 row items-center justify-between ">
                 <div className="md:col-10 md:order-1 md:text-left text-center md:m-auto mt-5 mb-5">
-                  <h2
-                    dangerouslySetInnerHTML={markdownify(
-                      data.frontmatter.title,
-                    )}
-                    ref={ref}
-                    className={`text-dark-grey text-h4 lg:text-h2 mb-6 ${
-                      inView ? "animate-fade-up animate-duration-[600ms]" : ""
-                    }`}
-                  />
-                  <p
-                    dangerouslySetInnerHTML={markdownify(
-                      data.frontmatter.description,
-                    )}
-                    ref={ref}
-                    className={`text-dark-grey mb-6 md:text-lg${
+                  <div
+                    className={`${
                       inView
-                        ? "animate-fade-up animate-delay-[400ms] ease-in"
+                        ? "animate-fade-up animate-duration-[500ms] ease-in"
                         : ""
                     }`}
-                  />
+                  >
+                    <h2
+                      dangerouslySetInnerHTML={markdownify(
+                        data.frontmatter.title,
+                      )}
+                      className="text-dark-grey text-h4 lg:text-h2 mb-6"
+                    />
+                  </div>
+
+                  <div
+                    className={`${
+                      inView
+                        ? "animate-fade-up animate-duration-[550ms] ease-in"
+                        : ""
+                    }`}
+                  >
+                    <p
+                      dangerouslySetInnerHTML={markdownify(
+                        data.frontmatter.description,
+                      )}
+                      className="text-dark-grey mb-6 md:text-lg"
+                    />
+                  </div>
+
                   {data.frontmatter.button.enable && (
-                    <Link
-                      ref={ref}
-                      className={`btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white${
+                    <div
+                      className={`${
                         inView
-                          ? "animate-fade-up animate-delay-[500ms] ease-in"
+                          ? "animate-fade-up animate-duration-[600ms] ease-in"
                           : ""
                       }`}
-                      href={data.frontmatter.button.link}
                     >
-                      <div className="flex flex-row items-center">
-                        {data.frontmatter.button.label}
-                        <svg
-                          className="text-primaryhover:text-white ml-1"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="18"
-                          height="18"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="m9 5 7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </Link>
+                      <Link
+                        className="btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white"
+                        href={data.frontmatter.button.link}
+                      >
+                        <div className="flex flex-row items-center">
+                          {data.frontmatter.button.label}
+                          <svg
+                            className="text-primaryhover:text-white ml-1"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              stroke="currentColor"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
+                              d="m9 5 7 7-7 7"
+                            />
+                          </svg>
+                        </div>
+                      </Link>
+                    </div>
                   )}
                 </div>
               </div>

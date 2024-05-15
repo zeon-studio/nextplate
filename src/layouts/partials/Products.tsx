@@ -37,16 +37,13 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
               />
             </div>
 
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center" ref={ref}>
               {data.frontmatter.products.map((product: Product, index) => (
                 <div
                   key={index}
-                  className="flex justify-center items-center text-center sm:w-[114px] px-4 py-2 m-4"
+                  className={`flex justify-center items-center text-center sm:w-[114px] px-4 py-2 m-4 ${inView ? "animate-jump-in animate-ease-in animate-delay-[400ms]" : ""}`}
                 >
-                  <div
-                    ref={ref}
-                    className={`flex flex-col ${inView ? "animate-jump-in animate-ease-in animate-delay-[400ms]" : ""}`}
-                  >
+                  <div className="flex flex-col">
                     <ImageFallback
                       height={product.height}
                       width={product.width}

@@ -25,9 +25,9 @@ interface PhotoGalleryProps {
   photos: Photo[];
 }
 
+//Adjust
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
   const [index, setIndex] = useState(-1);
-
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0, // Adjust as needed
