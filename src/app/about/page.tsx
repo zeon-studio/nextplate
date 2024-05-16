@@ -25,7 +25,7 @@ const About = () => {
       <PageHeader title={title} subtitle={subtitle} />
       {/* How We Got Started */}
       {features.map((feature, index: number) => (
-        <section className="section-sm">
+        <section className="section-sm" key={index}>
           <div className="container">
             <div className="row justify-center">
               <div className="md:col-10 lg:col-12">
