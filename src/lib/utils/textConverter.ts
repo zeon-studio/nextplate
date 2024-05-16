@@ -14,6 +14,12 @@ export const markdownify = (content: string, div?: boolean) => {
     '<span style="color:#0d7e08">$1</span>',
   );
 
+  // Replace the content new lines with <br> tags to preserve line breaks
+  content = content.replace(/\n/g, "<br>");
+
+  // Replace the content italicized text with <i> tags
+  content = content.replace(/<i>(.*?)<i>/g, "<i>$1</i>");
+
   const markdownContent: any = div
     ? marked.parse(content)
     : marked.parseInline(content);

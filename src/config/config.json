@@ -30,7 +30,7 @@
   "navigation_button": {
     "enable": true,
     "label": "Get in Touch",
-    "link": "https://github.com/zeon-studio/nextplate"
+    "link": "/contact"
   },
 
   "disqus": {

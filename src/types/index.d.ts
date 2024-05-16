@@ -48,11 +48,12 @@ export type Author = {
 
 export type Feature = {
   button: button;
-  video: string;
-  bulletpoints: string[];
+  image?: string;
+  video?: string;
+  bulletpoints?: string[];
   content: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 };
 
 export type Testimonial = {
@@ -113,4 +114,33 @@ export type Buttons = {
     link: string;
     classname: string;
   };
+};
+
+export type Point_of_contact_email = {
+  title: string;
+  content: string;
+  email: string;
+  href: string;
+};
+
+export type Location = {
+  state: string;
+  address: string;
+};
+
+export type Point_of_contact_locations = {
+  title: string;
+  locations: Location[];
+};
+
+export type Number = {
+  state: string;
+  phone_number: string;
+  href: string;
+};
+
+export type Point_of_contact_call = {
+  title: string;
+  content: string;
+  numbers: Number[];
 };

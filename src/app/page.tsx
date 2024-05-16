@@ -171,7 +171,7 @@ const Home = () => {
 
                 <h2
                   className="mb-4 animate-fade-up animate-duration-[600ms] text-dark-grey"
-                  dangerouslySetInnerHTML={markdownify(feature.subtitle)}
+                  dangerouslySetInnerHTML={markdownify(feature.subtitle ?? "")}
                 />
 
                 <p
@@ -179,15 +179,16 @@ const Home = () => {
                   dangerouslySetInnerHTML={markdownify(feature.content)}
                 />
                 <ul className="animate-fade-up animate-delay-[400ms] ease-in">
-                  {feature.bulletpoints.map((bullet: string) => (
-                    <li className="relative mb-4 pl-6" key={bullet}>
-                      <FaCheck
-                        color="#65a30d"
-                        className={"absolute left-0 top-1.5"}
-                      />
-                      <span dangerouslySetInnerHTML={markdownify(bullet)} />
-                    </li>
-                  ))}
+                  {feature.bulletpoints &&
+                    feature.bulletpoints.map((bullet: string) => (
+                      <li className="relative mb-4 pl-6" key={bullet}>
+                        <FaCheck
+                          color="#65a30d"
+                          className={"absolute left-0 top-1.5"}
+                        />
+                        <span dangerouslySetInnerHTML={markdownify(bullet)} />
+                      </li>
+                    ))}
                 </ul>
                 {feature.button.enable && (
                   <Link

@@ -1,9 +1,18 @@
 ---
-title: "Hey, I am John Doe!"
-meta_title: "About"
+title: "About Us"
+meta_title: "About Us"
 description: "this is meta description"
 image: "/images/avatar.png"
 draft: false
----
 
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.
+features:
+  - title: "How We Got Started"
+    subtitle: ""
+    image: "/images/banner-image.jpg"
+    content: "**__Ninth Avenue Foods__** is a fourth generation family-owned and operated company with a long standing history of quality and service in the dairy industry. <i>**As innovation has lead to growth and success, family values and commitment to quality has remained the same.<i>**\n\nOur new state-of-the-art **ESL manufacturing facility** and over **50 years** of experience in the industry will take your products from concept state to successful launch with ease. At **__Ninth Avenue Foods__** we offer a personal touch and do our best to go the extra mile for our customers."
+    bulletpoints: ""
+    button:
+      enable: true
+      label: "Contact Us"
+      link: "contact"
+---

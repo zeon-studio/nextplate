@@ -11,7 +11,7 @@ services:
     content: "Our cutting-edge plant exceeds industry standards, meeting market demands with precision."
     button:
       enable: true
-      label: "Learn More"
+      label: "More info"
       link: ""
 
   - image: "/images/commitment-to-quality.jpg"
@@ -20,7 +20,7 @@ services:
     content: "Food safety and quality are fundamental at Ninth Avenue Foods, guiding every aspect of our operations."
     button:
       enable: true
-      label: "Learn More"
+      label: "More Info"
       link: ""
 
   - image: "/images/private-label-co-packing.jpg"
@@ -29,6 +29,6 @@ services:
     content: "At Ninth Avenue Foods, our expertise and capabilities foster winning partnerships to elevate your products."
     button:
       enable: true
-      label: "Learn More"
+      label: "More Info"
       link: ""
 ---

@@ -6,5 +6,5 @@ description: "To inquire about our current packaging capabilities for fluid pack
 button:
   enable: true
   label: "Contact Us"
-  link: "https://github.com/zeon-studio/nextplate"
+  link: "/contact"
 ---
