@@ -1,6 +1,9 @@
+import config from "@/config/config.json";
 import { getTranslations } from "@/lib/languageParser";
+import { slugSelector } from "@/lib/utils/slugSelector";
 import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
+const { blog_folder } = config.settings;
 
 const PostSidebar = async ({
   tags,
@@ -29,7 +32,7 @@ const PostSidebar = async ({
                 <li key={category}>
                   <Link
                     className="flex justify-between hover:text-primary dark:hover:text-darkmode-primary"
-                    href={`/${lang}/categories/${category}`}
+                    href={slugSelector(lang, `/categories/${category}`)}
                   >
                     {humanize(category)} <span>({count})</span>
                   </Link>
@@ -49,7 +52,7 @@ const PostSidebar = async ({
                 <li className="inline-block" key={tag}>
                   <Link
                     className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-dark"
-                    href={`/${lang}/tags/${tag}`}
+                    href={slugSelector(lang, `/tags/${tag}`)}
                   >
                     {humanize(tag)}
                   </Link>
