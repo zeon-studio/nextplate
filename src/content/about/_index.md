@@ -1,4 +1,6 @@
 ---
+enable: true
+enableLocationIcon: true
 title: "About Us"
 meta_title: "About Us"
 description: "this is meta description"
@@ -15,4 +17,13 @@ features:
       enable: true
       label: "Contact Us"
       link: "contact"
+
+# Point of Contact Locations
+pointOfContactLocations:
+  - title: "Our locations:"
+    locations:
+      - state: "California"
+        address: "425 S 9th Ave, City of Industry, CA 91746"
+      - state: "Indiana"
+        address: "6350 S 175 W, Columbus, IN 47201"
 ---

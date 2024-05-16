@@ -6,10 +6,12 @@ import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { Feature } from "@/types";
 import Link from "next/link";
+import PointsOfContact from "@/partials/PointsOfContact";
 // import { features } from "process";
 
 const About = () => {
   const data = getListPage("about/_index.md");
+  const point_of_contact = getListPage("sections/points-of-contact.md");
   const { frontmatter, content } = data;
   const { title, subtitle, meta_title, description, image } = frontmatter;
   const { features }: { features: Feature[] } = frontmatter;
@@ -85,6 +87,9 @@ const About = () => {
       ))}
 
       {/* Our location */}
+      <div>
+        <PointsOfContact data={data}></PointsOfContact>
+      </div>
     </>
   );
 };

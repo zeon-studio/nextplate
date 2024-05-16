@@ -1,5 +1,8 @@
 ---
 enable: true
+enableEmailIcon: true
+enableLocationIcon: true
+enableCallIcon: true
 
 # Point of Contact Email
 pointOfContactEmail:
