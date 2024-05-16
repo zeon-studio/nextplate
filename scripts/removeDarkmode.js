@@ -39,7 +39,7 @@ const path = require("path");
     }
   }
 
-  //rootDirs.forEach(removeDarkModeFromPages);
+  rootDirs.forEach(removeDarkModeFromPages);
   configFiles.forEach(removeDarkMode);
 
   function removeDarkModeFromFiles(filePath, regexPatterns) {
