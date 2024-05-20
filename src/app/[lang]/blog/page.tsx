@@ -60,6 +60,7 @@ const Posts = ({ params }: { params: { lang: string } }) => {
                 ))}
               </div>
               <Pagination
+                lang={params.lang}
                 section={blog_folder}
                 currentPage={1}
                 totalPages={totalPages}
