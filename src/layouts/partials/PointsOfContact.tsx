@@ -116,7 +116,9 @@ const PointsOfContact = ({ data }: { data: PageData }) => {
                     index,
                   ) => (
                     <div key={index}>
-                      <h5 className="text-dark-grey"></h5>
+                      <h5 className="text-dark-grey">
+                        {point_of_contact_locations.title}
+                      </h5>
                       {point_of_contact_locations.locations &&
                         Object.values(point_of_contact_locations.locations).map(
                           (location, index) => (

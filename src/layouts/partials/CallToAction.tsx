@@ -22,7 +22,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
   return (
     <>
       {data.frontmatter.enable && (
-        <section className="remb-28 mb-28">
+        <section className="remb-28">
           <div className="container relative" ref={ref}>
             {/* <div className="relative px-4 py-16 xl:p-20 bg-cover bg-top bg-contact-us bg-brightness-75 h-[450px]"> */}
 

@@ -6,6 +6,8 @@ meta_title: "About Us"
 description: "this is meta description"
 image: "/images/avatar.png"
 draft: false
+our_locations_title: "__Our Locations__"
+our_locations_content: "Headquartered in Southern California, **__Ninth Avenue Foods__** is an American company with owners and key decision makers on site available for consultation. Regardless of your specific needs our experienced team will produce your products to the most exacting standards. Let our <i>**small company values**<i> combined with <i>**big company capabilities**<i> work to your advantage."
 
 features:
   - title: "How We Got Started"

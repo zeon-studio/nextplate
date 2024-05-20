@@ -8,6 +8,11 @@ export const slugify = (content: string) => {
 
 // markdownify
 export const markdownify = (content: string, div?: boolean) => {
+  if (typeof content !== "string") {
+    console.error("Invalid content type, expected a string");
+    return { __html: "" };
+  }
+
   // Parse the content and apply styles based on underscores
   content = content.replace(
     /__(.*?)__/g,
@@ -28,6 +33,11 @@ export const markdownify = (content: string, div?: boolean) => {
 
 // humanize
 export const humanize = (content: string) => {
+  if (typeof content !== "string") {
+    console.error("Invalid content type, expected a string");
+    return "";
+  }
+
   return content
     .replace(/^[\s_]+|[\s_]+$/g, "")
     .replace(/[_\s]+/g, " ")
@@ -47,6 +57,11 @@ export const titleify = (content: string) => {
 
 // plainify
 export const plainify = (content: string) => {
+  if (typeof content !== "string") {
+    console.error("Invalid content type, expected a string");
+    return "";
+  }
+
   const parseMarkdown: any = marked.parse(content);
   const filterBrackets = parseMarkdown.replace(/<\/?[^>]+(>|$)/gm, "");
   const filterSpaces = filterBrackets.replace(/[\r\n]\s*[\r\n]/gm, "");

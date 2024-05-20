@@ -223,12 +223,14 @@ const Home = () => {
         </section>
       ))}
 
-      <Services data={service} />
-      <Products data={product} />
-      <PlantBased data={plantBased}></PlantBased>
-      <PhotoGallery photos={photos} />
-      {/* <Testimonials data={testimonial} /> */}
-      <CallToAction data={callToAction} />
+      <div className="mb-28">
+        <Services data={service} />
+        <Products data={product} />
+        <PlantBased data={plantBased}></PlantBased>
+        <PhotoGallery photos={photos} />
+        {/* <Testimonials data={testimonial} /> */}
+        <CallToAction data={callToAction} />
+      </div>
     </>
   );
 };
