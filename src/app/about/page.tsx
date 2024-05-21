@@ -56,21 +56,24 @@ const About = async () => {
       <PageHeader title={title} subtitle={subtitle} />
       <section className="section-sm mb-8">
         <div className="container pb-24">
-          <div className="row justify-center">
+          <div className="row justify-center ">
             <div className="md:col-10 lg:col-12">
               {/* How We Got Started */}
               {features.map((feature, index: number) => (
-                <div className="flex md:flex-row flex-col" key={index}>
+                <div
+                  className="flex lg:flex-row flex-col items-center"
+                  key={index}
+                >
                   {image && (
                     <ImageFallback
-                      className="mx-auto mb-6 rounded-sm object-cover md:px-0 px-8"
+                      className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover"
                       src={feature.image}
                       width={600}
                       height={600}
                       alt={title}
                     />
                   )}
-                  <div className="md:col-8 lg:col-6 col-12 items-center px-10">
+                  <div className="md:col-8 lg:col-6 col-10 items-center mx-auto lg:pl-16">
                     <h2
                       dangerouslySetInnerHTML={markdownify(feature.title)}
                       className="h3 mb-6 text-primary"
@@ -120,25 +123,30 @@ const About = async () => {
 
         {/* Our locations */}
         <div className="flex flex-col items-center justify-center py-24">
-          <h2
-            dangerouslySetInnerHTML={markdownify(our_locations_title)}
-            className="mb-6"
-          />
-          <p
-            className="md:col-6 col-10 md:pb-8 text-dark-grey text-lg"
-            dangerouslySetInnerHTML={markdownify(our_locations_content)}
-          />
-          <div className="container flex md:flex-row flex-col">
-            <div className="relative flex justify-center w-full md:right-[1.5rem]">
+          <div className="md:col-8 xl:col-6 col-10">
+            <h2
+              dangerouslySetInnerHTML={markdownify(our_locations_title)}
+              className="mb-6 text-center"
+            />
+            <p
+              className="md:pb-8 text-dark-grey text-lg"
+              dangerouslySetInnerHTML={markdownify(our_locations_content)}
+            />
+          </div>
+
+          <div className="container flex lg:flex-row flex-col items-center">
+            <div className="relative flex justify-center w-full lg:right-[1.5rem]">
               <PointsOfContact data={data}></PointsOfContact>
             </div>
 
-            <div className="relative h-[40vh] md:w-[1300px] md:right-[12rem]">
-              <Map
-                center={centerCoord}
-                position1={californiaCoord}
-                position2={indianaCoord}
-              />
+            <div className="lg:w-full md:w-5/6 w-full">
+              <div className="relative lg:h-[40vh] h-[35vh] xl:w-[700px] xl:right-[12rem] lg:right-[9rem]">
+                <Map
+                  center={centerCoord}
+                  position1={californiaCoord}
+                  position2={indianaCoord}
+                />
+              </div>
             </div>
           </div>
         </div>
