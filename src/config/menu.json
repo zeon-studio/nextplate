@@ -15,6 +15,10 @@
       "hasChildren": true,
       "children": [
         {
+          "name": "Cutting Edge Technology",
+          "url": "/cutting-edge-technology"
+        },
+        {
           "name": "Contact",
           "url": "/contact"
         },

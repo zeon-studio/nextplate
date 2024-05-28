@@ -144,3 +144,16 @@ export type Point_of_contact_call = {
   content: string;
   numbers: Number[];
 };
+
+export type Capability = {
+  title: string;
+  image: string;
+  alt: string;
+  bulletpoints: string[];
+};
+
+export type Card = {
+  title: string;
+  content: string;
+  button: Button;
+};

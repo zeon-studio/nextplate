@@ -227,6 +227,17 @@ const Home = () => {
         <Services data={service} />
         <Products data={product} />
         <PlantBased data={plantBased}></PlantBased>
+        <div className="mx-auto mb-12 text-center md:col-10 col-10">
+          <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
+            Elevating Your Brand with
+            <span className="text-primary"> Ninth Avenue Foods</span>
+          </h3>
+
+          <p className="mb-8 text-lg">
+            From Tradition to Technology: A Heritage of <b>Excellence</b> in
+            Dairy Manufacturing
+          </p>
+        </div>
         <PhotoGallery photos={photos} />
         {/* <Testimonials data={testimonial} /> */}
         <CallToAction data={callToAction} />

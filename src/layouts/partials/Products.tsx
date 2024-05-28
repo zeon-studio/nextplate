@@ -14,7 +14,7 @@ interface PageData {
   };
 }
 
-const PartnersComponent = ({ data }: { data: PageData }) => {
+const Products = ({ data }: { data: PageData }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0, // Adjust as needed
@@ -66,4 +66,4 @@ const PartnersComponent = ({ data }: { data: PageData }) => {
   );
 };
 
-export default PartnersComponent;
+export default Products;

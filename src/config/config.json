@@ -19,7 +19,8 @@
     "default_theme": "system",
     "pagination": 2,
     "summary_length": 200,
-    "blog_folder": "blog"
+    "blog_folder": "blog",
+    "cutting_edge_technology_folder": "cutting-edge-technology"
   },
 
   "params": {

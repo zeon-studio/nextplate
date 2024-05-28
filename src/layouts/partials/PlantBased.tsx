@@ -23,10 +23,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
       {data.frontmatter.enable && (
         <section className="remb-28 mb-28 bg-pastel-green">
           <div className="lg:grid grid-cols-[2.5fr,2fr] h-[520px]">
-            <div
-              ref={ref}
-              className={`relative lg:h-full h-1/2 ${inView ? "animate-fade ease-linear" : ""}`}
-            >
+            <div className="relative lg:h-full h-1/2">
               <Image
                 src={data.frontmatter.image}
                 alt="Plant-Based Milks"
@@ -38,9 +35,10 @@ const PlantBased = ({ data }: { data: PageData }) => {
               <div className="inset-0 lg:px-16 px-2 py-2 row items-center justify-between ">
                 <div className="md:col-10 md:order-1 md:text-left text-center md:m-auto mt-5 mb-5">
                   <div
+                    ref={ref}
                     className={`${
                       inView
-                        ? "animate-fade-up animate-duration-[500ms] ease-in"
+                        ? "animate-fade-up animate-duration-[600ms] ease-in"
                         : ""
                     }`}
                   >
@@ -55,7 +53,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
                   <div
                     className={`${
                       inView
-                        ? "animate-fade-up animate-duration-[550ms] ease-in"
+                        ? "animate-fade-up animate-duration-[650ms] ease-in"
                         : ""
                     }`}
                   >
@@ -71,7 +69,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
                     <div
                       className={`${
                         inView
-                          ? "animate-fade-up animate-duration-[600ms] ease-in"
+                          ? "animate-fade-up animate-duration-[700ms] ease-in"
                           : ""
                       }`}
                     >
