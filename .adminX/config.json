@@ -1,0 +1,13 @@
+{
+  "media": {
+    "root": ".vscode",
+    "public": ".vscode"
+  },
+  "content": {
+    "root": "src/content"
+  },
+  "themeConfig": [
+    "src/config/theme.json"
+  ],
+  "arrangement": {}
+}
