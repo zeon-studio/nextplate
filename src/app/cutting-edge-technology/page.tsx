@@ -58,8 +58,8 @@ const CuttingEdgeTechnology = () => {
       <section className="section">
         <div className="container pb-14">
           <div className="w-full">
-            <div className="flex flex-row gx-5">
-              <div className="lg:col-8 mx-4">
+            <div className="gx-5 grid lg:grid-cols-5 gap-10">
+              <div className="lg:col-11 lg:mx-4 mx-1 col-span-3">
                 <div className="row">
                   <div className="relative">
                     <h2
@@ -75,7 +75,7 @@ const CuttingEdgeTechnology = () => {
                       )}
                     />
                   </div>
-                  <div className="xl:col-12 mx-auto px-6 py-8">
+                  <div className="xl:col-10 mx-auto py-8">
                     <Image
                       src={galleryPhotos[1]}
                       alt="Ninth Ave Foods Warehouse"
@@ -103,7 +103,7 @@ const CuttingEdgeTechnology = () => {
                 </div>
               </div>
 
-              <div className="col-11 xl:px-10 hidden lg:block">
+              <div className="col-span-2 w-[400px] hidden lg:block">
                 <Sidebar
                   side_bar_title={"Capabilities"}
                   categories={capabilities}
