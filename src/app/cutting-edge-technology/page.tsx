@@ -75,13 +75,13 @@ const CuttingEdgeTechnology = () => {
                       )}
                     />
                   </div>
-                  <div className="col-11 mx-auto py-8">
+                  <div className="xl:col-12 mx-auto px-6 py-8">
                     <Image
                       src={galleryPhotos[1]}
                       alt="Ninth Ave Foods Warehouse"
                       className="w-full h-full object-cover"
-                      width={3908}
-                      height={2600}
+                      width={2500}
+                      height={2500}
                       priority
                     />
                   </div>
@@ -103,7 +103,7 @@ const CuttingEdgeTechnology = () => {
                 </div>
               </div>
 
-              <div className="col-12 px-24">
+              <div className="col-11 xl:px-10 hidden lg:block">
                 <Sidebar
                   side_bar_title={"Capabilities"}
                   categories={capabilities}
@@ -119,7 +119,7 @@ const CuttingEdgeTechnology = () => {
           </div>
         </div>
         {/* Plant capabilities */}
-        <div className="pt-24 mb-24 pb-10 relative flex flex-col items-center bg-theme-light">
+        <div className="pt-10 mb-24 pb-4 relative flex flex-col items-center bg-theme-light">
           <Capabilities data={plant_capabilities} />
         </div>
 

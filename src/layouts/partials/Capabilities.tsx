@@ -22,19 +22,19 @@ const Capabilities = ({ data }: { data: PageData }) => {
       {data.frontmatter.capabilities.map((capability: Capability, index) => (
         <section className="" key={index}>
           <div className="container">
-            <div className={`relative row pb-14`}>
+            <div className="row pb-14">
               <div
-                className={`relative flex flex-row items-center bg-white top-2 px-20 py-14 rounded-xs shadow-lg ${
-                  index === 1 ? "left-24" : "right-24"
+                className={`relative flex md:flex-row flex-col items-center bg-white top-2 lg:px-14 lg:py-14 px-5 py-5 rounded-sm shadow-xl ${
+                  index === 1 ? "xl:left-24" : "xl:right-24"
                 }`}
               >
                 <div
                   className={`${
-                    index === 0 ? "hidden" : "flex items-center w-[400px]"
+                    index === 0 ? "hidden" : "flex items-center md:w-[400px]"
                   }`}
                 >
                   <ImageFallback
-                    className="rounded-full w-80 h-80 object-cover shadow-lg"
+                    className="md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-72 md:h-72 w-4/5 mb-5 object-cover shadow-lg"
                     src={capability.image}
                     alt={capability.alt}
                     width={500}
@@ -52,7 +52,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                   <ul className="animate-fade-up animate-delay-[400ms] ease-in">
                     {capability.bulletpoints &&
                       capability.bulletpoints.map((bullet: string) => (
-                        <li className="relative mb-5 pl-8 text-lg" key={bullet}>
+                        <li className="relative mb-5 pl-8" key={bullet}>
                           <svg
                             className="w-7 h-7 absolute left-0 text-[#65a30d]"
                             aria-hidden="true"
@@ -72,7 +72,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                           </svg>
 
                           <span
-                            className="text-lg"
+                            className="text-lg font-light text-dark-grey"
                             dangerouslySetInnerHTML={markdownify(bullet)}
                           />
                         </li>
@@ -81,11 +81,13 @@ const Capabilities = ({ data }: { data: PageData }) => {
                 </div>
                 <div
                   className={`${
-                    index === 1 ? "hidden" : "flex items-center w-[400px]"
+                    index === 1
+                      ? "hidden"
+                      : "flex flex-col items-center md:w-[400px]"
                   }`}
                 >
                   <ImageFallback
-                    className="rounded-full w-80 h-80 object-cover shadow-lg"
+                    className="md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-72 md:h-72 w-4/5 object-cover shadow-lg"
                     src={capability.image}
                     alt={capability.alt}
                     width={500}

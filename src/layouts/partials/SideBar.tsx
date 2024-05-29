@@ -12,7 +12,7 @@ const Sidebar = ({
   title: string;
 }) => {
   return (
-    <div className="lg:col-4">
+    <div className="lg:col-4 col-6">
       <div className="mb-8">
         <h5 className="mb-6 text-dark-grey">{side_bar_title}</h5>
         <div className="rounded bg-theme-light p-8">

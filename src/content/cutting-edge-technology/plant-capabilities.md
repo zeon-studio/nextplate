@@ -2,7 +2,7 @@
 # Capabilities
 capabilities:
   - title: "Our plant capabilities include:"
-    image: "/images/banner-image.jpg"
+    image: "/images/cutting-edge-tech.jpg"
     alt: "banner image"
     bulletpoints:
       - "Direct Steam Injection UHT Systems"
@@ -11,7 +11,7 @@ capabilities:
       - "ESL Gable Top Cartons from 8oz-64oz"
 
   - title: "Our ESL capabilities include:"
-    image: "/images/banner-image.jpg"
+    image: "/images/commitment-to-quality.jpg"
     alt: "banner image"
     bulletpoints:
       - "Customized Batching and Blending"
