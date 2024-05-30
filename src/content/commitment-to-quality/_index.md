@@ -2,7 +2,7 @@
 title: "Commitment to Quality"
 meta_title: ""
 description: "this is meta description"
-image: "/images/gallery/gallery-3.jpg"
+image: "/images/ninth-ave-7.jpg"
 
 cutting_edge_tech_title: "Comprehensive Food Safety & Quality Program"
 cutting_edge_tech_content: "Food Safety and Quality is essential in our industry, and here at __**Ninth Avenue Foods**__ we pride ourselves in a robust and comprehensive <i>Food Safety and Quality Program<i> that is tailored for each product produced.\n\nOur Quality team is comprised of 13 highly skilled professionals in the areas of **Food Safety**, **Quality**, **R&D** and **Sanitation** where best practices are applied."

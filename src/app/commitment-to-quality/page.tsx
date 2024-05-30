@@ -58,15 +58,17 @@ const CommitmentToQuality = () => {
                       )}
                     />
                   </div>
-                  <div className="xl:col-11 mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
-                    <Image
-                      src={image}
-                      alt="Ninth Ave Foods Warehouse"
-                      className="w-full h-full object-cover"
-                      width={2500}
-                      height={2500}
-                      priority
-                    />
+                  <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
+                    <div>
+                      <Image
+                        src={image}
+                        alt="Ninth Ave Foods Warehouse"
+                        className="w-full h-full object-cover"
+                        width={2500}
+                        height={2500}
+                        priority
+                      />
+                    </div>
                   </div>
 
                   <div className="relative">
