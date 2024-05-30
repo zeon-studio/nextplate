@@ -12,7 +12,11 @@ interface PageData {
 }
 
 const Capabilities = ({ data }: { data: PageData }) => {
-  const { ref, inView } = useInView({
+  const { ref: ref1, inView: inView1 } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
+  const { ref: ref2, inView: inView2 } = useInView({
     triggerOnce: true,
     threshold: 0, // Adjust as needed
   });
@@ -20,11 +24,11 @@ const Capabilities = ({ data }: { data: PageData }) => {
   return (
     <>
       <div
-        ref={ref}
-        className={` ${inView ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : ""}`}
+        ref={ref1}
+        className={`${inView1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : ""}`}
       >
         {data.frontmatter.capabilities.map((capability: Capability, index) => (
-          <section className={`md:w-5/6 w-3/4 lg:w-[950px]`} key={index}>
+          <section className="md:w-5/6 w-3/4 lg:w-[950px]" key={index}>
             <div className="container">
               <div className="row pb-14">
                 <div
@@ -33,6 +37,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                   }`}
                 >
                   <div
+                    ref={ref2}
                     className={`${
                       index === 0
                         ? "hidden"
@@ -40,7 +45,8 @@ const Capabilities = ({ data }: { data: PageData }) => {
                     }`}
                   >
                     <ImageFallback
-                      className="md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] mb-5 object-cover shadow-lg"
+                      className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] mb-5 object-cover shadow-lg 
+                      ${inView2 ? "animate-fade-right animate-ease-linear" : ""}`}
                       src={capability.image}
                       alt={capability.alt}
                       width={500}
@@ -86,14 +92,18 @@ const Capabilities = ({ data }: { data: PageData }) => {
                     </ul>
                   </div>
                   <div
+                    // ref={ref3}
                     className={`${
                       index === 1
                         ? "hidden"
                         : "flex flex-col items-center md:w-[400px]"
-                    }`}
+                    }
+                    `}
                   >
                     <ImageFallback
-                      className="md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg"
+                      className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg
+                      ${inView1 ? "animate-fade-right animate-ease-linear" : ""}
+                      `}
                       src={capability.image}
                       alt={capability.alt}
                       width={500}
