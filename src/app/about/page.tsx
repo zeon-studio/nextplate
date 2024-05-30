@@ -66,7 +66,7 @@ const About = async () => {
                 >
                   {image && (
                     <ImageFallback
-                      className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover"
+                      className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover  animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
                       width={600}
                       height={600}
@@ -76,12 +76,12 @@ const About = async () => {
                   <div className="md:col-8 lg:col-6 col-10 items-center mx-auto lg:pl-16">
                     <h2
                       dangerouslySetInnerHTML={markdownify(feature.title)}
-                      className="h3 mb-6 text-primary"
+                      className="h3 mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
                     />
                     <div className="content">
                       <p
                         dangerouslySetInnerHTML={markdownify(feature.content)}
-                        className="text-lg text-dark-grey"
+                        className="text-lg text-dark-grey animate-fade animate-delay-[200ms] ease-in"
                       />
                     </div>
                     {feature.button.enable && (
@@ -126,10 +126,10 @@ const About = async () => {
           <div className="md:col-8 xl:col-6 col-10">
             <h2
               dangerouslySetInnerHTML={markdownify(our_locations_title)}
-              className="mb-6 text-center"
+              className="mb-6 text-center animate-fade animate-duration-[600ms] ease-in"
             />
             <p
-              className="md:pb-8 text-dark-grey text-lg"
+              className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
               dangerouslySetInnerHTML={markdownify(our_locations_content)}
             />
           </div>
