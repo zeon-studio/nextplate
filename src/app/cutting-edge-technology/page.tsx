@@ -75,7 +75,7 @@ const CuttingEdgeTechnology = () => {
                       )}
                     />
                   </div>
-                  <div className="xl:col-10 mx-auto py-8 animate-fade-up animate-delay-[300ms] ease-in">
+                  <div className="xl:col-10 mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
                     <Image
                       src={galleryPhotos[1]}
                       alt="Ninth Ave Foods Warehouse"

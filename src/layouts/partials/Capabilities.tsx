@@ -21,7 +21,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
     <>
       <div
         ref={ref}
-        className={` ${inView ? "animate-fade-up animate-duration-[600ms] animate-ease-linear" : ""}`}
+        className={` ${inView ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : ""}`}
       >
         {data.frontmatter.capabilities.map((capability: Capability, index) => (
           <section className={`md:w-5/6 w-3/4 lg:w-[950px]`} key={index}>
