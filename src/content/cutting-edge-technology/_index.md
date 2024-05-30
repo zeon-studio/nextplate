@@ -2,6 +2,7 @@
 title: "Cutting Edge Technology"
 meta_title: ""
 description: "this is meta description"
+image: "/images/gallery/gallery-3.jpg"
 
 cutting_edge_tech_title: "Commitment to Innovation and Quality"
 cutting_edge_tech_content: "Our state of the art processing plant was developed to meet and exceed the demands of a growing industry. With the same **<i>commitment to both innovation and quality<i>**, we are proud to offer fresher tasting and longer lasting products."

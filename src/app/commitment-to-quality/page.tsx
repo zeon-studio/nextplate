@@ -36,7 +36,6 @@ const CommitmentToQuality = () => {
         title={title}
         meta_title={meta_title}
         description={description}
-        image={image}
       />
       <PageHeader title={data.frontmatter.title} />
       <section className="section">
