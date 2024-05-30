@@ -92,7 +92,6 @@ const Capabilities = ({ data }: { data: PageData }) => {
                     </ul>
                   </div>
                   <div
-                    // ref={ref3}
                     className={`${
                       index === 1
                         ? "hidden"
@@ -102,7 +101,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                   >
                     <ImageFallback
                       className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg
-                      ${inView1 ? "animate-fade-right animate-ease-linear" : ""}
+                      ${inView1 ? "animate-fade-right animate-ease-linear animate-delay-[300ms]" : ""}
                       `}
                       src={capability.image}
                       alt={capability.alt}

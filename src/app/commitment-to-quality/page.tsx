@@ -10,12 +10,10 @@ import Capabilities from "@/components/Capabilities";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
 
-// https://medicalrecordsreview.com/services/medical-chronology-services
+const { commitment_to_quality } = config.settings;
 
-const { cutting_edge_technology_folder } = config.settings;
-
-const CuttingEdgeTechnology = () => {
-  const data = getListPage(`${cutting_edge_technology_folder}/_index.md`);
+const CommitmentToQuality = () => {
+  const data = getListPage(`${commitment_to_quality}/_index.md`);
 
   const {
     title,
@@ -28,15 +26,7 @@ const CuttingEdgeTechnology = () => {
     shelf_life_content,
   } = data.frontmatter;
 
-  const { card }: { card: Card } = data.frontmatter;
-  const plant_capabilities = getListPage(
-    "cutting-edge-technology/plant-capabilities.md",
-  );
-  const esl_capabilities = getListPage(
-    "cutting-edge-technology/esl-capabilities.md",
-  );
   const callToAction = getListPage("sections/call-to-action.md");
-
   const side_bar = getListPage("sections/side-bar.md");
   const { capabilities, our_services } = side_bar.frontmatter;
 
@@ -90,10 +80,6 @@ const CuttingEdgeTechnology = () => {
                       dangerouslySetInnerHTML={markdownify(shelf_life_content)}
                     />
                   </div>
-
-                  <div className="mx-auto pt-8">
-                    <BasicCard card={card} />
-                  </div>
                 </div>
               </div>
 
@@ -112,10 +98,6 @@ const CuttingEdgeTechnology = () => {
             </div>
           </div>
         </div>
-        {/* Plant capabilities */}
-        <div className="pt-10 mb-24 pb-4 relative flex flex-col items-center bg-theme-light">
-          <Capabilities data={plant_capabilities} />
-        </div>
 
         <CallToAction data={callToAction}></CallToAction>
       </section>
@@ -123,4 +105,4 @@ const CuttingEdgeTechnology = () => {
   );
 };
 
-export default CuttingEdgeTechnology;
+export default CommitmentToQuality;

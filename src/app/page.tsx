@@ -5,8 +5,8 @@ import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import Services from "@/partials/Services";
-import Products from "@/partials/Products";
-import PlantBased from "@/partials/PlantBased";
+import Products from "@/components/Products";
+import PlantBased from "@/components/PlantBased";
 import PhotoGallery from "@/components/PhotoGallery";
 import { Buttons, Feature } from "@/types";
 import Link from "next/link";
@@ -25,6 +25,7 @@ const Home = () => {
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
   const plantBased = getListPage("sections/plant-based.md");
+
   const product = getListPage("sections/product.md");
   // Define your list of photos for this page
   const galleryPhotos = [
@@ -76,7 +77,7 @@ const Home = () => {
 
         <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
-            <div className="relative row lg:bottom-[130px] md:bottom-[100px]">
+            <div className="relative row 2xl:bottom-[170px] lg:bottom-[200px] md:bottom-[100px]">
               <div className="lg:col-8 md:col-9 md:text-left text-center">
                 <div className="py-5">
                   <h1
@@ -143,17 +144,14 @@ const Home = () => {
                   index % 2 !== 0 && "md:order-2"
                 }`}
               >
-                <video
-                  className="w-full rounded-sm shadow-lg"
-                  controls
-                  preload="none"
-                  autoPlay
-                  loop
-                  muted
-                >
-                  <source src={feature.video} type="video/mp4" />
-                  Your browser does not support the video.
-                </video>
+                <ImageFallback
+                  src={feature.image}
+                  alt="Ninth Ave Foods Industrial Warehouse"
+                  className="w-full h-full"
+                  width={2036}
+                  height={1355}
+                  priority
+                />
               </div>
 
               <div

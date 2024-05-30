@@ -4,7 +4,7 @@ capabilities:
   Commitment to Quality: "commitment-to-quality"
   Private Label Co Packing: "private-label-co-packing"
 
-features:
+our_services:
   Dairy Products: "/images/side-bar/milk-carton.png"
   Lactose Free Products: "/images/products/lactose-free-icon.png"
   Plant Based Milk: "/images/products/plant-based-icon.png"
