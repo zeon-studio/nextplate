@@ -63,7 +63,7 @@ const CuttingEdgeTechnology = () => {
                 <div className="row">
                   <div className="relative">
                     <h2
-                      className="text-primary pb-2"
+                      className="text-primary pb-2 text-h3 lg:text-h2"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_title,
                       )}
