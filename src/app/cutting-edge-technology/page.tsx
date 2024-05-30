@@ -63,19 +63,19 @@ const CuttingEdgeTechnology = () => {
                 <div className="row">
                   <div className="relative">
                     <h2
-                      className="text-primary pb-2 text-h3 lg:text-h2"
+                      className="text-primary pb-2 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_title,
                       )}
                     />
                     <p
-                      className="text-lg"
+                      className="text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_content,
                       )}
                     />
                   </div>
-                  <div className="xl:col-10 mx-auto py-8">
+                  <div className="xl:col-10 mx-auto py-8 animate-fade-up animate-delay-[300ms] ease-in">
                     <Image
                       src={galleryPhotos[1]}
                       alt="Ninth Ave Foods Warehouse"
@@ -88,11 +88,11 @@ const CuttingEdgeTechnology = () => {
 
                   <div className="relative">
                     <h5
-                      className="text-primary pb-2"
+                      className="text-primary pb-2 animate-fade animate-duration-[600ms]"
                       dangerouslySetInnerHTML={markdownify(shelf_life_title)}
                     />
                     <p
-                      className="text-lg"
+                      className="text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(shelf_life_content)}
                     />
                   </div>

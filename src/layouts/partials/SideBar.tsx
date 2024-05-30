@@ -1,5 +1,8 @@
+"use client";
+
 import { humanize } from "@/lib/utils/textConverter";
 import ImageFallback from "@/helpers/ImageFallback";
+import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 
 const Sidebar = ({
@@ -11,10 +14,15 @@ const Sidebar = ({
   categories: { [key: string]: string };
   title: string;
 }) => {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
+
   return (
-    <div className="mb-8">
-      <h5 className="mb-6 text-dark-grey">{side_bar_title}</h5>
-      <div className="rounded bg-theme-light p-8">
+    <div ref={ref} className="mb-8">
+      <h5 className="mb-6 text-dark-grey animate-fade">{side_bar_title}</h5>
+      <div className="rounded bg-theme-light p-8 animate-fade animate-duration-300 animate-ease-linear">
         <ul className="space-y-4">
           {Object.entries(categories).map(([key, value]) => (
             <div
