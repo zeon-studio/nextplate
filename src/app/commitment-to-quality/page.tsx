@@ -70,6 +70,7 @@ const CommitmentToQuality = () => {
                           priority
                         />
                       </div>
+
                       {/* Right column with two stacked images */}
                       <div className="flex flex-col gap-2 w-1/2">
                         <div className="flex-1">
