@@ -36,7 +36,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
     <>
       <section>
         <div className="lg:px-10 pb-28 bg-white flex justify-center items-center text-center">
-          <div className="md:col-9">
+          <div className="md:col-9 col-11">
             <div
               ref={ref}
               className={`mx-auto md:col-11 col-10 ${inView ? "animate-fade" : ""}`}

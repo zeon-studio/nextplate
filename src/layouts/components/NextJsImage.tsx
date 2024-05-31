@@ -18,9 +18,12 @@ export default function NextJsImage({
       <div className="relative rounded h-full w-full overflow-hidden">
         <Image
           fill
-          src={photo}
+          src={photo.src} // Ensure you are passing the correct src
+          alt={alt}
+          title={title}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust sizes as necessary
+          onClick={onClick}
           placeholder={"blurDataURL" in photo ? "blur" : undefined}
-          {...{ alt, title, sizes, onClick }}
           className={`${className} hover:brightness-75 ease-in duration-150 transform hover:scale-110`}
           style={{
             transition: "transform 0.5s",
