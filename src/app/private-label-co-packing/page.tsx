@@ -21,8 +21,8 @@ const PrivateLabelCoPacking = () => {
     image3,
     private_label_co_packing_title,
     private_label_co_packing_content,
-    shelf_life_title,
-    shelf_life_content,
+    private_label_co_packing_sub_title,
+    private_label_co_packing_sub_content,
   } = data.frontmatter;
 
   const callToAction = getListPage("sections/call-to-action.md");
@@ -100,11 +100,15 @@ const PrivateLabelCoPacking = () => {
                   <div className="relative">
                     <h5
                       className="text-primary pb-2 animate-fade animate-duration-[600ms]"
-                      dangerouslySetInnerHTML={markdownify(shelf_life_title)}
+                      dangerouslySetInnerHTML={markdownify(
+                        private_label_co_packing_sub_title,
+                      )}
                     />
                     <p
                       className="text-lg animate-fade animate-delay-[200ms] ease-in"
-                      dangerouslySetInnerHTML={markdownify(shelf_life_content)}
+                      dangerouslySetInnerHTML={markdownify(
+                        private_label_co_packing_sub_content,
+                      )}
                     />
                   </div>
                 </div>
