@@ -1,6 +1,6 @@
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
-import { getListPage, getSinglePage } from "@/lib/contentParser";
+import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import Sidebar from "@/partials/SideBar";
 import SeoMeta from "@/partials/SeoMeta";
@@ -9,8 +9,6 @@ import BasicCard from "@/partials/BasicCard";
 import Capabilities from "@/components/Capabilities";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
-
-// https://medicalrecordsreview.com/services/medical-chronology-services
 
 const { cutting_edge_technology_folder } = config.settings;
 
@@ -111,8 +109,9 @@ const CuttingEdgeTechnology = () => {
             </div>
           </div>
         </div>
+
         {/* Plant capabilities */}
-        <div className="pt-10 mb-24 pb-4 relative flex flex-col items-center bg-theme-light">
+        <div className="pt-10 mb-24 pb-4 flex items-center justify-center bg-theme-light">
           <Capabilities data={plant_capabilities} />
         </div>
 

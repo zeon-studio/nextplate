@@ -22,45 +22,41 @@ const Capabilities = ({ data }: { data: PageData }) => {
   });
 
   return (
-    <>
-      <div
-        ref={ref1}
-        className={`${inView1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : ""}`}
-      >
-        {data.frontmatter.capabilities.map((capability: Capability, index) => (
-          <section className="md:w-5/6 w-3/4 lg:w-[950px]" key={index}>
-            <div className="container">
+    <div
+      ref={ref1}
+      className={`${inView1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms] px-10" : ""}`}
+    >
+      {data.frontmatter.capabilities.map((capability: Capability, index) => (
+        <section className="w-full flex justify-center" key={index}>
+          <div className="container mx-auto flex justify-center">
+            <div className="w-full md:w-5/6 lg:w-[950px]">
               <div className="row pb-14">
                 <div
-                  className={`relative flex md:flex-row flex-col items-center bg-white top-2 lg:px-14 lg:py-14 md:px-10 md:py-10 py-5 rounded-sm shadow-xl ${
-                    index === 1 ? "xl:left-24" : "xl:right-24"
-                  }`}
+                  className={`relative flex md:flex-row flex-col items-center bg-white top-2 lg:px-14 lg:py-14 md:px-10 md:py-10 py-5 rounded-sm shadow-xl ${index === 1 ? "xl:left-24" : "xl:right-24"}`}
                 >
-                  <div
-                    ref={ref2}
-                    className={`${
-                      index === 0
-                        ? "hidden"
-                        : "flex flex-col items-center md:w-[400px]"
-                    }`}
-                  >
-                    <ImageFallback
-                      className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] mb-5 object-cover shadow-lg 
-                      ${inView2 ? "animate-fade-right animate-ease-linear" : ""}`}
-                      src={capability.image}
-                      alt={capability.alt}
-                      width={500}
-                      height={500}
-                    />
-                  </div>
-                  <div className="items-center lg:px-8 px-2">
-                    <div className="flex flex-col md:items-center items-start md:col-12 pb-2">
+                  {/* Left Image */}
+                  {index !== 1 && (
+                    <div
+                      ref={ref2}
+                      className="flex flex-col items-center md:w-[400px] mb-5 md:mb-0"
+                    >
+                      <ImageFallback
+                        className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] mb-5 object-cover shadow-lg ${inView2 ? "animate-fade-right animate-ease-linear" : ""}`}
+                        src={capability.image}
+                        alt={capability.alt}
+                        width={500}
+                        height={500}
+                      />
+                    </div>
+                  )}
+                  {/* Content */}
+                  <div className="items-center lg:px-8 px-2 w-full md:w-auto">
+                    <div className="flex flex-col md:items-center items-start pb-2">
                       <h5
                         className="text-dark-green font-light tracking-widest pb-2"
                         dangerouslySetInnerHTML={markdownify(capability.title)}
                       />
                     </div>
-
                     <ul>
                       {capability.bulletpoints &&
                         capability.bulletpoints.map((bullet: string) => (
@@ -82,7 +78,6 @@ const Capabilities = ({ data }: { data: PageData }) => {
                                 d="M19 12H5m14 0-4 4m4-4-4-4"
                               />
                             </svg>
-
                             <span
                               className="text-lg font-light text-dark-grey"
                               dangerouslySetInnerHTML={markdownify(bullet)}
@@ -91,31 +86,28 @@ const Capabilities = ({ data }: { data: PageData }) => {
                         ))}
                     </ul>
                   </div>
-                  <div
-                    className={`${
-                      index === 1
-                        ? "hidden"
-                        : "flex flex-col items-center md:w-[400px]"
-                    }
-                    `}
-                  >
-                    <ImageFallback
-                      className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg
-                      ${inView1 ? "animate-fade-right animate-ease-linear animate-delay-[300ms]" : ""}
-                      `}
-                      src={capability.image}
-                      alt={capability.alt}
-                      width={500}
-                      height={500}
-                    />
-                  </div>
+                  {/* Right Image */}
+                  {index === 1 && (
+                    <div
+                      ref={ref2}
+                      className="flex flex-col items-center md:w-[400px]"
+                    >
+                      <ImageFallback
+                        className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg ${inView1 ? "animate-fade-right animate-ease-linear animate-delay-[300ms]" : ""}`}
+                        src={capability.image}
+                        alt={capability.alt}
+                        width={500}
+                        height={500}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-          </section>
-        ))}
-      </div>
-    </>
+          </div>
+        </section>
+      ))}
+    </div>
   );
 };
 
