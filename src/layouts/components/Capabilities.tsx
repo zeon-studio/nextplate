@@ -88,12 +88,9 @@ const Capabilities = ({ data }: { data: PageData }) => {
                   </div>
                   {/* Right Image */}
                   {index === 1 && (
-                    <div
-                      ref={ref2}
-                      className="flex flex-col items-center md:w-[400px]"
-                    >
+                    <div className="flex flex-col items-center md:w-[400px]">
                       <ImageFallback
-                        className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg ${inView1 ? "animate-fade-right animate-ease-linear animate-delay-[300ms]" : ""}`}
+                        className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg ${inView1 ? "animate-fade-right animate-ease-linear animate-delay-[1400ms]" : ""}`}
                         src={capability.image}
                         alt={capability.alt}
                         width={500}
