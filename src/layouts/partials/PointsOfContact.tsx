@@ -30,7 +30,7 @@ const PointsOfContact = ({ data }: { data: PageData }) => {
     <>
       {data.frontmatter.enable && (
         <div
-          className={`flex flex-col md:col-4 justify-center items-center md:py-0 py-20`}
+          className={`flex flex-col md:col-4 justify-center items-center`}
           ref={ref}
         >
           {/* Email Us */}

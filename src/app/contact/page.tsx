@@ -47,7 +47,7 @@ const Contact = async () => {
             <PointsOfContact data={point_of_contact}></PointsOfContact>
 
             {/* Form */}
-            <div className="animate-fade ease-in mx-auto md:col-6">
+            <div className="animate-fade ease-in mx-auto md:col-6 mb-20 md:mb-0">
               <div className="flex items-center md:col-6 col-7 pb-6 py-5">
                 <div className="flex-grow border opacity-40 border-t border-light-green invisible lg:visible"></div>
                 <h5 className="lg:mx-4 text-dark-green text-xl font-light tracking-widest">
@@ -144,7 +144,7 @@ const Contact = async () => {
             </div>
           </div>
 
-          <div className="h-[50vh] md:mt-24 mb-24 xl:w-[1000px] xl:mx-auto">
+          <div className="h-[50vh] mt-20 md:mt-24 mb-24 xl:w-[1000px] xl:mx-auto">
             <h5 className="text-dark-green text-center pb-5">
               We are based in City of Industry, CA and Columbus, IN
             </h5>

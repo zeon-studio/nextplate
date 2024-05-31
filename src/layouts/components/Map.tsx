@@ -58,7 +58,7 @@ const Map = ({ center, position1, position2 }: MapProps) => {
         center={center}
         scrollWheelZoom={false}
         bounds={bounds}
-        className="h-full w-full"
+        className="h-full w-full rounded-md"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -135,7 +135,7 @@ const About = async () => {
           </div>
 
           <div className="container flex lg:flex-row flex-col items-center">
-            <div className="relative flex justify-center w-full lg:right-[1.5rem]">
+            <div className="relative flex justify-center w-full lg:right-[1.5rem] py-5">
               <PointsOfContact data={data}></PointsOfContact>
             </div>
 
