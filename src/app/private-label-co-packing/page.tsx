@@ -7,18 +7,20 @@ import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
 
-const { commitment_to_quality } = config.settings;
+const { private_label_co_packing } = config.settings;
 
-const CommitmentToQuality = () => {
-  const data = getListPage(`${commitment_to_quality}/_index.md`);
+const PrivateLabelCoPacking = () => {
+  const data = getListPage(`${private_label_co_packing}/_index.md`);
 
   const {
     title,
     meta_title,
     description,
-    image,
-    cutting_edge_tech_title,
-    cutting_edge_tech_content,
+    image1,
+    image2,
+    image3,
+    private_label_co_packing_title,
+    private_label_co_packing_content,
     shelf_life_title,
     shelf_life_content,
   } = data.frontmatter;
@@ -45,26 +47,53 @@ const CommitmentToQuality = () => {
                     <h2
                       className="text-primary pb-2 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
-                        cutting_edge_tech_title,
+                        private_label_co_packing_title,
                       )}
                     />
                     <p
                       className="text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
-                        cutting_edge_tech_content,
+                        private_label_co_packing_content,
                       )}
                     />
                   </div>
+
                   <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
-                    <div>
-                      <Image
-                        src={image}
-                        alt="Ninth Ave Foods Warehouse"
-                        className="w-full h-full object-cover"
-                        width={2500}
-                        height={2500}
-                        priority
-                      />
+                    <div className="relative flex gap-2">
+                      {/* Left image */}
+                      <div className="w-1/2">
+                        <Image
+                          src={image1}
+                          alt="Ninth Ave Foods Warehouse"
+                          className="w-full h-full object-cover"
+                          width={2500}
+                          height={2500}
+                          priority
+                        />
+                      </div>
+                      {/* Right column with two stacked images */}
+                      <div className="flex flex-col gap-2 w-1/2">
+                        <div className="flex-1">
+                          <Image
+                            src={image2}
+                            alt="Ninth Ave Foods Warehouse"
+                            className="w-full h-full object-cover"
+                            width={2500}
+                            height={2500}
+                            priority
+                          />
+                        </div>
+                        <div className="flex-1">
+                          <Image
+                            src={image3}
+                            alt="Ninth Ave Foods Warehouse"
+                            className="w-full h-full object-cover"
+                            width={2500}
+                            height={2500}
+                            priority
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
 
@@ -103,4 +132,4 @@ const CommitmentToQuality = () => {
   );
 };
 
-export default CommitmentToQuality;
+export default PrivateLabelCoPacking;

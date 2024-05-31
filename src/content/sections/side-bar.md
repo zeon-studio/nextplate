@@ -2,7 +2,7 @@
 capabilities:
   Cutting Edge Technology: "cutting-edge-technology"
   Commitment to Quality: "commitment-to-quality"
-  Private Label Co Packing: "private-label-co-packing"
+  Private Label & Co-Packing: "private-label-co-packing"
 
 our_services:
   Dairy Products: "/images/side-bar/milk-carton.png"
