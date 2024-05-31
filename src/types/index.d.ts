@@ -66,6 +66,7 @@ export type Testimonial = {
 export type Service = {
   image: string;
   alt: string;
+  link: string;
   title: string;
   content: string;
   button: Button;

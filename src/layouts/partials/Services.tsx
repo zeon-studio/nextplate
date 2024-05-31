@@ -46,22 +46,37 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:px-14 sm:px-32 py-4">
                 {data.frontmatter.services.map((service: Service, index) => (
                   <div
-                    className={`rounded shadow-lg bg-white border ${inView && index === 0 ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]" : inView && index === 1 ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]" : inView && index === 2 ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]" : ""}`}
+                    className={`rounded shadow-lg bg-white border ${
+                      inView && index === 0
+                        ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
+                        : inView && index === 1
+                          ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]"
+                          : inView && index === 2
+                            ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]"
+                            : ""
+                    }`}
                     key={index}
                   >
                     <div className="pb-3 px-4 py-4">
-                      <div className="relative rounded overflow-hidden">
-                        <ImageFallback
-                          height={2400}
-                          width={1600}
-                          src={service.image}
-                          alt={service.alt}
-                          className="rounded-lg ease-in duration-150 transform hover:scale-110"
-                          style={{
-                            transition: "transform 0.5s",
-                            transformOrigin: "center",
-                          }}
-                        />
+                      <div
+                        className="relative rounded overflow-hidden"
+                        style={{ maxHeight: "300px" }}
+                      >
+                        <Link href={service.link}>
+                          <ImageFallback
+                            height={1999}
+                            width={1330}
+                            src={service.image}
+                            alt={service.alt}
+                            className="rounded-lg ease-in duration-150 transform hover:scale-110"
+                            style={{
+                              maxHeight: "220px",
+                              objectFit: "cover",
+                              transition: "transform 0.5s",
+                              transformOrigin: "center",
+                            }}
+                          />
+                        </Link>
                       </div>
                     </div>
 

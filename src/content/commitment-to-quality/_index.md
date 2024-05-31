@@ -2,11 +2,12 @@
 title: "Commitment to Quality"
 meta_title: ""
 description: "this is meta description"
-image: "/images/ninth-ave-7.jpg"
+image1: "/images/commitment-to-quality-2.jpg"
+image2: "/images/ninth-ave-9.jpg"
 
 cutting_edge_tech_title: "Comprehensive Food Safety & Quality Program"
 cutting_edge_tech_content: "Food Safety and Quality is essential in our industry, and here at __**Ninth Avenue Foods**__ we pride ourselves in a robust and comprehensive <i>Food Safety and Quality Program<i> that is tailored for each product produced.\n\nOur Quality team is comprised of 13 highly skilled professionals in the areas of **Food Safety**, **Quality**, **R&D** and **Sanitation** where best practices are applied."
 
-shelf_life_title: "Certified PCQI and SQF Practitioners On-Site at Ninth Avenue Foods"
-shelf_life_content: "Our **SQF program** that includes Food safety and quality codes, as well as our **Quality Management Systems**, was built on over a century of data and regulatory guidance with a highly capable lab where all analytical testing and result assessments can be performed, including an <i>Allergen Control Expert Team<i>. \n\nThe **Program Management System** is designed for continuous improvement and compliance with customer specifications, legislation and industry practices."
+cutting_edge_tech_sub_title: "Certified PCQI and SQF Practitioners On-Site at Ninth Avenue Foods"
+cutting_edge_tech_sub_content: "Our **SQF program** that includes Food safety and quality codes, as well as our **Quality Management Systems**, was built on over a century of data and regulatory guidance with a highly capable lab where all analytical testing and result assessments can be performed, including an <i>Allergen Control Expert Team<i>. \n\nThe **Program Management System** is designed for continuous improvement and compliance with customer specifications, legislation and industry practices."
 ---

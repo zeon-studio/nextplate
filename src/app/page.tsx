@@ -25,18 +25,18 @@ const Home = () => {
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
   const plantBased = getListPage("sections/plant-based.md");
-
   const product = getListPage("sections/product.md");
+
   // Define your list of photos for this page
   const galleryPhotos = [
-    { src: "/images/gallery/gallery-1.jpg", width: 2400, height: 3200 },
-    { src: "/images/gallery/gallery-2.jpg", width: 2400, height: 3000 },
-    { src: "/images/gallery/gallery-3.jpg", width: 2400, height: 1133 },
-    { src: "/images/gallery/gallery-4.jpg", width: 2400, height: 1601 },
-    { src: "/images/gallery/gallery-5.jpg", width: 2400, height: 3200 },
-    { src: "/images/cutting-edge-tech.jpg", width: 2400, height: 1600 },
-    { src: "/images/commitment-to-quality.jpg", width: 2400, height: 1600 },
-    { src: "/images/private-label-co-packing.jpg", width: 3000, height: 2000 },
+    { src: "/images/ninth-ave-7.jpg", width: 3678, height: 1353 },
+    { src: "/images/ninth-ave-2.jpg", width: 2128, height: 1416 },
+    { src: "/images/ninth-ave-3.jpg", width: 2128, height: 1416 },
+    { src: "/images/ninth-ave-6.jpg", width: 2128, height: 1416 },
+    { src: "/images/ninth-ave-5.jpg", width: 2128, height: 1416 },
+    { src: "/images/ninth-ave-8.jpg", width: 2128, height: 1416 },
+    { src: "/images/ninth-ave-1.jpg", width: 2036, height: 1355 },
+    { src: "/images/ninth-ave-10.jpg", width: 1999, height: 1330 },
   ];
 
   // Generate the photos array using the generatePhotos function

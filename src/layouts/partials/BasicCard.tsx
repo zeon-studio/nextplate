@@ -17,14 +17,14 @@ const BasicCard = ({ card }: { card: Card }) => {
         <div className="h-[300px]">
           <div
             className={`absolute inset-0 px-4 row items-center ${
-              inView ? "animate-delay-[700ms]" : ""
+              inView ? "animate-delay-[500ms]" : ""
             }`}
           >
             <div className="text-center">
               <div
                 className={`${
                   inView
-                    ? "animate-fade animate-duration-[400ms] animate-delay-[700ms]"
+                    ? "animate-fade animate-duration-[400ms] animate-delay-[600ms]"
                     : ""
                 }`}
               >

@@ -22,16 +22,13 @@ const CuttingEdgeTechnology = () => {
     image,
     cutting_edge_tech_title,
     cutting_edge_tech_content,
-    shelf_life_title,
-    shelf_life_content,
+    cutting_edge_tech_sub_title,
+    cutting_edge_tech_sub_content,
   } = data.frontmatter;
 
   const { card }: { card: Card } = data.frontmatter;
   const plant_capabilities = getListPage(
     "cutting-edge-technology/plant-capabilities.md",
-  );
-  const esl_capabilities = getListPage(
-    "cutting-edge-technology/esl-capabilities.md",
   );
   const callToAction = getListPage("sections/call-to-action.md");
 
@@ -66,13 +63,13 @@ const CuttingEdgeTechnology = () => {
                       )}
                     />
                   </div>
-                  <div className="xl:col-11 mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
+                  <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
                     <Image
                       src={image}
                       alt="Ninth Ave Foods Warehouse"
                       className="w-full h-full object-cover"
-                      width={2500}
-                      height={2500}
+                      width={3678}
+                      height={1353}
                       priority
                     />
                   </div>
@@ -80,11 +77,15 @@ const CuttingEdgeTechnology = () => {
                   <div className="relative">
                     <h5
                       className="text-primary pb-2 animate-fade animate-duration-[600ms]"
-                      dangerouslySetInnerHTML={markdownify(shelf_life_title)}
+                      dangerouslySetInnerHTML={markdownify(
+                        cutting_edge_tech_sub_title,
+                      )}
                     />
                     <p
                       className="text-lg animate-fade animate-delay-[200ms] ease-in"
-                      dangerouslySetInnerHTML={markdownify(shelf_life_content)}
+                      dangerouslySetInnerHTML={markdownify(
+                        cutting_edge_tech_sub_content,
+                      )}
                     />
                   </div>
 

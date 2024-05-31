@@ -4,7 +4,7 @@ meta_title: ""
 description: "this is meta description"
 image1: "/images/gallery/gallery-2.jpg"
 image2: "/images/gallery/gallery-4.jpg"
-image3: "/images/gallery/gallery-5.jpg"
+image3: "/images/private-label-co-packing-2.jpg"
 link: "/contact"
 
 private_label_co_packing_title: "Comprehensive Food Safety & Quality Program"

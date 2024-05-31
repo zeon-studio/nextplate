@@ -86,6 +86,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                         ))}
                     </ul>
                   </div>
+
                   {/* Right Image */}
                   {index === 1 && (
                     <div className="flex flex-col items-center md:w-[400px]">
