@@ -75,18 +75,18 @@ const Home = () => {
           <div className="absolute inset-0 bg-[#0f172a] opacity-15 md:opacity-0"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
+        <div className="absolute inset-0 flex justify-center items-center sm:bottom-0 backdrop-blur-[1px] sm:backdrop-blur-[0px]">
           <div className="container relative z-10">
             <div className="relative row 2xl:bottom-[170px] lg:bottom-[200px] md:bottom-[100px]">
               <div className="lg:col-8 md:col-9 md:text-left text-center">
                 <div className="py-5">
                   <h1
-                    className="mb-2 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-white sm:text-dark-grey"
+                    className="mb-2 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-white md:text-dark-grey"
                     dangerouslySetInnerHTML={markdownify(banner.title)}
                   />
 
                   <p
-                    className="sm:col-10 lg:text-xl text-lg font-medium animate-fade-up animate-delay-[400ms] ease-in text-white sm:text-dark-grey"
+                    className="sm:col-10 lg:text-xl text-lg font-medium animate-fade-up animate-delay-[400ms] ease-in text-white md:text-dark-grey"
                     dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
                   />
                 </div>

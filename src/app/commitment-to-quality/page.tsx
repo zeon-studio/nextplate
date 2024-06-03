@@ -57,10 +57,10 @@ const CommitmentToQuality = () => {
                       )}
                     />
                   </div>
-                  <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
-                    <div className="relative flex gap-2">
+                  <div className="mx-auto py-8 md:px-0 animate-fade animate-delay-[300ms] ease-in px-8">
+                    <div className="relative flex sm:flex-row flex-col gap-2">
                       {/* Left image */}
-                      <div className="w-1/2">
+                      <div className="sm:w-1/2">
                         <Image
                           src={image1}
                           alt="Ninth Ave Foods Warehouse"
@@ -72,7 +72,7 @@ const CommitmentToQuality = () => {
                       </div>
 
                       {/* Right column with two stacked images */}
-                      <div className="flex flex-col gap-2 w-1/2">
+                      <div className="flex flex-col gap-2 sm:w-1/2">
                         <div className="flex-1">
                           <Image
                             src={image2}
