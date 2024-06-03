@@ -72,10 +72,10 @@ const Home = () => {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
-          <div className="absolute inset-0 bg-[#0f172a] opacity-15 md:opacity-0"></div>
+          <div className="absolute inset-0 bg-[#0f172a] opacity-20 md:opacity-0"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center sm:bottom-0 backdrop-blur-[1px] sm:backdrop-blur-[0px]">
+        <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
           <div className="container relative z-10">
             <div className="relative row 2xl:bottom-[170px] lg:bottom-[200px] md:bottom-[100px]">
               <div className="lg:col-8 md:col-9 md:text-left text-center">
