@@ -18,7 +18,7 @@ import generatePhotos from "@/helpers/photos";
 // https://dorik.com/blog/service-website-examples
 // https://zeon.studio/
 // https://www.idahomilkproducts.com/
-//https://mooala.com/
+// https://mooala.com/
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
