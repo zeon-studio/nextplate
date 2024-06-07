@@ -19,6 +19,8 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.45.0",
     "date-fns": "^3.3.1",
     "disqus-react": "^1.1.5",
     "flowbite": "^2.3.0",
@@ -28,9 +30,10 @@
     "leaflet": "^1.9.4",
     "leaflet-defaulticon-compatibility": "^0.1.2",
     "marked": "^11.2.0",
-    "next": "^14.3.0-canary.17",
+    "next": "^14.2.3",
     "next-auth": "^4.24.7",
     "next-mdx-remote": "^4.4.1",
+    "next-sanity": "^9.3.10",
     "next-sitemap": "^4.2.3",
     "next-themes": "^0.2.1",
     "react": "^18.3.1",
@@ -43,6 +46,8 @@
     "react-photo-album": "^2.3.1",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
+    "sanity": "^3.45.0",
+    "styled-components": "^6.1.11",
     "swiper": "^11.0.5",
     "tailwindcss-animated": "^1.0.1",
     "yet-another-react-lightbox": "^3.17.2"

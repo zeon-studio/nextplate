@@ -5,7 +5,6 @@ import TwSizeIndicator from "@/helpers/TwSizeIndicator";
 import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
-import AuthProvider from "./context/AuthProvider";
 import "@/styles/main.scss";
 
 export default function RootLayout({
@@ -56,17 +55,15 @@ export default function RootLayout({
         />
       </head>
 
-      <AuthProvider>
-        <body suppressHydrationWarning={true}>
-          <TwSizeIndicator />
-          <Providers>
-            <Header />
-            <SearchModal />
-            <main>{children}</main>
-            <Footer />
-          </Providers>
-        </body>
-      </AuthProvider>
+      <body suppressHydrationWarning={true}>
+        <TwSizeIndicator />
+        <Providers>
+          <Header />
+          <SearchModal />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }
