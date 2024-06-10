@@ -17,7 +17,7 @@ const profile: ProfileType[] = await getProfile();
 const job_positions: JobPosition[] = await getJobPosition();
 // console.log("POSITIONS: ", profile);
 
-async function Career() {
+const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
 
   const { title, meta_title, description, career_title, career_content } =
@@ -52,20 +52,30 @@ async function Career() {
                   />
                 </div>
               </div>
+
+              <div className="">
+                {job_positions &&
+                  job_positions.map((data) => (
+                    <div
+                      key={data._id}
+                      className="flex flex-row bg-light-grey shadow-md rounded-lg my-2 px-10 py-1"
+                    >
+                      <div className="flex-col">
+                        <h2 className="text-dark-grey">{data.jobTitle}</h2>
+                        <h5 className="text-dark-grey">{data.location}</h5>
+                      </div>
+
+                      <button className="self-end ml-auto">
+                        Apply to this position
+                      </button>
+                    </div>
+                  ))}
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          {job_positions &&
-            job_positions.map((data) => (
-              <div key={data._id} className="text-black">
-                <h2>{data.jobTitle}</h2>
-                <h5>
-                  <h2>{data.location}</h2>
-                </h5>
-              </div>
-            ))}
-        </div>
+
+        <div></div>
         {/* 
         <section className="flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 lg:mt-32 mt-20 mb-16">
           {profile &&
@@ -101,6 +111,6 @@ async function Career() {
       </section>
     </>
   );
-}
+};
 
 export default Career;

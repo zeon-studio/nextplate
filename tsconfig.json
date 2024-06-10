@@ -26,6 +26,7 @@
       "@/shortcodes/*": ["./src/layouts/shortcodes/*"],
       "@/partials/*": ["./src/layouts/partials/*"],
       "@/helpers/*": ["./src/layouts/helpers/*"],
+      "@sanity/*": ["../../../../sanity/*"],
       "@/*": ["./src/*"]
     }
   },

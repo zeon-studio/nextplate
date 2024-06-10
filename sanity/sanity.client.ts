@@ -3,9 +3,10 @@ import "server-only";
 import { createClient, type QueryParams } from "next-sanity";
 
 export const client = createClient({
-  projectId: "s1zzqnwp",
-  dataset: "production",
-  apiVersion: "2024-06-07",
+  projectId: process.env.SANITY_PROJECT_ID,
+  dataset: process.env.SANITY_DATASET,
+  apiVersion: process.env.SANITY_API_VERSION,
+  token: process.env.SANITY_TOKEN,
   useCdn: false,
 });
 
