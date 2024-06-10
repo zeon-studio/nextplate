@@ -15,9 +15,9 @@ import type { JobPosition } from "@/types";
 const { career } = config.settings;
 const profile: ProfileType[] = await getProfile();
 const job_positions: JobPosition[] = await getJobPosition();
-console.log("POSITIONS: ", job_positions);
+// console.log("POSITIONS: ", profile);
 
-const Career = () => {
+async function Career() {
   const data = getListPage(`${career}/_index.md`);
 
   const { title, meta_title, description, career_title, career_content } =
@@ -58,7 +58,7 @@ const Career = () => {
         <div>
           {job_positions &&
             job_positions.map((data) => (
-              <div key={data._id}>
+              <div key={data._id} className="text-black">
                 <h2>{data.jobTitle}</h2>
                 <h5>
                   <h2>{data.location}</h2>
@@ -101,6 +101,6 @@ const Career = () => {
       </section>
     </>
   );
-};
+}
 
 export default Career;
