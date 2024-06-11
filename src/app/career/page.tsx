@@ -9,6 +9,7 @@ import Image from "next/image";
 import { getJobPosition, getProfile } from "../../../sanity/sanity.query";
 import type { ProfileType } from "@/types";
 import type { JobPosition } from "@/types";
+
 // import HeroSvg from "./icons/HeroSvg";
 // https://www.sanity.io/learn/course/day-one-with-sanity-studio/bringing-content-to-a-next-js-front-end
 

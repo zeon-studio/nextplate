@@ -183,3 +183,10 @@ export type JobPosition = {
   jobTitle: string;
   location: string;
 };
+
+export type User = {
+  _type: string;
+  name: string;
+  email: string;
+  message: string;
+};
