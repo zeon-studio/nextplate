@@ -190,3 +190,18 @@ export type User = {
   email: string;
   message: string;
 };
+
+export type EmployeeApplication = {
+  _type: string;
+  dateOfApplication: string;
+  fname: string;
+  mname: string;
+  lname: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  phone: string;
+  email: string;
+};

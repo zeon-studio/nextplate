@@ -1,5 +1,5 @@
 import profile from "./profile";
 import jobPosition from "./jobPosition";
-import user from "./user";
+import employeeApplication from "./employeeApplication";
 
-export const schemaTypes = [profile, jobPosition, user];
+export const schemaTypes = [profile, jobPosition, employeeApplication];

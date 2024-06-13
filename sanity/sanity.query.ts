@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import client from "./sanity.client";
-import type { User } from "@/types";
+import type { EmployeeApplication } from "@/types";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
 export async function getJobPosition() {
@@ -31,6 +31,8 @@ export async function getProfile() {
   );
 }
 
-export async function createUser(user: User) {
-  return await client.create(user);
+export async function createEmployeeApplication(
+  application: EmployeeApplication,
+) {
+  return await client.create(application);
 }
