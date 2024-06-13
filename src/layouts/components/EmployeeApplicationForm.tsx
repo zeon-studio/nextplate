@@ -14,19 +14,35 @@ const EmployeeApplicationForm = () => {
   const [formErrors, setFormErrors] = useState<Dict>({});
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [selectedOption, setSelectedOption] = useState<boolean>(false);
+  const [selectedRadioBtn, setSelectedRadioBtn] = useState<boolean>(false);
+  const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>([]);
 
   useEffect(() => {
     validateForm();
-  }, [phone, email, selectedOption]);
+  }, [phone, email, selectedRadioBtn, selectedCheckBox]);
+
+  const validateCheckBoxes = (): boolean => {
+    if (selectedCheckBox.length === 0) {
+      // Add previous list of errors along with checkbox error
+      setFormErrors((prevErrors) => ({
+        ...prevErrors,
+        checkbox: "Pick at least one checkbox",
+      }));
+      return false;
+    }
+    setFormErrors((prevErrors) => {
+      const { radio, ...rest } = prevErrors;
+      return rest;
+    });
+    return true;
+  };
 
   const validateRadioBtns = (): boolean => {
-    console.log("SELECTED OPTION: ", selectedOption);
-    if (!selectedOption) {
+    if (!selectedRadioBtn) {
       // Add previous list of errors along with radio error
       setFormErrors((prevErrors) => ({
         ...prevErrors,
-        radio: "Pick at least one option",
+        radio: "Pick one radio button",
       }));
       return false;
     }
@@ -62,7 +78,7 @@ const EmployeeApplicationForm = () => {
     setError(null); // Clear previous errors when a new request starts
 
     validateForm();
-    if (!validateRadioBtns() || !isFormValid) {
+    if (!validateRadioBtns() || !validateCheckBoxes() || !isFormValid) {
       setError("Fix form errors before submitting!");
       setLoading(false);
       return false;
@@ -354,7 +370,7 @@ const EmployeeApplicationForm = () => {
                         value="fullTime"
                         type="radio"
                         className="mr-1"
-                        onChange={(e) => setSelectedOption(e.target.checked)}
+                        onChange={(e) => setSelectedRadioBtn(e.target.checked)}
                       />
                       <label htmlFor="fullTime"> Regular Full Time Work</label>
                     </div>
@@ -366,7 +382,7 @@ const EmployeeApplicationForm = () => {
                         value="partTime"
                         type="radio"
                         className="ml-4 mr-1"
-                        onChange={(e) => setSelectedOption(e.target.checked)}
+                        onChange={(e) => setSelectedRadioBtn(e.target.checked)}
                       />
                       <label htmlFor="partTime"> Regular Part Time Work</label>
                     </div>
@@ -396,6 +412,9 @@ const EmployeeApplicationForm = () => {
                             value="monday"
                             type="checkbox"
                             className="mr-1 rounded-sm"
+                            onChange={(e) =>
+                              selectedCheckBox.push(e.target.checked)
+                            }
                           />
                           <label htmlFor="monday">Monday</label>
                         </div>
@@ -407,6 +426,9 @@ const EmployeeApplicationForm = () => {
                             value="tuesday"
                             type="checkbox"
                             className="mr-1 rounded-sm"
+                            onChange={(e) =>
+                              selectedCheckBox.push(e.target.checked)
+                            }
                           />
                           <label htmlFor="tuesday">Tuesday</label>
                         </div>
@@ -420,6 +442,9 @@ const EmployeeApplicationForm = () => {
                             value="wednesday"
                             type="checkbox"
                             className="mr-1 rounded-sm"
+                            onChange={(e) =>
+                              selectedCheckBox.push(e.target.checked)
+                            }
                           />
                           <label htmlFor="wednesday"> Wednesday</label>
                         </div>
@@ -431,6 +456,9 @@ const EmployeeApplicationForm = () => {
                             value="thursday"
                             type="checkbox"
                             className="mr-1 rounded-sm"
+                            onChange={(e) =>
+                              selectedCheckBox.push(e.target.checked)
+                            }
                           />
                           <label htmlFor="thursday">Thursday</label>
                         </div>
@@ -443,6 +471,9 @@ const EmployeeApplicationForm = () => {
                             value="friday"
                             type="checkbox"
                             className="mr-1 rounded-sm"
+                            onChange={(e) =>
+                              selectedCheckBox.push(e.target.checked)
+                            }
                           />
                           <label htmlFor="friday"> Friday</label>
                         </div>
@@ -454,6 +485,9 @@ const EmployeeApplicationForm = () => {
                             value="saturday"
                             type="checkbox"
                             className="mr-1 rounded-sm"
+                            onChange={(e) =>
+                              selectedCheckBox.push(e.target.checked)
+                            }
                           />
                           <label htmlFor="saturday"> Saturday</label>
                         </div>
@@ -466,11 +500,17 @@ const EmployeeApplicationForm = () => {
                           value="sunday"
                           type="checkbox"
                           className="mr-1 rounded-sm"
+                          onChange={(e) =>
+                            selectedCheckBox.push(e.target.checked)
+                          }
                         />
                         <label htmlFor="sunday"> Sunday</label>
                       </div>
                     </div>
                   </div>
+                  {formErrors.checkbox && (
+                    <p className="text-red-500">{formErrors.checkbox}</p>
+                  )}
                 </div>
 
                 <div className="flex flex-row w-full">
