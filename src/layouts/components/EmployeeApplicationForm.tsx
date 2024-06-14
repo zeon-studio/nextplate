@@ -145,8 +145,8 @@ const EmployeeApplicationForm = () => {
           <div className="animate-fade ease-in mx-auto">
             <form onSubmit={onSubmit} method="POST">
               <div className="flex flex-wrap">
-                <div className="flex-col">
-                  <div className="w-full md:w-1/3 px-1 md:mb-6 mb-3">
+                <div className="flex-col w-full">
+                  <div className="w-full md:mb-6 mb-3">
                     <label
                       htmlFor="dateOfApplication"
                       className="form-label text-dark-grey"
@@ -157,15 +157,15 @@ const EmployeeApplicationForm = () => {
                     <input
                       id="dateOfApplication"
                       name="dateOfApplication"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey md:w-1/3 lg:w-1/5 w-2/3 h-12 border-mischka"
                       placeholder="mm/dd/yyyy"
                       type="date"
                       required
                     />
                   </div>
 
-                  <div className="flex flex-row">
-                    <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
+                  <div className="flex md:flex-row flex-col">
+                    <div className="w-full md:w-1/4 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="fname"
                         className="form-label text-dark-grey"
@@ -182,7 +182,7 @@ const EmployeeApplicationForm = () => {
                       />
                     </div>
 
-                    <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
+                    <div className="w-full md:w-1/4 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="mname"
                         className="form-label text-dark-grey"
@@ -198,7 +198,7 @@ const EmployeeApplicationForm = () => {
                       />
                     </div>
 
-                    <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
+                    <div className="w-full md:w-1/4 md:mb-6 mb-3">
                       <label
                         htmlFor="lname"
                         className="form-label text-dark-grey"
@@ -217,21 +217,21 @@ const EmployeeApplicationForm = () => {
                   </div>
                 </div>
 
-                <div className="w-full px-1 md:mb-6 mb-3">
+                <div className="w-full md:mb-6 mb-3">
                   <label className="form-label text-dark-grey">Address</label>
 
                   <div className="flex flex-col">
                     <input
                       id="address1"
                       name="address1"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-3/5 h-12 border-mischka"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full lg:w-1/3 md:w-3/5 h-12 border-mischka"
                       placeholder="Street Address"
                       type="text"
                     />
                     <input
                       id="address2"
                       name="address2"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-3/5 h-12 border-mischka mt-3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full lg:w-1/3 md:w-3/5 h-12 border-mischka mt-3"
                       placeholder="Street Address line 2 (optional)"
                       type="text"
                     />
@@ -241,14 +241,14 @@ const EmployeeApplicationForm = () => {
                     <input
                       id="city"
                       name="city"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-1/6 h-12 border-mischka mt-3 mr-3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-3/5 lg:w-1/6 md:w-1/4 h-12 border-mischka mt-3 mr-3"
                       placeholder="City"
                     />
 
                     <select
                       id="state"
                       name="state"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-1/6  border-mischka mt-3 mr-3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-3/5 lg:w-1/6 md:w-1/4 border-mischka mt-3 mr-3"
                       defaultValue="State"
                     >
                       <option value="State" disabled hidden>
@@ -310,7 +310,7 @@ const EmployeeApplicationForm = () => {
                   <input
                     id="zipcode"
                     name="zipcode"
-                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-1/6 h-12 border-mischka mt-3"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-3/5 lg:w-1/6 md:w-1/4 h-12 border-mischka mt-3"
                     placeholder="Zip Code"
                     type="text"
                     maxLength={5}
@@ -318,7 +318,7 @@ const EmployeeApplicationForm = () => {
                   />
                 </div>
 
-                <div className="w-1/2 px-1">
+                <div className="w-full lg:w-1/3 md:w-1/2 md:mb-6 mb-3 pr-3">
                   <label htmlFor="phone" className="form-label text-dark-grey">
                     Phone number <span className="text-red-500">*</span>
                   </label>
@@ -337,7 +337,7 @@ const EmployeeApplicationForm = () => {
                   )}
                 </div>
 
-                <div className="w-1/2 px-1 md:mb-6 mb-3">
+                <div className="w-full lg:w-1/3 md:w-1/2 md:mb-6 mb-3">
                   <label htmlFor="email" className="form-label text-dark-grey">
                     Email address <span className="text-red-500">*</span>
                   </label>
@@ -355,11 +355,13 @@ const EmployeeApplicationForm = () => {
                   )}
                 </div>
 
-                <h5 className="text-dark-grey pt-10">EMPLOYMENT DESIRED</h5>
+                {/* EMPLOYMENT DESIRED */}
+                <h5 className="text-dark-grey pt-10 w-full">
+                  EMPLOYMENT DESIRED
+                </h5>
                 <hr className="w-full h-[1px] bg-dark-grey my-6" />
 
-                {/* EMPLOYMENT DESIRED */}
-                <div className="w-full md:w-1/2 px-1 md:mb-6 mb-3">
+                <div className="w-full md:w-1/2 md:mb-6 mb-3">
                   <label
                     htmlFor="positions"
                     className="form-label text-dark-grey"
@@ -377,14 +379,14 @@ const EmployeeApplicationForm = () => {
                   />
                 </div>
 
-                <div className="w-full md:w-1/2 px-10 md:mb-6 mb-3">
+                <div className="w-full lg:w-2/5 lg:px-30 md:mb-6 mb-3 md:ml-10">
                   <label className="form-label text-dark-grey">
                     Are you applying for?{" "}
                     <span className="text-red-500">*</span>
                   </label>
 
                   {/* Radio buttons */}
-                  <div className="flex flex-row items-center space-x-10">
+                  <div className="flex flex-row items-center md:space-x-10 space-x-3">
                     <div className="flex flex-row items-center">
                       <input
                         id="fullTime"
@@ -409,7 +411,7 @@ const EmployeeApplicationForm = () => {
                         name="employeeType"
                         value="partTime"
                         type="radio"
-                        className="ml-4 mr-1"
+                        className="md:ml-4 mr-1"
                         checked={selectedRadioBtn["radioSet1"][1]}
                         onChange={() =>
                           setSelectedRadioBtn({
@@ -448,7 +450,7 @@ const EmployeeApplicationForm = () => {
                           "Saturday",
                           "Sunday",
                         ].map((day, i) => (
-                          <div key={i} className="w-1/4">
+                          <div key={i} className="w-1/2 md:w-1/4">
                             <input
                               type="checkbox"
                               className="mr-1 rounded-sm"
@@ -473,8 +475,8 @@ const EmployeeApplicationForm = () => {
                   )}
                 </div>
 
-                <div className="flex flex-row w-full">
-                  <div className="w-1/4 md:mb-6 mb-3">
+                <div className="flex flex-row w-full gap-14 md:gap-0">
+                  <div className="lg:w-1/4 w-full md:mb-6 mb-3">
                     <label className="form-label text-dark-grey">
                       Are you available to work <br></br>on weekends?{" "}
                       <span className="text-red-500">*</span>
@@ -523,12 +525,12 @@ const EmployeeApplicationForm = () => {
                     )}
                   </div>
 
-                  <div className="w-1/4 md:mb-6 mb-3">
+                  <div className="lg:w-1/3 w-full md:mb-6 mb-3">
                     <label
                       htmlFor="overtime"
                       className="form-label text-dark-grey"
                     >
-                      Would you be available to work<br></br>overtime, if
+                      Would you be available to work <br></br>overtime, if
                       necessary? <span className="text-red-500">*</span>
                     </label>
 
@@ -576,7 +578,7 @@ const EmployeeApplicationForm = () => {
                   </div>
                 </div>
 
-                <div className="w-full px-1 md:mb-6 mb-3">
+                <div className="w-full md:mb-6 mb-3">
                   <label
                     htmlFor="startDate"
                     className="form-label text-dark-grey"
@@ -587,7 +589,7 @@ const EmployeeApplicationForm = () => {
                   <input
                     id="startDate"
                     name="startDate"
-                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-1/5 h-12 border-mischka"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey md:w-1/3 lg:w-1/5 w-2/3 h-12 border-mischka"
                     placeholder="mm/dd/yyyy"
                     type="date"
                     required
@@ -649,7 +651,7 @@ const EmployeeApplicationForm = () => {
               </div>
 
               {/* Submit button */}
-              <div className="px-1 w-[140px]">
+              <div className="w-[140px]">
                 <button
                   type="submit"
                   className="btn btn-primary hover:bg-dark-grey hover:border-dark-grey shadow-sm w-full"
@@ -661,7 +663,7 @@ const EmployeeApplicationForm = () => {
             </form>
           </div>
 
-          <div className="col-5 pt-10">
+          <div className="md:col-5 pt-10">
             {error && <ErrorAlert error_message={error}></ErrorAlert>}
             {success && <SuccessAlert success_message={success}></SuccessAlert>}
           </div>

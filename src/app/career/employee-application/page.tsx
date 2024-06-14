@@ -12,8 +12,10 @@ const EmployeeApplication = () => {
     <>
       <PageHeader title={title} />
       <section className="section-sm">
-        <p className="col-8 mx-auto pb-10">{form_description}</p>
-        <EmployeeApplicationForm></EmployeeApplicationForm>
+        <div className="lg:col-8 md:col-11 col-9 mx-auto">
+          <p className="mx-auto pb-10">{form_description}</p>
+          <EmployeeApplicationForm></EmployeeApplicationForm>
+        </div>
 
         <div className="pt-20">
           <CallToAction data={callToAction}></CallToAction>
