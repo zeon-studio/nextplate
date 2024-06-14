@@ -14,16 +14,15 @@ const EmployeeApplicationForm = () => {
   const [formErrors, setFormErrors] = useState<Dict>({});
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
-  const [selectedRadioBtn, setSelectedRadioBtn] = useState<boolean>(false);
-  const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  const [selectedRadioBtn, setSelectedRadioBtn] = useState<Dict>({
+    radioSet1: [false, false],
+    radioSet2: [false, false],
+    radioSet3: [false, false],
+    radioSet4: [false, false],
+  });
+  const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>(
+    Array(7).fill(false),
+  );
 
   useEffect(() => {
     validateForm();
@@ -47,19 +46,41 @@ const EmployeeApplicationForm = () => {
   };
 
   const validateRadioBtns = (): boolean => {
-    if (!selectedRadioBtn) {
-      // Add previous list of errors along with radio error
-      setFormErrors((prevErrors) => ({
-        ...prevErrors,
-        radio: "Pick one radio button",
-      }));
-      return false;
-    }
-    setFormErrors((prevErrors) => {
-      const { radio, ...rest } = prevErrors;
-      return rest;
-    });
-    return true;
+    console.log("Radio button set1: ", selectedRadioBtn["radioSet1"]);
+    console.log("Radio button set2: ", selectedRadioBtn["radioSet2"]);
+    console.log("Radio button set3: ", selectedRadioBtn["radioSet3"]);
+    console.log("Radio button set4: ", selectedRadioBtn["radioSet4"]);
+
+    const validateRadioBtnSet = (
+      setName: string,
+      errorKey: string,
+    ): boolean => {
+      if (!selectedRadioBtn[setName].includes(true)) {
+        setFormErrors((prevErrors) => ({
+          ...prevErrors,
+          [errorKey]: `Pick one radio button for ${setName}`,
+        }));
+        return false;
+      } else {
+        setFormErrors((prevErrors) => {
+          const { [errorKey]: _, ...rest } = prevErrors;
+          return rest;
+        });
+        return true;
+      }
+    };
+
+    const isRadioSet1Valid = validateRadioBtnSet("radioSet1", "radio1");
+    const isRadioSet2Valid = validateRadioBtnSet("radioSet2", "radio2");
+    const isRadioSet3Valid = validateRadioBtnSet("radioSet3", "radio3");
+    const isRadioSet4Valid = validateRadioBtnSet("radioSet4", "radio4");
+
+    return (
+      isRadioSet1Valid &&
+      isRadioSet2Valid &&
+      isRadioSet3Valid &&
+      isRadioSet4Valid
+    );
   };
 
   const validateForm = (): void => {
@@ -197,12 +218,7 @@ const EmployeeApplicationForm = () => {
                 </div>
 
                 <div className="w-full px-1 md:mb-6 mb-3">
-                  <label
-                    htmlFor="address1"
-                    className="form-label text-dark-grey"
-                  >
-                    Address
-                  </label>
+                  <label className="form-label text-dark-grey">Address</label>
 
                   <div className="flex flex-col">
                     <input
@@ -362,10 +378,7 @@ const EmployeeApplicationForm = () => {
                 </div>
 
                 <div className="w-full md:w-1/2 px-10 md:mb-6 mb-3">
-                  <label
-                    htmlFor="employeeType"
-                    className="form-label text-dark-grey"
-                  >
+                  <label className="form-label text-dark-grey">
                     Are you applying for?{" "}
                     <span className="text-red-500">*</span>
                   </label>
@@ -379,7 +392,13 @@ const EmployeeApplicationForm = () => {
                         value="fullTime"
                         type="radio"
                         className="mr-1"
-                        onChange={(e) => setSelectedRadioBtn(e.target.checked)}
+                        checked={selectedRadioBtn["radioSet1"][0]}
+                        onChange={() =>
+                          setSelectedRadioBtn({
+                            ...selectedRadioBtn,
+                            radioSet1: [true, false],
+                          })
+                        }
                       />
                       <label htmlFor="fullTime"> Regular Full Time Work</label>
                     </div>
@@ -391,13 +410,19 @@ const EmployeeApplicationForm = () => {
                         value="partTime"
                         type="radio"
                         className="ml-4 mr-1"
-                        onChange={(e) => setSelectedRadioBtn(e.target.checked)}
+                        checked={selectedRadioBtn["radioSet1"][1]}
+                        onChange={() =>
+                          setSelectedRadioBtn({
+                            ...selectedRadioBtn,
+                            radioSet1: [false, true],
+                          })
+                        }
                       />
                       <label htmlFor="partTime"> Regular Part Time Work</label>
                     </div>
                   </div>
-                  {formErrors.radio && (
-                    <p className="text-red-500">{formErrors.radio}</p>
+                  {formErrors.radio1 && (
+                    <p className="text-red-500">{formErrors.radio1}</p>
                   )}
                 </div>
 
@@ -413,107 +438,33 @@ const EmployeeApplicationForm = () => {
                   {/* Check box buttons */}
                   <div className="flex flex-row items-center pt-2">
                     <div className="flex flex-col space-y-3">
-                      <div className="flex flex-row items-center ml-2 space-x-[125px]">
-                        <div className="flex flex-row items-center">
-                          <input
-                            id="monday"
-                            name="monday"
-                            value="monday"
-                            type="checkbox"
-                            className="mr-1 rounded-sm"
-                            onChange={(e) =>
-                              selectedCheckBox.splice(0, 1, e.target.checked)
-                            }
-                          />
-                          <label htmlFor="monday">Monday</label>
-                        </div>
-
-                        <div className="flex flex-row items-center">
-                          <input
-                            id="tuesday"
-                            name="tuesday"
-                            value="tuesday"
-                            type="checkbox"
-                            className="mr-1 rounded-sm"
-                            onChange={(e) =>
-                              selectedCheckBox.splice(1, 1, e.target.checked)
-                            }
-                          />
-                          <label htmlFor="tuesday">Tuesday</label>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-row items-center ml-2 space-x-[100px]">
-                        <div className="flex flex-row items-center">
-                          <input
-                            id="wednesday"
-                            name="wednesday"
-                            value="wednesday"
-                            type="checkbox"
-                            className="mr-1 rounded-sm"
-                            onChange={(e) =>
-                              selectedCheckBox.splice(2, 1, e.target.checked)
-                            }
-                          />
-                          <label htmlFor="wednesday"> Wednesday</label>
-                        </div>
-
-                        <div className="flex flex-row items-center">
-                          <input
-                            id="thursday"
-                            name="thursday"
-                            value="thursday"
-                            type="checkbox"
-                            className="mr-1 rounded-sm"
-                            onChange={(e) =>
-                              selectedCheckBox.splice(3, 1, e.target.checked)
-                            }
-                          />
-                          <label htmlFor="thursday">Thursday</label>
-                        </div>
-                      </div>
-                      <div className="flex flex-row items-center ml-2 space-x-[138px]">
-                        <div className="flex flex-row items-center">
-                          <input
-                            id="friday"
-                            name="friday"
-                            value="friday"
-                            type="checkbox"
-                            className="mr-1 rounded-sm"
-                            onChange={(e) =>
-                              selectedCheckBox.splice(4, 1, e.target.checked)
-                            }
-                          />
-                          <label htmlFor="friday"> Friday</label>
-                        </div>
-
-                        <div className="flex flex-row items-center mr-2">
-                          <input
-                            id="saturday"
-                            name="saturday"
-                            value="saturday"
-                            type="checkbox"
-                            className="mr-1 rounded-sm"
-                            onChange={(e) =>
-                              selectedCheckBox.splice(5, 1, e.target.checked)
-                            }
-                          />
-                          <label htmlFor="saturday"> Saturday</label>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-row items-center ml-2">
-                        <input
-                          id="sunday"
-                          name="sunday"
-                          value="sunday"
-                          type="checkbox"
-                          className="mr-1 rounded-sm"
-                          onChange={(e) =>
-                            selectedCheckBox.splice(6, 1, e.target.checked)
-                          }
-                        />
-                        <label htmlFor="sunday"> Sunday</label>
+                      <div className="flex flex-wrap">
+                        {[
+                          "Monday",
+                          "Tuesday",
+                          "Wednesday",
+                          "Thursday",
+                          "Friday",
+                          "Saturday",
+                          "Sunday",
+                        ].map((day, i) => (
+                          <div key={i} className="w-1/4">
+                            <input
+                              type="checkbox"
+                              className="mr-1 rounded-sm"
+                              id={`checkbox${i + 1}`}
+                              checked={selectedCheckBox[i]}
+                              onChange={() => {
+                                setSelectedCheckBox((prevState) =>
+                                  prevState.map((val, index) =>
+                                    index === i ? !val : val,
+                                  ),
+                                );
+                              }}
+                            />
+                            <label htmlFor={`checkbox${i + 1}`}>{day}</label>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
@@ -524,10 +475,7 @@ const EmployeeApplicationForm = () => {
 
                 <div className="flex flex-row w-full">
                   <div className="w-1/4 md:mb-6 mb-3">
-                    <label
-                      htmlFor="availability"
-                      className="form-label text-dark-grey"
-                    >
+                    <label className="form-label text-dark-grey">
                       Are you available to work <br></br>on weekends?{" "}
                       <span className="text-red-500">*</span>
                     </label>
@@ -541,6 +489,13 @@ const EmployeeApplicationForm = () => {
                           value="available"
                           type="radio"
                           className="mr-2"
+                          checked={selectedRadioBtn["radioSet2"][0]}
+                          onChange={() =>
+                            setSelectedRadioBtn({
+                              ...selectedRadioBtn,
+                              radioSet2: [true, false],
+                            })
+                          }
                         />
                         <label htmlFor="available"> Yes</label>
                       </div>
@@ -552,10 +507,20 @@ const EmployeeApplicationForm = () => {
                           value="notAvailable"
                           type="radio"
                           className="mr-2"
+                          checked={selectedRadioBtn["radioSet2"][0]}
+                          onChange={() =>
+                            setSelectedRadioBtn({
+                              ...selectedRadioBtn,
+                              radioSet2: [true, false],
+                            })
+                          }
                         />
-                        <label htmlFor="availability"> No</label>
+                        <label htmlFor="notAvailable"> No</label>
                       </div>
                     </div>
+                    {formErrors.radio2 && (
+                      <p className="text-red-500">{formErrors.radio2}</p>
+                    )}
                   </div>
 
                   <div className="w-1/4 md:mb-6 mb-3">
@@ -576,6 +541,13 @@ const EmployeeApplicationForm = () => {
                           value="yesOvertime"
                           type="radio"
                           className="mr-2"
+                          checked={selectedRadioBtn["radioSet3"][0]}
+                          onChange={() =>
+                            setSelectedRadioBtn({
+                              ...selectedRadioBtn,
+                              radioSet3: [true, false],
+                            })
+                          }
                         />
                         <label htmlFor="overtime"> Yes</label>
                       </div>
@@ -587,10 +559,20 @@ const EmployeeApplicationForm = () => {
                           value="noOvertime"
                           type="radio"
                           className="mr-2"
+                          checked={selectedRadioBtn["radioSet3"][1]}
+                          onChange={() =>
+                            setSelectedRadioBtn({
+                              ...selectedRadioBtn,
+                              radioSet3: [false, true],
+                            })
+                          }
                         />
                         <label htmlFor="overtime"> No</label>
                       </div>
                     </div>
+                    {formErrors.radio3 && (
+                      <p className="text-red-500">{formErrors.radio3}</p>
+                    )}
                   </div>
                 </div>
 
@@ -631,6 +613,13 @@ const EmployeeApplicationForm = () => {
                         value="yesAccommodation"
                         type="radio"
                         className="mr-2"
+                        checked={selectedRadioBtn["radioSet4"][0]}
+                        onChange={() =>
+                          setSelectedRadioBtn({
+                            ...selectedRadioBtn,
+                            radioSet4: [true, false],
+                          })
+                        }
                       />
                       <label htmlFor="accommodation"> Yes</label>
                     </div>
@@ -642,10 +631,20 @@ const EmployeeApplicationForm = () => {
                         value="noAccommodation"
                         type="radio"
                         className="mr-2"
+                        checked={selectedRadioBtn["radioSet4"][1]}
+                        onChange={() =>
+                          setSelectedRadioBtn({
+                            ...selectedRadioBtn,
+                            radioSet4: [false, true],
+                          })
+                        }
                       />
                       <label htmlFor="accommodation"> No</label>
                     </div>
                   </div>
+                  {formErrors.radio4 && (
+                    <p className="text-red-500">{formErrors.radio4}</p>
+                  )}
                 </div>
               </div>
 
