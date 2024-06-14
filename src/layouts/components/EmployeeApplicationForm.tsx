@@ -15,14 +15,23 @@ const EmployeeApplicationForm = () => {
   const [phone, setPhone] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [selectedRadioBtn, setSelectedRadioBtn] = useState<boolean>(false);
-  const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>([]);
+  const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>([
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   useEffect(() => {
     validateForm();
   }, [phone, email, selectedRadioBtn, selectedCheckBox]);
 
   const validateCheckBoxes = (): boolean => {
-    if (selectedCheckBox.length === 0) {
+    console.log("Selected check boxes: ", selectedCheckBox);
+    if (!selectedCheckBox.includes(true)) {
       // Add previous list of errors along with checkbox error
       setFormErrors((prevErrors) => ({
         ...prevErrors,
@@ -413,7 +422,7 @@ const EmployeeApplicationForm = () => {
                             type="checkbox"
                             className="mr-1 rounded-sm"
                             onChange={(e) =>
-                              selectedCheckBox.push(e.target.checked)
+                              selectedCheckBox.splice(0, 1, e.target.checked)
                             }
                           />
                           <label htmlFor="monday">Monday</label>
@@ -427,7 +436,7 @@ const EmployeeApplicationForm = () => {
                             type="checkbox"
                             className="mr-1 rounded-sm"
                             onChange={(e) =>
-                              selectedCheckBox.push(e.target.checked)
+                              selectedCheckBox.splice(1, 1, e.target.checked)
                             }
                           />
                           <label htmlFor="tuesday">Tuesday</label>
@@ -443,7 +452,7 @@ const EmployeeApplicationForm = () => {
                             type="checkbox"
                             className="mr-1 rounded-sm"
                             onChange={(e) =>
-                              selectedCheckBox.push(e.target.checked)
+                              selectedCheckBox.splice(2, 1, e.target.checked)
                             }
                           />
                           <label htmlFor="wednesday"> Wednesday</label>
@@ -457,7 +466,7 @@ const EmployeeApplicationForm = () => {
                             type="checkbox"
                             className="mr-1 rounded-sm"
                             onChange={(e) =>
-                              selectedCheckBox.push(e.target.checked)
+                              selectedCheckBox.splice(3, 1, e.target.checked)
                             }
                           />
                           <label htmlFor="thursday">Thursday</label>
@@ -472,7 +481,7 @@ const EmployeeApplicationForm = () => {
                             type="checkbox"
                             className="mr-1 rounded-sm"
                             onChange={(e) =>
-                              selectedCheckBox.push(e.target.checked)
+                              selectedCheckBox.splice(4, 1, e.target.checked)
                             }
                           />
                           <label htmlFor="friday"> Friday</label>
@@ -486,7 +495,7 @@ const EmployeeApplicationForm = () => {
                             type="checkbox"
                             className="mr-1 rounded-sm"
                             onChange={(e) =>
-                              selectedCheckBox.push(e.target.checked)
+                              selectedCheckBox.splice(5, 1, e.target.checked)
                             }
                           />
                           <label htmlFor="saturday"> Saturday</label>
@@ -501,7 +510,7 @@ const EmployeeApplicationForm = () => {
                           type="checkbox"
                           className="mr-1 rounded-sm"
                           onChange={(e) =>
-                            selectedCheckBox.push(e.target.checked)
+                            selectedCheckBox.splice(6, 1, e.target.checked)
                           }
                         />
                         <label htmlFor="sunday"> Sunday</label>
