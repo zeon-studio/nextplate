@@ -204,4 +204,12 @@ export type EmployeeApplication = {
   zipcode: string;
   phone: string;
   email: string;
+  positions: string;
+  employeeType: string;
+  availability: Array<string>;
+  weekendAvailability: string;
+  overtime: string;
+  startDate: string;
+  accommodation: string;
+  accommodationMessage: string;
 };

@@ -20,6 +20,14 @@ export async function POST(request: Request) {
       zipcode: formData.get("zipcode") as string,
       phone: formData.get("phone") as string,
       email: formData.get("email") as string,
+      positions: formData.get("positions") as string,
+      employeeType: formData.get("employeeType") as string,
+      availability: formData.getAll("availability") as Array<string>,
+      weekendAvailability: formData.get("weekendAvailability") as string,
+      overtime: formData.get("overtime") as string,
+      startDate: formData.get("startDate") as string,
+      accommodation: formData.get("accommodation") as string,
+      accommodationMessage: formData.get("accommodationMessage") as string,
     });
     console.log("Sucessfully added data to Sanity");
     return NextResponse.json({
