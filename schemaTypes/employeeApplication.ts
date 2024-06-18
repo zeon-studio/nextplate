@@ -10,6 +10,15 @@ const employeeApplication = defineType({
 
   fields: [
     defineField({
+      name: "jobPositionID",
+      type: "reference",
+      title: "Job Position Applied to",
+      to: [{ type: "jobPosition" }],
+      weak: true,
+      validation: (rule) => rule.required(),
+    }),
+
+    defineField({
       name: "dateOfApplication",
       type: "string",
       title: "Date of Application",
@@ -141,6 +150,20 @@ const employeeApplication = defineType({
 
     // Employment Experience
   ],
+
+  preview: {
+    select: {
+      title: "fname",
+      subtitle: "jobPositionID.jobTitle", // Show the job title of the referenced job position
+    },
+    prepare(selection) {
+      const { title, subtitle } = selection;
+      return {
+        title,
+        subtitle: subtitle ? `Applied for: ${subtitle}` : "No job position",
+      };
+    },
+  },
 });
 
 export default employeeApplication;

@@ -192,6 +192,7 @@ export type User = {
 };
 
 export type EmployeeApplication = {
+  _id?: string;
   _type: string;
   dateOfApplication: string;
   fname: string;
@@ -212,4 +213,5 @@ export type EmployeeApplication = {
   startDate: string;
   accommodation: string;
   accommodationMessage: string;
+  jobPositionID: string;
 };

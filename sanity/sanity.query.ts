@@ -4,13 +4,21 @@ import type { EmployeeApplication } from "@/types";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
 export async function getJobPosition() {
-  return client.fetch(
-    groq`*[_type == "jobPosition"]{
-            _id, 
-            jobTitle,
-            location
-        }`,
-  );
+  const query = `*[_type == "jobPosition"] {
+    _id,
+    jobTitle,
+    location
+  }`;
+
+  try {
+    const jobPositions = await client.fetch(query, undefined, {
+      cache: "no-store",
+    });
+    return jobPositions;
+  } catch (error) {
+    console.error("Error fetching job positions:", error);
+    return [];
+  }
 }
 
 export async function getProfile() {
@@ -34,5 +42,14 @@ export async function getProfile() {
 export async function createEmployeeApplication(
   application: EmployeeApplication,
 ) {
-  return await client.create(application);
+  // Ensure jobPositionID is set correctly
+  const applicationWithReference = {
+    ...application,
+    jobPositionID: {
+      _type: "reference",
+      _ref: application.jobPositionID,
+    },
+  };
+
+  return await client.create(applicationWithReference);
 }

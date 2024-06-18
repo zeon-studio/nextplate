@@ -5,7 +5,11 @@ import ErrorAlert from "@/partials/ErrorAlert";
 import SuccessAlert from "@/partials/SuccessAlert";
 import { Dict } from "styled-components/dist/types";
 
-const EmployeeApplicationForm = () => {
+const EmployeeApplicationForm = ({
+  jobPositionID,
+}: {
+  jobPositionID: string;
+}) => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSucess] = useState<string | null>(null);
@@ -116,10 +120,12 @@ const EmployeeApplicationForm = () => {
     }
 
     try {
-      const formData = new FormData(event.currentTarget);
+      const data = new FormData(event.currentTarget);
+      data.append("jobPositionID", jobPositionID); //add this data to be connected content
+
       const response = await fetch("/api/submit", {
         method: "POST",
-        body: formData,
+        body: data,
       });
 
       if (!response.ok) {
