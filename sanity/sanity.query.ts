@@ -48,6 +48,7 @@ export async function createEmployeeApplication(
     jobPositionID: {
       _type: "reference",
       _ref: application.jobPositionID,
+      _weak: true,
     },
   };
 
