@@ -19,6 +19,13 @@ const employeeApplication = defineType({
     }),
 
     defineField({
+      name: "jobPosition",
+      type: "string",
+      title: "Job Title",
+      hidden: true,
+    }),
+
+    defineField({
       name: "dateOfApplication",
       type: "string",
       title: "Date of Application",

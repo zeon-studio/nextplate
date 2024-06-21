@@ -214,4 +214,5 @@ export type EmployeeApplication = {
   accommodation: string;
   accommodationMessage: string;
   jobPositionID: string;
+  jobPosition: string;
 };

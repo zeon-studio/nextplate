@@ -29,6 +29,7 @@ export async function POST(request: Request) {
       accommodation: formData.get("accommodation") as string,
       accommodationMessage: formData.get("accommodationMessage") as string,
       jobPositionID: formData.get("jobPositionID") as string,
+      jobPosition: formData.get("jobPosition") as string,
     });
     console.log("Sucessfully added data to Sanity");
     return NextResponse.json({

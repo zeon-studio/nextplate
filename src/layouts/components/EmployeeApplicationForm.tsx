@@ -7,8 +7,10 @@ import { Dict } from "styled-components/dist/types";
 
 const EmployeeApplicationForm = ({
   jobPositionID,
+  jobPosition,
 }: {
   jobPositionID: string;
+  jobPosition: string;
 }) => {
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -122,6 +124,7 @@ const EmployeeApplicationForm = ({
     try {
       const data = new FormData(event.currentTarget);
       data.append("jobPositionID", jobPositionID); //add this data to be connected content
+      data.append("jobPosition", jobPosition);
 
       const response = await fetch("/api/submit", {
         method: "POST",

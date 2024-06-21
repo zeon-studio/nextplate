@@ -27,6 +27,7 @@ const EmployeeApplication = ({
           <p className="mx-auto pb-10">{form_description}</p>
           <EmployeeApplicationForm
             jobPositionID={searchParams._id}
+            jobPosition={searchParams.jobTitle}
           ></EmployeeApplicationForm>
         </div>
 
