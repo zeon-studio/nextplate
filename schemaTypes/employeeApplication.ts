@@ -160,7 +160,9 @@ const employeeApplication = defineType({
       const { title, subtitle } = selection;
       return {
         title,
-        subtitle: subtitle ? `Applied for: ${subtitle}` : "No job position",
+        subtitle: subtitle
+          ? `Applied for: ${subtitle}`
+          : "No job position available",
       };
     },
   },

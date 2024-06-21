@@ -1,7 +1,5 @@
 import { BiBriefcase } from "react-icons/bi";
 import { defineField, defineType } from "sanity";
-import { TextInput } from "@sanity/ui";
-
 // https://www.sanity.io/docs/conditional-fields
 
 const jobPosition = defineType({
@@ -37,6 +35,15 @@ const jobPosition = defineType({
     select: {
       title: "jobTitle",
       subtitle: "location",
+      documentId: "_id",
+    },
+    prepare(selection) {
+      const { title, subtitle, documentId } = selection;
+
+      return {
+        title: title ? `${title} |  ${subtitle}` : "",
+        subtitle: documentId ? `ID: ${documentId}` : "",
+      };
     },
   },
 });

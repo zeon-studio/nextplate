@@ -7,7 +7,8 @@ export async function getJobPosition() {
   const query = `*[_type == "jobPosition"] {
     _id,
     jobTitle,
-    location
+    location, 
+    createdAt
   }`;
 
   try {
