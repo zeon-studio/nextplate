@@ -1,9 +1,6 @@
 import EmployeeApplicationForm from "@/components/EmployeeApplicationForm";
-import PageHeader from "@/partials/PageHeader";
 import CallToAction from "@/partials/CallToAction";
 import { getListPage } from "@/lib/contentParser";
-import { decodeSlugify } from "@/lib/utils/textConverter";
-// import { useRouter } from "next/router";
 
 const EmployeeApplication = ({
   params,
@@ -20,8 +17,6 @@ const EmployeeApplication = ({
 
   return (
     <>
-      {/* <PageHeader title={title} /> */}
-
       <section className="section-sm">
         <div className="text-center pb-8">
           <h4 className=" text-dark-grey">{searchParams.jobTitle}</h4>
