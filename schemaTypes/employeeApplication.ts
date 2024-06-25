@@ -160,13 +160,14 @@ const employeeApplication = defineType({
 
   preview: {
     select: {
-      title: "fname",
+      fname: "fname",
+      lname: "lname",
       subtitle: "jobPositionID.jobTitle", // Show the job title of the referenced job position
     },
     prepare(selection) {
-      const { title, subtitle } = selection;
+      const { fname, lname, subtitle } = selection;
       return {
-        title,
+        title: fname ? `${fname} ${lname}` : "",
         subtitle: subtitle
           ? `Applied for: ${subtitle}`
           : "No job position available",

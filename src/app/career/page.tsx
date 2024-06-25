@@ -4,16 +4,31 @@ import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
-import Link from "next/link";
-import { getJobPosition } from "../../../sanity/sanity.query";
-import type { JobPosition } from "@/types";
-
-// import HeroSvg from "./icons/HeroSvg";
-// https://www.sanity.io/learn/course/day-one-with-sanity-studio/bringing-content-to-a-next-js-front-end
+import JobPositionCard from "@/components/JobPositionCard";
+import { JobPosition } from "@/types";
+import { getJobPositions } from "../../../sanity/sanity.query";
 
 const { career } = config.settings;
-const job_positions: JobPosition[] = await getJobPosition();
-console.log("JOB POS: ", job_positions);
+const ERROR_RESPONSES = {
+  getAllJobPositions: "Failed to fetch all job positions",
+  addJobPositions: "Failed to create a new message",
+};
+const getAllJobPositions = async (): Promise<JobPosition[]> => {
+  const result = await fetch(
+    "https://silver-olives-try.loca.lt/api/job-positions",
+    {
+      method: "GET",
+      cache: "no-store",
+    },
+  );
+
+  if (!result.ok) {
+    throw new Error(ERROR_RESPONSES.getAllJobPositions);
+  }
+
+  const job_positions = (await result.json()) as JobPosition[];
+  return job_positions;
+};
 
 const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
@@ -22,7 +37,25 @@ const Career = async () => {
     data.frontmatter;
 
   const callToAction = getListPage("sections/call-to-action.md");
+  // const job_positions: JobPosition[] = await getJobPosition();
 
+  const job_positions = await getAllJobPositions();
+
+  const updateJobPositions = async (params: Promise<JobPosition[]>) => {
+    "use server";
+    const result = await fetch("/api/job-positions", {
+      method: "POST",
+      cache: "no-store",
+      body: JSON.stringify(params),
+    });
+
+    if (!result.ok) {
+      throw new Error(ERROR_RESPONSES.addJobPositions);
+    }
+
+    const response = (await result.json()) as JobPosition[];
+    return response;
+  };
   return (
     <>
       <SeoMeta
@@ -34,6 +67,7 @@ const Career = async () => {
         title={data.frontmatter.title}
         subtitle={data.frontmatter.subtitle}
       />
+
       <section className="section">
         <div className="container pb-14">
           <div className="w-full">
@@ -41,7 +75,7 @@ const Career = async () => {
               <div className="row">
                 <div className="relative">
                   <h2
-                    className="text-primary pb-2 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
+                    className="text-dark-grey pb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
                     dangerouslySetInnerHTML={markdownify(career_title)}
                   />
                   <p
@@ -51,41 +85,13 @@ const Career = async () => {
                 </div>
               </div>
 
-              <div className="">
-                {job_positions &&
-                  job_positions.map((data) => (
-                    <div
-                      key={data._id}
-                      className="flex flex-row bg-light-grey shadow-md rounded-lg my-2 px-10 py-1"
-                    >
-                      <div className="flex-col">
-                        <h2 className="text-dark-grey">{data.jobTitle}</h2>
-                        <h5 className="text-dark-grey">{data.location}</h5>
-                      </div>
-
-                      {/* <button className="self-end ml-auto">
-                        Apply to this position
-                        <Link key={data._id} href={link} rel="noopener"></Link>
-                      </button> */}
-
-                      <Link
-                        key={data._id}
-                        className="self-end ml-auto"
-                        href={{
-                          pathname: `/career/employee-application/${slugify(data.jobTitle)}`,
-                          query: data,
-                        }}
-                      >
-                        Apply to this position
-                      </Link>
-                    </div>
-                  ))}
-              </div>
+              <JobPositionCard
+                updateJobPositions={updateJobPositions}
+                initialData={job_positions}
+              ></JobPositionCard>
             </div>
           </div>
         </div>
-
-        <div></div>
 
         <CallToAction data={callToAction}></CallToAction>
       </section>

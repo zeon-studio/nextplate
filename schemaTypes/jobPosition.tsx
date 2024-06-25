@@ -33,15 +33,15 @@ const jobPosition = defineType({
 
   preview: {
     select: {
-      title: "jobTitle",
-      subtitle: "location",
+      jobTitle: "jobTitle",
+      location: "location",
       documentId: "_id",
     },
     prepare(selection) {
-      const { title, subtitle, documentId } = selection;
+      const { jobTitle, location, documentId } = selection;
 
       return {
-        title: title ? `${title} |  ${subtitle}` : "",
+        title: jobTitle ? `${jobTitle} |  ${location}` : "",
         subtitle: documentId ? `ID: ${documentId}` : "",
       };
     },

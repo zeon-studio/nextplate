@@ -1,6 +1,7 @@
 import EmployeeApplicationForm from "@/components/EmployeeApplicationForm";
 import CallToAction from "@/partials/CallToAction";
 import { getListPage } from "@/lib/contentParser";
+import Image from "next/image";
 
 const EmployeeApplication = ({
   params,
@@ -11,12 +12,20 @@ const EmployeeApplication = ({
 }) => {
   const callToAction = getListPage("sections/call-to-action.md");
   const employee_application = getListPage("employee-application/_index.md");
-  const { title, form_description } = employee_application.frontmatter;
+  const { title, image, form_description } = employee_application.frontmatter;
 
   console.log("DATA: ", searchParams);
 
   return (
     <>
+      {/* <Image
+        src={image}
+        alt="Ninth Ave Foods Warehouse"
+        className="w-full h-40 object-cover sm:object-[center_top] opacity-100 object-center"
+        width={3908}
+        height={1300} // Adjust the height to your desired value
+        priority
+      /> */}
       <section className="section-sm">
         <div className="text-center pb-8">
           <h4 className=" text-dark-grey">{searchParams.jobTitle}</h4>

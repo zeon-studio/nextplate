@@ -3,18 +3,15 @@ import client from "./sanity.client";
 import type { EmployeeApplication } from "@/types";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
-export async function getJobPosition() {
+export async function getJobPositions() {
   const query = `*[_type == "jobPosition"] {
     _id,
     jobTitle,
-    location, 
-    createdAt
+    location
   }`;
 
   try {
-    const jobPositions = await client.fetch(query, undefined, {
-      cache: "no-store",
-    });
+    const jobPositions = await client.fetch(query);
     return jobPositions;
   } catch (error) {
     console.error("Error fetching job positions:", error);
