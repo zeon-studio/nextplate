@@ -1,25 +1,25 @@
 import { NextResponse } from "next/server";
 import { getJobPositions } from "../../../../sanity/sanity.query";
 import type { JobPosition } from "@/types";
-import { revalidatePath } from "next/cache";
-import { useRouter } from "next/router";
-import { route } from "sanity/router";
-// https://medium.com/@joaopaulocmarra/i-built-a-nextjs-realtime-chat-with-rsc-and-server-actions-67b38534a34f
 
+// https://victoreke.com/blog/sanity-webhooks-and-on-demand-revalidation-in-nextjs
 export async function POST(request: Request) {
   try {
-    // Fetch the updated job positions from Sanity query
+    // const requestBody = await request.json(); // Assuming the body is JSON
+    // // Log the request body
+    // console.log("Received POST request with data:", requestBody);
+
+    // After updating job positions, fetch updated positions
     const updatedJobPositions: JobPosition[] = await getJobPositions();
 
-    // Optionally, revalidate the path if needed
-
-    revalidatePath("/career", "page");
-
-    return NextResponse.json(updatedJobPositions);
-  } catch (err) {
-    console.error("Failed to fetch job positions from Sanity:", err);
     return NextResponse.json(
-      { message: "Failed to fetch job positions from Sanity" },
+      { message: "Successfully updated job positions!" },
+      { status: 200 },
+    );
+  } catch (err) {
+    console.error("Failed to update job positions:", err);
+    return NextResponse.json(
+      { message: "Failed to update job positions" },
       { status: 500 },
     );
   }
@@ -27,9 +27,7 @@ export async function POST(request: Request) {
 
 export async function GET(request: Request) {
   try {
-    // Fetch the job positions from Sanity query
     const jobPositions: JobPosition[] = await getJobPositions();
-    console.log("Job Positions:", jobPositions);
     return NextResponse.json(jobPositions);
   } catch (err) {
     console.error("Failed to fetch job positions from Sanity:", err);

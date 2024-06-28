@@ -47,7 +47,7 @@ const CuttingEdgeTechnology = () => {
         <div className="container pb-14">
           <div className="w-full">
             <div className="gx-5 grid lg:grid-cols-5 gap-10">
-              <div className="lg:col-11 lg:mx-4 mx-1 col-span-3">
+              <div className="lg:col-12 lg:mx-4 mx-1 col-span-3">
                 <div className="row">
                   <div className="relative">
                     <h2
@@ -95,7 +95,7 @@ const CuttingEdgeTechnology = () => {
                 </div>
               </div>
 
-              <div className="col-span-2 w-[400px] hidden lg:block">
+              <div className="col-span-2 w-[400px] hidden lg:block pl-10">
                 <Sidebar
                   side_bar_title={"Capabilities"}
                   categories={capabilities}

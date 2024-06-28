@@ -14,20 +14,18 @@ const EmployeeApplication = ({
   const employee_application = getListPage("employee-application/_index.md");
   const { title, image, form_description } = employee_application.frontmatter;
 
-  console.log("DATA: ", searchParams);
-
   return (
     <>
-      {/* <Image
-        src={image}
-        alt="Ninth Ave Foods Warehouse"
-        className="w-full h-40 object-cover sm:object-[center_top] opacity-100 object-center"
-        width={3908}
-        height={1300} // Adjust the height to your desired value
-        priority
-      /> */}
-      <section className="section-sm">
-        <div className="text-center pb-8">
+      <section>
+        <Image
+          src={image}
+          alt="Ninth Ave Foods Warehouse"
+          className="w-full lg:h-64 md:48 h-40 object-cover object-center opacity-100"
+          width={3908}
+          height={1300}
+          priority
+        />
+        <div className="text-center pb-8 pt-10">
           <h4 className=" text-dark-grey">{searchParams.jobTitle}</h4>
           <p className="text-dark-grey text-lg"> {searchParams.location}</p>
         </div>

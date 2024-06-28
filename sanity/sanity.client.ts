@@ -7,7 +7,8 @@ export const client = createClient({
   dataset: process.env.SANITY_DATASET,
   apiVersion: process.env.SANITY_API_VERSION,
   token: process.env.SANITY_TOKEN,
-  useCdn: false,
+  // set CDN to live API in development mode
+  useCdn: process.env.NODE_ENV === "development" ? true : false,
 });
 
 export async function sanityFetch<QueryResponse>({
@@ -18,12 +19,11 @@ export async function sanityFetch<QueryResponse>({
   query: string;
   params?: QueryParams;
   tags?: string[];
-}) {
+}): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, params, {
-    next: {
-      revalidate: process.env.NODE_ENV === "development" ? 30 : 3600,
-      tags,
-    },
+    // disable cache in development
+    cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
+    next: { tags },
   });
 }
 

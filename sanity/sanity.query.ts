@@ -6,8 +6,9 @@ import type { EmployeeApplication } from "@/types";
 export async function getJobPositions() {
   const query = `*[_type == "jobPosition"] {
     _id,
+    _createdAt,
     jobTitle,
-    location
+    location,
   }`;
 
   try {
@@ -18,6 +19,20 @@ export async function getJobPositions() {
     return [];
   }
 }
+
+export const jobPositionsQuery = groq`*[_type == "jobPosition"] {
+  _id,
+  _createdAt,
+  jobTitle,
+  location,
+  "slug": slug.current,
+ 
+}`;
+
+export const singleJobPositionQuery = groq`*[_type == "jobPosition" && slug.current == $slug][0] {
+  jobTitle,
+  location,
+}`;
 
 export async function getProfile() {
   return client.fetch(
