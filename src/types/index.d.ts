@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "sanity";
+
 export type RegularPage = {
   frontmatter: {
     title: string;
@@ -157,4 +159,60 @@ export type Card = {
   title: string;
   content: string;
   button: Button;
+};
+
+export type ProfileType = {
+  _id: string;
+  fullName: string;
+  headline: string;
+  profileImage: {
+    alt: string;
+    image: string;
+  };
+  shortBio: string;
+  email: string;
+  fullBio: PortableTextBlock[];
+  location: string;
+  resumeURL: string;
+  socialLinks: string[];
+  skills: string[];
+};
+
+export type JobPosition = {
+  _id: string;
+  jobTitle: string;
+  location: string;
+};
+
+export type User = {
+  _type: string;
+  name: string;
+  email: string;
+  message: string;
+};
+
+export type EmployeeApplication = {
+  _id?: string;
+  _type: string;
+  dateOfApplication: string;
+  fname: string;
+  mname: string;
+  lname: string;
+  address1: string;
+  address2: string;
+  city: string;
+  state: string;
+  zipcode: string;
+  phone: string;
+  email: string;
+  positions: string;
+  employeeType: string;
+  availability: Array<string>;
+  weekendAvailability: string;
+  overtime: string;
+  startDate: string;
+  accommodation: string;
+  accommodationMessage: string;
+  jobPositionID: string;
+  jobPosition: string;
 };

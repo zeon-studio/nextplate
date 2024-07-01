@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es6",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -26,6 +26,7 @@
       "@/shortcodes/*": ["./src/layouts/shortcodes/*"],
       "@/partials/*": ["./src/layouts/partials/*"],
       "@/helpers/*": ["./src/layouts/helpers/*"],
+      "@sanity/*": ["../../../../sanity/*"],
       "@/*": ["./src/*"]
     }
   },
@@ -35,9 +36,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/layouts/helpers/photos.js",
-    "src/layouts/helpers/photos.js",
-    "src/layouts/helpers/photos.js",
-    "src/layouts/partials/revealOnScroll.js",
     "src/layouts/partials/revealOnScroll.js",
     "src/layouts/helpers/CustomInView.js"
   ],

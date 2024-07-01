@@ -1,20 +1,29 @@
+"use server";
+
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
 import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
-import Image from "next/image";
+import JobPositionCard from "@/components/JobPositionCard";
+import { sanityFetch } from "../../../sanity/sanity.client";
+import { jobPositionsQuery } from "../../../sanity/sanity.query";
+import { JobPosition } from "@/types";
 
 const { career } = config.settings;
-
-const Career = () => {
+const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
-
-  const { title, meta_title, description, career_title, career_content } =
+  const { title, meta_title, description, career_title, career_content, link } =
     data.frontmatter;
-
   const callToAction = getListPage("sections/call-to-action.md");
+
+  const jobPositions: JobPosition[] = await sanityFetch({
+    query: jobPositionsQuery,
+    tags: ["jobPosition"],
+  });
+
+  console.log("REFETCHED JOB POSITIONS: ", jobPositions);
 
   return (
     <>
@@ -27,6 +36,7 @@ const Career = () => {
         title={data.frontmatter.title}
         subtitle={data.frontmatter.subtitle}
       />
+
       <section className="section">
         <div className="container pb-14">
           <div className="w-full">
@@ -34,7 +44,7 @@ const Career = () => {
               <div className="row">
                 <div className="relative">
                   <h2
-                    className="text-primary pb-2 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
+                    className="text-dark-grey pb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
                     dangerouslySetInnerHTML={markdownify(career_title)}
                   />
                   <p
@@ -43,10 +53,10 @@ const Career = () => {
                   />
                 </div>
               </div>
+              <JobPositionCard jobPositions={jobPositions}></JobPositionCard>
             </div>
           </div>
         </div>
-
         <CallToAction data={callToAction}></CallToAction>
       </section>
     </>
