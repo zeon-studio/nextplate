@@ -6,6 +6,14 @@ export const slugify = (content: string) => {
   return slug(content);
 };
 
+export const decodeSlugify = (content: string) => {
+  var replaceDash = content.replaceAll("-", " ");
+  var capitialize = replaceDash.replace(/\b./g, function (m) {
+    return m.toUpperCase();
+  });
+  return capitialize;
+};
+
 // markdownify
 export const markdownify = (content: string, div?: boolean) => {
   if (typeof content !== "string") {

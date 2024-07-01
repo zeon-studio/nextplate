@@ -6,6 +6,7 @@ meta_title: ""
 description: "this is meta description"
 image1: "/images/commitment-to-quality-2.jpg"
 image2: "/images/ninth-ave-9.jpg"
+link: "career/employee-application"
 
 career_title: "Open Positions"
 career_content: ""

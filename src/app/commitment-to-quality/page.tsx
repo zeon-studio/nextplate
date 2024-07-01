@@ -41,7 +41,7 @@ const CommitmentToQuality = () => {
         <div className="container pb-14">
           <div className="w-full">
             <div className="gx-5 grid lg:grid-cols-5 gap-10">
-              <div className="lg:col-11 lg:mx-4 mx-1 col-span-3">
+              <div className="lg:col-12 lg:mx-4 mx-1 col-span-3">
                 <div className="row">
                   <div className="relative">
                     <h2
@@ -57,8 +57,8 @@ const CommitmentToQuality = () => {
                       )}
                     />
                   </div>
-                  <div className="mx-auto py-8 md:px-0 animate-fade animate-delay-[300ms] ease-in px-8">
-                    <div className="relative flex sm:flex-row flex-col gap-2">
+                  <div className="mx-auto py-8 md:px-4 animate-fade animate-delay-[300ms] ease-in px-4">
+                    <div className="relative flex sm:flex-row flex-col gap-1">
                       {/* Left image */}
                       <div className="sm:w-1/2">
                         <Image
@@ -72,7 +72,7 @@ const CommitmentToQuality = () => {
                       </div>
 
                       {/* Right column with two stacked images */}
-                      <div className="flex flex-col gap-2 sm:w-1/2">
+                      <div className="flex flex-col gap-2 sm:w-5/6 mx-auto">
                         <div className="flex-1">
                           <Image
                             src={image2}
@@ -104,7 +104,7 @@ const CommitmentToQuality = () => {
                 </div>
               </div>
 
-              <div className="col-span-2 w-[400px] hidden lg:block">
+              <div className="col-span-2 w-[400px] hidden lg:block pl-10">
                 <Sidebar
                   side_bar_title={"Capabilities"}
                   categories={capabilities}
