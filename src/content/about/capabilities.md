@@ -14,7 +14,6 @@ services:
       enable: true
       label: "More info"
       link: "/cutting-edge-technology"
-
   - image: "/images/commitment-to-quality.jpg"
     link: "/commitment-to-quality"
     alt: "workers image"
@@ -24,7 +23,6 @@ services:
       enable: true
       label: "More Info"
       link: "/commitment-to-quality"
-
   - image: "/images/gallery/gallery-2.jpg"
     link: "/private-label-co-packing"
     alt: "dairy products image"

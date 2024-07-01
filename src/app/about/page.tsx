@@ -11,11 +11,13 @@ import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import Services from "@/partials/Services";
 import CallToAction from "@/partials/CallToAction";
+import OurLocations from "@/components/OurLocations";
 
 const About = async () => {
   const data = getListPage("about/_index.md");
   const capabilities = getListPage("about/capabilities.md");
   const callToAction = getListPage("sections/call-to-action.md");
+  const our_locations = getListPage("about/our_locations.md");
   const { frontmatter } = data;
   const {
     title,
@@ -23,8 +25,8 @@ const About = async () => {
     meta_title,
     description,
     image,
-    our_locations_title,
-    our_locations_content,
+    contact_title,
+    contact_content,
   } = frontmatter;
   const { features }: { features: Feature[] } = frontmatter;
 
@@ -64,7 +66,7 @@ const About = async () => {
                   className="flex lg:flex-row flex-col items-center"
                   key={index}
                 >
-                  {image && (
+                  {feature.image && (
                     <ImageFallback
                       className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover  animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
@@ -121,31 +123,32 @@ const About = async () => {
         {/* Our capabilities */}
         <Services data={capabilities} />
 
-        {/* Our locations */}
         <div className="flex flex-col items-center justify-center py-24">
-          <div className="md:col-8 xl:col-6 col-10">
+          {/* Our locations */}
+          <OurLocations data={our_locations} />
+          {/* Map */}
+          <div className="flex flex-col items-center justify-center py-14 bg-theme-light w-full">
             <h2
-              dangerouslySetInnerHTML={markdownify(our_locations_title)}
-              className="mb-6 text-center animate-fade animate-duration-[600ms] ease-in"
+              dangerouslySetInnerHTML={markdownify(contact_title)}
+              className="mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
             />
             <p
               className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
-              dangerouslySetInnerHTML={markdownify(our_locations_content)}
+              dangerouslySetInnerHTML={markdownify(contact_content)}
             />
-          </div>
+            <div className="flex lg:flex-row flex-col items-center">
+              <div className="relative justify-center w-full lg:left-[4rem]">
+                <PointsOfContact data={data}></PointsOfContact>
+              </div>
 
-          <div className="container flex lg:flex-row flex-col items-center">
-            <div className="relative flex justify-center w-full lg:right-[1.5rem] py-5">
-              <PointsOfContact data={data}></PointsOfContact>
-            </div>
-
-            <div className="lg:w-full md:w-5/6 w-full">
-              <div className="relative lg:h-[45vh] h-[35vh] xl:w-[700px] xl:right-[12rem] lg:right-[9rem]">
-                <Map
-                  center={centerCoord}
-                  position1={californiaCoord}
-                  position2={indianaCoord}
-                />
+              <div className="lg:w-full md:w-5/6 w-full">
+                <div className="relative lg:h-[45vh] h-[35vh] xl:w-[700px] right-[4rem]">
+                  <Map
+                    center={centerCoord}
+                    position1={californiaCoord}
+                    position2={indianaCoord}
+                  />
+                </div>
               </div>
             </div>
           </div>

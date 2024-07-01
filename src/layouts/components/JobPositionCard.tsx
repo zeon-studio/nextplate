@@ -4,37 +4,12 @@
 import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { sanityFetch } from "sanity/sanity.client";
-import { jobPositionsQuery } from "../../../sanity/sanity.query";
 
 interface JobPositionProps {
   jobPositions: JobPosition[];
 }
 
 const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
-  // const router = useRouter();
-  // const [jobPositions, setJobPositions] = useState<JobPosition[]>([]);
-
-  // const getAllJobPositions = async () => {
-  //   try {
-  //     const result = await fetch("/api/job-positions", {
-  //       method: "GET",
-  //       cache: "no-store",
-  //     });
-  //     const job_positions = (await result.json()) as JobPosition[];
-  //     setJobPositions(job_positions);
-  //   } catch (error) {
-  //     setJobPositions([]);
-  //     console.error(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getAllJobPositions();
-  // }, []);
-
   return (
     <>
       <div>
@@ -61,7 +36,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <h4 className="text-dark-grey font-semibold">
+                  <h4 className="text-dark-grey font-semibold md:text-h4 text-lg">
                     {data.jobTitle}
                   </h4>
                 </div>
@@ -83,7 +58,9 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                     />
                   </svg>
 
-                  <h5 className="text-grey text-lg">{data.location}</h5>
+                  <h5 className="text-grey md:text-lg text-sm">
+                    {data.location}
+                  </h5>
                 </div>
               </div>
               <Link
@@ -94,7 +71,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                   query: data,
                 }}
               >
-                Apply to this position
+                <p className="md:text-lg text-sm">Apply to this position</p>
               </Link>
             </div>
           ))}

@@ -23,8 +23,6 @@ const Career = async () => {
     tags: ["jobPosition"],
   });
 
-  console.log("REFETCHED JOB POSITIONS: ", jobPositions);
-
   return (
     <>
       <SeoMeta
@@ -47,13 +45,13 @@ const Career = async () => {
                     className="text-dark-grey pb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
                     dangerouslySetInnerHTML={markdownify(career_title)}
                   />
-                  <p
-                    className="text-lg animate-fade animate-delay-[200ms] ease-in"
-                    dangerouslySetInnerHTML={markdownify(career_content)}
-                  />
                 </div>
               </div>
               <JobPositionCard jobPositions={jobPositions}></JobPositionCard>
+              <p
+                className="text-lg animate-fade animate-delay-[200ms] ease-in"
+                dangerouslySetInnerHTML={markdownify(career_content)}
+              />
             </div>
           </div>
         </div>
