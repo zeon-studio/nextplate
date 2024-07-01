@@ -25,7 +25,6 @@ export const jobPositionsQuery = groq`*[_type == "jobPosition"] {
   _createdAt,
   jobTitle,
   location,
-  "slug": slug.current,
  
 }`;
 

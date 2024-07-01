@@ -23,6 +23,8 @@ const Career = async () => {
     tags: ["jobPosition"],
   });
 
+  console.log("REFETCHED JOB POSITIONS: ", jobPositions);
+
   return (
     <>
       <SeoMeta
