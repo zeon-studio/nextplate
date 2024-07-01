@@ -31,7 +31,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
       <section>
         {/* Our location */}
         <div className="flex flex-col items-center justify-center">
-          <div className="md:col-8 xl:col-6 col-10">
+          <div className="md:col-8 lg:col-6 col-10">
             <h2
               dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
               className="mb-6 text-center text-primary animate-fade animate-duration-[600ms] ease-in"
@@ -48,18 +48,18 @@ const OurLocations = ({ data }: { data: PageData }) => {
               <div key={index}>
                 {/* Location 1 */}
                 {index === 0 && (
-                  <div className="flex flex-col items-center justify-center">
+                  <div className="flex flex-col items-center justify-center md:pt-0 pt-8">
                     <div className="md:col-8 xl:col-6 col-10">
-                      <div className="flex flex-row items-center justify-center">
+                      <div className="flex md:flex-row flex-col items-center justify-center">
                         <ImageFallback
-                          className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
+                          className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                           src={locations.image}
                           width={600}
                           height={600}
                           alt={locations.alt}
                         />
 
-                        <div className="flex-col pl-10">
+                        <div className="flex-col md:pl-10">
                           <h4
                             dangerouslySetInnerHTML={markdownify(
                               locations.location_title,
@@ -80,10 +80,10 @@ const OurLocations = ({ data }: { data: PageData }) => {
 
                 {/* Location 2 */}
                 {index === 1 && (
-                  <div className="flex flex-col items-center justify-center pb-24">
+                  <div className="flex flex-col items-center justify-center pb-24 md:pt-0 pt-8">
                     <div className="md:col-8 xl:col-6 col-10">
-                      <div className="flex flex-row items-center justify-center">
-                        <div className="flex-col pr-10">
+                      <div className="flex md:flex-row flex-col items-center justify-center">
+                        <div className="flex-col md:pr-10">
                           <h4
                             dangerouslySetInnerHTML={markdownify(
                               locations.location_title,
@@ -98,7 +98,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
                           />
                         </div>
                         <ImageFallback
-                          className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
+                          className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 md:mt-0 mt-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                           src={locations.image}
                           width={600}
                           height={600}
