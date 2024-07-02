@@ -40,7 +40,7 @@ const About = async () => {
   const centerCoord: [number, number] = [37.97691609334666, -98.96814793776119];
   const Map = useMemo(
     () =>
-      dynamic(() => import("@/components/Map"), {
+      dynamic(() => import("@/partials/Map"), {
         loading: () => <p>Loading map...</p>,
         ssr: false,
       }),

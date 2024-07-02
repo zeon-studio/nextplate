@@ -25,7 +25,7 @@ const Contact = async () => {
 
   const Map = useMemo(
     () =>
-      dynamic(() => import("@/components/Map"), {
+      dynamic(() => import("@/partials/Map"), {
         loading: () => <p>Loading map...</p>,
         ssr: false,
       }),
