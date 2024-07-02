@@ -20,14 +20,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
   });
 
   return (
-    <div
-      ref={ref1}
-      className={`${
-        inView1
-          ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms] px-10"
-          : ""
-      }`}
-    >
+    <div className="px-10" ref={ref1}>
       <section>
         {/* Our location */}
         <div className="flex flex-col items-center justify-center">
@@ -48,7 +41,13 @@ const OurLocations = ({ data }: { data: PageData }) => {
               <div key={index}>
                 {/* Location 1 */}
                 {index === 0 && (
-                  <div className="flex flex-col items-center justify-center md:pt-0 pt-8">
+                  <div
+                    className={`flex flex-col items-center justify-center md:pt-0 pt-8 ${
+                      inView1
+                        ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
+                        : ""
+                    }`}
+                  >
                     <div className="md:col-8 xl:col-6 col-10">
                       <div className="flex md:flex-row flex-col items-center justify-center">
                         <ImageFallback
@@ -80,7 +79,13 @@ const OurLocations = ({ data }: { data: PageData }) => {
 
                 {/* Location 2 */}
                 {index === 1 && (
-                  <div className="flex flex-col items-center justify-center pb-24 md:pt-0 pt-8">
+                  <div
+                    className={`flex flex-col items-center justify-center pb-24 md:pt-0 pt-8 ${
+                      inView1
+                        ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
+                        : ""
+                    }`}
+                  >
                     <div className="md:col-8 xl:col-6 col-10">
                       <div className="flex md:flex-row flex-col items-center justify-center">
                         <div className="flex-col md:pr-10">
