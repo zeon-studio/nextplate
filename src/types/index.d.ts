@@ -122,10 +122,8 @@ export type Buttons = {
 export type Our_locations = {
   title: string;
   subtitle: string;
-  location1_title: string;
-  location1_content: string;
-  location2_title: string;
-  location2_content: string;
+  location_title: string;
+  location_content: string;
   image: string;
   alt: string;
 };
