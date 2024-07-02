@@ -47,7 +47,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
                 onClick={({ index }) => setIndex(index)}
                 renderPhoto={NextJsImage}
                 defaultContainerWidth={1200}
-                breakpoints={[100, 200, 1000]}
+                breakpoints={[290, 950, 1200, 1500, 2000]}
               />
             </div>
           </div>
