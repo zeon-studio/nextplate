@@ -22,6 +22,7 @@ const Career = async () => {
     query: jobPositionsQuery,
     tags: ["jobPosition"],
   });
+  console.log(jobPositions);
 
   return (
     <>
