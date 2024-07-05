@@ -10,6 +10,13 @@ const nextConfig = {
     SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID,
     SANITY_DATASET: process.env.SANITY_DATASET,
   },
+
+  // Aid in debugging and understanding what's in the cache, revalidated...
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
 };
 
 module.exports = nextConfig;
