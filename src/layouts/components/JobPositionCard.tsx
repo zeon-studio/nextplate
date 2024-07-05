@@ -22,7 +22,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
               <div className="flex flex-col">
                 <div className="flex flex-row items-center">
                   <svg
-                    className="w-6 h-6 text-dark-grey mr-2"
+                    className="md:w-6 md:h-6 w-5 h-5 text-dark-grey mr-2"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -43,7 +43,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
 
                 <div className="flex flex-row items-center">
                   <svg
-                    className="w-5 h-5 text-medium-green"
+                    className="md:w-5 md:h-5 w-4 h-4 mr-1 text-medium-green"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

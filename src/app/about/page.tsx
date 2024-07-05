@@ -127,7 +127,7 @@ const About = async () => {
           {/* Our locations */}
           <OurLocations data={our_locations} />
           {/* Map */}
-          <div className="flex flex-col text-center items-center justify-center py-14 bg-theme-light w-full">
+          <div className="flex flex-col text-center items-center justify-center py-14 bg-theme-light w-full px-4">
             <h2
               dangerouslySetInnerHTML={markdownify(contact_title)}
               className="mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
@@ -136,13 +136,13 @@ const About = async () => {
               className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
               dangerouslySetInnerHTML={markdownify(contact_content)}
             />
-            <div className="flex lg:flex-row flex-col items-center">
+            <div className="flex lg:flex-row flex-col items-center md:pt-0 pt-8">
               <div className="relative justify-center w-full lg:left-[4rem]">
                 <PointsOfContact data={data}></PointsOfContact>
               </div>
 
-              <div className="lg:w-full md:w-5/6 w-full ">
-                <div className="relative lg:h-[45vh] h-[35vh] xl:w-[700px] right-[4rem]">
+              <div className="lg:w-full md:w-5/6 w-full">
+                <div className="relative lg:h-[45vh] h-[35vh] w-[340px] xl:w-[700px] md:right-[4rem]">
                   <Map
                     center={centerCoord}
                     position1={californiaCoord}
