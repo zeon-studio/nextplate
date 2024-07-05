@@ -10,10 +10,12 @@ export async function POST(req: NextRequest) {
     }>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
 
     if (!isValidSignature) {
+      console.log("Invalid Signature");
       return new Response("Invalid Signature", { status: 401 });
     }
 
     if (!body?._type) {
+      console.log("Bad Request");
       return new Response("Bad Request", { status: 400 });
     }
 
