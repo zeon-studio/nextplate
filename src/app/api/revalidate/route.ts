@@ -8,7 +8,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     const { body, isValidSignature } = await parseBody<{
       _type: string;
       slug?: string | undefined;
-    }>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
+    }>(req, process.env.SANITY_HOOK_SECRET);
 
     if (!isValidSignature) {
       console.log("Invalid Signature");
