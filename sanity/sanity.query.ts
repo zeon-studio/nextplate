@@ -7,7 +7,7 @@ import tags from "@/app/tags/page";
 export async function getJobPositions() {
   try {
     return client.fetch(
-      groq`*[_type == "jobPosition"] {
+      `*[_type == "jobPosition"] {
       _id,
       _createdAt,
       jobTitle,
