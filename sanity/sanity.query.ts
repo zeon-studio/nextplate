@@ -1,7 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "./sanity.client";
 import type { EmployeeApplication } from "@/types";
-import tags from "@/app/tags/page";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
 export async function getJobPositions() {
@@ -14,7 +13,7 @@ export async function getJobPositions() {
       location,
     }`,
       {},
-      { next: { tags: ["jobPosition"] } },
+      { next: { tags: ["jobPositions"] } },
     );
   } catch (error) {
     console.error("Error fetching job positions:", error);
