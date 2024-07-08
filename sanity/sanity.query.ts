@@ -1,5 +1,5 @@
 import { groq } from "next-sanity";
-import client from "./sanity.client";
+import { client } from "./sanity.client";
 import type { EmployeeApplication } from "@/types";
 import tags from "@/app/tags/page";
 
@@ -13,8 +13,8 @@ export async function getJobPositions() {
       jobTitle,
       location,
     }`,
-      // {},
-      // { next: { tags: ["jobPosition"] } },
+      {},
+      { next: { tags: ["jobPosition"] } },
     );
   } catch (error) {
     console.error("Error fetching job positions:", error);

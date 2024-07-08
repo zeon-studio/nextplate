@@ -2,7 +2,7 @@ import "server-only";
 
 import { createClient, type QueryParams } from "next-sanity";
 
-export const client = createClient({
+const client = createClient({
   projectId: process.env.SANITY_PROJECT_ID,
   dataset: process.env.SANITY_DATASET,
   apiVersion: process.env.SANITY_API_VERSION,
@@ -29,4 +29,4 @@ export async function sanityFetch<QueryResponse>({
   });
 }
 
-export default client;
+export { client };
