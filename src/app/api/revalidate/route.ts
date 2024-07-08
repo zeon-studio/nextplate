@@ -1,8 +1,9 @@
-import { revalidateTag } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { parseBody } from "next-sanity/webhook";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest, res: NextApiResponse) {
   try {
     const { body, isValidSignature } = await parseBody<{
       _type: string;

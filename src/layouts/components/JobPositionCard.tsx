@@ -4,12 +4,17 @@
 import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
+import { useRouter } from "next/navigation";
 
 interface JobPositionProps {
   jobPositions: JobPosition[];
 }
 
 const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
+  // Refresh the current route
+  const router = useRouter();
+  router.refresh();
+
   return (
     <>
       <div>

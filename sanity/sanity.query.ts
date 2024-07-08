@@ -1,36 +1,26 @@
 import { groq } from "next-sanity";
 import client from "./sanity.client";
 import type { EmployeeApplication } from "@/types";
+import tags from "@/app/tags/page";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
 export async function getJobPositions() {
-  const query = `*[_type == "jobPosition"] {
-    _id,
-    _createdAt,
-    jobTitle,
-    location,
-  }`;
-
   try {
-    const jobPositions = await client.fetch(query);
-    return jobPositions;
+    return client.fetch(
+      groq`*[_type == "jobPosition"] {
+      _id,
+      _createdAt,
+      jobTitle,
+      location,
+    }`,
+      {},
+      { next: { tags: ["jobPosition"] } },
+    );
   } catch (error) {
     console.error("Error fetching job positions:", error);
     return [];
   }
 }
-
-export const jobPositionsQuery = groq`*[_type == "jobPosition"] {
-  _id,
-  _createdAt,
-  jobTitle,
-  location,
-}`;
-
-export const singleJobPositionQuery = groq`*[_type == "jobPosition" && slug.current == $slug][0] {
-  jobTitle,
-  location,
-}`;
 
 export async function getProfile() {
   return client.fetch(

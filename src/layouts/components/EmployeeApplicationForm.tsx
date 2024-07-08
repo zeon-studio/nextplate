@@ -4,6 +4,7 @@ import { FormEvent, useState, useEffect } from "react";
 import ErrorAlert from "@/partials/ErrorAlert";
 import SuccessAlert from "@/partials/SuccessAlert";
 import { Dict } from "styled-components/dist/types";
+import EmploymentDesired from "./EmploymentDesired";
 
 const EmployeeApplicationForm = ({
   jobPositionID,
@@ -65,7 +66,8 @@ const EmployeeApplicationForm = ({
       if (!selectedRadioBtn[setName].includes(true)) {
         setFormErrors((prevErrors) => ({
           ...prevErrors,
-          [errorKey]: `Pick one radio button for ${setName}`,
+          // [errorKey]: `Pick one radio button for ${setName}`,
+          [errorKey]: `Pick one radio button`,
         }));
         return false;
       } else {
@@ -685,9 +687,100 @@ const EmployeeApplicationForm = ({
                     required={isRequired}
                   ></textarea>
                 </div>
+
+                {/* EMPLOYMENT EXPERIENCE */}
+                <h5 className="text-dark-grey pt-10 w-full">
+                  EMPLOYMENT EXPERIENCE
+                </h5>
+                <p>
+                  List the names of your present or previous employers in
+                  chronological order with present or most recent employer
+                  listed first. Be sure to account for all periods of time. If
+                  self-employed, give firm name and supply business references.
+                  Add additional page if necessary.
+                </p>
+                <hr className="w-full h-[1px] bg-dark-grey my-6" />
+                <div className="flex md:flex-row flex-col">
+                  <div className="w-full md:mb-6 mb-3 pr-3">
+                    <label
+                      htmlFor="nameofEmployer1"
+                      className="form-label text-dark-grey"
+                    >
+                      Name of Employer <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="nameofEmployer1"
+                      name="nameofEmployer1"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                      required
+                    />
+                  </div>
+
+                  <div className="w-full md:mb-6 mb-3 pr-3">
+                    <label
+                      htmlFor="supervisor1"
+                      className="form-label text-dark-grey"
+                    >
+                      Supervisor <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="supervisor1"
+                      name="supervisor1"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                      required
+                    />
+                  </div>
+
+                  <div className="w-full md:mb-6 mb-3">
+                    <label className="form-label text-dark-grey">
+                      May we contact? <span className="text-red-500">*</span>
+                    </label>
+
+                    {/* Radio buttons */}
+                    <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                      <div className="flex flex-row items-center">
+                        <input
+                          id="yesContact1"
+                          name="employerContact1"
+                          value="Yes"
+                          type="radio"
+                          className="mr-1"
+                          checked={selectedRadioBtn["radioSet1"][0]}
+                          onChange={() =>
+                            setSelectedRadioBtn({
+                              ...selectedRadioBtn,
+                              radioSet1: [true, false],
+                            })
+                          }
+                        />
+                        <label htmlFor="yesContact1"> Yes</label>
+                      </div>
+
+                      <div className="flex flex-row items-center">
+                        <input
+                          id="noContact1"
+                          name="employerContact1"
+                          value="No"
+                          type="radio"
+                          className="md:ml-4 mr-1"
+                          checked={selectedRadioBtn["radioSet1"][1]}
+                          onChange={() =>
+                            setSelectedRadioBtn({
+                              ...selectedRadioBtn,
+                              radioSet1: [false, true],
+                            })
+                          }
+                        />
+                        <label htmlFor="noContact1"> No</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Submit button */}
+              {/* Submit form button */}
               <div className="">
                 <button
                   type="submit"

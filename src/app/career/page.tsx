@@ -7,13 +7,8 @@ import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import JobPositionCard from "@/components/JobPositionCard";
-import client, { sanityFetch } from "../../../sanity/sanity.client";
-import {
-  getJobPositions,
-  jobPositionsQuery,
-} from "../../../sanity/sanity.query";
+import { getJobPositions } from "../../../sanity/sanity.query";
 import { JobPosition } from "@/types";
-import { groq } from "next-sanity";
 
 const { career } = config.settings;
 const Career = async () => {
@@ -21,11 +16,6 @@ const Career = async () => {
   const { title, meta_title, description, career_title, career_content, link } =
     data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
-
-  // const jobPositions: JobPosition[] = await sanityFetch({
-  //   query: jobPositionsQuery,
-  //   tags: ["jobPosition"],
-  // });
 
   const jobPositions: JobPosition[] = await getJobPositions();
   // console.log("Fetched job positions: ", jobPositions);
