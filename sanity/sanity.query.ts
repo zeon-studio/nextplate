@@ -7,14 +7,14 @@ import tags from "@/app/tags/page";
 export async function getJobPositions() {
   try {
     return client.fetch(
-      `*[_type == "jobPosition"] {
+      groq`*[_type == "jobPosition"] {
       _id,
       _createdAt,
       jobTitle,
       location,
     }`,
-      {},
-      { next: { tags: ["jobPosition"] } },
+      // {},
+      // { next: { tags: ["jobPosition"] } },
     );
   } catch (error) {
     console.error("Error fetching job positions:", error);
