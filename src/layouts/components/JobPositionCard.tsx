@@ -5,7 +5,7 @@ import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface JobPositionProps {
   jobPositions: JobPosition[];

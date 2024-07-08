@@ -9,16 +9,22 @@ import CallToAction from "@/partials/CallToAction";
 import JobPositionCard from "@/components/JobPositionCard";
 import { getJobPositions } from "../../../sanity/sanity.query";
 import { JobPosition } from "@/types";
+import { sanityFetch } from "../../../sanity/sanity.client";
 
 const { career } = config.settings;
+
 const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
   const { title, meta_title, description, career_title, career_content, link } =
     data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
 
-  const jobPositions: JobPosition[] = await getJobPositions();
+  // const jobPositions: JobPosition[] = await getJobPositions();
   // console.log("Fetched job positions: ", jobPositions);
+  const jobPositions: JobPosition[] = await sanityFetch({
+    query: `*[_type == "jobPosition"]`,
+    tags: ["jobPosition"],
+  });
 
   return (
     <>
