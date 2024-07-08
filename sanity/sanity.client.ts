@@ -24,8 +24,8 @@ export async function sanityFetch<QueryResponse>({
   return client.fetch<QueryResponse>(query, params, {
     // disable cache in development
     // cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
-    cache: "no-store",
-    next: { tags },
+    cache: "no-cache",
+    next: { tags, revalidate: 0 },
   });
 }
 

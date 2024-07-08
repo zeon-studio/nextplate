@@ -10,6 +10,8 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       slug?: string | undefined;
     }>(req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET);
 
+    console.log("Body: ", body);
+
     if (!isValidSignature) {
       console.log("Invalid Signature");
       return new Response("Invalid Signature", { status: 401 });
@@ -20,6 +22,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       return new Response("Bad Request", { status: 400 });
     }
 
+    console.log("Revalidated tag: ", body._type);
     revalidateTag(body._type);
 
     return NextResponse.json({
