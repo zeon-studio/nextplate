@@ -5,6 +5,7 @@ import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 interface JobPositionProps {
   jobPositions: JobPosition[];
@@ -13,7 +14,11 @@ interface JobPositionProps {
 const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
   // Refresh the current route
   const router = useRouter();
-  router.refresh();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      router.refresh();
+    }
+  });
 
   return (
     <>
