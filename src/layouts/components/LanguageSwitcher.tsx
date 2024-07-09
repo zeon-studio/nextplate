@@ -18,7 +18,13 @@ export default function LanguageSwitcher({
 
   const redirectedPathName = useCallback(
     (locale: string) => {
-      router.push(slugSelector(locale, pathname.split("/").slice(2).join("/")));
+      const hasLocale = languages.some((lang) => {
+        return pathname.includes(lang.languageCode);
+      });
+      const sliceNumber = hasLocale ? 2 : 1;
+      router.push(
+        slugSelector(locale, pathname.split("/").slice(sliceNumber).join("/")),
+      );
     },
     [pathname],
   );
