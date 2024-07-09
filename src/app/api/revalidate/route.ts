@@ -23,8 +23,8 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       return new Response("Bad Request", { status: 400 });
     }
 
-    // revalidateTag(body._type);
-    revalidateTag("jobPositions");
+    revalidateTag(body._type);
+    // revalidateTag("jobPositions");
 
     return NextResponse.json({
       status: 200,
