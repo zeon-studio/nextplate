@@ -29,7 +29,25 @@ export default function LanguageSwitcher({
             slugSelector("/", pathname.split("/").splice(2).join("/")),
           );
         } else {
-          router.push(slugSelector(locale, pathname));
+          const removeLocaleFromPathname = () => {
+            const segments = pathname.split("/");
+            return segments
+              .filter((item, index) => {
+                const isLanguageCode = languages.some(
+                  (lang) => lang.languageCode === item.toLowerCase(),
+                );
+                const isSecondSegmentWithoutUnknownLocale =
+                  index === 1 &&
+                  segments.length > 2 &&
+                  segments[index].length === 2 &&
+                  !isLanguageCode;
+
+                return !isLanguageCode && !isSecondSegmentWithoutUnknownLocale;
+              })
+              .join("/");
+          };
+
+          router.push(slugSelector(locale, removeLocaleFromPathname()));
         }
       }
     },
