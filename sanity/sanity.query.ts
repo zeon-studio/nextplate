@@ -13,7 +13,7 @@ export async function getJobPositions() {
       location,
     }`,
       {},
-      { next: { cache: 'no-store' } },
+      { next: { tags: ["jobPositions"] } },
     );
   } catch (error) {
     console.error("Error fetching job positions:", error);
