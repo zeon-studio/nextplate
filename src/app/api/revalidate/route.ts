@@ -24,6 +24,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     }
 
     revalidateTag(body._type);
+    revalidateTag(`${body._type}:${body.slug}`)
     // revalidateTag("jobPositions");
 
     return NextResponse.json({
