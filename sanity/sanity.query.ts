@@ -15,6 +15,7 @@ export async function getJobPositions() {
       {},
       {
         cache: "no-store",
+        headers: { "Cache-Control": "no-store" },
       },
     );
   } catch (error) {
