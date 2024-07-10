@@ -136,13 +136,13 @@ const About = async () => {
               className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
               dangerouslySetInnerHTML={markdownify(contact_content)}
             />
-            <div className="flex lg:flex-row flex-col items-center md:pt-0 pt-8">
-              <div className="relative justify-center w-full lg:left-[4rem]">
+            <div className="flex md:flex-row flex-col items-center md:pt-0 pt-8">
+              <div className="relative justify-center w-full lg:left-[3rem] md:left-[3rem]">
                 <PointsOfContact data={data}></PointsOfContact>
               </div>
 
               <div className="lg:w-full md:w-5/6 w-full">
-                <div className="relative lg:h-[45vh] h-[35vh] w-[340px] xl:w-[700px] md:right-[4rem]">
+                <div className="relative 2xl:h-[45vh] xl:h-[60vh] h-[35vh] w-[340px] xl:w-[800px] md:w-[500px] md:right-[2rem]">
                   <Map
                     center={centerCoord}
                     position1={californiaCoord}

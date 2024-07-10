@@ -3,6 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { parseBody } from "next-sanity/webhook";
 
+// https://github.com/Evavic44/sanity-nextjs-revalidation/tree/main/app
 export async function POST(req: NextRequest, res: NextApiResponse) {
   try {
     const { body, isValidSignature } = await parseBody<{

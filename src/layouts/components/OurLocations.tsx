@@ -24,7 +24,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
       <section>
         {/* Our location */}
         <div className="flex flex-col items-center justify-center">
-          <div className="md:col-8 lg:col-6 col-10">
+          <div className="md:col-8 lg:col-7 col-10">
             <h2
               dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
               className="mb-6 text-center text-primary animate-fade animate-duration-[600ms] ease-in"
@@ -48,7 +48,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
                         : ""
                     }`}
                   >
-                    <div className="md:col-8 xl:col-6 col-10">
+                    <div className="md:col-8 xl:col-7 col-10">
                       <div className="flex md:flex-row flex-col items-center justify-center">
                         <ImageFallback
                           className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
@@ -86,7 +86,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
                         : ""
                     }`}
                   >
-                    <div className="md:col-8 xl:col-6 col-10">
+                    <div className="md:col-8 xl:col-7 col-10">
                       <div className="flex md:flex-row flex-col items-center justify-center">
                         <div className="flex-col md:pr-10">
                           <h4

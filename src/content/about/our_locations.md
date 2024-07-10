@@ -6,9 +6,9 @@ our_locations:
   - image: "/images/banner-image.jpg"
     alt: "City of Industry Warehouse"
     location_title: "California"
-    location_content: "Located in City of Industry, our [Location 1] offers [key services/specialties]. With a team of [number] dedicated professionals, we are here to [key focus]."
+    location_content: "Located in City of Industry, our California location offers [key services/specialties]. With a team of [number] dedicated professionals, we are here to [key focus]."
   - image: "/images/banner-image.jpg"
     alt: "Columbus Warehouse"
     location_title: "Indiana"
-    location_content: "Located in Columbus, our [Location 2] offers [key services/specialties]. With a team of [number] dedicated professionals, we are here to [key focus]."
+    location_content: "Located in Columbus, our Indiana location offers [key services/specialties]. With a team of [number] dedicated professionals, we are here to [key focus]."
 ---
