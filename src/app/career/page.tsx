@@ -19,17 +19,16 @@ const Career = async () => {
     data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
 
-  // const jobPositions: JobPosition[] = await getJobPositions();
+  const jobPositions: JobPosition[] = await getJobPositions();
   // console.log("Fetched job positions: ", jobPositions);
   // const jobPositions: JobPosition[] = await sanityFetch({
   //   query: `*[_type == "jobPosition"]`,
   //   tags: ["jobPosition"],
   // });
-
-  const jobPositions = await sanityFetch<JobPosition[]>({
-    query: `*[_type == "jobPosition"]`,
-    revalidate: 20, // update every 20 seconds
-  });
+  // const jobPositions = await sanityFetch<JobPosition[]>({
+  //   query: `*[_type == "jobPosition"]`,
+  //   revalidate: 20, // update every 20 seconds
+  // });
 
   return (
     <>
