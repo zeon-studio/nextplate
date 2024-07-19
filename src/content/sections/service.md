@@ -5,7 +5,7 @@ description: "Elevating Standards Through **Cutting-Edge Technology** and Unwave
 
 # Services
 services:
-  - image: "/images/ninth-ave-10.jpg"
+  - image: "/images/gallery/ninth-ave-10.jpg"
     link: "/cutting-edge-technology"
     alt: "warehouse image"
     title: "Cutting Edge Technology"

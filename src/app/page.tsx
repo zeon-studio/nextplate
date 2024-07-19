@@ -29,14 +29,14 @@ const Home = () => {
 
   // Define your list of photos for this page
   const galleryPhotos = [
-    { src: "/images/ninth-ave-7.jpg", width: 3678, height: 1353 },
-    { src: "/images/ninth-ave-2.jpg", width: 2128, height: 1416 },
-    { src: "/images/ninth-ave-3.jpg", width: 2128, height: 1416 },
-    { src: "/images/ninth-ave-6.jpg", width: 2128, height: 1416 },
-    { src: "/images/ninth-ave-5.jpg", width: 2128, height: 1416 },
-    { src: "/images/ninth-ave-8.jpg", width: 2128, height: 1416 },
-    { src: "/images/ninth-ave-1.jpg", width: 2036, height: 1355 },
-    { src: "/images/ninth-ave-10.jpg", width: 1999, height: 1330 },
+    { src: "/images/gallery/ninth-ave-7.jpg", width: 3678, height: 1353 },
+    { src: "/images/gallery/ninth-ave-2.jpg", width: 2128, height: 1416 },
+    { src: "/images/gallery/ninth-ave-3.jpg", width: 2128, height: 1416 },
+    { src: "/images/gallery/ninth-ave-6.jpg", width: 2128, height: 1416 },
+    { src: "/images/gallery/ninth-ave-5.jpg", width: 2128, height: 1416 },
+    { src: "/images/gallery/ninth-ave-8.jpg", width: 2128, height: 1416 },
+    { src: "/images/gallery/ninth-ave-1.jpg", width: 2036, height: 1355 },
+    { src: "/images/gallery/ninth-ave-10.jpg", width: 1999, height: 1330 },
   ];
 
   // Generate the photos array using the generatePhotos function

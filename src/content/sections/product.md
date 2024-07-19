@@ -5,7 +5,7 @@ description: "Discover our premium __**dairy**__ and __**non-dairy__** selection
 
 # Products
 products:
-  - image: "/images/products/milk-icon.png"
+  - image: "/images/products/dairy-icon.png"
     alt: "milk carton icon"
     width: "100"
     height: "100"

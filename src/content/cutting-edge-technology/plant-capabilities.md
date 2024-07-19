@@ -2,16 +2,15 @@
 # Capabilities
 capabilities:
   - title: "Our plant capabilities include:"
-    image: "/images/ninth-ave-8.jpg"
+    image: "/images/gallery/ninth-ave-8.jpg"
     alt: "banner image"
     bulletpoints:
       - "Direct Steam Injection UHT Systems"
       - "Custom Blending"
       - "ESL Bottles from 8oz-52oz"
       - "ESL Gable Top Cartons from 8oz-64oz"
-
   - title: "Our ESL capabilities include:"
-    image: "/images/ninth-ave-6.jpg"
+    image: "/images/gallery/ninth-ave-6.jpg"
     alt: "banner image"
     bulletpoints:
       - "Customized Batching and Blending"
