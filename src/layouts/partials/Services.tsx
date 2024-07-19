@@ -89,9 +89,9 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                             width={1330}
                             src={service.image}
                             alt={service.alt}
-                            className="rounded-lg ease-in duration-150 transform hover:scale-110"
+                            className="rounded-lg ease-in duration-150 transform hover:scale-110 2xl:max-h-[190px] max-h-[220px]"
                             style={{
-                              maxHeight: "220px",
+                              // maxHeight: "220px",
                               objectFit: "cover",
                               transition: "transform 0.5s",
                               transformOrigin: "center",
