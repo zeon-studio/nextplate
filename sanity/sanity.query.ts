@@ -12,9 +12,9 @@ export async function getJobPositions() {
       location,
     }`,
     {},
-    {
-      cache: "no-store",
-    },
+    // {
+    //   cache: "no-store",
+    // },
   );
 
   // try {
