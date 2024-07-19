@@ -54,11 +54,30 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                           : inView && index === 2
                             ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]"
                             : inView && index === 3
-                              ? "animate-fade-up animate-duration-[500ms] animate-delay-[550ms]"
+                              ? "animate-fade-up animate-duration-[500ms] animate-delay-[550ms] overflow-hidden"
                               : ""
                     }`}
                     key={index}
                   >
+                    {/* Coming soon ribbon */}
+                    {index === 3 && (
+                      <div className="absolute top-[74px] right-[0px] z-20">
+                        <div
+                          className="bg-gradient-to-b from-red-700 to-red-500 text-white text-md font-semibold py-1 px-2 justify-center text-center md:h-[35px] h-[30px]"
+                          style={{
+                            transform: "rotate(35deg)",
+                            transformOrigin: "top right",
+                            width: "208px",
+                            top: "1rem",
+                            right: "-1.5rem",
+                            position: "absolute",
+                          }}
+                        >
+                          Coming Soon
+                        </div>
+                      </div>
+                    )}
+
                     <div className="pb-3 px-4 py-4">
                       <div
                         className="relative rounded overflow-hidden"
