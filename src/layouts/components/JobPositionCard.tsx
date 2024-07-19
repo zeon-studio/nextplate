@@ -16,10 +16,15 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
   const router = useRouter();
   useEffect(() => {
     if (typeof window !== "undefined") {
-      router.refresh();
-    }
-  });
+      const intervalId = setInterval(() => {
+        console.log("Refreshing job positions...");
+        router.refresh();
+      }, 10000); // Refresh every 10 seconds
 
+      // Cleanup the interval on component unmount
+      return () => clearInterval(intervalId);
+    }
+  }, [router]);
   return (
     <>
       <div>

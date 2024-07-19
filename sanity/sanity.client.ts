@@ -15,17 +15,23 @@ const client = createClient({
 export async function sanityFetch<QueryResponse>({
   query,
   params = {},
-  tags,
+  revalidate = 60, // default revalidation time in seconds
+  tags = [],
 }: {
   query: string;
   params?: QueryParams;
+  revalidate?: number | false;
   tags?: string[];
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, params, {
     // disable cache in development
     // cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
-    cache: "no-cache",
-    next: { tags },
+
+    // cache: "no-cache",
+    next: {
+      revalidate: tags.length ? false : revalidate, // for simple, time-based revalidation
+      tags,
+    },
   });
 }
 
