@@ -11,9 +11,9 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
       slug?: string | undefined;
     }>(req, process.env.SANITY_HOOK_SECRET);
 
-    console.log("req", req)
-    console.log("body", body)
-    
+    console.log("req", req);
+    console.log("body", body);
+
     if (!isValidSignature) {
       console.log("Invalid Signature");
       return new Response("Invalid Signature", { status: 401 });
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     }
 
     revalidateTag(body._type);
-    revalidateTag(`${body._type}:${body.slug}`)
+    // revalidateTag(`${body._type}:${body.slug}`)
     // revalidateTag("jobPositions");
 
     return NextResponse.json({
