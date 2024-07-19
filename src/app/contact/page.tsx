@@ -145,7 +145,7 @@ const Contact = async () => {
           </div>
 
           <div className="md:h-[50vh] xl:h-[60vh] 2xl:h-[50vh] h-[35vh] mt-20 md:mt-24 mb-24 xl:w-[1150px] xl:mx-auto">
-            <h5 className="text-dark-green text-center pb-5">
+            <h5 className="text-dark-grey text-center pb-5">
               We are based in City of Industry, CA and Columbus, IN
             </h5>
             <Map
