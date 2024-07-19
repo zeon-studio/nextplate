@@ -24,8 +24,8 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
   return (
     <>
       {data.frontmatter.enable && (
-        <section className="section bg-theme-light">
-          <div className="container">
+        <section className="section bg-theme-light w-full">
+          <div className="2xl:col-10 col-auto mx-auto px-4">
             <div className="mx-auto text-center md:col-10">
               <h2
                 dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
@@ -43,7 +43,7 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
             </div>
 
             <div ref={ref}>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:px-14 sm:px-32 py-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8 gap-4 md:px-14 lg:px-0 sm:px-32 py-4">
                 {data.frontmatter.services.map((service: Service, index) => (
                   <div
                     className={`rounded shadow-lg bg-white border ${
@@ -53,7 +53,9 @@ const ServicesComponent = ({ data }: { data: PageData }) => {
                           ? "animate-fade-up animate-duration-[500ms] animate-delay-[450ms]"
                           : inView && index === 2
                             ? "animate-fade-up animate-duration-[500ms] animate-delay-[500ms]"
-                            : ""
+                            : inView && index === 3
+                              ? "animate-fade-up animate-duration-[500ms] animate-delay-[550ms]"
+                              : ""
                     }`}
                     key={index}
                   >

@@ -24,7 +24,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
       <section>
         {/* Our location */}
         <div className="flex flex-col items-center justify-center">
-          <div className="md:col-8 lg:col-7 col-10">
+          <div className="md:col-8 lg:col-8 xl:col-7 col-10">
             <h2
               dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
               className="mb-6 text-center text-primary animate-fade animate-duration-[600ms] ease-in"

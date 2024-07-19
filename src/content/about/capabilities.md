@@ -32,4 +32,14 @@ services:
       enable: true
       label: "More Info"
       link: "/private-label-co-packing"
+  # Coming soon...
+  - image: "/images/coming-soon-4.jpg"
+    link: ""
+    alt: "coming soon image"
+    title: "__New__ Aseptic PET Packaging Launching January 2026"
+    content: "Discover Our Advanced __**Aseptic PET Packaging**__ at Our Indiana Facility for Superior Beverage Quality and Safety."
+    button:
+      enable: true
+      label: "Coming soon"
+      link: ""
 ---

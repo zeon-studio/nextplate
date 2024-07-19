@@ -41,15 +41,15 @@ const Products = ({ data }: { data: PageData }) => {
               {data.frontmatter.products.map((product: Product, index) => (
                 <div
                   key={index}
-                  className={`flex justify-center items-center text-center sm:w-[114px] px-4 py-2 m-4 ${inView ? "animate-jump-in animate-ease-in animate-delay-[400ms]" : ""}`}
+                  className={`flex justify-center items-center text-center sm:w-[108px] md:px-3 px-4 py-2 m-4 ${inView ? "animate-jump-in animate-ease-in animate-delay-[400ms]" : ""}`}
                 >
-                  <div className="flex flex-col">
+                  <div className="flex flex-col items-center">
                     <ImageFallback
                       height={product.height}
                       width={product.width}
                       src={product.image}
                       alt={product.alt}
-                      className="sm:w-[70px] w-[60px]"
+                      className="sm:w-[65px] w-[60px]"
                     />
                     <p
                       className="sm:text-sm text-md pt-1 font-semibold text-dark-grey"

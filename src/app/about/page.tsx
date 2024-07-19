@@ -126,6 +126,7 @@ const About = async () => {
         <div className="flex flex-col items-center justify-center py-24">
           {/* Our locations */}
           <OurLocations data={our_locations} />
+
           {/* Map */}
           <div className="flex flex-col text-center items-center justify-center py-14 bg-theme-light w-full px-4">
             <h2

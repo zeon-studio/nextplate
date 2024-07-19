@@ -21,7 +21,7 @@ features:
     image: "/images/banner-image.jpg"
     content: "Ninth Avenue Foods is a fourth generation family-owned and operated company with a long-standing history of quality and service in the dairy industry. As innovation has lead to growth and success, family values and commitment to quality has remained the same."
     bulletpoints:
-      - "State-of-the-art **ESL manufacturing facility**"
+      - "State-of-the-art **ESL manufacturing facilities**"
       - "**50+ years** of industry experience"
       - "Seamless transition from product concept to successful launch"
       - "Personalized service with a focus on customer satisfaction"
