@@ -79,7 +79,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                   </h5>
                 </div>
               </div>
-              <Link
+              {/* <Link
                 key={data._id}
                 className="bg-primary hover:bg-dark-grey rounded-md p-2 text-white font-bold"
                 href={{
@@ -88,7 +88,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                 }}
               >
                 <p className="md:text-lg text-sm">Apply to this position</p>
-              </Link>
+              </Link> */}
             </div>
           ))}
       </div>
