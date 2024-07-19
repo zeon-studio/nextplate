@@ -28,6 +28,7 @@ export async function sanityFetch<QueryResponse>({
     // cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
 
     // cache: "no-cache",
+    cache: "force-cache",
     next: {
       // revalidate: tags.length ? false : revalidate, // for simple, time-based revalidation
       tags,
