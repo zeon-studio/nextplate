@@ -25,6 +25,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
       return () => clearInterval(intervalId);
     }
   }, [router]);
+
   return (
     <>
       <div>

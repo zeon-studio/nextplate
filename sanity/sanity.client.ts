@@ -30,7 +30,7 @@ export async function sanityFetch<QueryResponse>({
     // cache: "no-cache",
     next: {
       revalidate: tags.length ? false : revalidate, // for simple, time-based revalidation
-      tags,
+      // tags,
     },
   });
 }
