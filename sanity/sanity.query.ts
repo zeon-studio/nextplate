@@ -17,6 +17,7 @@ export async function getJobPositions() {
     {},
     {
       next: {
+        revalidate: 0,
         tags: ["jobPosition"],
       },
     },
