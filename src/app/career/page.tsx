@@ -12,6 +12,7 @@ import { JobPosition } from "@/types";
 import { sanityFetch } from "../../../sanity/sanity.client";
 
 const { career } = config.settings;
+export const dynamic = "force-dynamic";
 
 const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
