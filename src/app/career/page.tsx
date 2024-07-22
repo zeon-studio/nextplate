@@ -13,6 +13,8 @@ import { sanityFetch } from "../../../sanity/sanity.client";
 
 const { career } = config.settings;
 
+export const dynamic = "force-dynamic";
+
 const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
   const { title, meta_title, description, career_title, career_content, link } =
