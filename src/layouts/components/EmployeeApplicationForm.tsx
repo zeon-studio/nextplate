@@ -20,12 +20,15 @@ const EmployeeApplicationForm = ({
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [formErrors, setFormErrors] = useState<Dict>({});
   const [phone, setPhone] = useState<string>("");
+  const [phone2, setPhone2] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [selectedRadioBtn, setSelectedRadioBtn] = useState<Dict>({
     radioSet1: [false, false],
     radioSet2: [false, false],
     radioSet3: [false, false],
     radioSet4: [false, false],
+    radioSet5: [false, false],
+    radioSet6: [false, false],
   });
   const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>(
     Array(7).fill(false),
@@ -34,7 +37,7 @@ const EmployeeApplicationForm = ({
 
   useEffect(() => {
     validateForm();
-  }, [phone, email, selectedRadioBtn, selectedCheckBox]);
+  }, [phone, phone2, email, selectedRadioBtn, selectedCheckBox]);
 
   const validateCheckBoxes = (): boolean => {
     console.log("Selected check boxes: ", selectedCheckBox);
@@ -58,6 +61,7 @@ const EmployeeApplicationForm = ({
     console.log("Radio button set2: ", selectedRadioBtn["radioSet2"]);
     console.log("Radio button set3: ", selectedRadioBtn["radioSet3"]);
     console.log("Radio button set4: ", selectedRadioBtn["radioSet4"]);
+    console.log("Radio button set5: ", selectedRadioBtn["radioSet5"]);
 
     const validateRadioBtnSet = (
       setName: string,
@@ -83,12 +87,14 @@ const EmployeeApplicationForm = ({
     const isRadioSet2Valid = validateRadioBtnSet("radioSet2", "radio2");
     const isRadioSet3Valid = validateRadioBtnSet("radioSet3", "radio3");
     const isRadioSet4Valid = validateRadioBtnSet("radioSet4", "radio4");
+    const isRadioSet5Valid = validateRadioBtnSet("radioSet5", "radio5");
 
     return (
       isRadioSet1Valid &&
       isRadioSet2Valid &&
       isRadioSet3Valid &&
-      isRadioSet4Valid
+      isRadioSet4Valid &&
+      isRadioSet5Valid
     );
   };
 
@@ -102,6 +108,9 @@ const EmployeeApplicationForm = ({
 
     if (phone && !phoneRegex.test(phone)) {
       formErrors.phone = "Invalid phone number";
+    }
+    if (phone2 && !phoneRegex.test(phone2)) {
+      formErrors.phone2 = "Invalid phone number";
     }
     if (email && !emailRegex.test(email)) {
       formErrors.email = "Invalid email address";
@@ -717,7 +726,7 @@ const EmployeeApplicationForm = ({
                     />
                   </div>
 
-                  <div className="w-full md:mb-6 mb-3 pr-3">
+                  <div className="w-full md:mb-6 mb-3 pr-14">
                     <label
                       htmlFor="supervisor1"
                       className="form-label text-dark-grey"
@@ -733,7 +742,7 @@ const EmployeeApplicationForm = ({
                     />
                   </div>
 
-                  <div className="w-full md:mb-6 mb-3">
+                  <div className="flex flex-col w-full md:mb-6 mb-3">
                     <label className="form-label text-dark-grey">
                       May we contact? <span className="text-red-500">*</span>
                     </label>
@@ -747,15 +756,15 @@ const EmployeeApplicationForm = ({
                           value="Yes"
                           type="radio"
                           className="mr-1"
-                          checked={selectedRadioBtn["radioSet1"][0]}
+                          checked={selectedRadioBtn["radioSet5"][0]}
                           onChange={() =>
                             setSelectedRadioBtn({
                               ...selectedRadioBtn,
-                              radioSet1: [true, false],
+                              radioSet5: [true, false],
                             })
                           }
                         />
-                        <label htmlFor="yesContact1"> Yes</label>
+                        <label htmlFor="yesContact1">Yes</label>
                       </div>
 
                       <div className="flex flex-row items-center">
@@ -765,23 +774,100 @@ const EmployeeApplicationForm = ({
                           value="No"
                           type="radio"
                           className="md:ml-4 mr-1"
-                          checked={selectedRadioBtn["radioSet1"][1]}
+                          checked={selectedRadioBtn["radioSet5"][1]}
                           onChange={() =>
                             setSelectedRadioBtn({
                               ...selectedRadioBtn,
-                              radioSet1: [false, true],
+                              radioSet5: [false, true],
                             })
                           }
                         />
-                        <label htmlFor="noContact1"> No</label>
+                        <label htmlFor="noContact1">No</label>
                       </div>
                     </div>
+                    {formErrors.radio5 && (
+                      <p className="text-red-500">{formErrors.radio5}</p>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-col w-full md:mb-6 mb-3 pr-3">
+                  <label
+                    htmlFor="address1"
+                    className="form-label text-dark-grey"
+                  >
+                    Street Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="address1"
+                    name="address1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full xl:w-1/3 md:w-3/5 h-12 border-mischka"
+                    placeholder=""
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div className="flex md:flex-row flex-col w-full">
+                  <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                    <label
+                      htmlFor="phone"
+                      className="form-label text-dark-grey"
+                    >
+                      Phone number <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      placeholder="+ 1 (123) 456-7891"
+                      type="tel"
+                      onChange={(e) => setPhone2(e.target.value)}
+                      required
+                    />
+                    {formErrors.phone2 && (
+                      <p className="text-red-500">{formErrors.phone2}</p>
+                    )}
+                  </div>
+
+                  <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                    <label
+                      htmlFor="dateEmployedFrom"
+                      className="form-label text-dark-grey"
+                    >
+                      Date Employed - From{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="dateEmployedFrom"
+                      name="dateEmployedFrom"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      placeholder="mm/dd/yyyy"
+                      type="date"
+                      required
+                    />
+                  </div>
+
+                  <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                    <label
+                      htmlFor="dateEmployedTo"
+                      className="form-label text-dark-grey"
+                    >
+                      Date Employed - To <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      id="dateEmployedTo"
+                      name="dateEmployedTo"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      placeholder="mm/dd/yyyy"
+                      type="date"
+                      required
+                    />
                   </div>
                 </div>
               </div>
 
               {/* Submit form button */}
-              <div className="">
+              <div className="pt-10">
                 <button
                   type="submit"
                   className="bg-primary hover:bg-dark-grey text-white font-semibold py-2 px-6 border border-primary hover:border-transparent rounded"
