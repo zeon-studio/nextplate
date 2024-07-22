@@ -28,18 +28,16 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     // revalidateTag(`${body._type}:${body.slug}`)
     // revalidateTag("jobPositions");
 
-    const response = NextResponse.json({
+    return NextResponse.json({
       status: 200,
       revalidated: true,
       now: Date.now(),
       body,
     });
-
-    response.headers.set("Cache-Control", "no-store");
-
-    return response;
   } catch (error: any) {
     console.error(error);
     return new Response(error.message, { status: 500 });
   }
 }
+
+export const revalidate = 0;
