@@ -72,3 +72,5 @@ export async function createEmployeeApplication(
 
   return await client.create(applicationWithReference);
 }
+
+export const revalidate = 0;

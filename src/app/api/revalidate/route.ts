@@ -2,6 +2,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { parseBody } from "next-sanity/webhook";
+import { headers } from "next/headers";
 
 // https://github.com/Evavic44/sanity-nextjs-revalidation/tree/main/app
 export async function POST(req: NextRequest, res: NextApiResponse) {
@@ -39,5 +40,3 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     return new Response(error.message, { status: 500 });
   }
 }
-
-export const revalidate = 0;
