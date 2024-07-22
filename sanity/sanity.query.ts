@@ -13,6 +13,7 @@ export async function getJobPositions() {
     }`,
     {},
     {
+      cache: "no-store",
       next: {
         tags: ["jobPosition"],
       },
