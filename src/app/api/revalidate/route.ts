@@ -33,10 +33,10 @@ export async function POST(req: NextRequest, res: NextApiResponse) {
     // revalidateTag("jobPositions");
 
     return NextResponse.json({
-      status: 200,
+      // status: 200,
       revalidated: true,
       now: Date.now(),
-      body,
+      // body,
     });
   } catch (error: any) {
     console.error(error);
