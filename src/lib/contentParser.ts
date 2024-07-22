@@ -20,9 +20,8 @@ const parseFrontmatter = (frontmatter: any) => {
 export const getListPage = (filePath: string) => {
   const pageDataPath = path.join(contentPath, filePath);
 
-  console.log("PAGE DATA PAGE: ", pageDataPath);
   if (!fs.existsSync(pageDataPath)) {
-    notFound(); //This part is running
+    notFound(); //404 Error
   }
 
   const pageData = readFile(pageDataPath);
