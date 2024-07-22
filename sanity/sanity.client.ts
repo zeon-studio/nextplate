@@ -9,7 +9,7 @@ const client = createClient({
   token: process.env.SANITY_TOKEN,
   // set CDN to live API in development mode
   // useCdn: process.env.NODE_ENV === "development" ? true : false,
-  useCdn: false,
+  useCdn: true,
 });
 
 export async function sanityFetch<QueryResponse>({
