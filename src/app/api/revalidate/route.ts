@@ -5,6 +5,9 @@ import { parseBody } from "next-sanity/webhook";
 import { headers } from "next/headers";
 
 // https://github.com/Evavic44/sanity-nextjs-revalidation/tree/main/app
+
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest, res: NextApiResponse) {
   try {
     const { body, isValidSignature } = await parseBody<{

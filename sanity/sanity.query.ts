@@ -3,6 +3,9 @@ import { client } from "./sanity.client";
 import type { EmployeeApplication } from "@/types";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
+
+export const dynamic = "force-dynamic";
+
 export async function getJobPositions() {
   return client.fetch(
     `*[_type == "jobPosition"] {
@@ -72,5 +75,3 @@ export async function createEmployeeApplication(
 
   return await client.create(applicationWithReference);
 }
-
-export const revalidate = 0;
