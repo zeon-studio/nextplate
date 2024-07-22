@@ -15,8 +15,8 @@ const { career } = config.settings;
 // export const dynamic = "force-dynamic";
 
 const Career = async () => {
-  // const data = getListPage("career/_index.md");
-  const data = getListPage("about/_index.md");
+  // const data = getListPage(`${career}/_index.md`);
+
   const jobPositions: JobPosition[] = await getJobPositions();
   // console.log("Fetched job positions: ", jobPositions);
 
