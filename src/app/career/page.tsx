@@ -12,16 +12,17 @@ import { JobPosition } from "@/types";
 import { sanityFetch } from "../../../sanity/sanity.client";
 
 const { career } = config.settings;
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 const Career = async () => {
-  const data = getListPage(`${career}/_index.md`);
-  const { title, meta_title, description, career_title, career_content, link } =
-    data.frontmatter;
-  const callToAction = getListPage("sections/call-to-action.md");
-
   const jobPositions: JobPosition[] = await getJobPositions();
   console.log("Fetched job positions: ", jobPositions);
+
+  // const data = getListPage(`${career}/_index.md`);
+  // const { title, meta_title, description, career_title, career_content, link } =
+  //   data.frontmatter;
+  // const callToAction = getListPage("sections/call-to-action.md");
+
   // const jobPositions: JobPosition[] = await sanityFetch({
   //   query: `*[_type == "jobPosition"]`,
   //   tags: ["jobPosition"],
@@ -33,7 +34,7 @@ const Career = async () => {
 
   return (
     <>
-      <SeoMeta
+      {/* <SeoMeta
         title={title}
         meta_title={meta_title}
         description={description}
@@ -41,7 +42,7 @@ const Career = async () => {
       <PageHeader
         title={data.frontmatter.title}
         subtitle={data.frontmatter.subtitle}
-      />
+      /> */}
 
       <section className="section">
         <div className="container pb-14">
@@ -49,21 +50,21 @@ const Career = async () => {
             <div className="lg:col-11">
               <div className="row">
                 <div className="relative">
-                  <h2
+                  {/* <h2
                     className="text-dark-grey pb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
                     dangerouslySetInnerHTML={markdownify(career_title)}
-                  />
+                  /> */}
                 </div>
               </div>
               <JobPositionCard jobPositions={jobPositions}></JobPositionCard>
-              <p
+              {/* <p
                 className="text-lg animate-fade animate-delay-[200ms] ease-in"
                 dangerouslySetInnerHTML={markdownify(career_content)}
-              />
+              /> */}
             </div>
           </div>
         </div>
-        <CallToAction data={callToAction}></CallToAction>
+        {/* <CallToAction data={callToAction}></CallToAction> */}
       </section>
     </>
   );
