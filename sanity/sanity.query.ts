@@ -1,46 +1,30 @@
 import { groq } from "next-sanity";
 import { client } from "./sanity.client";
-import type { EmployeeApplication, JobPosition } from "@/types";
+import type { EmployeeApplication } from "@/types";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
 
 // export const dynamic = "force-dynamic";
 
-export const getJobPositions = async (): Promise<JobPosition[]> => {
-  return client.fetch(
-    `*[_type == "jobPosition"] {
-      _id,
-      _createdAt,
-      jobTitle,
-      location,
-    }`,
-    {},
-    {
-      next: {
-        revalidate: 0,
-        tags: ["jobPosition"],
+export async function getJobPositions() {
+  try {
+    return await client.fetch(
+      groq`*[_type == "jobPosition"] {
+        _id,
+        _createdAt,
+        jobTitle,
+        location,
+      }`,
+      {},
+      {
+        cache: "no-store",
       },
-    },
-  );
-
-  // try {
-  //   return client.fetch(
-  //     groq`*[_type == "jobPosition"] {
-  //     _id,
-  //     _createdAt,
-  //     jobTitle,
-  //     location,
-  //   }`,
-  //     {},
-  //     {
-  //       cache: "no-store",
-  //     },
-  //   );
-  // } catch (error) {
-  //   console.error("Error fetching job positions:", error);
-  //   return [];
-  // }
-};
+    );
+  } catch (error) {
+    console.error("Error fetching job positions:", error);
+    return [];
+  }
+}
 
 export async function getProfile() {
   return client.fetch(
