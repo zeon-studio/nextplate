@@ -14,15 +14,24 @@ const { career } = config.settings;
 // export const dynamic = "force-dynamic";
 
 const Career = async () => {
-  const data = getListPage(`${career}/_index.md`);
-  console.log("Data: ", data);
+  const [data, jobPositions] = await Promise.all([
+    getListPage(`${career}/_index.md`),
+    getJobPositions(),
+  ]);
 
-  const jobPositions: JobPosition[] = await getJobPositions();
-  // console.log("Fetched job positions: ", jobPositions);
+  console.log("Data: ", data);
+  console.log("Fetched job positions: ", jobPositions);
 
   const { title, meta_title, description, career_title, career_content, link } =
     data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
+
+  // const jobPositions: JobPosition[] = await getJobPositions();
+  // // console.log("Fetched job positions: ", jobPositions);
+
+  // const { title, meta_title, description, career_title, career_content, link } =
+  //   data.frontmatter;
+  // const callToAction = getListPage("sections/call-to-action.md");
 
   // const jobPositions: JobPosition[] = await sanityFetch({
   //   query: `*[_type == "jobPosition"]`,
