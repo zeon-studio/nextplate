@@ -17,8 +17,7 @@ const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
   console.log("Data: ", data);
 
-  // const jobPositions: JobPosition[] = await getJobPositions();
-  const jobPositions: JobPosition[] = [];
+  const jobPositions: JobPosition[] = await getJobPositions();
   // console.log("Fetched job positions: ", jobPositions);
 
   const { title, meta_title, description, career_title, career_content, link } =
