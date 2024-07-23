@@ -11,6 +11,15 @@ const nextConfig = {
     SANITY_DATASET: process.env.SANITY_DATASET,
   },
 
+  webpack: (config, { dev, isServer }) => {
+    if (!dev) {
+      config.devtool = "source-map";
+    } else {
+      config.devtool = "eval-source-map";
+    }
+    return config;
+  },
+
   // Aid in debugging and understanding what's in the cache, revalidated...
   logging: {
     fetches: {

@@ -1,5 +1,4 @@
-//"use server";
-
+// "use server";
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
 import { getListPage } from "@/lib/contentParser";
@@ -18,7 +17,8 @@ const Career = async () => {
   const data = getListPage(`${career}/_index.md`);
   console.log("Data: ", data);
 
-  const jobPositions: JobPosition[] = await getJobPositions();
+  // const jobPositions: JobPosition[] = await getJobPositions();
+  const jobPositions: JobPosition[] = [];
   // console.log("Fetched job positions: ", jobPositions);
 
   // const { title, meta_title, description, career_title, career_content, link } =
