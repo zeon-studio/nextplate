@@ -1,10 +1,17 @@
+//components/JobPositionCard.tsx
+"use client";
+
 import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
-import { getJobPositions } from "../../app/sanity/sanity.query";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const JobPositionCard = async () => {
-  const jobPositions: JobPosition[] = await getJobPositions();
+interface JobPositionProps {
+  jobPositions: JobPosition[];
+}
+
+const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
   // // Refresh the current route
   // const router = useRouter();
   // useEffect(() => {

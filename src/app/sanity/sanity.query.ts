@@ -26,6 +26,28 @@ export async function getJobPositions() {
   }
 }
 
+export async function getCareerPageContent() {
+  try {
+    return await client.fetch(
+      groq`*[_type == "careerPageContent"][0] {
+        headerTitle,
+        headerSubtitle,
+        metaTitle,
+        metaDataDescription,
+        title,
+        contactEmail
+      }`,
+      {},
+      {
+        cache: "no-store",
+      },
+    );
+  } catch (error) {
+    console.error("Error fetching career page content:", error);
+    return [];
+  }
+}
+
 export async function getProfile() {
   return client.fetch(
     groq`*[_type == "profile"]{

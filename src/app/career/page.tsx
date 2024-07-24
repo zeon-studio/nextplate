@@ -9,15 +9,14 @@ import CallToAction from "@/partials/CallToAction";
 import JobPositionCard from "@/components/JobPositionCard";
 import { JobPosition } from "@/types";
 import { sanityFetch } from "../sanity/sanity.client";
-
-const { career } = config.settings;
-// export const dynamic = "force-dynamic";
+import { getCareerPageContent } from "../sanity/sanity.query";
+import { getJobPositions } from "../sanity/sanity.query";
 
 const Career = async () => {
-  const data = getListPage(`${career}/_index.md`);
+  const data = await getCareerPageContent();
+  console.log("DATA: ", data);
 
-  // const jobPositions: JobPosition[] = await getJobPositions();
-  // const jobPositions: JobPosition[] = [];
+  const jobPositions: JobPosition[] = await getJobPositions();
   // console.log("Fetched job positions: ", jobPositions);
 
   // const { title, meta_title, description, career_title, career_content, link } =
@@ -35,15 +34,12 @@ const Career = async () => {
 
   return (
     <>
-      {/* <SeoMeta
-        title={title}
-        meta_title={meta_title}
-        description={description}
+      <SeoMeta
+        title={data.metaTitle}
+        meta_title={data.metaTitle}
+        description={data.metaDataDescription}
       />
-      <PageHeader
-        title={data.frontmatter.title}
-        subtitle={data.frontmatter.subtitle}
-      /> */}
+      <PageHeader title={data.headerTitle} subtitle={data.headerSubtitle} />
 
       <section className="section">
         <div className="container pb-14">
@@ -51,17 +47,22 @@ const Career = async () => {
             <div className="lg:col-11">
               <div className="row">
                 <div className="relative">
-                  {/* <h2
-                    className="text-dark-grey pb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
-                    dangerouslySetInnerHTML={markdownify(career_title)}
-                  /> */}
+                  <h2 className="text-dark-grey pb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in">
+                    {data.title}
+                  </h2>
                 </div>
               </div>
-              <JobPositionCard></JobPositionCard>
-              {/* <p
-                className="text-lg animate-fade animate-delay-[200ms] ease-in"
-                dangerouslySetInnerHTML={markdownify(career_content)}
-              /> */}
+              <JobPositionCard jobPositions={jobPositions}></JobPositionCard>
+
+              <p className="text-lg animate-fade animate-delay-[200ms] ease-in">
+                *For all employment-related inquiries, please contact{" "}
+                <a
+                  href={`mailto:${data.contactEmail}`}
+                  className="font-bold text-primary"
+                >
+                  {data.contactEmail}
+                </a>
+              </p>
             </div>
           </div>
         </div>
