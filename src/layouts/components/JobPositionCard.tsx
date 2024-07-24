@@ -14,7 +14,8 @@ async function getUpdatedJobPositions() {
   return jobPositions;
 }
 
-export default function JobPositionCard() {
+export default async function JobPositionCard() {
+  const jobPositions = await getUpdatedJobPositions();
   // // Refresh the current route
   // const router = useRouter();
   // useEffect(() => {
@@ -28,7 +29,8 @@ export default function JobPositionCard() {
   //     return () => clearInterval(intervalId);
   //   }
   // }, [router]);
-  const jobPositions = use(getUpdatedJobPositions());
+
+  // const jobPositions = use(getUpdatedJobPositions());
 
   return (
     <>
