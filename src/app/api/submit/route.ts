@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createEmployeeApplication } from "../../../../sanity/sanity.query";
+import { createEmployeeApplication } from "../../sanity/sanity.query";
 
 export async function POST(request: Request) {
   // Process post request

@@ -7,17 +7,17 @@ import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import JobPositionCard from "@/components/JobPositionCard";
-import { getJobPositions } from "../../../sanity/sanity.query";
+import { getJobPositions } from "../sanity/sanity.query";
 import { JobPosition } from "@/types";
-import { sanityFetch } from "../../../sanity/sanity.client";
+import { sanityFetch } from "../sanity/sanity.client";
 
 const { career } = config.settings;
 // export const dynamic = "force-dynamic";
 
 const Career = async () => {
-  // const data = getListPage(`${career}/_index.md`);
+  const data = getListPage(`${career}/_index.md`);
 
-  const jobPositions: JobPosition[] = await getJobPositions();
+  // const jobPositions: JobPosition[] = await getJobPositions();
   // const jobPositions: JobPosition[] = [];
   // console.log("Fetched job positions: ", jobPositions);
 
@@ -58,7 +58,7 @@ const Career = async () => {
                   /> */}
                 </div>
               </div>
-              <JobPositionCard jobPositions={jobPositions}></JobPositionCard>
+              <JobPositionCard></JobPositionCard>
               {/* <p
                 className="text-lg animate-fade animate-delay-[200ms] ease-in"
                 dangerouslySetInnerHTML={markdownify(career_content)}

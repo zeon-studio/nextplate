@@ -1,17 +1,23 @@
 //components/JobPositionCard.tsx
-"use client";
+// "use client";
 
 import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
+import { getJobPositions } from "../../app/sanity/sanity.query";
 
 interface JobPositionProps {
   jobPositions: JobPosition[];
 }
 
-const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
+async function getUpdatedJobPositions() {
+  const jobPositions: JobPosition[] = await getJobPositions();
+  return jobPositions;
+}
+
+const JobPositionCard = () => {
   // // Refresh the current route
   // const router = useRouter();
   // useEffect(() => {
@@ -25,6 +31,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
   //     return () => clearInterval(intervalId);
   //   }
   // }, [router]);
+  const jobPositions = use(getUpdatedJobPositions());
 
   return (
     <>
