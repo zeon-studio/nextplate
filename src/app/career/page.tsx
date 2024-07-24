@@ -10,12 +10,16 @@ import JobPositionCard from "@/components/JobPositionCard";
 import { getJobPositions } from "../sanity/sanity.query";
 import { JobPosition } from "@/types";
 import { sanityFetch } from "../sanity/sanity.client";
+import { Author } from "@/types";
 
-const { career } = config.settings;
+// const { career } = config.settings;
 // export const dynamic = "force-dynamic";
 
 const Career = () => {
-  const data = getListPage(`${career}/_index.md`);
+  const authorIndex: Author = getListPage("authors/_index.md");
+
+  const { title, meta_title, description, image } = authorIndex.frontmatter;
+  // const data = getListPage(`${career}/_index.md`);
 
   // const jobPositions: JobPosition[] = await getJobPositions();
   // const jobPositions: JobPosition[] = [];
