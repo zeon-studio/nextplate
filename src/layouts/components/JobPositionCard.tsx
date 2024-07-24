@@ -1,21 +1,10 @@
 import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
-import { useRouter } from "next/navigation";
-import { use, useEffect, useState } from "react";
 import { getJobPositions } from "../../app/sanity/sanity.query";
 
-interface JobPositionProps {
-  jobPositions: JobPosition[];
-}
-
-async function getUpdatedJobPositions() {
+const JobPositionCard = async () => {
   const jobPositions: JobPosition[] = await getJobPositions();
-  return jobPositions;
-}
-
-export default async function JobPositionCard() {
-  const jobPositions = await getUpdatedJobPositions();
   // // Refresh the current route
   // const router = useRouter();
   // useEffect(() => {
@@ -29,8 +18,6 @@ export default async function JobPositionCard() {
   //     return () => clearInterval(intervalId);
   //   }
   // }, [router]);
-
-  // const jobPositions = use(getUpdatedJobPositions());
 
   return (
     <>
@@ -100,4 +87,6 @@ export default async function JobPositionCard() {
       </div>
     </>
   );
-}
+};
+
+export default JobPositionCard;
