@@ -7,7 +7,6 @@ import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import JobPositionCard from "@/components/JobPositionCard";
-import { getJobPositions } from "../sanity/sanity.query";
 import { JobPosition } from "@/types";
 import { sanityFetch } from "../sanity/sanity.client";
 
@@ -15,7 +14,6 @@ const { career } = config.settings;
 // export const dynamic = "force-dynamic";
 
 const Career = async () => {
-  const jobPositions = await getJobPositions(); // Fetch data server-side
   const data = getListPage(`${career}/_index.md`);
 
   // const jobPositions: JobPosition[] = await getJobPositions();
