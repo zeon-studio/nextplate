@@ -15,7 +15,7 @@ const { career } = config.settings;
 // export const dynamic = "force-dynamic";
 
 const Career = () => {
-  // const data = getListPage(`${career}/_index.md`);
+  const data = getListPage(`${career}/_index.md`);
 
   // const jobPositions: JobPosition[] = await getJobPositions();
   // const jobPositions: JobPosition[] = [];
@@ -58,7 +58,7 @@ const Career = () => {
                   /> */}
                 </div>
               </div>
-              <JobPositionCard></JobPositionCard>
+              {/* <JobPositionCard></JobPositionCard> */}
               {/* <p
                 className="text-lg animate-fade animate-delay-[200ms] ease-in"
                 dangerouslySetInnerHTML={markdownify(career_content)}
