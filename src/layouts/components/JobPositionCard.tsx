@@ -1,6 +1,3 @@
-//components/JobPositionCard.tsx
-// "use client";
-
 import { slugify } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import type { JobPosition } from "@/types";
@@ -17,7 +14,7 @@ async function getUpdatedJobPositions() {
   return jobPositions;
 }
 
-const JobPositionCard = () => {
+export default function JobPositionCard() {
   // // Refresh the current route
   // const router = useRouter();
   // useEffect(() => {
@@ -101,6 +98,4 @@ const JobPositionCard = () => {
       </div>
     </>
   );
-};
-
-export default JobPositionCard;
+}
