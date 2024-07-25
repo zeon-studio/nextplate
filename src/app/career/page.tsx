@@ -1,36 +1,32 @@
 // "use server";
 
-import config from "@/config/config.json";
-import { markdownify } from "@/lib/utils/textConverter";
-import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import JobPositionCard from "@/components/JobPositionCard";
 import { JobPosition } from "@/types";
-import { sanityFetch } from "../sanity/sanity.client";
 import { getCareerPageContent } from "../sanity/sanity.query";
 import { getJobPositions } from "../sanity/sanity.query";
 
 const Career = async () => {
   const data = await getCareerPageContent();
-  console.log("DATA: ", data);
+  // console.log("DATA: ", data);
 
   const jobPositions: JobPosition[] = await getJobPositions();
-  // console.log("Fetched job positions: ", jobPositions);
-
-  // const { title, meta_title, description, career_title, career_content, link } =
-  //   data.frontmatter;
-  // const callToAction = getListPage("sections/call-to-action.md");
-
-  // const jobPositions: JobPosition[] = await sanityFetch({
-  //   query: `*[_type == "jobPosition"]`,
-  //   tags: ["jobPosition"],
-  // });
-  // const jobPositions = await sanityFetch<JobPosition[]>({
-  //   query: `*[_type == "jobPosition"]`,
-  //   revalidate: 20, // update every 20 seconds
-  // });
+  const callToAction = {
+    frontmatter: {
+      enable: true,
+      title: "Connect to learn more about partnership opportunities",
+      image: "/images/call-to-action.png",
+      description:
+        "To inquire about our current packaging capabilities for fluid packaging, yogurt packaging, sour cream packaging, and ice-cream and dairy-alternative packaging, connect with us.",
+      button: {
+        enable: true,
+        label: "Contact Us",
+        link: "/contact",
+      },
+    },
+  };
 
   return (
     <>
@@ -66,7 +62,7 @@ const Career = async () => {
             </div>
           </div>
         </div>
-        {/* <CallToAction data={callToAction}></CallToAction> */}
+        <CallToAction data={callToAction}></CallToAction>
       </section>
     </>
   );
