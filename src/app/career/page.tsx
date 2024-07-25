@@ -37,7 +37,7 @@ const Career = async () => {
       />
       <PageHeader title={data.headerTitle} subtitle={data.headerSubtitle} />
 
-      <section className="section">
+      <section className="section-sm">
         <div className="container pb-14">
           <div className="w-full">
             <div className="lg:col-11">

@@ -33,7 +33,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
           jobPositions.map((data: JobPosition) => (
             <div
               key={data._id}
-              className="flex flex-row items-center justify-between bg-light-grey shadow-md rounded-lg mb-4 px-10 py-3"
+              className="flex flex-row items-center justify-between bg-light-grey shadow-md rounded-lg mb-4 md:px-10 px-5 py-3"
             >
               <div className="flex flex-col">
                 <div className="flex flex-row items-center">
@@ -52,7 +52,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <h4 className="text-dark-grey font-semibold md:text-h4 text-lg">
+                  <h4 className="text-dark-grey font-semibold md:text-h4 text-sm">
                     {data.jobTitle}
                   </h4>
                 </div>
@@ -74,7 +74,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                     />
                   </svg>
 
-                  <h5 className="text-grey md:text-lg text-sm">
+                  <h5 className="text-grey md:text-lg text-xs">
                     {data.location}
                   </h5>
                 </div>
@@ -87,7 +87,7 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                   query: data,
                 }}
               >
-                <p className="md:text-lg text-sm">Apply to this position</p>
+                <p className="md:text-lg text-xs">Apply to this position</p>
               </Link>
             </div>
           ))}
