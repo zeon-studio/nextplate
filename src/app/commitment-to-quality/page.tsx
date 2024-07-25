@@ -23,6 +23,7 @@ const CommitmentToQuality = () => {
     cutting_edge_tech_content,
     cutting_edge_tech_sub_title,
     cutting_edge_tech_sub_content,
+    page_header_image,
   } = data.frontmatter;
 
   const callToAction = getListPage("sections/call-to-action.md");
@@ -36,8 +37,11 @@ const CommitmentToQuality = () => {
         meta_title={meta_title}
         description={description}
       />
-      <PageHeader title={data.frontmatter.title} />
-      <section className="section">
+      <PageHeader
+        title={data.frontmatter.title}
+        image={data.frontmatter.page_header_image}
+      />
+      <section className="section-sm">
         <div className="container pb-14">
           <div className="w-full">
             <div className="gx-5 grid lg:grid-cols-5 gap-10">

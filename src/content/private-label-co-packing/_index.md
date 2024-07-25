@@ -12,4 +12,6 @@ private_label_co_packing_content: "At __**Ninth Avenue Foods**__ we believe that
 
 private_label_co_packing_sub_title: "Our Expert Team for Unmatched Taste and Quality in Food Manufacturing"
 private_label_co_packing_sub_content: "If you’d like to know more about our capabilities and offerings, please [__**contact us**__](/contact). Our expert team is committed to achieving the exact taste and quality that your customers love with a level of personal care and attention that is unmatched in the industry."
+
+page_header_image: "/images/private-label-co-packing-1.jpg"
 ---

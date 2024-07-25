@@ -2,17 +2,17 @@ import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
-import { RegularPage } from "@/types";
 import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import PointsOfContact from "@/partials/PointsOfContact";
 
 const Contact = async () => {
-  const data: RegularPage = getListPage("contact/_index.md");
+  const data = getListPage("contact/_index.md");
   const point_of_contact = getListPage("sections/points-of-contact.md");
 
   const { frontmatter } = data;
-  const { title, subtitle, description, meta_title, image } = frontmatter;
+  const { title, description, meta_title, image, page_header_image } =
+    frontmatter;
   const { contact_form_action } = config.params;
   // Explicitly typed as a tuple.
   const californiaCoord: [number, number] = [
@@ -39,7 +39,7 @@ const Contact = async () => {
         description={description}
         image={image}
       />
-      <PageHeader title={title} subtitle={subtitle} />
+      <PageHeader title={title} image={page_header_image} />
       <section className="section-sm">
         <div className="container">
           <div className="flex md:flex-row flex-col-reverse justify-center items-center">

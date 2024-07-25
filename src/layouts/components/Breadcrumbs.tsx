@@ -4,7 +4,13 @@ import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Breadcrumbs = ({ className }: { className?: string }) => {
+const Breadcrumbs = ({
+  className,
+  spanClassName,
+}: {
+  className?: string;
+  spanClassName?: string;
+}) => {
   const pathname = usePathname();
 
   const paths = pathname.split("/").filter((x) => x);
@@ -33,11 +39,11 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
           <li className="mx-1 capitalize" role="listitem" key={index}>
             {index > 0 && <span className="inlin-block mr-1">/</span>}
             {index !== parts.length - 1 ? (
-              <Link className="text-dark-grey" {...attrs}>
+              <Link className={className} {...attrs}>
                 {label}
               </Link>
             ) : (
-              <span className="text-primary font-semibold">{label}</span>
+              <span className={`font-semibold ${spanClassName}`}>{label}</span>
             )}
           </li>
         ))}

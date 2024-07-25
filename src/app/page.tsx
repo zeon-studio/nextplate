@@ -19,6 +19,9 @@ import generatePhotos from "@/helpers/photos";
 // https://zeon.studio/
 // https://www.idahomilkproducts.com/
 // https://mooala.com/
+
+// Sustainability page
+// https://pachama.com/
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");

@@ -51,7 +51,7 @@ const Sidebar = ({
                   </div>
                 ) : (
                   <Link
-                    className="flex justify-between text-dark-grey"
+                    className={`flex justify-between text-dark-grey`}
                     href={`/${value}`}
                   >
                     <p className="text-lg">{humanize(key)}</p>

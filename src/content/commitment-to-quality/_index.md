@@ -10,4 +10,6 @@ cutting_edge_tech_content: "Food Safety and Quality is essential in our industry
 
 cutting_edge_tech_sub_title: "Certified PCQI and SQF Practitioners On-Site at Ninth Avenue Foods"
 cutting_edge_tech_sub_content: "Our **SQF program** that includes Food safety and quality codes, as well as our **Quality Management Systems**, was built on over a century of data and regulatory guidance with a highly capable lab where all analytical testing and result assessments can be performed, including an <i>Allergen Control Expert Team<i>. \n\nThe **Program Management System** is designed for continuous improvement and compliance with customer specifications, legislation and industry practices."
+
+page_header_image: "/images/gallery/ninth-ave-7.jpg"
 ---
