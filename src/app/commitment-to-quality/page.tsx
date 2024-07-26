@@ -7,10 +7,10 @@ import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
 
-const { commitment_to_quality } = config.settings;
+const { commitment_to_quality_folder } = config.settings;
 
 const CommitmentToQuality = () => {
-  const data = getListPage(`${commitment_to_quality}/_index.md`);
+  const data = getListPage(`${commitment_to_quality_folder}/_index.md`);
 
   const {
     title,
@@ -37,10 +37,7 @@ const CommitmentToQuality = () => {
         meta_title={meta_title}
         description={description}
       />
-      <PageHeader
-        title={data.frontmatter.title}
-        image={data.frontmatter.page_header_image}
-      />
+      <PageHeader title={title} image={page_header_image} />
       <section className="section-sm">
         <div className="container pb-14">
           <div className="w-full">
@@ -108,7 +105,7 @@ const CommitmentToQuality = () => {
                 </div>
               </div>
 
-              <div className="col-span-2 w-[400px] hidden lg:block pl-10">
+              <div className="col-span-2 hidden lg:block xl:pl-24 pl-10">
                 <Sidebar
                   side_bar_title={"Capabilities"}
                   categories={capabilities}

@@ -21,9 +21,9 @@
     "summary_length": 200,
     "blog_folder": "blog",
     "cutting_edge_technology_folder": "cutting-edge-technology",
-    "commitment_to_quality": "commitment-to-quality",
-    "private_label_co_packing": "private-label-co-packing",
-    "career": "career"
+    "commitment_to_quality_folder": "commitment-to-quality",
+    "private_label_co_packing_folder": "private-label-co-packing",
+    "sustainability_folder": "sustainability"
   },
 
   "params": {
