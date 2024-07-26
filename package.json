@@ -19,6 +19,7 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.45.0",
     "date-fns": "^3.3.1",

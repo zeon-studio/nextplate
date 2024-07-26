@@ -225,3 +225,10 @@ export type EmployeeApplication = {
   jobPositionID: string;
   jobPosition: string;
 };
+
+export type CardCarouselType = {
+  image: string;
+  text: string;
+  title: string;
+  subtitle: string;
+};

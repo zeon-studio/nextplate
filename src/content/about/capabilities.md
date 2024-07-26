@@ -33,7 +33,7 @@ services:
       label: "More Info"
       link: "/private-label-co-packing"
   # Coming soon...
-  - image: "/images/coming-soon-4.jpg"
+  - image: "/images/plastic-bottles-3.jpg"
     link: ""
     alt: "coming soon image"
     title: "__New__ Aseptic PET Packaging Launching January 2026"

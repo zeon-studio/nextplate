@@ -46,7 +46,7 @@ const CommitmentToQuality = () => {
                 <div className="row">
                   <div className="relative">
                     <h2
-                      className="text-primary pb-2 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
+                      className="text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_title,
                       )}
@@ -89,7 +89,7 @@ const CommitmentToQuality = () => {
                   </div>
 
                   <div className="relative">
-                    <h5
+                    <h4
                       className="text-primary pb-2 animate-fade animate-duration-[600ms]"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_sub_title,

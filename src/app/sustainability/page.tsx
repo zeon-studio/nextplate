@@ -1,14 +1,16 @@
+import MDXContent from "@/helpers/MDXContent";
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
 import { getListPage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
-import Sidebar from "@/partials/SideBar";
 import SeoMeta from "@/partials/SeoMeta";
 import { Card } from "@/types";
 import BasicCard from "@/partials/BasicCard";
-import Capabilities from "@/components/Capabilities";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
+import { getSinglePage } from "@/lib/contentParser";
+import { RegularPage } from "@/types";
+import CardCarousel from "@/components/CardCarousel";
 
 const { sustainability_folder } = config.settings;
 
@@ -22,8 +24,13 @@ const Sustainability = () => {
     image,
     sustainability_title,
     sustainability_content,
+    sustainability_title_2,
+    sustainability_content_2,
     page_header_image,
+    cards,
   } = data.frontmatter;
+
+  // const content = data.content;
 
   const { card }: { card: Card } = data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
@@ -66,21 +73,6 @@ const Sustainability = () => {
                       priority
                     />
                   </div> */}
-                  {/* 
-                  <div className="relative">
-                    <h5
-                      className="text-primary pb-2 animate-fade animate-duration-[600ms]"
-                      dangerouslySetInnerHTML={markdownify(
-                        cutting_edge_tech_sub_title,
-                      )}
-                    />
-                    <p
-                      className="text-lg animate-fade animate-delay-[200ms] ease-in"
-                      dangerouslySetInnerHTML={markdownify(
-                        cutting_edge_tech_sub_content,
-                      )}
-                    />
-                  </div> */}
 
                   <div className="mx-auto pt-8">
                     <BasicCard card={card} />
@@ -108,6 +100,26 @@ const Sustainability = () => {
                   title={title}
                 /> */}
               </div>
+            </div>
+
+            <div className="relative container pt-14">
+              <div className="">
+                <h3
+                  className="text-primary pb-2 animate-fade animate-duration-[600ms]"
+                  dangerouslySetInnerHTML={markdownify(sustainability_title_2)}
+                />
+                <p
+                  className="text-lg animate-fade animate-delay-[200ms] ease-in"
+                  dangerouslySetInnerHTML={markdownify(
+                    sustainability_content_2,
+                  )}
+                />
+              </div>
+
+              <CardCarousel cards={cards}></CardCarousel>
+              {/* <div className="pt-10">
+                <MDXContent content={content} />
+              </div> */}
             </div>
           </div>
         </div>
