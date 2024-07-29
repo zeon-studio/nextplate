@@ -1,3 +1,4 @@
+import { slugSelector } from "@/lib/utils/slugSelector";
 import Link from "next/link";
 import React from "react";
 
@@ -5,10 +6,12 @@ const Pagination = ({
   section,
   currentPage,
   totalPages,
+  lang,
 }: {
   section: string;
   currentPage: number;
   totalPages: number;
+  lang: string;
 }) => {
   const indexPageLink = currentPage === 2;
   const hasPrevPage = currentPage > 1;
@@ -29,11 +32,12 @@ const Pagination = ({
           {/* previous */}
           {hasPrevPage ? (
             <Link
-              href={
+              href={slugSelector(
+                lang,
                 indexPageLink
                   ? `${section ? "/" + section : "/"}`
-                  : `${section ? "/" + section : ""}/page/${currentPage - 1}`
-              }
+                  : `${section ? "/" + section : ""}/page/${currentPage - 1}`,
+              )}
               className="rounded px-2 py-1.5 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
             >
               <span className="sr-only">Previous</span>
@@ -82,11 +86,12 @@ const Pagination = ({
                 </span>
               ) : (
                 <Link
-                  href={
+                  href={slugSelector(
+                    lang,
                     i === 0
                       ? `${section ? "/" + section : "/"}`
-                      : `${section ? "/" + section : ""}/page/${pagination}`
-                  }
+                      : `${section ? "/" + section : ""}/page/${pagination}`,
+                  )}
                   passHref
                   aria-current="page"
                   className="rounded px-4 py-2 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
@@ -100,7 +105,10 @@ const Pagination = ({
           {/* next page */}
           {hasNextPage ? (
             <Link
-              href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
+              href={slugSelector(
+                lang,
+                `${section ? "/" + section : ""}/page/${currentPage + 1}`,
+              )}
               className="rounded px-2 py-1.5 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
             >
               <span className="sr-only">Next</span>

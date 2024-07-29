@@ -1,4 +1,3 @@
-import config from "@/config/config.json";
 import languages from "@/config/language.json";
 import { getDefaultLanguage } from "@/lib/languageParser";
 import { slugSelector } from "@/lib/utils/slugSelector";
@@ -19,19 +18,13 @@ export default function LanguageSwitcher({
 
   const redirectedPathName = useCallback(
     (locale: string) => {
-      if (config.settings.default_language_in_subdir) {
-        const segments = pathname.split("/");
-        segments[1] = locale;
-        router.push(segments.join("/"));
-      } else {
-        if (locale === defaultLang) {
-          router.push(
-            slugSelector("/", pathname.split("/").splice(2).join("/")),
-          );
-        } else {
-          router.push(slugSelector(locale, pathname));
-        }
-      }
+      const hasLocale = languages.some((lang) => {
+        return pathname.includes(lang.languageCode);
+      });
+      const sliceNumber = hasLocale ? 2 : 1;
+      router.push(
+        slugSelector(locale, pathname.split("/").slice(sliceNumber).join("/")),
+      );
     },
     [pathname],
   );
