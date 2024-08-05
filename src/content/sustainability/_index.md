@@ -4,6 +4,7 @@ meta_title: ""
 description: "this is meta description"
 image: "/images/plastic-bottles-1.jpg"
 
+
 sustainability_title: "HDPE and PET Sustainability"
 sustainability_content: "HDPE and PET containers can be manufactured to be __**100% recyclable**__. 
 Most customers have the easy of curbside recycling pickup for PET and HDPE containers.

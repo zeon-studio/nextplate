@@ -46,7 +46,7 @@ const PrivateLabelCoPacking = () => {
                 <div className="row">
                   <div className="relative">
                     <h2
-                      className="text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
+                      className="col-10 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         private_label_co_packing_title,
                       )}
@@ -66,7 +66,7 @@ const PrivateLabelCoPacking = () => {
                         <Image
                           src={image1}
                           alt="Ninth Ave Foods Warehouse"
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover rounded-xs"
                           width={2500}
                           height={2500}
                           priority
@@ -78,7 +78,7 @@ const PrivateLabelCoPacking = () => {
                           <Image
                             src={image2}
                             alt="Ninth Ave Foods Warehouse"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-xs"
                             width={2500}
                             height={2500}
                             priority
@@ -88,7 +88,7 @@ const PrivateLabelCoPacking = () => {
                           <Image
                             src={image3}
                             alt="Ninth Ave Foods Warehouse"
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover rounded-xs"
                             width={2500}
                             height={2500}
                             priority
@@ -99,7 +99,7 @@ const PrivateLabelCoPacking = () => {
                   </div>
 
                   <div className="relative">
-                    <h4
+                    <h3
                       className="text-primary pb-2 animate-fade animate-duration-[600ms]"
                       dangerouslySetInnerHTML={markdownify(
                         private_label_co_packing_sub_title,

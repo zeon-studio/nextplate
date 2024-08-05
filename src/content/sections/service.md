@@ -2,14 +2,17 @@
 enable: true
 title: "Innovative Solutions for __ESL Manufacturing__"
 description: "Elevating Standards Through **Cutting-Edge Technology** and Unwavering Commitment to **Quality** and **Collaboration**"
+link: "/contact"
+label: "Reach Us for More Insights"
 
 # Services
 services:
   - image: "/images/gallery/ninth-ave-10.jpg"
     link: "/cutting-edge-technology"
     alt: "warehouse image"
+    category: "Service"
     title: "Cutting Edge Technology"
-    content: "Our cutting-edge plant exceeds industry standards, meeting market demands with precision."
+    content: "Our advanced processing plant is engineered to meet and surpass the needs of a rapidly expanding industry."
     button:
       enable: true
       label: "More info"
@@ -17,6 +20,7 @@ services:
   - image: "/images/commitment-to-quality.jpg"
     link: "/commitment-to-quality"
     alt: "workers image"
+    category: "Service"
     title: "Commitment to Quality"
     content: "Food safety and quality are fundamental at Ninth Avenue Foods, guiding every aspect of our operations."
     button:
@@ -26,7 +30,8 @@ services:
   - image: "/images/gallery/gallery-2.jpg"
     link: "/private-label-co-packing"
     alt: "dairy products image"
-    title: "Private Label & Co-Packing"
+    category: "Service"
+    title: "Private Label and Co-Packing"
     content: "At Ninth Avenue Foods, our expertise and capabilities foster winning partnerships to elevate your products."
     button:
       enable: true
@@ -36,6 +41,7 @@ services:
   - image: "/images/plastic-bottles-3.jpg"
     link: ""
     alt: "coming soon image"
+    category: "Service"
     title: "__New__ Aseptic PET Packaging Launching January 2026"
     content: "Discover Our Advanced __**Aseptic PET Packaging**__ at Our Indiana Facility for Superior Beverage Quality and Safety."
     button:

@@ -51,8 +51,8 @@ const CuttingEdgeTechnology = () => {
               <div className="lg:col-12 lg:mx-4 mx-1 col-span-3">
                 <div className="row">
                   <div className="relative">
-                    <h2
-                      className=" text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
+                    <h3
+                      className="col-10 text-primary pb-2 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_title,
                       )}
@@ -68,7 +68,7 @@ const CuttingEdgeTechnology = () => {
                     <Image
                       src={image}
                       alt="Ninth Ave Foods Warehouse"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-xs"
                       width={3678}
                       height={1353}
                       priority
@@ -76,7 +76,7 @@ const CuttingEdgeTechnology = () => {
                   </div>
 
                   <div className="relative">
-                    <h4
+                    <h3
                       className="text-primary pb-2 animate-fade animate-duration-[600ms]"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_sub_title,

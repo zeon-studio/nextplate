@@ -8,9 +8,8 @@ import { Card } from "@/types";
 import BasicCard from "@/partials/BasicCard";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
-import { getSinglePage } from "@/lib/contentParser";
-import { RegularPage } from "@/types";
 import CardCarousel from "@/components/CardCarousel";
+import Services from "@/partials/Services";
 
 const { sustainability_folder } = config.settings;
 
@@ -34,6 +33,7 @@ const Sustainability = () => {
 
   const { card }: { card: Card } = data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
+  const capabilities = getListPage("sustainability/capabilities.md");
 
   return (
     <>
@@ -46,18 +46,18 @@ const Sustainability = () => {
       <section className="section-sm">
         <div className="container pb-14">
           <div className="w-full">
-            <div className="gx-5 grid lg:grid-cols-5 gap-2">
+            <div className="md:gx-5 grid md:grid-cols-5 md:gap-2 grid-cols-3">
               <div className="lg:col-12 lg:mx-4 mx-1 col-span-3">
                 <div className="row">
                   <div className="relative">
-                    <h2
-                      className="col-6 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
+                    <h3
+                      className="lg:col-6 col-11 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_title,
                       )}
                     />
                     <p
-                      className="col-9 text-lg animate-fade animate-delay-[200ms] ease-in"
+                      className="lg:col-9 text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_content,
                       )}
@@ -74,13 +74,24 @@ const Sustainability = () => {
                     />
                   </div> */}
 
-                  <div className="mx-auto pt-8">
+                  <div className="w-full block md:hidden">
+                    <Image
+                      src={image}
+                      alt="Plastic Bottles"
+                      className="w-full h-full object-cover rounded-lg"
+                      width={2400}
+                      height={1600}
+                      priority
+                    />
+                  </div>
+
+                  <div className="mx-auto pt-8 col-span-2">
                     <BasicCard card={card} />
                   </div>
                 </div>
               </div>
 
-              <div className="col-span-2 w-full pl-10">
+              <div className="md:col-span-2 w-full lg:pl-10 col-span-3 hidden md:block">
                 <Image
                   src={image}
                   alt="Plastic Bottles"
@@ -89,39 +100,36 @@ const Sustainability = () => {
                   height={1600}
                   priority
                 />
-                {/* <Sidebar
-                  side_bar_title={"Capabilities"}
-                  categories={capabilities}
-                  title={title}
-                />
-                <Sidebar
-                  side_bar_title={"Our Services"}
-                  categories={our_services}
-                  title={title}
-                /> */}
               </div>
             </div>
 
-            <div className="relative container pt-14">
-              <div className="">
-                <h3
+            <div className="flex items-center justify-center py-20">
+              <div className="w-full h-[1px] bg-gradient-to-r from-light-green via-green-500 to-dark-green"></div>
+            </div>
+
+            <div className="relative container">
+              <div className="flex flex-col items-center justify-center text-center">
+                <h2
                   className="text-primary pb-2 animate-fade animate-duration-[600ms]"
                   dangerouslySetInnerHTML={markdownify(sustainability_title_2)}
                 />
                 <p
-                  className="text-lg animate-fade animate-delay-[200ms] ease-in"
+                  className="text-lg animate-fade animate-delay-[200ms] ease-in md:col-7"
                   dangerouslySetInnerHTML={markdownify(
                     sustainability_content_2,
                   )}
                 />
               </div>
-
               <CardCarousel cards={cards}></CardCarousel>
               {/* <div className="pt-10">
                 <MDXContent content={content} />
               </div> */}
             </div>
           </div>
+        </div>
+
+        <div className="mb-20">
+          <Services data={capabilities}></Services>
         </div>
 
         <CallToAction data={callToAction}></CallToAction>

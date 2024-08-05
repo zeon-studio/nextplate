@@ -69,6 +69,7 @@ export type Service = {
   image: string;
   alt: string;
   link: string;
+  category: string;
   title: string;
   content: string;
   button: Button;

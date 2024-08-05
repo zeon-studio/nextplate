@@ -150,7 +150,7 @@ const Home = () => {
                 <ImageFallback
                   src={feature.image}
                   alt="Ninth Ave Foods Industrial Warehouse"
-                  className="w-full h-full"
+                  className="w-full h-full rounded-sm"
                   width={2036}
                   height={1355}
                   priority
@@ -228,17 +228,18 @@ const Home = () => {
         <Services data={service} />
         <Products data={product} />
         <PlantBased data={plantBased}></PlantBased>
-        <div className="mx-auto mb-12 text-center md:col-10 col-10">
+        <div className="flex flex-col items-center text-center mb-12 px-10">
           <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
             Elevating Your Brand with
             <span className="text-primary"> Ninth Avenue Foods</span>
           </h3>
 
-          <p className="mb-8 text-lg">
+          <p className="text-lg">
             From Tradition to Technology: A Heritage of <b>Excellence</b> in
             Dairy Manufacturing
           </p>
         </div>
+
         <PhotoGallery photos={photos} />
         {/* <Testimonials data={testimonial} /> */}
         <CallToAction data={callToAction} />
