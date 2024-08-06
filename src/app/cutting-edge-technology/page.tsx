@@ -113,7 +113,7 @@ const CuttingEdgeTechnology = () => {
         </div>
 
         {/* Plant capabilities */}
-        <div className="pt-10 mb-24 pb-4 flex items-center justify-center bg-theme-light">
+        <div className="pt-10 mb-24 pb-4 flex items-center justify-center bg-light-green bg-opacity-5">
           <Capabilities data={plant_capabilities} />
         </div>
 

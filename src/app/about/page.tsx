@@ -68,7 +68,7 @@ const About = async () => {
                 >
                   {feature.image && (
                     <ImageFallback
-                      className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover  animate-fade animate-delay-[300ms] ease-in"
+                      className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-xl object-cover  animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
                       width={600}
                       height={600}
@@ -88,7 +88,7 @@ const About = async () => {
                     </div>
                     {feature.button.enable && (
                       <Link
-                        className="btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
+                        className="btn btn-primary rounded-full mt-5 hover:bg-dark-grey hover:border-dark-grey"
                         href={feature.button.link}
                       >
                         <div className="flex flex-row items-center">

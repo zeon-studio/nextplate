@@ -22,7 +22,7 @@ const Sidebar = ({
   return (
     <div ref={ref} className="mb-8">
       <h5 className="mb-6 text-dark-grey animate-fade">{side_bar_title}</h5>
-      <div className="rounded bg-theme-light p-8 animate-fade animate-duration-300 animate-ease-linear">
+      <div className="rounded bg-light-green bg-opacity-5 p-8 animate-fade animate-duration-300 animate-ease-linear">
         <ul className="space-y-4">
           {Object.entries(categories).map(([key, value]) => (
             <div

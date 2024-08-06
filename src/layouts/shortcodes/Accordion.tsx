@@ -16,7 +16,7 @@ const Accordion = ({
   return (
     <div className={`accordion ${show && "active"} ${className}`}>
       <button
-        className="accordion-header md:text-h4 text-h5 text-left font-secondary text-dark-grey"
+        className="accordion-header md:text-h5 text-h6 text-left font-secondary text-dark-grey"
         onClick={() => setShow(!show)}
       >
         {title}

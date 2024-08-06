@@ -432,7 +432,7 @@ const Services = ({ data }: { data: PageData }) => {
           />
           {service.button.enable && (
             <Link
-              className="btn btn-transparent border-white text-white my-3 hover:bg-primary hover:border-primary hover:text-white"
+              className="btn btn-transparent rounded-lg border-white text-white my-3 hover:bg-primary hover:border-primary hover:text-white"
               href={service.button.link}
             >
               <div className="flex flex-row items-center">
@@ -471,7 +471,7 @@ const Services = ({ data }: { data: PageData }) => {
     <>
       {data.frontmatter.enable && (
         // <section className="section bg-[url('/images/staked-wave.svg')] w-full">
-        <section className="section bg-theme-light w-full">
+        <section className="section bg-light-green bg-opacity-5 w-full">
           <div className="xl:px-0 px-4 max-w-screen-xl mx-auto">
             <div className="flex flex-col md:flex-row items-center md:items-start justify-between">
               <div className="flex flex-col text-center md:text-left">
@@ -490,10 +490,10 @@ const Services = ({ data }: { data: PageData }) => {
               </div>
 
               <Link
-                className="mb-8 md:mb-0 uppercase font-light text-right rounded-full btn btn-transparent border-primary text-primary hover:bg-dark-grey hover:border-dark-grey hover:text-white"
+                className="ml-3 mb-8 md:mb-0 uppercase font-light text-right rounded-full btn btn-transparent border-primary text-primary hover:bg-dark-grey hover:border-dark-grey hover:text-white"
                 href={data.frontmatter.link}
               >
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row text-center md:text-md text-sm">
                   {data.frontmatter.label}
                 </div>
               </Link>

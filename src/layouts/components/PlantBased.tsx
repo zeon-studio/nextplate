@@ -74,7 +74,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
                       }`}
                     >
                       <Link
-                        className="btn bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white"
+                        className="btn rounded-full bg-white hover:bg-dark-grey hover:border-dark-grey hover:text-white"
                         href={data.frontmatter.button.link}
                       >
                         <div className="flex flex-row items-center">

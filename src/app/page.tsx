@@ -64,7 +64,7 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 pb-0 relative lg:h-[800px] sm:h-full h-[350px]">
+      <section className="section pt-0 pb-0 relative lg:h-[800px] sm:h-full h-[500px]">
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
@@ -75,63 +75,69 @@ const Home = () => {
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
-          <div className="absolute inset-0 bg-[#0f172a] opacity-20 md:opacity-0"></div>
+          <div className="absolute inset-0 bg-[#0f172a] opacity-0"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center sm:bottom-0">
+        <div className="absolute inset-0 flex justify-center items-center">
           <div className="container relative z-10">
-            <div className="relative row 2xl:bottom-[170px] lg:bottom-[200px] md:bottom-[100px]">
-              <div className="lg:col-8 md:col-9 md:text-left text-center">
-                <div className="py-5">
-                  <h1
-                    className="mb-2 text-h3 lg:text-h1 animate-fade-up animate-duration-[600ms] text-white md:text-dark-grey"
-                    dangerouslySetInnerHTML={markdownify(banner.title)}
-                  />
+            <div className="relative xl:col-6 md:col-7">
+              <div className="absolute inset-0 flex items-center justify-left text-left">
+                <div className="bg-slate-200 bg-opacity-65 backdrop-blur-sm lg:px-20 lg:py-20 md:py-8 md:px-8 px-5 py-5 rounded-xl">
+                  <div className="py-5">
+                    <h1
+                      className="mb-6 text-h2 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"
+                      dangerouslySetInnerHTML={markdownify(banner.title)}
+                    />
 
-                  <p
-                    className="sm:col-10 lg:text-xl text-lg font-medium animate-fade-up animate-delay-[400ms] ease-in text-white md:text-dark-grey"
-                    dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
-                  />
+                    <p
+                      className="text-lg font-medium animate-fade-up animate-delay-[400ms] ease-in text-dark-grey"
+                      dangerouslySetInnerHTML={markdownify(
+                        banner.content ?? "",
+                      )}
+                    />
+                  </div>
+
+                  {banner.buttons &&
+                    Object.values(banner.buttons).map(
+                      (button, index) =>
+                        button.enable && (
+                          <Link
+                            key={index}
+                            className={button.classname}
+                            href={button.link}
+                            target={
+                              button.link.startsWith("http")
+                                ? "_blank"
+                                : "_self"
+                            }
+                            rel="noopener"
+                          >
+                            <div className="flex flex-row items-center text-xl">
+                              {button.label}
+                              {index === 1 && (
+                                <svg
+                                  className="ml-1"
+                                  aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="18"
+                                  height="18"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    stroke="currentColor"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="m9 5 7 7-7 7"
+                                  />
+                                </svg>
+                              )}
+                            </div>
+                          </Link>
+                        ),
+                    )}
                 </div>
-
-                {banner.buttons &&
-                  Object.values(banner.buttons).map(
-                    (button, index) =>
-                      button.enable && (
-                        <Link
-                          key={index}
-                          className={button.classname}
-                          href={button.link}
-                          target={
-                            button.link.startsWith("http") ? "_blank" : "_self"
-                          }
-                          rel="noopener"
-                        >
-                          <div className="flex flex-row items-center text-xl">
-                            {button.label}
-                            {index === 1 && (
-                              <svg
-                                className="ml-1"
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="18"
-                                height="18"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  stroke="currentColor"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  d="m9 5 7 7-7 7"
-                                />
-                              </svg>
-                            )}
-                          </div>
-                        </Link>
-                      ),
-                  )}
               </div>
             </div>
           </div>
@@ -139,86 +145,84 @@ const Home = () => {
       </section>
 
       {features.map((feature, index: number) => (
-        <section key={index} className="section-sm">
-          <div className="container">
-            <div className="row items-center justify-center">
-              <div
-                className={`mb:md-0 mb-6 lg:pr-10 lg:mb-0 lg:col-6 md:col-8 animate-fade animate-duration-[600ms]  ${
-                  index % 2 !== 0 && "md:order-2"
-                }`}
-              >
-                <ImageFallback
-                  src={feature.image}
-                  alt="Ninth Ave Foods Industrial Warehouse"
-                  className="w-full h-full rounded-sm mx-auto"
-                  width={2036}
-                  height={1355}
-                  priority
+        <section key={index} className="section-sm xl:mx-20 mx-8">
+          <div className="row items-center justify-center">
+            <div
+              className={`mb:md-0 mb-6 xl:pr-20 lg:col-6 md:col-9 animate-fade animate-duration-[600ms] max-w-[800px] ${
+                index % 2 !== 0 && "md:order-2"
+              }`}
+            >
+              <ImageFallback
+                src={feature.image}
+                alt="Ninth Ave Foods Industrial Warehouse"
+                className=" w-full h-full rounded-xl"
+                width={2036}
+                height={1355}
+                priority
+              />
+            </div>
+
+            <div
+              className={`md:col-9 lg:col-6 xl:col-5 col-11 items-center${
+                index % 2 !== 0 && "md:order-1"
+              }`}
+            >
+              <div className="flex flex-col items-start md:col-5 pb-2">
+                <h5
+                  className="text-dark-green font-light text-xl tracking-widest pb-1"
+                  dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
+                {/* <div className="flex-grow border opacity-40 border-t border-light-green w-[100px] md:visible invisible"></div> */}
               </div>
 
-              <div
-                className={`md:col-8 lg:col-6 col-11 items-center${
-                  index % 2 !== 0 && "md:order-1"
-                }`}
-              >
-                <div className="flex flex-col md:items-center items-start md:col-5 pb-2">
-                  <h5
-                    className="text-dark-green font-light text-xl tracking-widest pb-1"
-                    dangerouslySetInnerHTML={markdownify(feature.title)}
-                  />
-                  {/* <div className="flex-grow border opacity-40 border-t border-light-green w-[100px] md:visible invisible"></div> */}
-                </div>
+              <h2
+                className="mb-4 animate-fade-up animate-duration-[600ms] text-dark-grey"
+                dangerouslySetInnerHTML={markdownify(feature.subtitle ?? "")}
+              />
 
-                <h2
-                  className="mb-4 animate-fade-up animate-duration-[600ms] text-dark-grey"
-                  dangerouslySetInnerHTML={markdownify(feature.subtitle ?? "")}
-                />
-
-                <p
-                  className="mb-8 text-lg animate-fade-up animate-delay-[400ms] ease-in"
-                  dangerouslySetInnerHTML={markdownify(feature.content)}
-                />
-                <ul className="animate-fade-up animate-delay-[400ms] ease-in">
-                  {feature.bulletpoints &&
-                    feature.bulletpoints.map((bullet: string) => (
-                      <li className="relative mb-4 pl-6" key={bullet}>
-                        <FaCheck
-                          color="#65a30d"
-                          className={"absolute left-0 top-1.5"}
-                        />
-                        <span dangerouslySetInnerHTML={markdownify(bullet)} />
-                      </li>
-                    ))}
-                </ul>
-                {feature.button.enable && (
-                  <Link
-                    className="btn btn-primary mt-5 hover:bg-dark-grey hover:border-dark-grey"
-                    href={feature.button.link}
-                  >
-                    <div className="flex flex-row items-center">
-                      {feature.button.label}
-                      <svg
-                        className="text-primaryhover:text-white ml-1"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="m9 5 7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </Link>
-                )}
-              </div>
+              <p
+                className="mb-8 text-lg animate-fade-up animate-delay-[400ms] ease-in"
+                dangerouslySetInnerHTML={markdownify(feature.content)}
+              />
+              <ul className="animate-fade-up animate-delay-[400ms] ease-in">
+                {feature.bulletpoints &&
+                  feature.bulletpoints.map((bullet: string) => (
+                    <li className="relative mb-4 pl-6" key={bullet}>
+                      <FaCheck
+                        color="#65a30d"
+                        className={"absolute left-0 top-1.5"}
+                      />
+                      <span dangerouslySetInnerHTML={markdownify(bullet)} />
+                    </li>
+                  ))}
+              </ul>
+              {feature.button.enable && (
+                <Link
+                  className="btn btn-primary rounded-full mt-5 hover:bg-dark-grey hover:border-dark-grey"
+                  href={feature.button.link}
+                >
+                  <div className="flex flex-row items-center">
+                    {feature.button.label}
+                    <svg
+                      className="text-primaryhover:text-white ml-1"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="m9 5 7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
         </section>
