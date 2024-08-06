@@ -397,7 +397,7 @@ const Services = ({ data }: { data: PageData }) => {
         >
           {/* Coming Soon Ribbon */}
           {inView && index === 3 && (
-            <div className="absolute z-20 xl:top-[-160px] xl:right-[280px] lg:top-[-190px] lg:right-[240px] md:top-[-190px] top-[-150px] right-[240px]">
+            <div className="absolute z-20 xl:top-[-160px] xl:right-[280px] lg:top-[-190px] lg:right-[240px] md:top-[-190px] top-[-140px] right-[240px]">
               <div
                 className="w-[280px] xl:w-[350px] bg-gradient-to-b from-red-700 to-red-500 text-white text-lg font-semibold py-1 px-2 text-center md:h-[35px] h-[30px]"
                 style={{

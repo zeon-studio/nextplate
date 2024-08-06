@@ -128,7 +128,7 @@ const About = async () => {
           <OurLocations data={our_locations} />
 
           {/* Map */}
-          <div className="flex flex-col text-center items-center justify-center py-14 bg-theme-light w-full px-4">
+          <div className="flex flex-col text-center items-center justify-center py-14 bg-light-green bg-opacity-5 w-full px-4">
             <h2
               dangerouslySetInnerHTML={markdownify(contact_title)}
               className="mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
