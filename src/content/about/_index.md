@@ -2,6 +2,7 @@
 enable: true
 enableLocationIcon: true
 title: "About Us"
+image: "/images/gallery/ninth-ave-1.jpg"
 subtitle: "Ninth Avenue Foods, a fourth-generation family-owned company, blends 50+ years of dairy expertise with state-of-the-art facilities in California and Indiana"
 meta_title: "About Us"
 description: "this is meta description"

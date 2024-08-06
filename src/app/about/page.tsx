@@ -55,7 +55,7 @@ const About = async () => {
         description={description}
         image={image}
       />
-      <PageHeader title={title} subtitle={subtitle} />
+      <PageHeader title={title} image={image} />
       <section className="section-sm mb-8">
         <div className="container pb-24">
           <div className="row justify-center ">
@@ -78,7 +78,7 @@ const About = async () => {
                   <div className="md:col-8 lg:col-6 col-10 items-center mx-auto lg:pl-16">
                     <h2
                       dangerouslySetInnerHTML={markdownify(feature.title)}
-                      className="h3 mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
+                      className="mb-6 text-h3 lg:text-h2 text-primary animate-fade animate-duration-[600ms] ease-in"
                     />
                     <div className="content">
                       <p

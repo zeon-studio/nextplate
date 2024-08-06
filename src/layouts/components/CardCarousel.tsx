@@ -24,7 +24,7 @@ const CardCarousel = ({ cards }: CardCarouselProps) => {
             <button
               key={index}
               onClick={() => selectCard(index)}
-              className={`py-2 rounded-full px-8 uppercase font-extralight ${
+              className={`py-2 rounded-full md:px-8 px-5 uppercase font-extralight ${
                 currentIndex === index
                   ? "bg-primary text-white"
                   : "bg-white text-dark-grey hover:bg-white hover:border-light-grey hover:shadow-xl"
@@ -53,17 +53,16 @@ const CardCarousel = ({ cards }: CardCarouselProps) => {
                 <Image
                   src={card.image}
                   alt={`Card ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
                   className="rounded-lg"
-                  style={{ filter: "brightness(0.8)" }}
+                  style={{ filter: "brightness(0.8)", objectFit: "cover" }}
                 />
                 <div className="absolute inset-0 flex items-center justify-center px-10">
                   <div className="bg-gray-600 bg-opacity-65 p-4 rounded-md">
-                    <h2 className="text-white font-bold pb-3">
+                    <h2 className="text-white font-bold pb-3 text-h3 lg:text-h2">
                       {card.subtitle}
                     </h2>
-                    <p className="text-white text-xl ">{card.text}</p>
+                    <p className="text-white text-xl">{card.text}</p>
                   </div>
                 </div>
               </div>

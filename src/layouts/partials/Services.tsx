@@ -397,7 +397,7 @@ const Services = ({ data }: { data: PageData }) => {
         >
           {/* Coming Soon Ribbon */}
           {inView && index === 3 && (
-            <div className="absolute z-20 xl:top-[-140px] xl:right-[280px] lg:top-[-190px] lg:right-[240px] md:top-[-190px] top-[-150px] right-[240px]">
+            <div className="absolute z-20 xl:top-[-160px] xl:right-[280px] lg:top-[-190px] lg:right-[240px] md:top-[-190px] top-[-150px] right-[240px]">
               <div
                 className="w-[280px] xl:w-[350px] bg-gradient-to-b from-red-700 to-red-500 text-white text-lg font-semibold py-1 px-2 text-center md:h-[35px] h-[30px]"
                 style={{
@@ -473,15 +473,15 @@ const Services = ({ data }: { data: PageData }) => {
         // <section className="section bg-[url('/images/staked-wave.svg')] w-full">
         <section className="section bg-theme-light w-full">
           <div className="xl:px-0 px-4 max-w-screen-xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-between my-4">
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-between">
               <div className="flex flex-col text-center md:text-left">
                 <h2
                   dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-                  className="text-dark-grey text-2xl md:text-3xl"
+                  className="text-primary md:text-3xl text-h3 pb-4"
                 />
                 {data.frontmatter.description && (
                   <p
-                    className="mt-4 text-lg mb-12"
+                    className="text-lg mb-8"
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.description!,
                     )}
@@ -490,7 +490,7 @@ const Services = ({ data }: { data: PageData }) => {
               </div>
 
               <Link
-                className="uppercase font-light text-right rounded-full btn btn-transparent border-primary text-primary hover:bg-dark-grey hover:border-dark-grey hover:text-white"
+                className="mb-8 md:mb-0 uppercase font-light text-right rounded-full btn btn-transparent border-primary text-primary hover:bg-dark-grey hover:border-dark-grey hover:text-white"
                 href={data.frontmatter.link}
               >
                 <div className="flex flex-row items-center">

@@ -1,7 +1,7 @@
 import MDXContent from "@/helpers/MDXContent";
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
-import { getListPage } from "@/lib/contentParser";
+import { getListPage, getSinglePage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { Card } from "@/types";
@@ -13,9 +13,9 @@ import Services from "@/partials/Services";
 
 const { sustainability_folder } = config.settings;
 
-const Sustainability = () => {
+const HDPEandPETSustainability = () => {
   const data = getListPage(`${sustainability_folder}/_index.md`);
-
+  const collaspe_data = getListPage(`${sustainability_folder}/collapse.md`);
   const {
     title,
     meta_title,
@@ -29,7 +29,7 @@ const Sustainability = () => {
     cards,
   } = data.frontmatter;
 
-  // const content = data.content;
+  const content = collaspe_data.content;
 
   const { card }: { card: Card } = data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
@@ -74,7 +74,7 @@ const Sustainability = () => {
                     />
                   </div> */}
 
-                  <div className="w-full block md:hidden">
+                  <div className="w-full block md:hidden pt-4">
                     <Image
                       src={image}
                       alt="Plastic Bottles"
@@ -110,7 +110,7 @@ const Sustainability = () => {
             <div className="relative container">
               <div className="flex flex-col items-center justify-center text-center">
                 <h2
-                  className="text-primary pb-2 animate-fade animate-duration-[600ms]"
+                  className="text-primary text-h3 lg:text-h2 pb-2 animate-fade animate-duration-[600ms]"
                   dangerouslySetInnerHTML={markdownify(sustainability_title_2)}
                 />
                 <p
@@ -132,10 +132,17 @@ const Sustainability = () => {
           <Services data={capabilities}></Services>
         </div>
 
+        <div className="col-10 mx-auto mb-20">
+          <h3 className="text-dark-grey text-h4 lg:text-h3">
+            Heres why you should switch to PET bottles
+          </h3>
+          <MDXContent content={content}></MDXContent>
+        </div>
+
         <CallToAction data={callToAction}></CallToAction>
       </section>
     </>
   );
 };
 
-export default Sustainability;
+export default HDPEandPETSustainability;

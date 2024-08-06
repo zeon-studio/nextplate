@@ -15,10 +15,13 @@ const Accordion = ({
 
   return (
     <div className={`accordion ${show && "active"} ${className}`}>
-      <button className="accordion-header" onClick={() => setShow(!show)}>
+      <button
+        className="accordion-header md:text-h4 text-h5 text-left font-secondary text-dark-grey"
+        onClick={() => setShow(!show)}
+      >
         {title}
         <svg
-          className="accordion-icon"
+          className="accordion-icon w-5 h-5"
           x="0px"
           y="0px"
           viewBox="0 0 512 512"

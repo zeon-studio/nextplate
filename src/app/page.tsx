@@ -143,14 +143,14 @@ const Home = () => {
           <div className="container">
             <div className="row items-center justify-center">
               <div
-                className={`mb:md-0 lg:pr-10 mb-6 lg:col-6 md:col-8 animate-fade animate-duration-[600ms] ${
+                className={`mb:md-0 mb-6 lg:pr-10 lg:mb-0 lg:col-6 md:col-8 animate-fade animate-duration-[600ms]  ${
                   index % 2 !== 0 && "md:order-2"
                 }`}
               >
                 <ImageFallback
                   src={feature.image}
                   alt="Ninth Ave Foods Industrial Warehouse"
-                  className="w-full h-full rounded-sm"
+                  className="w-full h-full rounded-sm mx-auto"
                   width={2036}
                   height={1355}
                   priority
@@ -167,7 +167,7 @@ const Home = () => {
                     className="text-dark-green font-light text-xl tracking-widest pb-1"
                     dangerouslySetInnerHTML={markdownify(feature.title)}
                   />
-                  <div className="flex-grow border opacity-40 border-t border-light-green w-[100px] md:visible invisible"></div>
+                  {/* <div className="flex-grow border opacity-40 border-t border-light-green w-[100px] md:visible invisible"></div> */}
                 </div>
 
                 <h2

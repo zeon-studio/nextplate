@@ -40,5 +40,4 @@ cards:
     text: "HDPE and PET containers are lightweight which helps to lowers fuel usage for product transportation"
     title: "Lightweight"
     subtitle: "Fuel-Efficient Transportation"
-  
 ---
