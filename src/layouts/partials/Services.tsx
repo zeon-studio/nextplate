@@ -432,7 +432,7 @@ const Services = ({ data }: { data: PageData }) => {
           />
           {service.button.enable && (
             <Link
-              className="btn btn-transparent rounded-lg border-white text-white my-3 hover:bg-primary hover:border-primary hover:text-white"
+              className="btn btn-transparent rounded-md border-white text-white my-3 hover:bg-primary hover:border-primary hover:text-white"
               href={service.button.link}
             >
               <div className="flex flex-row items-center">

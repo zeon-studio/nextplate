@@ -1,5 +1,6 @@
 import { defineField } from "sanity";
 import { BiUser } from "react-icons/bi";
+import { url } from "inspector";
 
 const profile = {
   name: "profile",
@@ -23,6 +24,7 @@ const profile = {
     {
       name: "profileImage",
       title: "Profile Image",
+      url: "/images/gallery/ninth-ave-7.jpg",
       type: "image",
       description: "Upload a profile picture",
       options: { hotspot: true },

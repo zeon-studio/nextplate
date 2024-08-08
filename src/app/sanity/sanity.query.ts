@@ -29,7 +29,7 @@ export async function getJobPositions() {
 export async function getCareerPageContent() {
   try {
     return await client.fetch(
-      groq`*[_type == "careerPageContent"][0] {
+      groq`*[_type == "careerPageContent"][0]{
         headerTitle,
         headerSubtitle,
         metaTitle,
@@ -44,6 +44,27 @@ export async function getCareerPageContent() {
     );
   } catch (error) {
     console.error("Error fetching career page content:", error);
+    return [];
+  }
+}
+
+export async function getEmployeePageContent() {
+  try {
+    return await client.fetch(
+      groq`*[_type == "employeePageContent"][0]{
+        title,
+        "imageUrl": backgroundImage.asset->url,
+        backgroundImage,
+        metaTitle,
+        formDescription
+      }`,
+      {},
+      {
+        cache: "no-store",
+      },
+    );
+  } catch (error) {
+    console.error("Error fetching employee page content:", error);
     return [];
   }
 }
