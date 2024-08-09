@@ -6,6 +6,17 @@ import SuccessAlert from "@/partials/SuccessAlert";
 import { Dict } from "styled-components/dist/types";
 import EmploymentDesired from "./EmploymentDesired";
 
+// Dynamic employment experience
+type EmploymentExperience = {
+  nameofEmployer: string;
+  supervisor: string;
+  address: string;
+  phone: string;
+  dateEmployedFrom: string;
+  dateEmployedTo: string;
+  employerContact: string;
+};
+
 const EmployeeApplicationForm = ({
   jobPositionID,
   jobPosition,
@@ -13,6 +24,7 @@ const EmployeeApplicationForm = ({
   jobPositionID: string;
   jobPosition: string;
 }) => {
+  const baseIndex = 6;
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSucess] = useState<string | null>(null);
@@ -28,8 +40,14 @@ const EmployeeApplicationForm = ({
     radioSet3: [false, false],
     radioSet4: [false, false],
     radioSet5: [false, false],
+
     radioSet6: [false, false],
+    radioSet7: [false, false],
+    radioSet8: [false, false],
+    radioSet9: [false, false],
+    radioSet10: [false, false],
   });
+
   const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>(
     Array(7).fill(false),
   );
@@ -57,11 +75,16 @@ const EmployeeApplicationForm = ({
   };
 
   const validateRadioBtns = (): boolean => {
-    console.log("Radio button set1: ", selectedRadioBtn["radioSet1"]);
-    console.log("Radio button set2: ", selectedRadioBtn["radioSet2"]);
-    console.log("Radio button set3: ", selectedRadioBtn["radioSet3"]);
-    console.log("Radio button set4: ", selectedRadioBtn["radioSet4"]);
-    console.log("Radio button set5: ", selectedRadioBtn["radioSet5"]);
+    // console.log("Radio button set1: ", selectedRadioBtn["radioSet1"]);
+    // console.log("Radio button set2: ", selectedRadioBtn["radioSet2"]);
+    // console.log("Radio button set3: ", selectedRadioBtn["radioSet3"]);
+    // console.log("Radio button set4: ", selectedRadioBtn["radioSet4"]);
+    // console.log("Radio button set5: ", selectedRadioBtn["radioSet5"]);
+    console.log("Radio button set6: ", selectedRadioBtn["radioSet6"]);
+    console.log("Radio button set7: ", selectedRadioBtn["radioSet7"]);
+    console.log("Radio button set8: ", selectedRadioBtn["radioSet8"]);
+    console.log("Radio button set9: ", selectedRadioBtn["radioSet9"]);
+    console.log("Radio button set10: ", selectedRadioBtn["radioSet10"]);
 
     const validateRadioBtnSet = (
       setName: string,
@@ -158,6 +181,128 @@ const EmployeeApplicationForm = ({
       setLoading(false);
     }
   }
+
+  const [employmentExperiences, setEmploymentExperiences] = useState([
+    {
+      nameofEmployer: "",
+      supervisor: "",
+      address: "",
+      phone: "",
+      dateEmployedFrom: "",
+      dateEmployedTo: "",
+      employerContact: "",
+    },
+  ]);
+
+  // const handleAddExperience = () => {
+  //   if (employmentExperiences.length < 5) {
+  //     setEmploymentExperiences([
+  //       ...employmentExperiences,
+  //       {
+  //         nameofEmployer: "",
+  //         supervisor: "",
+  //         address: "",
+  //         phone: "",
+  //         dateEmployedFrom: "",
+  //         dateEmployedTo: "",
+  //         employerContact: "",
+  //       },
+  //     ]);
+  //   } else {
+  //     alert("You can only add up to 5 employment experiences.");
+  //   }
+  // };
+
+  const handleAddExperience = () => {
+    if (employmentExperiences.length < 5) {
+      const newIndex = employmentExperiences.length;
+
+      // Add the new employment experience
+      setEmploymentExperiences([
+        ...employmentExperiences,
+        {
+          nameofEmployer: "",
+          supervisor: "",
+          address: "",
+          phone: "",
+          dateEmployedFrom: "",
+          dateEmployedTo: "",
+          employerContact: "",
+        },
+      ]);
+
+      // Add a new radio button state for the new experience
+      setSelectedRadioBtn((prevState) => ({
+        ...prevState,
+        [`radioSet${baseIndex + newIndex}`]: [false, false],
+      }));
+    } else {
+      alert("You can only add up to 5 employment experiences.");
+    }
+  };
+
+  function handleInputChange(
+    index: number,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) {
+    const name = event.target.name as keyof EmploymentExperience;
+    const value = event.target.value;
+    const type = event.target.type;
+    const id = event.target.id;
+
+    console.log("TYPE: ", type);
+    console.log("NAME:  ", name);
+    console.log("VALUE: ", value);
+    console.log("ID: ", id);
+    console.log("INDEX: ", index);
+    if (type == "radio") {
+    }
+
+    setEmploymentExperiences((prevState: EmploymentExperience[]) => {
+      const updatedExperiences = [...prevState];
+      updatedExperiences[index] = {
+        ...updatedExperiences[index],
+        [name]: value,
+      };
+      return updatedExperiences;
+    });
+  }
+
+  // const handleDeleteExperience = (index: number) => {
+  //   selectedRadioBtn[`radioSet${baseIndex + index}`] = [false, false];
+
+  //   setEmploymentExperiences((prevState: EmploymentExperience[]) => {
+  //     return prevState.filter((_, i) => i !== index);
+  //   });
+  // };
+  const handleDeleteExperience = (index: number) => {
+    const updatedSelectedRadioBtn = { ...selectedRadioBtn };
+    const radioKey = `radioSet${baseIndex + index}`;
+
+    // Reset the state of the radio buttons associated with the deleted card
+    updatedSelectedRadioBtn[radioKey] = [false, false];
+
+    // Adjust the keys for the remaining radio button sets
+    for (let i = index + 1; i < employmentExperiences.length; i++) {
+      const currentKey = `radioSet${baseIndex + i}`;
+      const previousKey = `radioSet${baseIndex + i - 1}`;
+      updatedSelectedRadioBtn[previousKey] =
+        updatedSelectedRadioBtn[currentKey];
+    }
+
+    // Delete the last radio button set key since it's now redundant
+    delete updatedSelectedRadioBtn[
+      `radioSet${baseIndex + employmentExperiences.length - 1}`
+    ];
+
+    // Update the state with the modified radio button states
+    setSelectedRadioBtn(updatedSelectedRadioBtn);
+
+    // Update the employment experiences
+    setEmploymentExperiences((prevState: EmploymentExperience[]) => {
+      return prevState.filter((_, i) => i !== index);
+    });
+  };
 
   return (
     <>
@@ -709,159 +854,216 @@ const EmployeeApplicationForm = ({
                   Add additional page if necessary.
                 </p>
                 <hr className="w-full h-[1px] bg-dark-grey my-6" />
-                <div className="flex md:flex-row flex-col">
-                  <div className="w-full md:mb-6 mb-3 pr-3">
-                    <label
-                      htmlFor="nameofEmployer1"
-                      className="form-label text-dark-grey"
-                    >
-                      Name of Employer <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="nameofEmployer1"
-                      name="nameofEmployer1"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                      type="text"
-                      required
-                    />
-                  </div>
+                <div>
+                  <div>
+                    {employmentExperiences.map((experience, index) => (
+                      <div key={index} className="flex flex-col mb-6">
+                        <div className="flex md:flex-row flex-col">
+                          <div className="w-full md:mb-6 mb-3 pr-3">
+                            <label
+                              htmlFor={`nameofEmployer${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Name of Employer{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`nameofEmployer${index}`}
+                              name="nameofEmployer"
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="text"
+                              value={experience.nameofEmployer}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
 
-                  <div className="w-full md:mb-6 mb-3 pr-14">
-                    <label
-                      htmlFor="supervisor1"
-                      className="form-label text-dark-grey"
-                    >
-                      Supervisor <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="supervisor1"
-                      name="supervisor1"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                      type="text"
-                      required
-                    />
-                  </div>
+                          <div className="w-full md:mb-6 mb-3 pr-14">
+                            <label
+                              htmlFor={`supervisor${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Supervisor <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`supervisor${index}`}
+                              name="supervisor"
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="text"
+                              value={experience.supervisor}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
 
-                  <div className="flex flex-col w-full md:mb-6 mb-3">
-                    <label className="form-label text-dark-grey">
-                      May we contact? <span className="text-red-500">*</span>
-                    </label>
+                          <div className="flex flex-col w-full md:mb-6 mb-3">
+                            <label className="form-label text-dark-grey">
+                              May we contact?{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                              <div className="flex flex-row items-center">
+                                <input
+                                  id={`yesContact${index}`}
+                                  name={`employerContact${index}`}
+                                  value="Yes"
+                                  type="radio"
+                                  className="mr-1"
+                                  checked={
+                                    selectedRadioBtn[
+                                      `radioSet${baseIndex + index}`
+                                    ][0]
+                                  }
+                                  onChange={(event) => {
+                                    setSelectedRadioBtn({
+                                      ...selectedRadioBtn,
+                                      [`radioSet${baseIndex + index}`]: [
+                                        true,
+                                        false,
+                                      ],
+                                    });
+                                  }}
+                                />
+                                <label htmlFor={`yesContact${index}`}>
+                                  Yes
+                                </label>
+                              </div>
 
-                    {/* Radio buttons */}
-                    <div className="flex flex-row items-center md:space-x-10 space-x-3">
-                      <div className="flex flex-row items-center">
-                        <input
-                          id="yesContact1"
-                          name="employerContact1"
-                          value="Yes"
-                          type="radio"
-                          className="mr-1"
-                          checked={selectedRadioBtn["radioSet5"][0]}
-                          onChange={() =>
-                            setSelectedRadioBtn({
-                              ...selectedRadioBtn,
-                              radioSet5: [true, false],
-                            })
-                          }
-                        />
-                        <label htmlFor="yesContact1">Yes</label>
+                              <div className="flex flex-row items-center">
+                                <input
+                                  id={`noContact${index}`}
+                                  name={`employerContact${index}`}
+                                  value="No"
+                                  type="radio"
+                                  className="md:ml-4 mr-1"
+                                  checked={
+                                    selectedRadioBtn[
+                                      `radioSet${baseIndex + index}`
+                                    ][1]
+                                  }
+                                  onChange={(event) => {
+                                    setSelectedRadioBtn({
+                                      ...selectedRadioBtn,
+                                      [`radioSet${baseIndex + index}`]: [
+                                        false,
+                                        true,
+                                      ],
+                                    });
+                                  }}
+                                />
+                                <label htmlFor={`noContact${index}`}>No</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col w-full md:mb-6 mb-3 pr-3">
+                          <label
+                            htmlFor={`address${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Street Address{" "}
+                            <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`address${index}`}
+                            name="address"
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full xl:w-1/3 md:w-3/5 h-12 border-mischka"
+                            type="text"
+                            value={experience.address}
+                            onChange={(event) =>
+                              handleInputChange(index, event)
+                            }
+                            required
+                          />
+                        </div>
+
+                        <div className="flex md:flex-row flex-col w-full">
+                          <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                            <label
+                              htmlFor={`phone${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Phone number{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`phone${index}`}
+                              name="phone"
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="tel"
+                              value={experience.phone}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
+
+                          <div className="w-full xl:w-2/5 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                            <label
+                              htmlFor={`dateEmployedFrom${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Date Employed - From{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`dateEmployedFrom${index}`}
+                              name="dateEmployedFrom"
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="date"
+                              value={experience.dateEmployedFrom}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
+
+                          <div className="w-full xl:w-2/5 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                            <label
+                              htmlFor={`dateEmployedTo${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Date Employed - To{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`dateEmployedTo${index}`}
+                              name="dateEmployedTo"
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="date"
+                              value={experience.dateEmployedTo}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => handleDeleteExperience(index)}
+                          className="bg-red-500 rounded-md text-white text-md px-4 py-2 mt-4 w-1/2"
+                        >
+                          Delete Experience
+                        </button>
                       </div>
+                    ))}
 
-                      <div className="flex flex-row items-center">
-                        <input
-                          id="noContact1"
-                          name="employerContact1"
-                          value="No"
-                          type="radio"
-                          className="md:ml-4 mr-1"
-                          checked={selectedRadioBtn["radioSet5"][1]}
-                          onChange={() =>
-                            setSelectedRadioBtn({
-                              ...selectedRadioBtn,
-                              radioSet5: [false, true],
-                            })
-                          }
-                        />
-                        <label htmlFor="noContact1">No</label>
-                      </div>
-                    </div>
-                    {formErrors.radio5 && (
-                      <p className="text-red-500">{formErrors.radio5}</p>
-                    )}
-                  </div>
-                </div>
-                <div className="flex flex-col w-full md:mb-6 mb-3 pr-3">
-                  <label
-                    htmlFor="address1"
-                    className="form-label text-dark-grey"
-                  >
-                    Street Address <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    id="address1"
-                    name="address1"
-                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full xl:w-1/3 md:w-3/5 h-12 border-mischka"
-                    placeholder=""
-                    type="text"
-                    required
-                  />
-                </div>
-
-                <div className="flex md:flex-row flex-col w-full">
-                  <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
-                    <label
-                      htmlFor="phone"
-                      className="form-label text-dark-grey"
+                    <button
+                      type="button"
+                      className="bg-blue-500 rounded-md text-md text-white px-4 py-2 mt-4"
+                      onClick={handleAddExperience}
                     >
-                      Phone number <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="phone"
-                      name="phone"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                      placeholder="+ 1 (123) 456-7891"
-                      type="tel"
-                      onChange={(e) => setPhone2(e.target.value)}
-                      required
-                    />
-                    {formErrors.phone2 && (
-                      <p className="text-red-500">{formErrors.phone2}</p>
-                    )}
-                  </div>
-
-                  <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
-                    <label
-                      htmlFor="dateEmployedFrom"
-                      className="form-label text-dark-grey"
-                    >
-                      Date Employed - From{" "}
-                      <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="dateEmployedFrom"
-                      name="dateEmployedFrom"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                      placeholder="mm/dd/yyyy"
-                      type="date"
-                      required
-                    />
-                  </div>
-
-                  <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
-                    <label
-                      htmlFor="dateEmployedTo"
-                      className="form-label text-dark-grey"
-                    >
-                      Date Employed - To <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      id="dateEmployedTo"
-                      name="dateEmployedTo"
-                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                      placeholder="mm/dd/yyyy"
-                      type="date"
-                      required
-                    />
+                      Add new employment experience
+                    </button>
                   </div>
                 </div>
               </div>

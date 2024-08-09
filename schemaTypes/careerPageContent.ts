@@ -6,7 +6,6 @@ const careerPage = defineType({
   name: "careerPageContent",
   title: "Career Page Content",
   type: "document",
-  icon: BiBriefcase,
 
   fields: [
     defineField({
