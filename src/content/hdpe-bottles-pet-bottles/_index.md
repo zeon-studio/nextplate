@@ -1,5 +1,5 @@
 ---
-title: "Sustainability"
+title: "HDPE Bottles and PET Bottles"
 meta_title: ""
 description: "this is meta description"
 image: "/images/plastic-bottles-1.jpg"
@@ -13,7 +13,7 @@ This ability for curbside recycling help reduce waste to the landfill."
 sustainability_title_2: "Energy Efficient - Lower GHG emissions"
 sustainability_content_2: "PET and HDPE recycled containers can be processed through mechanical recycling back to plastic resin pellets called recycled content or PCR."
 
-page_header_image: "/images/sustainability-2.jpg"
+page_header_image: "/images/plastic-bottles-3.jpg"
 
 # Card
 card:

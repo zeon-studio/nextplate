@@ -82,7 +82,7 @@ const Home = () => {
           <div className="container relative z-10">
             <div className="relative xl:col-6 md:col-7">
               <div className="absolute inset-0 flex items-center justify-left text-left">
-                <div className="bg-slate-400 bg-opacity-15 backdrop-blur-sm shadow-md lg:px-20 lg:py-20 md:py-8 md:px-8 px-5 py-5 rounded-xl">
+                <div className="bg-slate-400 bg-opacity-20 backdrop-blur-sm shadow-md lg:px-20 lg:py-20 md:py-8 md:px-8 px-5 py-5 rounded-xl">
                   <div className="py-5">
                     <h1
                       className="mb-6 text-h2 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"

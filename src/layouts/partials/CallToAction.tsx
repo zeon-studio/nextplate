@@ -80,7 +80,7 @@ const CallToAction = ({ data }: { data: PageData }) => {
                       }`}
                     >
                       <Link
-                        className="btn btn-primary rounded-full mt-5 hover:bg-dark-grey hover:border-dark-grey"
+                        className="btn btn-primary rounded-md mt-5 hover:bg-dark-grey hover:border-dark-grey"
                         href={data.frontmatter.button.link}
                       >
                         <div className="flex flex-row items-center">

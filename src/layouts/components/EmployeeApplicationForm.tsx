@@ -4,7 +4,6 @@ import { FormEvent, useState, useEffect } from "react";
 import ErrorAlert from "@/partials/ErrorAlert";
 import SuccessAlert from "@/partials/SuccessAlert";
 import { Dict } from "styled-components/dist/types";
-import EmploymentDesired from "./EmploymentDesired";
 
 // Dynamic employment experience
 type EmploymentExperience = {
@@ -24,13 +23,15 @@ const EmployeeApplicationForm = ({
   jobPositionID: string;
   jobPosition: string;
 }) => {
-  const baseIndex = 6;
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSucess] = useState<string | null>(null);
 
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [formErrors, setFormErrors] = useState<Dict>({});
+  const [employmentExpFormErrors, setEmploymentExpFormErrors] = useState<Dict>(
+    {},
+  );
   const [phone, setPhone] = useState<string>("");
   const [phone2, setPhone2] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -39,23 +40,52 @@ const EmployeeApplicationForm = ({
     radioSet2: [false, false],
     radioSet3: [false, false],
     radioSet4: [false, false],
-    radioSet5: [false, false],
-
-    radioSet6: [false, false],
-    radioSet7: [false, false],
-    radioSet8: [false, false],
-    radioSet9: [false, false],
-    radioSet10: [false, false],
   });
+  const [selectedEmploymentRadioBtn, setSelectedEmploymentRadioBtn] =
+    useState<Dict>({
+      radioSet0: [false, false],
+      radioSet1: [false, false],
+      radioSet2: [false, false],
+      radioSet3: [false, false],
+      radioSet4: [false, false],
+    });
 
+  const [employmentExperiences, setEmploymentExperiences] = useState([
+    {
+      nameofEmployer: "",
+      supervisor: "",
+      address: "",
+      phone: "",
+      dateEmployedFrom: "",
+      dateEmployedTo: "",
+      employerContact: "",
+    },
+  ]);
+  const [isEmploymentCardCreated, setIsEmploymentCardCreated] = useState<
+    boolean[]
+  >(Array(employmentExperiences.length).fill(false));
   const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>(
     Array(7).fill(false),
   );
   const [isRequired, setIsRequired] = useState<boolean>(false);
 
   useEffect(() => {
+    // Handles case where there is orginally one employment card on page mount
+    if (employmentExperiences.length == 1) {
+      isEmploymentCardCreated[0] = true;
+    }
+  }, [isEmploymentCardCreated]);
+
+  useEffect(() => {
     validateForm();
-  }, [phone, phone2, email, selectedRadioBtn, selectedCheckBox]);
+  }, [
+    phone,
+    phone2,
+    email,
+    selectedRadioBtn,
+    selectedEmploymentRadioBtn,
+    selectedCheckBox,
+  ]);
 
   const validateCheckBoxes = (): boolean => {
     console.log("Selected check boxes: ", selectedCheckBox);
@@ -75,26 +105,46 @@ const EmployeeApplicationForm = ({
   };
 
   const validateRadioBtns = (): boolean => {
-    // console.log("Radio button set1: ", selectedRadioBtn["radioSet1"]);
-    // console.log("Radio button set2: ", selectedRadioBtn["radioSet2"]);
-    // console.log("Radio button set3: ", selectedRadioBtn["radioSet3"]);
-    // console.log("Radio button set4: ", selectedRadioBtn["radioSet4"]);
-    // console.log("Radio button set5: ", selectedRadioBtn["radioSet5"]);
-    console.log("Radio button set6: ", selectedRadioBtn["radioSet6"]);
-    console.log("Radio button set7: ", selectedRadioBtn["radioSet7"]);
-    console.log("Radio button set8: ", selectedRadioBtn["radioSet8"]);
-    console.log("Radio button set9: ", selectedRadioBtn["radioSet9"]);
-    console.log("Radio button set10: ", selectedRadioBtn["radioSet10"]);
+    const validateRadioBtnSets = (): boolean => {
+      let isValid = true;
+      Object.keys(selectedEmploymentRadioBtn).forEach((setName, index) => {
+        const radioSet = selectedEmploymentRadioBtn[setName];
+
+        console.log("VALIDATING RADIO SET: ", radioSet);
+        console.log("IS RADIO SET CREATED: ", isEmploymentCardCreated[index]);
+
+        // Validate only if the employment card is created
+        if (isEmploymentCardCreated[index]) {
+          const errorKey = `radio${index}`;
+          console.log("VALIDATE RADIO AT ERROR KEY: ", errorKey);
+          if (!validateRadioBtnSet(radioSet, setName, errorKey)) {
+            isValid = false;
+            setEmploymentExpFormErrors((prevErrors) => ({
+              ...prevErrors,
+              [errorKey]: "Pick one radio button",
+            }));
+            console.log("RADIO BTN IS NOT VALID, DISPLAY ERROR");
+          } else {
+            setEmploymentExpFormErrors((prevErrors) => {
+              const { [errorKey]: _, ...rest } = prevErrors;
+              return rest;
+            });
+            console.log("RADIO BTN IS VALID, GET RID OF ERROR");
+          }
+        }
+      });
+      return isValid;
+    };
 
     const validateRadioBtnSet = (
+      radioSet: boolean[],
       setName: string,
       errorKey: string,
     ): boolean => {
-      if (!selectedRadioBtn[setName].includes(true)) {
+      if (!radioSet || !radioSet.includes(true)) {
         setFormErrors((prevErrors) => ({
           ...prevErrors,
-          // [errorKey]: `Pick one radio button for ${setName}`,
-          [errorKey]: `Pick one radio button`,
+          [errorKey]: "Pick one radio button",
         }));
         return false;
       } else {
@@ -106,23 +156,43 @@ const EmployeeApplicationForm = ({
       }
     };
 
-    const isRadioSet1Valid = validateRadioBtnSet("radioSet1", "radio1");
-    const isRadioSet2Valid = validateRadioBtnSet("radioSet2", "radio2");
-    const isRadioSet3Valid = validateRadioBtnSet("radioSet3", "radio3");
-    const isRadioSet4Valid = validateRadioBtnSet("radioSet4", "radio4");
-    const isRadioSet5Valid = validateRadioBtnSet("radioSet5", "radio5");
+    // Validate static radio buttons
+    const isRadioSet1Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet1"],
+      "radioSet1",
+      "radio1",
+    );
+    const isRadioSet2Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet2"],
+      "radioSet2",
+      "radio2",
+    );
+    const isRadioSet3Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet3"],
+      "radioSet3",
+      "radio3",
+    );
+    const isRadioSet4Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet4"],
+      "radioSet4",
+      "radio4",
+    );
+
+    // Validate dynamic radio buttons
+    const isRadioSetsValid = validateRadioBtnSets();
 
     return (
       isRadioSet1Valid &&
       isRadioSet2Valid &&
       isRadioSet3Valid &&
       isRadioSet4Valid &&
-      isRadioSet5Valid
+      isRadioSetsValid
     );
   };
 
   const validateForm = (): void => {
     let formErrors: { [key: string]: string } = {};
+    let employmentExpFormErrors: { [key: string]: string } = {};
 
     let phoneRegex = new RegExp(
       /^\+?\d{1,2}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/,
@@ -137,6 +207,11 @@ const EmployeeApplicationForm = ({
     }
     if (email && !emailRegex.test(email)) {
       formErrors.email = "Invalid email address";
+    }
+
+    // Add any errors from the employment experiences
+    if (Object.keys(employmentExpFormErrors).length > 0) {
+      formErrors = { ...formErrors, ...employmentExpFormErrors };
     }
 
     setFormErrors(formErrors);
@@ -182,37 +257,6 @@ const EmployeeApplicationForm = ({
     }
   }
 
-  const [employmentExperiences, setEmploymentExperiences] = useState([
-    {
-      nameofEmployer: "",
-      supervisor: "",
-      address: "",
-      phone: "",
-      dateEmployedFrom: "",
-      dateEmployedTo: "",
-      employerContact: "",
-    },
-  ]);
-
-  // const handleAddExperience = () => {
-  //   if (employmentExperiences.length < 5) {
-  //     setEmploymentExperiences([
-  //       ...employmentExperiences,
-  //       {
-  //         nameofEmployer: "",
-  //         supervisor: "",
-  //         address: "",
-  //         phone: "",
-  //         dateEmployedFrom: "",
-  //         dateEmployedTo: "",
-  //         employerContact: "",
-  //       },
-  //     ]);
-  //   } else {
-  //     alert("You can only add up to 5 employment experiences.");
-  //   }
-  // };
-
   const handleAddExperience = () => {
     if (employmentExperiences.length < 5) {
       const newIndex = employmentExperiences.length;
@@ -232,12 +276,19 @@ const EmployeeApplicationForm = ({
       ]);
 
       // Add a new radio button state for the new experience
-      setSelectedRadioBtn((prevState) => ({
+      setSelectedEmploymentRadioBtn((prevState) => ({
         ...prevState,
-        [`radioSet${baseIndex + newIndex}`]: [false, false],
+        [`radioSet${newIndex}`]: [false, false],
       }));
+
+      // Mark the new employment card as created and log the updated state
+      setIsEmploymentCardCreated((prevState) => {
+        const updatedState = [...prevState];
+        updatedState[newIndex] = true;
+        return updatedState;
+      });
     } else {
-      alert("You can only add up to 5 employment experiences.");
+      alert("You can only add up to 5 employment experiences");
     }
   };
 
@@ -247,16 +298,6 @@ const EmployeeApplicationForm = ({
   ) {
     const name = event.target.name as keyof EmploymentExperience;
     const value = event.target.value;
-    const type = event.target.type;
-    const id = event.target.id;
-
-    console.log("TYPE: ", type);
-    console.log("NAME:  ", name);
-    console.log("VALUE: ", value);
-    console.log("ID: ", id);
-    console.log("INDEX: ", index);
-    if (type == "radio") {
-    }
 
     setEmploymentExperiences((prevState: EmploymentExperience[]) => {
       const updatedExperiences = [...prevState];
@@ -268,40 +309,50 @@ const EmployeeApplicationForm = ({
     });
   }
 
-  // const handleDeleteExperience = (index: number) => {
-  //   selectedRadioBtn[`radioSet${baseIndex + index}`] = [false, false];
-
-  //   setEmploymentExperiences((prevState: EmploymentExperience[]) => {
-  //     return prevState.filter((_, i) => i !== index);
-  //   });
-  // };
   const handleDeleteExperience = (index: number) => {
-    const updatedSelectedRadioBtn = { ...selectedRadioBtn };
-    const radioKey = `radioSet${baseIndex + index}`;
+    // Copy the existing radio button states
+    const updatedSelectedRadioBtn = { ...selectedEmploymentRadioBtn };
 
-    // Reset the state of the radio buttons associated with the deleted card
-    updatedSelectedRadioBtn[radioKey] = [false, false];
+    // Remove the radio button set associated with the deleted card
+    delete updatedSelectedRadioBtn[`radioSet${index}`];
 
     // Adjust the keys for the remaining radio button sets
-    for (let i = index + 1; i < employmentExperiences.length; i++) {
-      const currentKey = `radioSet${baseIndex + i}`;
-      const previousKey = `radioSet${baseIndex + i - 1}`;
-      updatedSelectedRadioBtn[previousKey] =
-        updatedSelectedRadioBtn[currentKey];
-    }
+    Object.keys(updatedSelectedRadioBtn)
+      .sort(
+        (a, b) =>
+          parseInt(a.replace("radioSet", "")) -
+          parseInt(b.replace("radioSet", "")),
+      )
+      .forEach((key, i) => {
+        const currentKey = key;
+        const nextKey = `radioSet${i}`;
 
-    // Delete the last radio button set key since it's now redundant
-    delete updatedSelectedRadioBtn[
-      `radioSet${baseIndex + employmentExperiences.length - 1}`
-    ];
+        if (currentKey !== nextKey) {
+          updatedSelectedRadioBtn[nextKey] =
+            updatedSelectedRadioBtn[currentKey];
+          delete updatedSelectedRadioBtn[currentKey];
+        }
+      });
+
+    console.log("AFTER DELETION: ", updatedSelectedRadioBtn);
 
     // Update the state with the modified radio button states
-    setSelectedRadioBtn(updatedSelectedRadioBtn);
+    setSelectedEmploymentRadioBtn(updatedSelectedRadioBtn);
 
     // Update the employment experiences
     setEmploymentExperiences((prevState: EmploymentExperience[]) => {
       return prevState.filter((_, i) => i !== index);
     });
+
+    // Update the isEmploymentCardCreated state
+    setIsEmploymentCardCreated((prevState) => {
+      const updatedState = [...prevState];
+      updatedState.splice(index, 1);
+      return updatedState;
+    });
+
+    // Revalidate after deletion
+    validateRadioBtns();
   };
 
   return (
@@ -914,17 +965,14 @@ const EmployeeApplicationForm = ({
                                   type="radio"
                                   className="mr-1"
                                   checked={
-                                    selectedRadioBtn[
-                                      `radioSet${baseIndex + index}`
+                                    selectedEmploymentRadioBtn[
+                                      `radioSet${index}`
                                     ][0]
                                   }
                                   onChange={(event) => {
-                                    setSelectedRadioBtn({
-                                      ...selectedRadioBtn,
-                                      [`radioSet${baseIndex + index}`]: [
-                                        true,
-                                        false,
-                                      ],
+                                    setSelectedEmploymentRadioBtn({
+                                      ...selectedEmploymentRadioBtn,
+                                      [`radioSet${index}`]: [true, false],
                                     });
                                   }}
                                 />
@@ -941,23 +989,26 @@ const EmployeeApplicationForm = ({
                                   type="radio"
                                   className="md:ml-4 mr-1"
                                   checked={
-                                    selectedRadioBtn[
-                                      `radioSet${baseIndex + index}`
+                                    selectedEmploymentRadioBtn[
+                                      `radioSet${index}`
                                     ][1]
                                   }
                                   onChange={(event) => {
-                                    setSelectedRadioBtn({
-                                      ...selectedRadioBtn,
-                                      [`radioSet${baseIndex + index}`]: [
-                                        false,
-                                        true,
-                                      ],
+                                    setSelectedEmploymentRadioBtn({
+                                      ...selectedEmploymentRadioBtn,
+                                      [`radioSet${index}`]: [false, true],
                                     });
                                   }}
                                 />
                                 <label htmlFor={`noContact${index}`}>No</label>
                               </div>
                             </div>
+
+                            {employmentExpFormErrors[`radio${index}`] && (
+                              <p className="text-red-500">
+                                {employmentExpFormErrors[`radio${index}`]}
+                              </p>
+                            )}
                           </div>
                         </div>
 

@@ -42,11 +42,11 @@ const CommitmentToQuality = () => {
         <div className="container pb-14">
           <div className="w-full">
             <div className="gx-5 grid lg:grid-cols-5 gap-10">
-              <div className="lg:col-12 lg:mx-4 mx-1 col-span-3">
+              <div className="lg:col-12 mx-1 col-span-3">
                 <div className="row">
                   <div className="relative">
                     <h2
-                      className="col-10 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
+                      className="col-11 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_title,
                       )}
@@ -90,7 +90,7 @@ const CommitmentToQuality = () => {
 
                   <div className="relative">
                     <h3
-                      className="text-primary pb-2 animate-fade animate-duration-[600ms]"
+                      className="text-primary font-primary pb-2 animate-fade animate-duration-[600ms]"
                       dangerouslySetInnerHTML={markdownify(
                         cutting_edge_tech_sub_title,
                       )}

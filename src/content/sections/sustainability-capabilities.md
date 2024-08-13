@@ -17,7 +17,7 @@ services:
       enable: true
       label: "More info"
       link: "/cutting-edge-technology"
-  - image: "/images/plastic-bottles-1.jpg"
+  - image: "/images/bottles.jpg"
     link: "/commitment-to-quality"
     alt: "plastic bottles"
     category: "Capability"
@@ -31,7 +31,7 @@ services:
     link: "/private-label-co-packing"
     alt: "cardboard box"
     category: "Capability"
-    title: "Corrugated boxes"
+    title: "Corrugated Boxes"
     content: "Our eco-friendly packaging reduces environmental impact and supports a circular economy with easy recycling."
     button:
       enable: true

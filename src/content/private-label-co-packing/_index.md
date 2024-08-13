@@ -7,7 +7,7 @@ image2: "/images/gallery/gallery-4.jpg"
 image3: "/images/private-label-co-packing-2.jpg"
 link: "/contact"
 
-private_label_co_packing_title: "Comprehensive Food Safety & Quality Program"
+private_label_co_packing_title: "Your Trusted Partner in Custom Packaging"
 private_label_co_packing_content: "At __**Ninth Avenue Foods**__ we believe that your products and our capabilities and experience is a winning combination!\n\nWe are proud to produce and package for reputable brands and private label vendors across the country as well as internationally."
 
 private_label_co_packing_sub_title: "Our Expert Team for Unmatched Taste and Quality in Food Manufacturing"

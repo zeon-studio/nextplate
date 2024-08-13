@@ -11,11 +11,14 @@ import Image from "next/image";
 import CardCarousel from "@/components/CardCarousel";
 import Services from "@/partials/Services";
 
-const { sustainability_folder } = config.settings;
+const { hdpe_bottles_pet_bottles_folder } = config.settings;
 
 const HDPEandPETSustainability = () => {
-  const data = getListPage(`${sustainability_folder}/_index.md`);
-  const collaspe_data = getListPage(`${sustainability_folder}/collapse.md`);
+  const data = getListPage(`${hdpe_bottles_pet_bottles_folder}/_index.md`);
+  const collaspe_data = getListPage(
+    `${hdpe_bottles_pet_bottles_folder}/collapse.md`,
+  );
+
   const {
     title,
     meta_title,
@@ -33,7 +36,7 @@ const HDPEandPETSustainability = () => {
 
   const { card }: { card: Card } = data.frontmatter;
   const callToAction = getListPage("sections/call-to-action.md");
-  const capabilities = getListPage("sustainability/capabilities.md");
+  const capabilities = getListPage("sections/sustainability-capabilities.md");
 
   return (
     <>
