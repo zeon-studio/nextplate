@@ -18,6 +18,7 @@ const About = async () => {
   const capabilities = getListPage("about/capabilities.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const our_locations = getListPage("about/our_locations.md");
+
   const { frontmatter } = data;
   const {
     title,

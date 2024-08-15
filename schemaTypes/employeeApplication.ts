@@ -155,7 +155,72 @@ const employeeApplication = defineType({
         "If no, describe the functions that cannot be performed. Note: We comply with the ADA and consider reasonable accommodation measures that may be necessary for qualified applicants/employees to perform essential job functions.",
     }),
 
-    // Employment Experience
+    // Employment Experience (as an array of objects)
+    defineField({
+      name: "employmentExperiences",
+      type: "array",
+      title: "Employment Experience",
+      of: [
+        {
+          type: "object",
+          name: "employmentExperience",
+          fields: [
+            defineField({
+              name: "nameofEmployer",
+              type: "string",
+              title: "Name of Employer",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "supervisor",
+              type: "string",
+              title: "Supervisor",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "employerContact",
+              type: "string",
+              title: "May we contact?",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "employerAddress",
+              type: "string",
+              title: "Street Address",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "employerPhone",
+              type: "string",
+              title: "Phone number",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "dateEmployedFrom",
+              type: "string",
+              title: "Date Employed - From",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "dateEmployedTo",
+              type: "string",
+              title: "Date Employed - To",
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
+    }),
+  ],
+  fieldsets: [
+    {
+      title: "Employment Experiences",
+      name: "employmentExperiences",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
   ],
 
   preview: {

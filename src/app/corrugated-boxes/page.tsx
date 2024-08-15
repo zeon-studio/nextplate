@@ -26,10 +26,14 @@ const CorrugatedBoxes = () => {
     sustainability_content,
     sustainability_title_2,
     sustainability_content_2,
+    sustainability_title_3,
+    sustainability_quote_3,
+    sustainability_content_3,
+    sustainability_author_3,
+    sustainability_author_occupation_3,
     page_header_image,
     cards,
   } = data.frontmatter;
-
   const content = collaspe_data.content;
 
   const { card }: { card: Card } = data.frontmatter;
@@ -104,11 +108,80 @@ const CorrugatedBoxes = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-center py-20">
+            <div className="flex items-center justify-center md:py-20 py-16">
               <div className="w-full h-[1px] bg-gradient-to-r from-light-green via-green-500 to-dark-green"></div>
             </div>
 
             <div className="relative container">
+              <div className="flex-row grid md:grid-cols-2 grid-col-1 md:gap-24 gap-8 md:pb-32 pb-24">
+                <div className="col-span-1">
+                  <h2
+                    className="text-primary font-primary"
+                    dangerouslySetInnerHTML={markdownify(
+                      sustainability_title_3,
+                    )}
+                  />
+
+                  <blockquote className="pt-8 text-xl italic font-semibold text-dark-green font-primary">
+                    <svg
+                      className="w-8 h-8 text-dark-grey mb-4 "
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 18 14"
+                    >
+                      <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+                    </svg>
+                    <p
+                      dangerouslySetInnerHTML={markdownify(
+                        sustainability_quote_3,
+                      )}
+                    />
+
+                    <figcaption className="flex items-center mt-1 space-x-3 rtl:space-x-reverse">
+                      <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-dark-grey opacity-50">
+                        <cite className="pe-3">
+                          <p
+                            className="font-medium text-sm text-dark-grey"
+                            dangerouslySetInnerHTML={markdownify(
+                              sustainability_author_3,
+                            )}
+                          />
+                        </cite>
+                        <cite className="ps-3">
+                          <p
+                            className="text-sm text-gray-500"
+                            dangerouslySetInnerHTML={markdownify(
+                              sustainability_author_occupation_3,
+                            )}
+                          />
+                        </cite>
+                      </div>
+                    </figcaption>
+                  </blockquote>
+
+                  <p
+                    className="pt-4 text-dark-grey text-lg"
+                    dangerouslySetInnerHTML={markdownify(
+                      sustainability_content_3,
+                    )}
+                  />
+                </div>
+
+                <div className="col-span-1">
+                  <Image
+                    src={image}
+                    alt="Plastic Bottles"
+                    className="w-full h-full object-cover rounded-lg"
+                    width={2400}
+                    height={1600}
+                    priority
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-center md:pb-8 pb-6">
+                <div className="w-2/3 h-[1px] bg-gradient-to-r from-light-green via-green-500 to-dark-green"></div>
+              </div>
               <div className="flex flex-col items-center justify-center text-center">
                 <h2
                   className="text-primary text-h3 lg:text-h2 pb-2 animate-fade animate-duration-[600ms]"
@@ -121,10 +194,8 @@ const CorrugatedBoxes = () => {
                   )}
                 />
               </div>
+
               <CardCarousel cards={cards}></CardCarousel>
-              {/* <div className="pt-10">
-                <MDXContent content={content} />
-              </div> */}
             </div>
           </div>
         </div>

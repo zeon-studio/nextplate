@@ -7,6 +7,28 @@ export async function POST(request: Request) {
   console.log("FORM DATA: ", formData);
 
   try {
+    const employmentExperiencesData = formData.get("employmentExperiences");
+    console.log("Data:  ", employmentExperiencesData);
+    // console.log("Employer Name: ", employmentExperiencesData["nameofEmployer"]);
+
+    // Create employment experience objects
+    const employmentExperiences = [
+      {
+        nameofEmployer: formData.get("nameofEmployer") as string,
+        supervisor: formData.get("supervisor") as string,
+        employerContact: formData.get("employerContact") as string,
+        employerAddress: formData.get("employerAddress") as string,
+        employerPhone: formData.get("employerPhone") as string,
+        dateEmployedFrom: formData.get("dateEmployedFrom") as string,
+        dateEmployedTo: formData.get("dateEmployedTo") as string,
+      },
+    ];
+    // console.log("EMPLOYMENT EXPERIENCES: ", employmentExperiences);
+    // console.log(
+    //   "EMPLOYMENT EXPERIENCES LENGTH: ",
+    //   employmentExperiences.length,
+    // );
+
     const result = await createEmployeeApplication({
       _type: "employeeApplication",
       fname: formData.get("fname") as string,
@@ -30,10 +52,13 @@ export async function POST(request: Request) {
       accommodationMessage: formData.get("accommodationMessage") as string,
       jobPositionID: formData.get("jobPositionID") as string,
       jobPosition: formData.get("jobPosition") as string,
+
+      // Pass the array of employment experiences
+      employmentExperiences,
     });
-    console.log("Sucessfully added data to Sanity");
+    console.log("Successfully added data to Sanity");
     return NextResponse.json({
-      message: "Employee Application updated sucessfully!",
+      message: "Employee Application updated successfully!",
     });
   } catch (err) {
     console.log("Failed: ", err);

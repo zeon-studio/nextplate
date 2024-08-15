@@ -1,5 +1,5 @@
 ---
-title: "Corrugated Boxes"
+title: "HDPE Bottles and PET Bottles"
 meta_title: ""
 description: "this is meta description"
 image: "/images/plastic-bottles-1.jpg"
@@ -12,6 +12,20 @@ This ability for curbside recycling help reduce waste to the landfill."
 
 sustainability_title_2: "Energy Efficient - Lower GHG emissions"
 sustainability_content_2: "PET and HDPE recycled containers can be processed through mechanical recycling back to plastic resin pellets called recycled content or PCR."
+
+sustainability_title_3: "PET Packaging"
+sustainability_quote_3: "“PET is efficent, light, recycable, with unmatched scope
+                      for recycled content. A sustainable package must first
+                      serve its essential function: to protect its content,
+                      delivering it safely with all its taste, thereby form and
+                      other features intact, thereby eliminating waste through
+                      product damage and spoilage. PET does all and more. -
+                      NAPCOR”"
+sustainability_content_3: "PET is the most recycled plastic in the world, with more
+                    than 1.5 billion pounds of used PET bottles and containers
+                    recovered in the U.S. each year alone."
+sustainability_author_3: "PETRA"
+sustainability_author_occupation_3: "PET Resin Association"
 
 page_header_image: "/images/plastic-bottles-3.jpg"
 

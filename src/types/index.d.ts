@@ -127,6 +127,7 @@ export type Our_locations = {
   location_content: string;
   image: string;
   alt: string;
+  bulletpoints: string[];
 };
 
 export type Point_of_contact_email = {
@@ -225,6 +226,17 @@ export type EmployeeApplication = {
   accommodationMessage: string;
   jobPositionID: string;
   jobPosition: string;
+
+  // Employment experiences should be an array of objects
+  employmentExperiences: Array<{
+    nameofEmployer: string;
+    supervisor: string;
+    employerContact: string;
+    employerAddress: string;
+    employerPhone: string;
+    dateEmployedFrom: string;
+    dateEmployedTo: string;
+  }>;
 };
 
 export type CardCarouselType = {

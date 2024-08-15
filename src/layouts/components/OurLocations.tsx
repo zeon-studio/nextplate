@@ -4,6 +4,7 @@ import ImageFallback from "@/helpers/ImageFallback";
 import { markdownify } from "@/lib/utils/textConverter";
 import { useInView } from "react-intersection-observer";
 import { Our_locations } from "@/types";
+import { FaCheck } from "react-icons/fa6";
 
 interface PageData {
   frontmatter: {
@@ -70,6 +71,20 @@ const OurLocations = ({ data }: { data: PageData }) => {
                             locations.location_content,
                           )}
                         />
+                        <ul className="animate-fade-up animate-delay-[400ms] ease-in">
+                          {locations.bulletpoints &&
+                            locations.bulletpoints.map((bullet: string) => (
+                              <li className="relative mb-4 pl-6" key={bullet}>
+                                <FaCheck
+                                  color="#65a30d"
+                                  className={"absolute left-0 top-1.5"}
+                                />
+                                <span
+                                  dangerouslySetInnerHTML={markdownify(bullet)}
+                                />
+                              </li>
+                            ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
@@ -100,6 +115,20 @@ const OurLocations = ({ data }: { data: PageData }) => {
                             locations.location_content,
                           )}
                         />
+                        <ul className="animate-fade-up animate-delay-[400ms] ease-in">
+                          {locations.bulletpoints &&
+                            locations.bulletpoints.map((bullet: string) => (
+                              <li className="relative mb-4 pl-6" key={bullet}>
+                                <FaCheck
+                                  color="#65a30d"
+                                  className={"absolute left-0 top-1.5"}
+                                />
+                                <span
+                                  dangerouslySetInnerHTML={markdownify(bullet)}
+                                />
+                              </li>
+                            ))}
+                        </ul>
                       </div>
                       <ImageFallback
                         className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 md:mt-0 mt-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"

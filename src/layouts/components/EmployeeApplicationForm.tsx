@@ -9,12 +9,14 @@ import { Dict } from "styled-components/dist/types";
 type EmploymentExperience = {
   nameofEmployer: string;
   supervisor: string;
-  address: string;
-  phone: string;
+  employerAddress: string;
+  employerPhone: string;
   dateEmployedFrom: string;
   dateEmployedTo: string;
   employerContact: string;
 };
+
+type EmploymentExperienceList = EmploymentExperience[];
 
 const EmployeeApplicationForm = ({
   jobPositionID,
@@ -50,17 +52,9 @@ const EmployeeApplicationForm = ({
       radioSet4: [false, false],
     });
 
-  const [employmentExperiences, setEmploymentExperiences] = useState([
-    {
-      nameofEmployer: "",
-      supervisor: "",
-      address: "",
-      phone: "",
-      dateEmployedFrom: "",
-      dateEmployedTo: "",
-      employerContact: "",
-    },
-  ]);
+  const [employmentExperiences, setEmploymentExperiences] =
+    useState<EmploymentExperienceList>([]);
+
   const [isEmploymentCardCreated, setIsEmploymentCardCreated] = useState<
     boolean[]
   >(Array(employmentExperiences.length).fill(false));
@@ -231,23 +225,26 @@ const EmployeeApplicationForm = ({
     }
 
     try {
-      const data = new FormData(event.currentTarget);
-      data.append("jobPositionID", jobPositionID); //add this data to be connected content
-      data.append("jobPosition", jobPosition);
+      const formData = new FormData(event.currentTarget);
+
+      // Append employmentExperiences as a JSON string to the formData
+      formData.append(
+        "employmentExperiences",
+        JSON.stringify(employmentExperiences),
+      );
+      formData.append("jobPositionID", jobPositionID); // Add this data to be connected content
+      formData.append("jobPosition", jobPosition);
 
       const response = await fetch("/api/submit", {
         method: "POST",
-        body: data,
+        body: formData,
       });
 
       if (!response.ok) {
         throw new Error("Failed to submit the data. Please try again.");
       } else {
-        setSucess("Form submitted sucessfully!");
+        setSucess("Form submitted successfully!");
       }
-
-      // // Handle response if necessary
-      // const data = await response.json();
     } catch (err) {
       const error = err as Error;
       // Capture the error message to display to the user
@@ -267,8 +264,8 @@ const EmployeeApplicationForm = ({
         {
           nameofEmployer: "",
           supervisor: "",
-          address: "",
-          phone: "",
+          employerAddress: "",
+          employerPhone: "",
           dateEmployedFrom: "",
           dateEmployedTo: "",
           employerContact: "",
@@ -296,10 +293,9 @@ const EmployeeApplicationForm = ({
     index: number,
     event: React.ChangeEvent<HTMLInputElement>,
   ) {
-    const name = event.target.name as keyof EmploymentExperience;
-    const value = event.target.value;
+    const { name, value } = event.target;
 
-    setEmploymentExperiences((prevState: EmploymentExperience[]) => {
+    setEmploymentExperiences((prevState) => {
       const updatedExperiences = [...prevState];
       updatedExperiences[index] = {
         ...updatedExperiences[index],
@@ -340,7 +336,7 @@ const EmployeeApplicationForm = ({
     setSelectedEmploymentRadioBtn(updatedSelectedRadioBtn);
 
     // Update the employment experiences
-    setEmploymentExperiences((prevState: EmploymentExperience[]) => {
+    setEmploymentExperiences((prevState) => {
       return prevState.filter((_, i) => i !== index);
     });
 
@@ -920,7 +916,7 @@ const EmployeeApplicationForm = ({
                             </label>
                             <input
                               id={`nameofEmployer${index}`}
-                              name="nameofEmployer"
+                              name={`nameofEmployer`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="text"
                               value={experience.nameofEmployer}
@@ -940,7 +936,7 @@ const EmployeeApplicationForm = ({
                             </label>
                             <input
                               id={`supervisor${index}`}
-                              name="supervisor"
+                              name={`supervisor`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="text"
                               value={experience.supervisor}
@@ -959,7 +955,7 @@ const EmployeeApplicationForm = ({
                             <div className="flex flex-row items-center md:space-x-10 space-x-3">
                               <div className="flex flex-row items-center">
                                 <input
-                                  id={`yesContact${index}`}
+                                  id={`yesEmployerContact${index}`}
                                   name={`employerContact${index}`}
                                   value="Yes"
                                   type="radio"
@@ -976,14 +972,14 @@ const EmployeeApplicationForm = ({
                                     });
                                   }}
                                 />
-                                <label htmlFor={`yesContact${index}`}>
+                                <label htmlFor={`yesEmployerContact${index}`}>
                                   Yes
                                 </label>
                               </div>
 
                               <div className="flex flex-row items-center">
                                 <input
-                                  id={`noContact${index}`}
+                                  id={`noEmployerContact${index}`}
                                   name={`employerContact${index}`}
                                   value="No"
                                   type="radio"
@@ -1000,7 +996,9 @@ const EmployeeApplicationForm = ({
                                     });
                                   }}
                                 />
-                                <label htmlFor={`noContact${index}`}>No</label>
+                                <label htmlFor={`noEmployerContact${index}`}>
+                                  No
+                                </label>
                               </div>
                             </div>
 
@@ -1014,18 +1012,18 @@ const EmployeeApplicationForm = ({
 
                         <div className="flex flex-col w-full md:mb-6 mb-3 pr-3">
                           <label
-                            htmlFor={`address${index}`}
+                            htmlFor={`employerAddress${index}`}
                             className="form-label text-dark-grey"
                           >
                             Street Address{" "}
                             <span className="text-red-500">*</span>
                           </label>
                           <input
-                            id={`address${index}`}
-                            name="address"
+                            id={`employerAddress${index}`}
+                            name={`employerAddress`}
                             className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full xl:w-1/3 md:w-3/5 h-12 border-mischka"
                             type="text"
-                            value={experience.address}
+                            value={experience.employerAddress}
                             onChange={(event) =>
                               handleInputChange(index, event)
                             }
@@ -1036,18 +1034,18 @@ const EmployeeApplicationForm = ({
                         <div className="flex md:flex-row flex-col w-full">
                           <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
                             <label
-                              htmlFor={`phone${index}`}
+                              htmlFor={`employerPhone${index}`}
                               className="form-label text-dark-grey"
                             >
                               Phone number{" "}
                               <span className="text-red-500">*</span>
                             </label>
                             <input
-                              id={`phone${index}`}
-                              name="phone"
+                              id={`employerPhone${index}`}
+                              name={`employerPhone`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="tel"
-                              value={experience.phone}
+                              value={experience.employerPhone}
                               onChange={(event) =>
                                 handleInputChange(index, event)
                               }
@@ -1065,7 +1063,7 @@ const EmployeeApplicationForm = ({
                             </label>
                             <input
                               id={`dateEmployedFrom${index}`}
-                              name="dateEmployedFrom"
+                              name={`dateEmployedFrom`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="date"
                               value={experience.dateEmployedFrom}
@@ -1086,7 +1084,7 @@ const EmployeeApplicationForm = ({
                             </label>
                             <input
                               id={`dateEmployedTo${index}`}
-                              name="dateEmployedTo"
+                              name={`dateEmployedTo`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="date"
                               value={experience.dateEmployedTo}

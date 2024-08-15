@@ -3,6 +3,7 @@ import jobPosition from "./jobPosition";
 import employeeApplication from "./employeeApplication";
 import careerPage from "./careerPageContent";
 import employeePage from "./employeePageContent";
+import employmentExperience from "./employmentExperience";
 
 export const schemaTypes = [
   profile,
@@ -10,4 +11,5 @@ export const schemaTypes = [
   jobPosition,
   employeeApplication,
   employeePage,
+  employmentExperience,
 ];

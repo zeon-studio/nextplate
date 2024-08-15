@@ -56,7 +56,7 @@ export async function getEmployeePageContent() {
         "imageUrl": backgroundImage.asset->url,
         backgroundImage,
         metaTitle,
-        formDescription
+        formDescription,
       }`,
       {},
       {
