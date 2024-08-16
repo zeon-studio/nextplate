@@ -1,33 +1,36 @@
 import { NextResponse } from "next/server";
 import { createEmployeeApplication } from "../../sanity/sanity.query";
 
+const generateKey = function () {
+  return Date.now().toString(36) + Math.random().toString(36).substring(2);
+};
+
 export async function POST(request: Request) {
-  // Process post request
   const formData = await request.formData();
-  console.log("FORM DATA: ", formData);
 
   try {
-    const employmentExperiencesData = formData.get("employmentExperiences");
-    console.log("Data:  ", employmentExperiencesData);
-    // console.log("Employer Name: ", employmentExperiencesData["nameofEmployer"]);
+    // Check if employmentExperiences is available
+    const employmentExperiencesString = formData.get("employmentExperiences");
 
-    // Create employment experience objects
-    const employmentExperiences = [
-      {
-        nameofEmployer: formData.get("nameofEmployer") as string,
-        supervisor: formData.get("supervisor") as string,
-        employerContact: formData.get("employerContact") as string,
-        employerAddress: formData.get("employerAddress") as string,
-        employerPhone: formData.get("employerPhone") as string,
-        dateEmployedFrom: formData.get("dateEmployedFrom") as string,
-        dateEmployedTo: formData.get("dateEmployedTo") as string,
-      },
-    ];
-    // console.log("EMPLOYMENT EXPERIENCES: ", employmentExperiences);
-    // console.log(
-    //   "EMPLOYMENT EXPERIENCES LENGTH: ",
-    //   employmentExperiences.length,
-    // );
+    let employmentExperiences = [];
+    if (employmentExperiencesString) {
+      // Parse the JSON string if it exists
+      employmentExperiences = JSON.parse(
+        employmentExperiencesString as string,
+      ).map((experience: any) => ({
+        _key: generateKey(),
+        nameofEmployer: experience.nameofEmployer,
+        supervisor: experience.supervisor,
+        employerContact: experience.employerContact,
+        employerAddress: experience.employerAddress,
+        employerPhone: experience.employerPhone,
+        dateEmployedFrom: experience.dateEmployedFrom,
+        dateEmployedTo: experience.dateEmployedTo,
+      }));
+    }
+
+    // Log the form data for debugging
+    console.log("Form Data:", Object.fromEntries(formData.entries()));
 
     const result = await createEmployeeApplication({
       _type: "employeeApplication",
@@ -52,10 +55,9 @@ export async function POST(request: Request) {
       accommodationMessage: formData.get("accommodationMessage") as string,
       jobPositionID: formData.get("jobPositionID") as string,
       jobPosition: formData.get("jobPosition") as string,
-
-      // Pass the array of employment experiences
-      employmentExperiences,
+      employmentExperiences, // Pass the parsed employment experiences array or empty array
     });
+
     console.log("Successfully added data to Sanity");
     return NextResponse.json({
       message: "Employee Application updated successfully!",

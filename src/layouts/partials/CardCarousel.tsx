@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Transition } from "@headlessui/react";
 import { CardCarouselType } from "@/types";
+import { useInView } from "react-intersection-observer";
 
 export type CardCarouselProps = {
   cards: CardCarouselType[];
@@ -11,13 +12,16 @@ export type CardCarouselProps = {
 
 const CardCarousel = ({ cards }: CardCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const selectCard = (index: number) => {
     setCurrentIndex(index);
   };
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0, // Adjust as needed
+  });
 
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <div className="w-full flex justify-center py-8">
         <div className="bg-white rounded-full border border-light-grey shadow-lg">
           {cards.map((card, index) => (
@@ -57,7 +61,11 @@ const CardCarousel = ({ cards }: CardCarouselProps) => {
                   className="rounded-lg"
                   style={{ filter: "brightness(0.8)", objectFit: "cover" }}
                 />
-                <div className="absolute inset-0 flex items-center justify-center px-10">
+                <div
+                  className={`absolute inset-0 flex items-center justify-center px-10 ${
+                    inView ? "animate-delay-[500ms]" : ""
+                  }`}
+                >
                   <div className="bg-gray-600 bg-opacity-65 p-4 rounded-md">
                     <h2 className="text-white font-bold pb-3 text-h3 lg:text-h2">
                       {card.subtitle}

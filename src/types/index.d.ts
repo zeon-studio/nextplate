@@ -229,6 +229,7 @@ export type EmployeeApplication = {
 
   // Employment experiences should be an array of objects
   employmentExperiences: Array<{
+    _key: string;
     nameofEmployer: string;
     supervisor: string;
     employerContact: string;

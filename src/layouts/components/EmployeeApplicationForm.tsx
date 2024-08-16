@@ -225,16 +225,32 @@ const EmployeeApplicationForm = ({
     }
 
     try {
+      // Create FormData from the event target
       const formData = new FormData(event.currentTarget);
 
-      // Append employmentExperiences as a JSON string to the formData
-      formData.append(
-        "employmentExperiences",
-        JSON.stringify(employmentExperiences),
-      );
+      // Prepare the employment experiences array
+      const experiences = employmentExperiences.map((experience, index) => {
+        // Add the employerContact values based on the index
+        const employerContactValue = formData.get(
+          `employerContact${index}`,
+        ) as string;
+        return {
+          nameofEmployer: experience.nameofEmployer,
+          supervisor: experience.supervisor,
+          employerAddress: experience.employerAddress,
+          employerPhone: experience.employerPhone,
+          dateEmployedFrom: experience.dateEmployedFrom,
+          dateEmployedTo: experience.dateEmployedTo,
+          employerContact: employerContactValue, // Use an empty string if no value is found
+        };
+      });
+
+      // Append the experiences array as a JSON string to the formData
+      formData.append("employmentExperiences", JSON.stringify(experiences));
       formData.append("jobPositionID", jobPositionID); // Add this data to be connected content
       formData.append("jobPosition", jobPosition);
 
+      // Submit the form data
       const response = await fetch("/api/submit", {
         method: "POST",
         body: formData,
@@ -247,8 +263,7 @@ const EmployeeApplicationForm = ({
       }
     } catch (err) {
       const error = err as Error;
-      // Capture the error message to display to the user
-      setError(error.message);
+      setError(error.message); // Capture the error message to display to the user
     } finally {
       setLoading(false);
     }

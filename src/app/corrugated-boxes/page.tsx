@@ -8,7 +8,7 @@ import { Card } from "@/types";
 import BasicCard from "@/partials/BasicCard";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
-import CardCarousel from "@/components/CardCarousel";
+import CardCarousel from "@/partials/CardCarousel";
 import Services from "@/partials/Services";
 
 const { corrugated_boxes_folder } = config.settings;
@@ -116,13 +116,13 @@ const CorrugatedBoxes = () => {
               <div className="flex-row grid md:grid-cols-2 grid-col-1 md:gap-24 gap-8 md:pb-32 pb-24">
                 <div className="col-span-1">
                   <h2
-                    className="text-primary font-primary"
+                    className="text-primary font-primary animate-fade animate-duration-[800ms]"
                     dangerouslySetInnerHTML={markdownify(
                       sustainability_title_3,
                     )}
                   />
 
-                  <blockquote className="pt-8 text-xl italic font-semibold text-dark-green font-primary">
+                  <blockquote className="pt-8 text-xl italic font-semibold text-dark-green font-primary animate-fade animate-duration-[850ms]">
                     <svg
                       className="w-8 h-8 text-dark-grey mb-4 "
                       aria-hidden="true"
@@ -161,7 +161,7 @@ const CorrugatedBoxes = () => {
                   </blockquote>
 
                   <p
-                    className="pt-4 text-dark-grey text-lg"
+                    className="pt-4 text-dark-grey text-lg animate-fade animate-duration-[850ms]"
                     dangerouslySetInnerHTML={markdownify(
                       sustainability_content_3,
                     )}
