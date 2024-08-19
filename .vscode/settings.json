@@ -3,5 +3,6 @@
     "*.mdx": "markdown"
   },
   "vscode-pets.position": "explorer",
-  "vscode-pets.theme": "castle"
+  "vscode-pets.theme": "beach",
+  "vscode-pets.throwBallWithMouse": true
 }

@@ -67,10 +67,10 @@ const EmployeeApplicationForm = ({
 
   useEffect(() => {
     // Handles case where there is orginally one employment card on page mount
-    if (employmentExperiences.length == 1) {
-      isEmploymentCardCreated[0] = true;
+    if (employmentExperiences.length === 1) {
+      setIsEmploymentCardCreated([true]);
     }
-  }, [isEmploymentCardCreated]);
+  }, [employmentExperiences.length]);
 
   useEffect(() => {
     validateForm();
@@ -100,7 +100,7 @@ const EmployeeApplicationForm = ({
   };
 
   const validateRadioBtns = (): boolean => {
-    const validateRadioBtnSets = (): boolean => {
+    const validateEmploymentRadioBtnSets = (): boolean => {
       let isValid = true;
       Object.keys(selectedEmploymentRadioBtn).forEach((setName, index) => {
         const radioSet = selectedEmploymentRadioBtn[setName];
@@ -109,7 +109,7 @@ const EmployeeApplicationForm = ({
         if (isEmploymentCardCreated[index]) {
           const errorKey = `radio${index}`;
 
-          if (!validateRadioBtnSet(radioSet, setName, errorKey)) {
+          if (!radioSet || !radioSet.includes(true)) {
             isValid = false;
             setEmploymentExpFormErrors((prevErrors) => ({
               ...prevErrors,
@@ -131,6 +131,7 @@ const EmployeeApplicationForm = ({
       setName: string,
       errorKey: string,
     ): boolean => {
+      console.log(`RADIO SET ${setName}: `, radioSet);
       if (!radioSet || !radioSet.includes(true)) {
         setFormErrors((prevErrors) => ({
           ...prevErrors,
@@ -152,6 +153,7 @@ const EmployeeApplicationForm = ({
       "radioSet1",
       "radio1",
     );
+
     const isRadioSet2Valid = validateRadioBtnSet(
       selectedRadioBtn["radioSet2"],
       "radioSet2",
@@ -169,7 +171,7 @@ const EmployeeApplicationForm = ({
     );
 
     // Validate dynamic radio buttons
-    const isRadioSetsValid = validateRadioBtnSets();
+    const isRadioSetsValid = validateEmploymentRadioBtnSets();
 
     return (
       isRadioSet1Valid &&
@@ -274,6 +276,8 @@ const EmployeeApplicationForm = ({
 
   const handleAddExperience = () => {
     if (employmentExperiences.length < 5) {
+      validateForm();
+
       const newIndex = employmentExperiences.length;
 
       // Add the new employment experience
@@ -654,6 +658,7 @@ const EmployeeApplicationForm = ({
                       <label htmlFor="partTime"> Regular Part Time Work</label>
                     </div>
                   </div>
+
                   {formErrors.radio1 && (
                     <p className="text-red-500">{formErrors.radio1}</p>
                   )}
