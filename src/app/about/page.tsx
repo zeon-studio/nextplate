@@ -144,7 +144,7 @@ const About = async () => {
               </div>
 
               <div className="lg:w-full md:w-5/6 w-full">
-                <div className="relative 2xl:h-[45vh] xl:h-[60vh] h-[35vh] w-[340px] xl:w-[800px] md:w-[500px] md:right-[2rem]">
+                <div className="relative 2xl:h-[45vh] xl:h-[60vh] h-[35vh] w-[340px] xl:w-[800px] md:w-[500px] md:right-[2rem] z-0">
                   <Map
                     center={centerCoord}
                     position1={californiaCoord}

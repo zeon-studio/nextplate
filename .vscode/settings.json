@@ -1,5 +1,7 @@
 {
   "files.associations": {
     "*.mdx": "markdown"
-  }
+  },
+  "vscode-pets.position": "explorer",
+  "vscode-pets.theme": "castle"
 }

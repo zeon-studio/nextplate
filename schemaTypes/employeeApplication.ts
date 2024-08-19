@@ -207,6 +207,18 @@ const employeeApplication = defineType({
               title: "Date Employed - To",
               validation: (rule) => rule.required(),
             }),
+            defineField({
+              name: "jobTitleAndDuties",
+              type: "string",
+              title: "Job Title and Duties",
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: "reasonForLeaving",
+              type: "string",
+              title: "Reason for Leaving",
+              validation: (rule) => rule.required(),
+            }),
           ],
         },
       ],

@@ -14,6 +14,8 @@ type EmploymentExperience = {
   dateEmployedFrom: string;
   dateEmployedTo: string;
   employerContact: string;
+  jobTitleAndDuties: string;
+  reasonForLeaving: string;
 };
 
 type EmploymentExperienceList = EmploymentExperience[];
@@ -82,7 +84,6 @@ const EmployeeApplicationForm = ({
   ]);
 
   const validateCheckBoxes = (): boolean => {
-    console.log("Selected check boxes: ", selectedCheckBox);
     if (!selectedCheckBox.includes(true)) {
       // Add previous list of errors along with checkbox error
       setFormErrors((prevErrors) => ({
@@ -104,26 +105,21 @@ const EmployeeApplicationForm = ({
       Object.keys(selectedEmploymentRadioBtn).forEach((setName, index) => {
         const radioSet = selectedEmploymentRadioBtn[setName];
 
-        console.log("VALIDATING RADIO SET: ", radioSet);
-        console.log("IS RADIO SET CREATED: ", isEmploymentCardCreated[index]);
-
         // Validate only if the employment card is created
         if (isEmploymentCardCreated[index]) {
           const errorKey = `radio${index}`;
-          console.log("VALIDATE RADIO AT ERROR KEY: ", errorKey);
+
           if (!validateRadioBtnSet(radioSet, setName, errorKey)) {
             isValid = false;
             setEmploymentExpFormErrors((prevErrors) => ({
               ...prevErrors,
               [errorKey]: "Pick one radio button",
             }));
-            console.log("RADIO BTN IS NOT VALID, DISPLAY ERROR");
           } else {
             setEmploymentExpFormErrors((prevErrors) => {
               const { [errorKey]: _, ...rest } = prevErrors;
               return rest;
             });
-            console.log("RADIO BTN IS VALID, GET RID OF ERROR");
           }
         }
       });
@@ -199,6 +195,7 @@ const EmployeeApplicationForm = ({
     if (phone2 && !phoneRegex.test(phone2)) {
       formErrors.phone2 = "Invalid phone number";
     }
+
     if (email && !emailRegex.test(email)) {
       formErrors.email = "Invalid email address";
     }
@@ -234,14 +231,20 @@ const EmployeeApplicationForm = ({
         const employerContactValue = formData.get(
           `employerContact${index}`,
         ) as string;
+        const employerPhoneValue = formData.get(
+          `employerPhone${index}`,
+        ) as string;
+
         return {
           nameofEmployer: experience.nameofEmployer,
           supervisor: experience.supervisor,
           employerAddress: experience.employerAddress,
-          employerPhone: experience.employerPhone,
+          employerPhone: employerPhoneValue,
           dateEmployedFrom: experience.dateEmployedFrom,
           dateEmployedTo: experience.dateEmployedTo,
-          employerContact: employerContactValue, // Use an empty string if no value is found
+          employerContact: employerContactValue,
+          jobTitleAndDuties: experience.jobTitleAndDuties,
+          reasonForLeaving: experience.reasonForLeaving,
         };
       });
 
@@ -284,6 +287,8 @@ const EmployeeApplicationForm = ({
           dateEmployedFrom: "",
           dateEmployedTo: "",
           employerContact: "",
+          jobTitleAndDuties: "",
+          reasonForLeaving: "",
         },
       ]);
 
@@ -344,8 +349,6 @@ const EmployeeApplicationForm = ({
           delete updatedSelectedRadioBtn[currentKey];
         }
       });
-
-    console.log("AFTER DELETION: ", updatedSelectedRadioBtn);
 
     // Update the state with the modified radio button states
     setSelectedEmploymentRadioBtn(updatedSelectedRadioBtn);
@@ -942,7 +945,7 @@ const EmployeeApplicationForm = ({
                             />
                           </div>
 
-                          <div className="w-full md:mb-6 mb-3 pr-14">
+                          <div className="w-full md:mb-6 mb-3 md:pr-14 pr-3">
                             <label
                               htmlFor={`supervisor${index}`}
                               className="form-label text-dark-grey"
@@ -1057,15 +1060,17 @@ const EmployeeApplicationForm = ({
                             </label>
                             <input
                               id={`employerPhone${index}`}
-                              name={`employerPhone`}
+                              name={`employerPhone${index}`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="tel"
-                              value={experience.employerPhone}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
+                              onChange={(e) => setPhone2(e.target.value)}
                               required
                             />
+                            {formErrors.phone2 && (
+                              <p className="text-red-500">
+                                {formErrors.phone2}
+                              </p>
+                            )}
                           </div>
 
                           <div className="w-full xl:w-2/5 lg:w-1/2 pr-3 md:mb-6 mb-3">
@@ -1103,6 +1108,49 @@ const EmployeeApplicationForm = ({
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="date"
                               value={experience.dateEmployedTo}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
+                        </div>
+
+                        <div className="flex md:flex-row flex-col w-full">
+                          <div className="w-full md:mb-6 mb-3 pr-3">
+                            <label
+                              htmlFor={`jobTitleAndDuties${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Job Title and Duties{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`jobTitleAndDuties${index}`}
+                              name={`jobTitleAndDuties`}
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="text"
+                              value={experience.jobTitleAndDuties}
+                              onChange={(event) =>
+                                handleInputChange(index, event)
+                              }
+                              required
+                            />
+                          </div>
+                          <div className="w-full md:mb-6 mb-3 pr-3">
+                            <label
+                              htmlFor={`reasonForLeaving${index}`}
+                              className="form-label text-dark-grey"
+                            >
+                              Reason for Leaving{" "}
+                              <span className="text-red-500">*</span>
+                            </label>
+                            <input
+                              id={`reasonForLeaving${index}`}
+                              name={`reasonForLeaving`}
+                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                              type="text"
+                              value={experience.reasonForLeaving}
                               onChange={(event) =>
                                 handleInputChange(index, event)
                               }

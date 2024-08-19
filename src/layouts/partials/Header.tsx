@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <header
-      className={`header z-30${settings.sticky_header && "sticky top-0"}`}
+      className={`header z-30 ${settings.sticky_header && "sticky top-0"}`}
     >
       {/* <div className="w-full h-[50px] bg-primary py-3 hidden md:block">
         <span className="px-5 text-white font-medium">
