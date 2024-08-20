@@ -71,11 +71,6 @@ const EmployeeApplicationForm = ({
   );
   const [isRequired, setIsRequired] = useState<boolean>(false);
 
-  // useEffect(() => {
-  //   console.log("Employment Phone Numbers:  ", employmentPhoneNumber);
-  //   console.log("Employment Errors: ", employmentExpFormErrors["phone0"]);
-  // }, [employmentPhoneNumber]);
-
   useEffect(() => {
     // Handles case where there is orginally one employment card on page mount
     if (employmentExperiences.length === 1) {
@@ -1133,6 +1128,7 @@ const EmployeeApplicationForm = ({
                                   [`phone${index}`]: e.target.value,
                                 })
                               }
+                              required
                             />
                             {employmentExpFormErrors[`phone${index}`] && (
                               <p className="text-red-500">
