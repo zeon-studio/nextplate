@@ -37,8 +37,8 @@ const EmployeeApplicationForm = ({
     {},
   );
   const [phone, setPhone] = useState<string>("");
-  const [phone2, setPhone2] = useState<string>("");
   const [email, setEmail] = useState<string>("");
+
   const [selectedRadioBtn, setSelectedRadioBtn] = useState<Dict>({
     radioSet1: [false, false],
     radioSet2: [false, false],
@@ -53,7 +53,13 @@ const EmployeeApplicationForm = ({
       radioSet3: [false, false],
       radioSet4: [false, false],
     });
-
+  const [employmentPhoneNumber, setEmploymentPhoneNumber] = useState<Dict>({
+    phone0: "",
+    phone1: "",
+    phone2: "",
+    phone3: "",
+    phone4: "",
+  });
   const [employmentExperiences, setEmploymentExperiences] =
     useState<EmploymentExperienceList>([]);
 
@@ -64,6 +70,11 @@ const EmployeeApplicationForm = ({
     Array(7).fill(false),
   );
   const [isRequired, setIsRequired] = useState<boolean>(false);
+
+  // useEffect(() => {
+  //   console.log("Employment Phone Numbers:  ", employmentPhoneNumber);
+  //   console.log("Employment Errors: ", employmentExpFormErrors["phone0"]);
+  // }, [employmentPhoneNumber]);
 
   useEffect(() => {
     // Handles case where there is orginally one employment card on page mount
@@ -76,11 +87,11 @@ const EmployeeApplicationForm = ({
     validateForm();
   }, [
     phone,
-    phone2,
     email,
     selectedRadioBtn,
     selectedEmploymentRadioBtn,
     selectedCheckBox,
+    employmentPhoneNumber,
   ]);
 
   const validateCheckBoxes = (): boolean => {
@@ -131,8 +142,7 @@ const EmployeeApplicationForm = ({
       setName: string,
       errorKey: string,
     ): boolean => {
-      console.log(`RADIO SET ${setName}: `, radioSet);
-      if (!radioSet || !radioSet.includes(true)) {
+      if (!radioSet.includes(true)) {
         setFormErrors((prevErrors) => ({
           ...prevErrors,
           [errorKey]: "Pick one radio button",
@@ -189,14 +199,35 @@ const EmployeeApplicationForm = ({
     let phoneRegex = new RegExp(
       /^\+?\d{1,2}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/,
     );
+
     let emailRegex = new RegExp(/^[^@]*@[^@]*$/);
 
     if (phone && !phoneRegex.test(phone)) {
       formErrors.phone = "Invalid phone number";
     }
-    if (phone2 && !phoneRegex.test(phone2)) {
-      formErrors.phone2 = "Invalid phone number";
-    }
+
+    // For employment experience phone numbers
+    Object.keys(employmentPhoneNumber).forEach((setName, index) => {
+      const phone = employmentPhoneNumber[setName];
+
+      // Validate only if the employment card is created
+      if (isEmploymentCardCreated[index]) {
+        const errorKey = `phone${index}`;
+
+        if (phone && !phoneRegex.test(phone)) {
+          employmentExpFormErrors[errorKey] = "Invalid phone number";
+          setEmploymentExpFormErrors((prevErrors) => ({
+            ...prevErrors,
+            [errorKey]: "Invalid phone number",
+          }));
+        } else {
+          setEmploymentExpFormErrors((prevErrors) => {
+            const { [errorKey]: _, ...rest } = prevErrors;
+            return rest;
+          });
+        }
+      }
+    });
 
     if (email && !emailRegex.test(email)) {
       formErrors.email = "Invalid email address";
@@ -216,7 +247,9 @@ const EmployeeApplicationForm = ({
     setLoading(true);
     setError(null); // Clear previous errors when a new request starts
 
-    validateForm();
+    validateForm(); // Run validation
+
+    // Check for errors after validation
     if (!validateRadioBtns() || !validateCheckBoxes() || !isFormValid) {
       setError("Fix form errors before submitting!");
       setLoading(false);
@@ -302,6 +335,12 @@ const EmployeeApplicationForm = ({
         [`radioSet${newIndex}`]: [false, false],
       }));
 
+      // Add a new phone number for the new experience
+      setEmploymentPhoneNumber((prevState) => ({
+        ...prevState,
+        [`phone${newIndex}`]: "",
+      }));
+
       // Mark the new employment card as created and log the updated state
       setIsEmploymentCardCreated((prevState) => {
         const updatedState = [...prevState];
@@ -357,6 +396,25 @@ const EmployeeApplicationForm = ({
     // Update the state with the modified radio button states
     setSelectedEmploymentRadioBtn(updatedSelectedRadioBtn);
 
+    // Handle phone number deletion and reindexing
+    setEmploymentPhoneNumber((prevPhoneNumbers) => {
+      const updatedPhoneNumbers = { ...prevPhoneNumbers };
+      delete updatedPhoneNumbers[`phone${index}`];
+
+      // Adjust the keys for the remaining phone numbers
+      const sortedKeys = Object.keys(updatedPhoneNumbers).sort(
+        (a, b) =>
+          parseInt(a.replace("phone", "")) - parseInt(b.replace("phone", "")),
+      );
+
+      const reindexedPhoneNumbers = sortedKeys.reduce((acc, key, i) => {
+        acc[`phone${i}`] = updatedPhoneNumbers[key];
+        return acc;
+      }, {} as Dict);
+
+      return reindexedPhoneNumbers;
+    });
+
     // Update the employment experiences
     setEmploymentExperiences((prevState) => {
       return prevState.filter((_, i) => i !== index);
@@ -371,6 +429,7 @@ const EmployeeApplicationForm = ({
 
     // Revalidate after deletion
     validateRadioBtns();
+    validateForm();
   };
 
   return (
@@ -1068,12 +1127,16 @@ const EmployeeApplicationForm = ({
                               name={`employerPhone${index}`}
                               className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                               type="tel"
-                              onChange={(e) => setPhone2(e.target.value)}
-                              required
+                              onChange={(e) =>
+                                setEmploymentPhoneNumber({
+                                  ...employmentPhoneNumber,
+                                  [`phone${index}`]: e.target.value,
+                                })
+                              }
                             />
-                            {formErrors.phone2 && (
+                            {employmentExpFormErrors[`phone${index}`] && (
                               <p className="text-red-500">
-                                {formErrors.phone2}
+                                {employmentExpFormErrors[`phone${index}`]}
                               </p>
                             )}
                           </div>

@@ -237,6 +237,8 @@ export type EmployeeApplication = {
     employerPhone: string;
     dateEmployedFrom: string;
     dateEmployedTo: string;
+    jobTitleAndDuties: string;
+    reasonForLeaving: string;
   }>;
 };
 

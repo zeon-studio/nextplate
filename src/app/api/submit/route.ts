@@ -26,6 +26,8 @@ export async function POST(request: Request) {
         employerPhone: experience.employerPhone,
         dateEmployedFrom: experience.dateEmployedFrom,
         dateEmployedTo: experience.dateEmployedTo,
+        jobTitleAndDuties: experience.jobTitleAndDuties,
+        reasonForLeaving: experience.reasonForLeaving,
       }));
     }
 
