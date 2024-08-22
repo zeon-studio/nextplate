@@ -31,6 +31,7 @@ const CorrugatedBoxes = () => {
     sustainability_content_3,
     sustainability_author_3,
     sustainability_author_occupation_3,
+    sustainability_title_4,
     page_header_image,
     cards,
   } = data.frontmatter;
@@ -68,16 +69,6 @@ const CorrugatedBoxes = () => {
                       )}
                     />
                   </div>
-                  {/* <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
-                    <Image
-                      src={image}
-                      alt="Ninth Ave Foods Warehouse"
-                      className="w-full h-full object-cover"
-                      width={3678}
-                      height={1353}
-                      priority
-                    />
-                  </div> */}
 
                   <div className="w-full block md:hidden pt-4">
                     <Image
@@ -122,7 +113,7 @@ const CorrugatedBoxes = () => {
                     )}
                   />
 
-                  <blockquote className="pt-8 text-xl italic font-semibold text-dark-green font-primary animate-fade animate-duration-[850ms]">
+                  <blockquote className="pt-12 text-xl italic font-semibold text-dark-green font-primary animate-fade animate-duration-[850ms]">
                     <svg
                       className="w-8 h-8 text-dark-grey mb-4 "
                       aria-hidden="true"
@@ -161,7 +152,7 @@ const CorrugatedBoxes = () => {
                   </blockquote>
 
                   <p
-                    className="pt-4 text-dark-grey text-lg animate-fade animate-duration-[850ms]"
+                    className="pt-6 text-dark-grey text-lg animate-fade animate-duration-[850ms]"
                     dangerouslySetInnerHTML={markdownify(
                       sustainability_content_3,
                     )}
@@ -206,7 +197,7 @@ const CorrugatedBoxes = () => {
 
         <div className="col-10 mx-auto mb-20">
           <h3 className="text-dark-grey text-h4 lg:text-h3">
-            Heres why you should switch to PET bottles
+            {sustainability_title_4}
           </h3>
           <MDXContent content={content}></MDXContent>
         </div>

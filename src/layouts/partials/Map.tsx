@@ -47,7 +47,7 @@ const Map = ({ center, position1, position2 }: MapProps) => {
       return () => {
         window.removeEventListener("resize", updateMapView);
       };
-    }, [map, bounds]);
+    }, [map]);
 
     return null;
   };

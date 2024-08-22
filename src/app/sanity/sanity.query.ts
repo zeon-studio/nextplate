@@ -7,29 +7,23 @@ import type { EmployeeApplication } from "@/types";
 // export const dynamic = "force-dynamic";
 
 export async function getJobPositions() {
-  try {
-    return await client.fetch(
-      groq`*[_type == "jobPosition"] {
+  return await client.fetch(
+    groq`*[_type == "jobPosition"] {
         _id,
         _createdAt,
         jobTitle,
         location,
       }`,
-      {},
-      {
-        cache: "no-store",
-      },
-    );
-  } catch (error) {
-    console.error("Error fetching job positions:", error);
-    return [];
-  }
+    {},
+    {
+      cache: "no-store",
+    },
+  );
 }
 
 export async function getCareerPageContent() {
-  try {
-    return await client.fetch(
-      groq`*[_type == "careerPageContent"][0]{
+  return await client.fetch(
+    groq`*[_type == "careerPageContent"][0]{
         headerTitle,
         headerSubtitle,
         metaTitle,
@@ -37,36 +31,27 @@ export async function getCareerPageContent() {
         title,
         contactEmail
       }`,
-      {},
-      {
-        cache: "no-store",
-      },
-    );
-  } catch (error) {
-    console.error("Error fetching career page content:", error);
-    return [];
-  }
+    {},
+    {
+      cache: "no-store",
+    },
+  );
 }
 
 export async function getEmployeePageContent() {
-  try {
-    return await client.fetch(
-      groq`*[_type == "employeePageContent"][0]{
+  return await client.fetch(
+    groq`*[_type == "employeePageContent"][0]{
         title,
         "imageUrl": backgroundImage.asset->url,
         backgroundImage,
         metaTitle,
         formDescription,
       }`,
-      {},
-      {
-        cache: "no-store",
-      },
-    );
-  } catch (error) {
-    console.error("Error fetching employee page content:", error);
-    return [];
-  }
+    {},
+    {
+      cache: "no-store",
+    },
+  );
 }
 
 export async function getProfile() {

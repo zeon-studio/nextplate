@@ -79,7 +79,11 @@ const EmployeeApplicationForm = ({
   }, [employmentExperiences.length]);
 
   useEffect(() => {
-    validateForm();
+    console.log("Phone: ", phone);
+    console.log("Email: ", email);
+    console.log("Selected Radio Btn: ", selectedRadioBtn);
+    console.log("Selected Checkbox: ", selectedCheckBox);
+    console.log("Employment Phone Number: ", employmentPhoneNumber);
   }, [
     phone,
     email,
