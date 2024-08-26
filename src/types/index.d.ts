@@ -240,6 +240,41 @@ export type EmployeeApplication = {
     jobTitleAndDuties: string;
     reasonForLeaving: string;
   }>;
+  termination: string;
+  terminationMessage: string;
+  employmentGaps: string;
+  employmentQualifications: string;
+
+  // Education
+  highschoolName: string;
+  highschoolYear: string;
+  highschoolDegree: string;
+  highschoolAreaOfStudy: string;
+  highschoolSpecialization: string;
+
+  collegeName: string;
+  collegeYear: string;
+  collegeDegree: string;
+  collegeAreaOfStudy: string;
+  collegeSpecialization: string;
+
+  graduateSchoolName: string;
+  graduateSchoolYear: string;
+  graduateSchoolDegree: string;
+  graduateSchoolAreaOfStudy: string;
+  graduateSchoolSpecialization: string;
+
+  tradeSchoolName: string;
+  tradeSchoolYear: string;
+  tradeSchoolDegree: string;
+  tradeSchoolAreaOfStudy: string;
+  tradeSchoolSpecialization: string;
+
+  otherName: string;
+  otherYear: string;
+  otherDegree: string;
+  otherAreaOfStudy: string;
+  otherSpecialization: string;
 };
 
 export type CardCarouselType = {

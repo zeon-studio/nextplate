@@ -30,8 +30,6 @@ const EmployeeApplicationForm = ({
   const [isLoading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSucess] = useState<string | null>(null);
-
-  const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [formErrors, setFormErrors] = useState<Dict>({});
   const [employmentExpFormErrors, setEmploymentExpFormErrors] = useState<Dict>(
     {},
@@ -44,6 +42,12 @@ const EmployeeApplicationForm = ({
     radioSet2: [false, false],
     radioSet3: [false, false],
     radioSet4: [false, false],
+    radioSet5: [false, false],
+    radioSet6: [false, false],
+    radioSet7: [false, false],
+    radioSet8: [false, false],
+    radioSet9: [false, false],
+    radioSet10: [false, false],
   });
   const [selectedEmploymentRadioBtn, setSelectedEmploymentRadioBtn] =
     useState<Dict>({
@@ -70,6 +74,7 @@ const EmployeeApplicationForm = ({
     Array(7).fill(false),
   );
   const [isRequired, setIsRequired] = useState<boolean>(false);
+  const [isRequired2, setIsRequired2] = useState<boolean>(false);
 
   useEffect(() => {
     // Handles case where there is orginally one employment card on page mount
@@ -178,6 +183,11 @@ const EmployeeApplicationForm = ({
       "radioSet4",
       "radio4",
     );
+    const isRadioSet5Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet5"],
+      "radioSet5",
+      "radio5",
+    );
 
     // Validate dynamic radio buttons
     const isRadioSetsValid = validateEmploymentRadioBtnSets();
@@ -187,11 +197,12 @@ const EmployeeApplicationForm = ({
       isRadioSet2Valid &&
       isRadioSet3Valid &&
       isRadioSet4Valid &&
+      isRadioSet5Valid &&
       isRadioSetsValid
     );
   };
 
-  const validateForm = (): void => {
+  const validateForm = (): boolean => {
     let formErrors: { [key: string]: string } = {};
     let employmentExpFormErrors: { [key: string]: string } = {};
 
@@ -238,7 +249,11 @@ const EmployeeApplicationForm = ({
     }
 
     setFormErrors(formErrors);
-    setIsFormValid(Object.keys(formErrors).length === 0);
+
+    if (Object.keys(formErrors).length === 0) {
+      return true;
+    }
+    return false;
   };
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -246,10 +261,13 @@ const EmployeeApplicationForm = ({
     setLoading(true);
     setError(null); // Clear previous errors when a new request starts
 
-    validateForm(); // Run validation
+    // Run validation
+    const isFormValid = validateForm();
+    const isRadioBtnsValid = validateRadioBtns();
+    const isCheckBoxesValid = validateCheckBoxes();
 
     // Check for errors after validation
-    if (!validateRadioBtns() || !validateCheckBoxes() || !isFormValid) {
+    if (!isRadioBtnsValid || !isCheckBoxesValid || !isFormValid) {
       setError("Fix form errors before submitting!");
       setLoading(false);
       return false;
@@ -947,7 +965,7 @@ const EmployeeApplicationForm = ({
                   )}
                 </div>
 
-                <div className="w-full px-1 md:mb-6 mb-3">
+                <div className="w-full md:mb-6 mb-3">
                   <label
                     htmlFor="accommodationMessage"
                     className="form-label text-dark-grey"
@@ -1239,11 +1257,688 @@ const EmployeeApplicationForm = ({
 
                     <button
                       type="button"
-                      className="bg-blue-500 rounded-md text-md text-white px-4 py-2 mt-4"
+                      className="bg-blue-500 rounded-md text-md text-white px-4 py-2 mt-4 md:mb-6 mb-3"
                       onClick={handleAddExperience}
                     >
                       Add new employment experience
                     </button>
+                  </div>
+                </div>
+
+                <div className="w-full md:mb-6 mb-3">
+                  <label
+                    htmlFor="termination"
+                    className="form-label text-dark-grey"
+                  >
+                    Have you ever been involuntarily terminated or asked to
+                    resign from any job? <span className="text-red-500">*</span>
+                  </label>
+
+                  {/* Radio buttons */}
+                  <div className="flex flex-row items-center pt-2 space-x-10">
+                    <div className="flex flex-row items-center">
+                      <input
+                        id="yesTermination"
+                        name="termination"
+                        value="Yes"
+                        type="radio"
+                        className="mr-2"
+                        checked={selectedRadioBtn["radioSet5"][0]}
+                        onChange={() => {
+                          setSelectedRadioBtn({
+                            ...selectedRadioBtn,
+                            radioSet5: [true, false],
+                          });
+                          setIsRequired2(true);
+                        }}
+                      />
+                      <label htmlFor="termination"> Yes</label>
+                    </div>
+
+                    <div className="flex flex-row items-center">
+                      <input
+                        id="noTermination"
+                        name="termination"
+                        value="No"
+                        type="radio"
+                        className="mr-2"
+                        checked={selectedRadioBtn["radioSet5"][1]}
+                        onChange={() => {
+                          setSelectedRadioBtn({
+                            ...selectedRadioBtn,
+                            radioSet5: [false, true],
+                          });
+                          setIsRequired2(false);
+                        }}
+                      />
+                      <label htmlFor="termination"> No</label>
+                    </div>
+                  </div>
+                  {formErrors.radio5 && (
+                    <p className="text-red-500">{formErrors.radio5}</p>
+                  )}
+                </div>
+
+                <div className="w-full md:mb-6 mb-3">
+                  <label
+                    htmlFor="terminationMessage"
+                    className="form-label text-dark-grey"
+                  >
+                    If yes, explain:
+                    <span
+                      className={`text-red-500 ${isRequired2 ? "inline" : "hidden"}`}
+                    >
+                      *
+                    </span>
+                  </label>
+
+                  <textarea
+                    id="terminationMessage"
+                    name="terminationMessage"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka md:mb-6 mb-3"
+                    rows={7}
+                    required={isRequired2}
+                  ></textarea>
+
+                  <label
+                    htmlFor="employmentGaps"
+                    className="form-label text-dark-grey"
+                  >
+                    Explain any gaps in your employment history:
+                  </label>
+                  <textarea
+                    id="employmentGaps"
+                    name="employmentGaps"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka md:mb-6 mb-3"
+                    rows={7}
+                  ></textarea>
+
+                  <label
+                    htmlFor="employmentQualifications"
+                    className="form-label text-dark-grey"
+                  >
+                    List any other experience, job related skills, additional
+                    languages, or other qualifications that you believe should
+                    be considered in evaluating your qualifications for
+                    employment.
+                  </label>
+                  <textarea
+                    id="employmentQualifications"
+                    name="employmentQualifications"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                    rows={7}
+                  ></textarea>
+                </div>
+
+                {/* EDUCATION */}
+                <h5 className="text-dark-grey pt-10 w-full">EDUCATION</h5>
+                <p>Describe your educational background below</p>
+                <hr className="w-full h-[1px] bg-dark-grey my-6" />
+
+                <h6 className="text-dark-grey w-full">High School</h6>
+                <hr className="md:w-1/2 w-3/5 h-[1px] bg-dark-grey my-4" />
+                <div>
+                  <div className="flex md:flex-row flex-col w-full">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="highschoolName"
+                        className="form-label text-dark-grey"
+                      >
+                        School Name
+                      </label>
+                      <input
+                        id="highschoolName"
+                        name="highschoolName"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="highschoolYear"
+                        className="form-label text-dark-grey"
+                      >
+                        Year Completed
+                      </label>
+                      <input
+                        id="highschoolYear"
+                        name="highschoolYear"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full lg:w-1/2 lg:px-30 mb-3 lg:ml-10">
+                      <label className="form-label text-dark-grey">
+                        Diploma/Degree?
+                      </label>
+                      {/* Radio buttons, don't need to validate*/}
+                      <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="yesHighschoolDegree"
+                            name="highschoolDegree"
+                            value="Yes"
+                            type="radio"
+                            className="mr-1"
+                            checked={selectedRadioBtn["radioSet6"][0]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet6: [true, false],
+                              })
+                            }
+                          />
+                          <label htmlFor="yesHighschoolDegree"> Yes</label>
+                        </div>
+
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="noHighschoolDegree"
+                            name="highschoolDegree"
+                            value="No"
+                            type="radio"
+                            className="md:ml-4 mr-1"
+                            checked={selectedRadioBtn["radioSet6"][1]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet6: [false, true],
+                              })
+                            }
+                          />
+                          <label htmlFor="noHighschoolDegree"> No</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="highschoolAreaOfStudy"
+                        className="form-label text-dark-grey"
+                      >
+                        Area of Study/Major
+                      </label>
+                      <input
+                        id="highschoolAreaOfStudy"
+                        name="highschoolAreaOfStudy"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="highschoolSpecialization"
+                        className="form-label text-dark-grey"
+                      >
+                        Specialized Training, Skills, or ExtraCurricular
+                        Activities
+                      </label>
+                      <input
+                        id="highschoolSpecialization"
+                        name="highschoolSpecialization"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <h6 className="text-dark-grey w-full">College/University</h6>
+                <hr className="w-1/2 h-[1px] bg-dark-grey my-4" />
+                <div>
+                  <div className="flex md:flex-row flex-col w-full">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="collegeName"
+                        className="form-label text-dark-grey"
+                      >
+                        School Name
+                      </label>
+                      <input
+                        id="collegeName"
+                        name="collegeName"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="collegeYear"
+                        className="form-label text-dark-grey"
+                      >
+                        Year Completed
+                      </label>
+                      <input
+                        id="collegeYear"
+                        name="collegeYear"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full lg:w-1/2 lg:px-30 mb-3 lg:ml-10">
+                      <label className="form-label text-dark-grey">
+                        Diploma/Degree?
+                      </label>
+                      {/* Radio buttons, don't need to validate*/}
+                      <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="yesCollegeDegree"
+                            name="collegeDegree"
+                            value="Yes"
+                            type="radio"
+                            className="mr-1"
+                            checked={selectedRadioBtn["radioSet7"][0]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet7: [true, false],
+                              })
+                            }
+                          />
+                          <label htmlFor="yesCollegeDegree"> Yes</label>
+                        </div>
+
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="noCollegeDegree"
+                            name="collegeDegree"
+                            value="No"
+                            type="radio"
+                            className="md:ml-4 mr-1"
+                            checked={selectedRadioBtn["radioSet7"][1]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet7: [false, true],
+                              })
+                            }
+                          />
+                          <label htmlFor="noCollegeDegree"> No</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="collegeAreaOfStudy"
+                        className="form-label text-dark-grey"
+                      >
+                        Area of Study/Major
+                      </label>
+                      <input
+                        id="collegeAreaOfStudy"
+                        name="collegeAreaOfStudy"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="collegeSpecialization"
+                        className="form-label text-dark-grey"
+                      >
+                        Specialized Training, Skills, or ExtraCurricular
+                        Activities
+                      </label>
+                      <input
+                        id="collegeSpecialization"
+                        name="collegeSpecialization"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <h6 className="text-dark-grey w-full">
+                  Graduate/Professional School
+                </h6>
+                <hr className="w-1/2 h-[1px] bg-dark-grey my-4" />
+                <div>
+                  <div className="flex md:flex-row flex-col w-full">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="graduateSchoolName"
+                        className="form-label text-dark-grey"
+                      >
+                        School Name
+                      </label>
+                      <input
+                        id="graduateSchoolName"
+                        name="graduateSchoolName"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="graduateSchoolYear"
+                        className="form-label text-dark-grey"
+                      >
+                        Year Completed
+                      </label>
+                      <input
+                        id="graduateSchoolYear"
+                        name="graduateSchoolYear"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full lg:w-1/2 lg:px-30 mb-3 lg:ml-10">
+                      <label className="form-label text-dark-grey">
+                        Diploma/Degree?
+                      </label>
+                      {/* Radio buttons, don't need to validate*/}
+                      <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="yesGraduateSchoolDegree"
+                            name="graduateSchoolDegree"
+                            value="Yes"
+                            type="radio"
+                            className="mr-1"
+                            checked={selectedRadioBtn["radioSet8"][0]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet8: [true, false],
+                              })
+                            }
+                          />
+                          <label htmlFor="yesGraduateSchoolDegree"> Yes</label>
+                        </div>
+
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="noGraduateSchoolDegree"
+                            name="graduateSchoolDegree"
+                            value="No"
+                            type="radio"
+                            className="md:ml-4 mr-1"
+                            checked={selectedRadioBtn["radioSet8"][1]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet8: [false, true],
+                              })
+                            }
+                          />
+                          <label htmlFor="noGraduateSchoolDegree"> No</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="graduateSchoolAreaOfStudy"
+                        className="form-label text-dark-grey"
+                      >
+                        Area of Study/Major
+                      </label>
+                      <input
+                        id="graduateSchoolAreaOfStudy"
+                        name="graduateSchoolAreaOfStudy"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="graduateSchoolSpecialization"
+                        className="form-label text-dark-grey"
+                      >
+                        Specialized Training, Skills, or ExtraCurricular
+                        Activities
+                      </label>
+                      <input
+                        id="graduateSchoolSpecialization"
+                        name="graduateSchoolSpecialization"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <h6 className="text-dark-grey w-full">Trade School</h6>
+                <hr className="w-1/2 h-[1px] bg-dark-grey my-4" />
+                <div>
+                  <div className="flex md:flex-row flex-col w-full">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="tradeSchoolName"
+                        className="form-label text-dark-grey"
+                      >
+                        School Name
+                      </label>
+                      <input
+                        id="tradeSchoolName"
+                        name="tradeSchoolName"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="tradeSchoolYear"
+                        className="form-label text-dark-grey"
+                      >
+                        Year Completed
+                      </label>
+                      <input
+                        id="tradeSchoolYear"
+                        name="tradeSchoolYear"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full lg:w-1/2 lg:px-30 mb-3 lg:ml-10">
+                      <label className="form-label text-dark-grey">
+                        Diploma/Degree?
+                      </label>
+                      {/* Radio buttons, don't need to validate*/}
+                      <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="yesTradeSchoolDegree"
+                            name="tradeSchoolDegree"
+                            value="Yes"
+                            type="radio"
+                            className="mr-1"
+                            checked={selectedRadioBtn["radioSet9"][0]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet9: [true, false],
+                              })
+                            }
+                          />
+                          <label htmlFor="yesTradeSchoolDegree"> Yes</label>
+                        </div>
+
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="noTradeSchoolDegree"
+                            name="tradeSchoolDegree"
+                            value="No"
+                            type="radio"
+                            className="md:ml-4 mr-1"
+                            checked={selectedRadioBtn["radioSet9"][1]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet9: [false, true],
+                              })
+                            }
+                          />
+                          <label htmlFor="noTradeSchoolDegree"> No</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="tradeSchoolAreaOfStudy"
+                        className="form-label text-dark-grey"
+                      >
+                        Area of Study/Major
+                      </label>
+                      <input
+                        id="tradeSchoolAreaOfStudy"
+                        name="tradeSchoolAreaOfStudy"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="tradeSchoolSpecialization"
+                        className="form-label text-dark-grey"
+                      >
+                        Specialized Training, Skills, or ExtraCurricular
+                        Activities
+                      </label>
+                      <input
+                        id="tradeSchoolSpecialization"
+                        name="tradeSchoolSpecialization"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <h6 className="text-dark-grey w-full">Other</h6>
+                <hr className="w-1/2 h-[1px] bg-dark-grey my-4" />
+                <div>
+                  <div className="flex md:flex-row flex-col w-full">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="otherName"
+                        className="form-label text-dark-grey"
+                      >
+                        School Name
+                      </label>
+                      <input
+                        id="otherName"
+                        name="otherName"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="otherYear"
+                        className="form-label text-dark-grey"
+                      >
+                        Year Completed
+                      </label>
+                      <input
+                        id="otherYear"
+                        name="otherYear"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full lg:w-1/2 lg:px-30 mb-3 lg:ml-10">
+                      <label className="form-label text-dark-grey">
+                        Diploma/Degree?
+                      </label>
+                      {/* Radio buttons, don't need to validate*/}
+                      <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="yesOtherDegree"
+                            name="otherDegree"
+                            value="Yes"
+                            type="radio"
+                            className="mr-1"
+                            checked={selectedRadioBtn["radioSet10"][0]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet10: [true, false],
+                              })
+                            }
+                          />
+                          <label htmlFor="yesOtherDegree"> Yes</label>
+                        </div>
+
+                        <div className="flex flex-row items-center">
+                          <input
+                            id="noOtherDegree"
+                            name="otherDegree"
+                            value="No"
+                            type="radio"
+                            className="md:ml-4 mr-1"
+                            checked={selectedRadioBtn["radioSet10"][1]}
+                            onChange={() =>
+                              setSelectedRadioBtn({
+                                ...selectedRadioBtn,
+                                radioSet10: [false, true],
+                              })
+                            }
+                          />
+                          <label htmlFor="noOtherDegree"> No</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="otherAreaOfStudy"
+                        className="form-label text-dark-grey"
+                      >
+                        Area of Study/Major
+                      </label>
+                      <input
+                        id="otherAreaOfStudy"
+                        name="otherAreaOfStudy"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
+
+                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                      <label
+                        htmlFor="otherSpecialization"
+                        className="form-label text-dark-grey"
+                      >
+                        Specialized Training, Skills, or ExtraCurricular
+                        Activities
+                      </label>
+                      <input
+                        id="otherSpecialization"
+                        name="otherSpecialization"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full border-mischka"
+                        type="text"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
