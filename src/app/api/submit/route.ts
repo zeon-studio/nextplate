@@ -65,39 +65,55 @@ export async function POST(request: Request) {
         "employmentQualifications",
       ) as string,
 
-      highschoolName: formData.get("highschoolName") as string,
-      highschoolYear: formData.get("highschoolYear") as string,
-      highschoolDegree: formData.get("highschoolDegree") as string,
-      highschoolAreaOfStudy: formData.get("highschoolAreaOfStudy") as string,
-      highschoolSpecialization: formData.get(
-        "highschoolSpecialization",
-      ) as string,
-      collegeName: formData.get("collegeName") as string,
-      collegeYear: formData.get("collegeYear") as string,
-      collegeDegree: formData.get("collegeDegree") as string,
-      collegeAreaOfStudy: formData.get("collegeAreaOfStudy") as string,
-      collegeSpecialization: formData.get("collegeSpecialization") as string,
-      graduateSchoolName: formData.get("graduateSchoolName") as string,
-      graduateSchoolYear: formData.get("graduateSchoolYear") as string,
-      graduateSchoolDegree: formData.get("graduateSchoolDegree") as string,
-      graduateSchoolAreaOfStudy: formData.get(
-        "graduateSchoolAreaOfStudy",
-      ) as string,
-      graduateSchoolSpecialization: formData.get(
-        "graduateSchoolSpecialization",
-      ) as string,
-      tradeSchoolName: formData.get("tradeSchoolName") as string,
-      tradeSchoolYear: formData.get("tradeSchoolYear") as string,
-      tradeSchoolDegree: formData.get("tradeSchoolDegree") as string,
-      tradeSchoolAreaOfStudy: formData.get("tradeSchoolAreaOfStudy") as string,
-      tradeSchoolSpecialization: formData.get(
-        "tradeSchoolSpecialization",
-      ) as string,
-      otherName: formData.get("otherName") as string,
-      otherYear: formData.get("otherYear") as string,
-      otherDegree: formData.get("otherDegree") as string,
-      otherAreaOfStudy: formData.get("otherAreaOfStudy") as string,
-      otherSpecialization: formData.get("otherSpecialization") as string,
+      highschool: {
+        highschoolName: formData.get("highschoolName") as string,
+        highschoolYear: formData.get("highschoolYear") as string,
+        highschoolDegree: formData.get("highschoolDegree") as string,
+        highschoolAreaOfStudy: formData.get("highschoolAreaOfStudy") as string,
+        highschoolSpecialization: formData.get(
+          "highschoolSpecialization",
+        ) as string,
+      },
+
+      college: {
+        collegeName: formData.get("collegeName") as string,
+        collegeYear: formData.get("collegeYear") as string,
+        collegeDegree: formData.get("collegeDegree") as string,
+        collegeAreaOfStudy: formData.get("collegeAreaOfStudy") as string,
+        collegeSpecialization: formData.get("collegeSpecialization") as string,
+      },
+
+      graduateSchool: {
+        graduateSchoolName: formData.get("graduateSchoolName") as string,
+        graduateSchoolYear: formData.get("graduateSchoolYear") as string,
+        graduateSchoolDegree: formData.get("graduateSchoolDegree") as string,
+        graduateSchoolAreaOfStudy: formData.get(
+          "graduateSchoolAreaOfStudy",
+        ) as string,
+        graduateSchoolSpecialization: formData.get(
+          "graduateSchoolSpecialization",
+        ) as string,
+      },
+
+      tradeSchool: {
+        tradeSchoolName: formData.get("tradeSchoolName") as string,
+        tradeSchoolYear: formData.get("tradeSchoolYear") as string,
+        tradeSchoolDegree: formData.get("tradeSchoolDegree") as string,
+        tradeSchoolAreaOfStudy: formData.get(
+          "tradeSchoolAreaOfStudy",
+        ) as string,
+        tradeSchoolSpecialization: formData.get(
+          "tradeSchoolSpecialization",
+        ) as string,
+      },
+
+      other: {
+        otherName: formData.get("otherName") as string,
+        otherYear: formData.get("otherYear") as string,
+        otherDegree: formData.get("otherDegree") as string,
+        otherAreaOfStudy: formData.get("otherAreaOfStudy") as string,
+        otherSpecialization: formData.get("otherSpecialization") as string,
+      },
     });
 
     console.log("Successfully added data to Sanity");

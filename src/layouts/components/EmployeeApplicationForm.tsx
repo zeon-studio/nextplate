@@ -1394,7 +1394,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-1/4 lg:w-2/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="highschoolYear"
                         className="form-label text-dark-grey"
@@ -1454,8 +1454,8 @@ const EmployeeApplicationForm = ({
                     </div>
                   </div>
 
-                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
-                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <div className="flex lg:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full lg:w-1/3 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="highschoolAreaOfStudy"
                         className="form-label text-dark-grey"
@@ -1470,7 +1470,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-4/5 lg:w-4/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="highschoolSpecialization"
                         className="form-label text-dark-grey"
@@ -1507,7 +1507,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-1/4 lg:w-2/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="collegeYear"
                         className="form-label text-dark-grey"
@@ -1567,8 +1567,8 @@ const EmployeeApplicationForm = ({
                     </div>
                   </div>
 
-                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
-                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <div className="flex lg:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full lg:w-1/3 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="collegeAreaOfStudy"
                         className="form-label text-dark-grey"
@@ -1583,7 +1583,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-4/5 lg:w-4/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="collegeSpecialization"
                         className="form-label text-dark-grey"
@@ -1622,7 +1622,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-1/4 lg:w-2/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="graduateSchoolYear"
                         className="form-label text-dark-grey"
@@ -1682,8 +1682,8 @@ const EmployeeApplicationForm = ({
                     </div>
                   </div>
 
-                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
-                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <div className="flex lg:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full lg:w-1/3 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="graduateSchoolAreaOfStudy"
                         className="form-label text-dark-grey"
@@ -1698,7 +1698,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-4/5 lg:w-4/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="graduateSchoolSpecialization"
                         className="form-label text-dark-grey"
@@ -1735,7 +1735,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-1/4 lg:w-2/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="tradeSchoolYear"
                         className="form-label text-dark-grey"
@@ -1795,8 +1795,8 @@ const EmployeeApplicationForm = ({
                     </div>
                   </div>
 
-                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
-                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <div className="flex lg:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full lg:w-1/3 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="tradeSchoolAreaOfStudy"
                         className="form-label text-dark-grey"
@@ -1811,7 +1811,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-4/5 lg:w-4/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="tradeSchoolSpecialization"
                         className="form-label text-dark-grey"
@@ -1848,7 +1848,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/4 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-1/4 lg:w-2/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="otherYear"
                         className="form-label text-dark-grey"
@@ -1908,8 +1908,8 @@ const EmployeeApplicationForm = ({
                     </div>
                   </div>
 
-                  <div className="flex md:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
-                    <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <div className="flex lg:flex-row flex-col w-full md:mb-6 mb-3 pr-3">
+                    <div className="w-full lg:w-1/3 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="otherAreaOfStudy"
                         className="form-label text-dark-grey"
@@ -1924,7 +1924,7 @@ const EmployeeApplicationForm = ({
                       />
                     </div>
 
-                    <div className="w-full xl:w-1/2 lg:w-2/5 pr-3 md:mb-6 mb-3">
+                    <div className="w-full xl:w-4/5 lg:w-4/5 pr-3 md:mb-6 mb-3">
                       <label
                         htmlFor="otherSpecialization"
                         className="form-label text-dark-grey"
