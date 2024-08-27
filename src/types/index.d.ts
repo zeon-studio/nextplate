@@ -246,44 +246,59 @@ export type EmployeeApplication = {
   employmentQualifications: string;
 
   // Education
-  highschool: Object<{
+  highschool: {
     highschoolName: string;
     highschoolYear: string;
     highschoolDegree: string;
     highschoolAreaOfStudy: string;
     highschoolSpecialization: string;
-  }>;
+  };
 
-  college: Object<{
+  college: {
     collegeName: string;
     collegeYear: string;
     collegeDegree: string;
     collegeAreaOfStudy: string;
     collegeSpecialization: string;
-  }>;
+  };
 
-  graduateSchool: Object<{
+  graduateSchool: {
     graduateSchoolName: string;
     graduateSchoolYear: string;
     graduateSchoolDegree: string;
     graduateSchoolAreaOfStudy: string;
     graduateSchoolSpecialization: string;
-  }>;
+  };
 
-  tradeSchool: Object<{
+  tradeSchool: {
     tradeSchoolName: string;
     tradeSchoolYear: string;
     tradeSchoolDegree: string;
     tradeSchoolAreaOfStudy: string;
     tradeSchoolSpecialization: string;
-  }>;
+  };
 
-  other: Object<{
+  other: {
     otherName: string;
     otherYear: string;
     otherDegree: string;
     otherAreaOfStudy: string;
     otherSpecialization: string;
+  };
+
+  // Business and professional references
+  businessReferences: Array<{
+    _key: string;
+    nameAndTitle: string;
+    relationship: string;
+    phoneOrEmail: string;
+  }>;
+
+  personalReferences: Array<{
+    _key: string;
+    nameAndTitle: string;
+    relationship: string;
+    phoneOrEmail: string;
   }>;
 };
 

@@ -1943,6 +1943,226 @@ const EmployeeApplicationForm = ({
                 </div>
               </div>
 
+              <h5 className="text-dark-grey pt-10 w-full">
+                BUSINESS AND PROFESSIONAL REFERENCES
+              </h5>
+              <p>
+                List three professional references of individuals who are not
+                related to you:
+              </p>
+              <hr className="w-full h-[1px] bg-dark-grey my-6" />
+              <div className="flex md:flex-row flex-col">
+                <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 md:pr-3 mb-6">
+                  <label
+                    htmlFor="businessReferenceNameAndTitle1"
+                    className="form-label text-dark-grey"
+                  >
+                    Name and Title <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="businessReferenceNameAndTitle1"
+                    name="businessReferenceNameAndTitle1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="businessReferenceNameAndTitle2"
+                      name="businessReferenceNameAndTitle2"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="businessReferenceNameAndTitle3"
+                      name="businessReferenceNameAndTitle3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 md:pr-3 mb-6">
+                  <label
+                    htmlFor="businessReferenceRelationship1"
+                    className="form-label text-dark-grey"
+                  >
+                    Relationship <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="businessReferenceRelationship1"
+                    name="businessReferenceRelationship1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="businessReferenceRelationship2"
+                      name="businessReferenceRelationship2"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="businessReferenceRelationship3"
+                      name="businessReferenceRelationship3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 mb-6">
+                  <label
+                    htmlFor="businessReferencePhoneOrEmail1"
+                    className="form-label text-dark-grey"
+                  >
+                    Phone Number or Email{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="businessReferencePhoneOrEmail1"
+                    name="businessReferencePhoneOrEmail1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="businessReferencePhoneOrEmail2"
+                      name="businessReferencePhoneOrEmail2"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="businessReferencePhoneOrEmail3"
+                      name="businessReferencePhoneOrEmail3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <h5 className="text-dark-grey pt-10 w-full">
+                PERSONAL REFERENCES
+              </h5>
+              <p>List three people who know you well:</p>
+              <hr className="w-full h-[1px] bg-dark-grey my-6" />
+              <div className="flex md:flex-row flex-col">
+                <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 md:pr-3 mb-6">
+                  <label
+                    htmlFor="personalReferenceNameAndTitle1"
+                    className="form-label text-dark-grey"
+                  >
+                    <br />
+                    Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="personalReferenceNameAndTitle1"
+                    name="personalReferenceNameAndTitle1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="personalReferenceNameAndTitle2"
+                      name="personalReferenceNameAndTitle2"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="personalReferenceNameAndTitle3"
+                      name="personalReferenceNameAndTitle3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 md:pr-3 mb-6">
+                  <label
+                    htmlFor="personalReferenceRelationship1"
+                    className="form-label text-dark-grey"
+                  >
+                    Relationship and Years Acquainted{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="personalReferenceRelationship1"
+                    name="personalReferenceRelationship1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="personalReferenceRelationship2"
+                      name="personalReferenceRelationship2"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="personalReferenceRelationship3"
+                      name="personalReferenceRelationship3"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 mb-6">
+                  <label
+                    htmlFor="personalReferencePhoneOrEmail1"
+                    className="form-label text-dark-grey"
+                  >
+                    <br />
+                    Phone Number or Email{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="personalReferencePhoneOrEmail1"
+                    name="personalReferencePhoneOrEmail1"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+                  <div className="md:mt-6 mt-3">
+                    <input
+                      id="personalReferencePhoneOrEmail2"
+                      name="personalReferencePhoneOrEmail2"
+                      className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                      type="text"
+                    />
+                    <div className="md:mt-6 mt-3">
+                      <input
+                        id="personalReferencePhoneOrEmail3"
+                        name="personalReferencePhoneOrEmail3"
+                        className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               {/* Submit form button */}
               <div className="pt-10">
                 <button

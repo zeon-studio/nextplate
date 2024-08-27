@@ -432,6 +432,67 @@ const employeeApplication = defineType({
         }),
       ],
     }),
+
+    // Business and professional references
+    defineField({
+      name: "businessReferences",
+      type: "array",
+      title: "Business and Professional References",
+      group: "businessReference",
+      of: [
+        {
+          type: "object",
+          name: "businessReference",
+          fields: [
+            defineField({
+              name: "nameAndTitle",
+              type: "string",
+              title: "Name and Title",
+            }),
+            defineField({
+              name: "relationship",
+              type: "string",
+              title: "Relationship",
+            }),
+            defineField({
+              name: "phoneOrEmail",
+              type: "string",
+              title: "Phone Number or Email",
+            }),
+          ],
+        },
+      ],
+    }),
+
+    defineField({
+      name: "personalReferences",
+      type: "array",
+      title: "Personal References",
+      group: "personalReference",
+      of: [
+        {
+          type: "object",
+          name: "personalReference",
+          fields: [
+            defineField({
+              name: "nameAndTitle",
+              type: "string",
+              title: "Name and Title",
+            }),
+            defineField({
+              name: "relationship",
+              type: "string",
+              title: "Relationship",
+            }),
+            defineField({
+              name: "phoneOrEmail",
+              type: "string",
+              title: "Phone Number or Email",
+            }),
+          ],
+        },
+      ],
+    }),
   ],
 
   groups: [
@@ -447,12 +508,38 @@ const employeeApplication = defineType({
       name: "education",
       title: "Education",
     },
+    {
+      name: "businessReference",
+      title: "Business and Professional References",
+    },
+    {
+      name: "personalReference",
+      title: "Personal References",
+    },
   ],
 
   fieldsets: [
     {
       title: "Employment Experiences",
       name: "employmentExperiences",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+
+    {
+      title: "Business and Professional References",
+      name: "businessReferences",
+      options: {
+        collapsible: true,
+        collapsed: false,
+      },
+    },
+
+    {
+      title: "Personal References",
+      name: "personalReferences",
       options: {
         collapsible: true,
         collapsed: false,

@@ -9,12 +9,10 @@ export async function POST(request: Request) {
   const formData = await request.formData();
 
   try {
-    // Check if employmentExperiences is available
+    // Parse employment experiences if provided
     const employmentExperiencesString = formData.get("employmentExperiences");
-
     let employmentExperiences = [];
     if (employmentExperiencesString) {
-      // Parse the JSON string if it exists
       employmentExperiences = JSON.parse(
         employmentExperiencesString as string,
       ).map((experience: any) => ({
@@ -31,9 +29,54 @@ export async function POST(request: Request) {
       }));
     }
 
+    // Parse business references
+    const businessReferences = [
+      {
+        _key: generateKey(),
+        nameAndTitle: formData.get("businessReferenceNameAndTitle1") as string,
+        relationship: formData.get("businessReferenceRelationship1") as string,
+        phoneOrEmail: formData.get("businessReferencePhoneOrEmail1") as string,
+      },
+      {
+        _key: generateKey(),
+        nameAndTitle: formData.get("businessReferenceNameAndTitle2") as string,
+        relationship: formData.get("businessReferenceRelationship2") as string,
+        phoneOrEmail: formData.get("businessReferencePhoneOrEmail2") as string,
+      },
+      {
+        _key: generateKey(),
+        nameAndTitle: formData.get("businessReferenceNameAndTitle3") as string,
+        relationship: formData.get("businessReferenceRelationship3") as string,
+        phoneOrEmail: formData.get("businessReferencePhoneOrEmail3") as string,
+      },
+    ];
+
+    // Parse personal references
+    const personalReferences = [
+      {
+        _key: generateKey(),
+        nameAndTitle: formData.get("personalReferenceNameAndTitle1") as string,
+        relationship: formData.get("personalReferenceRelationship1") as string,
+        phoneOrEmail: formData.get("personalReferencePhoneOrEmail1") as string,
+      },
+      {
+        _key: generateKey(),
+        nameAndTitle: formData.get("personalReferenceNameAndTitle2") as string,
+        relationship: formData.get("personalReferenceRelationship2") as string,
+        phoneOrEmail: formData.get("personalReferencePhoneOrEmail2") as string,
+      },
+      {
+        _key: generateKey(),
+        nameAndTitle: formData.get("personalReferenceNameAndTitle3") as string,
+        relationship: formData.get("personalReferenceRelationship3") as string,
+        phoneOrEmail: formData.get("personalReferencePhoneOrEmail3") as string,
+      },
+    ];
+
     // Log the form data for debugging
     console.log("Form Data:", Object.fromEntries(formData.entries()));
 
+    // Send data to Sanity
     const result = await createEmployeeApplication({
       _type: "employeeApplication",
       fname: formData.get("fname") as string,
@@ -57,7 +100,7 @@ export async function POST(request: Request) {
       accommodationMessage: formData.get("accommodationMessage") as string,
       jobPositionID: formData.get("jobPositionID") as string,
       jobPosition: formData.get("jobPosition") as string,
-      employmentExperiences, // Pass the parsed employment experiences array or empty array
+      employmentExperiences, // Parsed employment experiences
       termination: formData.get("termination") as string,
       terminationMessage: formData.get("terminationMessage") as string,
       employmentGaps: formData.get("employmentGaps") as string,
@@ -114,6 +157,9 @@ export async function POST(request: Request) {
         otherAreaOfStudy: formData.get("otherAreaOfStudy") as string,
         otherSpecialization: formData.get("otherSpecialization") as string,
       },
+
+      businessReferences, // Parsed business references
+      personalReferences, // Parsed personal references
     });
 
     console.log("Successfully added data to Sanity");
@@ -123,7 +169,7 @@ export async function POST(request: Request) {
   } catch (err) {
     console.log("Failed: ", err);
     return NextResponse.json(
-      { message: "Failed to upload employee Application" },
+      { message: "Failed to upload employee application" },
       { status: 500 },
     );
   }

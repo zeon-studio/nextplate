@@ -31,14 +31,22 @@ const EmployeeApplication = async ({
   return (
     <>
       <section>
-        <Image
-          src={data.imageUrl}
-          alt="Ninth Ave Foods Warehouse"
-          className="w-full lg:h-64 md:48 h-40 object-cover object-center opacity-100"
-          width={3908}
-          height={1300}
-          priority
-        />
+        <div className="relative w-full">
+          <Image
+            src={data.imageUrl}
+            alt="Ninth Ave Foods Warehouse"
+            className="w-full lg:h-64 md:48 h-40 object-cover object-center"
+            width={3908}
+            height={1300}
+            priority
+          />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+          {/* Centered text */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+            <h1 className="text-white font-primary">Employment Application</h1>
+          </div>
+        </div>
 
         <div className="text-center pb-8 pt-10">
           <h4 className=" text-dark-grey">{searchParams.jobTitle}</h4>
