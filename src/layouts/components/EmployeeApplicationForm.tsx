@@ -48,6 +48,10 @@ const EmployeeApplicationForm = ({
     radioSet8: [false, false],
     radioSet9: [false, false],
     radioSet10: [false, false],
+
+    radioSet11: [false, false],
+    radioSet12: [false, false],
+    radioSet13: [false, false],
   });
   const [selectedEmploymentRadioBtn, setSelectedEmploymentRadioBtn] =
     useState<Dict>({
@@ -188,6 +192,21 @@ const EmployeeApplicationForm = ({
       "radioSet5",
       "radio5",
     );
+    const isRadioSet11Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet11"],
+      "radioSet11",
+      "radio11",
+    );
+    const isRadioSet12Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet12"],
+      "radioSet12",
+      "radio12",
+    );
+    const isRadioSet13Valid = validateRadioBtnSet(
+      selectedRadioBtn["radioSet13"],
+      "radioSet13",
+      "radio13",
+    );
 
     // Validate dynamic radio buttons
     const isRadioSetsValid = validateEmploymentRadioBtnSets();
@@ -198,6 +217,9 @@ const EmployeeApplicationForm = ({
       isRadioSet3Valid &&
       isRadioSet4Valid &&
       isRadioSet5Valid &&
+      isRadioSet11Valid &&
+      isRadioSet12Valid &&
+      isRadioSet13Valid &&
       isRadioSetsValid
     );
   };
@@ -1000,129 +1022,24 @@ const EmployeeApplicationForm = ({
                   Add additional page if necessary.
                 </p>
                 <hr className="w-full h-[1px] bg-dark-grey my-6" />
-                <div>
-                  <div>
-                    {employmentExperiences.map((experience, index) => (
-                      <div key={index} className="flex flex-col mb-6">
-                        <div className="flex md:flex-row flex-col">
-                          <div className="w-full md:mb-6 mb-3 pr-3">
-                            <label
-                              htmlFor={`nameofEmployer${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Name of Employer{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`nameofEmployer${index}`}
-                              name={`nameofEmployer`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="text"
-                              value={experience.nameofEmployer}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
-                              required
-                            />
-                          </div>
-
-                          <div className="w-full md:mb-6 mb-3 md:pr-14 pr-3">
-                            <label
-                              htmlFor={`supervisor${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Supervisor <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`supervisor${index}`}
-                              name={`supervisor`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="text"
-                              value={experience.supervisor}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
-                              required
-                            />
-                          </div>
-
-                          <div className="flex flex-col w-full md:mb-6 mb-3">
-                            <label className="form-label text-dark-grey">
-                              May we contact?{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <div className="flex flex-row items-center md:space-x-10 space-x-3">
-                              <div className="flex flex-row items-center">
-                                <input
-                                  id={`yesEmployerContact${index}`}
-                                  name={`employerContact${index}`}
-                                  value="Yes"
-                                  type="radio"
-                                  className="mr-1"
-                                  checked={
-                                    selectedEmploymentRadioBtn[
-                                      `radioSet${index}`
-                                    ][0]
-                                  }
-                                  onChange={(event) => {
-                                    setSelectedEmploymentRadioBtn({
-                                      ...selectedEmploymentRadioBtn,
-                                      [`radioSet${index}`]: [true, false],
-                                    });
-                                  }}
-                                />
-                                <label htmlFor={`yesEmployerContact${index}`}>
-                                  Yes
-                                </label>
-                              </div>
-
-                              <div className="flex flex-row items-center">
-                                <input
-                                  id={`noEmployerContact${index}`}
-                                  name={`employerContact${index}`}
-                                  value="No"
-                                  type="radio"
-                                  className="md:ml-4 mr-1"
-                                  checked={
-                                    selectedEmploymentRadioBtn[
-                                      `radioSet${index}`
-                                    ][1]
-                                  }
-                                  onChange={(event) => {
-                                    setSelectedEmploymentRadioBtn({
-                                      ...selectedEmploymentRadioBtn,
-                                      [`radioSet${index}`]: [false, true],
-                                    });
-                                  }}
-                                />
-                                <label htmlFor={`noEmployerContact${index}`}>
-                                  No
-                                </label>
-                              </div>
-                            </div>
-
-                            {employmentExpFormErrors[`radio${index}`] && (
-                              <p className="text-red-500">
-                                {employmentExpFormErrors[`radio${index}`]}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="flex flex-col w-full md:mb-6 mb-3 pr-3">
+                <div className="w-full">
+                  {employmentExperiences.map((experience, index) => (
+                    <div key={index} className="flex flex-col mb-6">
+                      <div className="flex md:flex-row flex-col">
+                        <div className="w-full xl:w-1/4 lg:w-1/2 md:mb-6 mb-3 pr-3">
                           <label
-                            htmlFor={`employerAddress${index}`}
+                            htmlFor={`nameofEmployer${index}`}
                             className="form-label text-dark-grey"
                           >
-                            Street Address{" "}
+                            Name of Employer{" "}
                             <span className="text-red-500">*</span>
                           </label>
                           <input
-                            id={`employerAddress${index}`}
-                            name={`employerAddress`}
-                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full xl:w-1/3 md:w-3/5 h-12 border-mischka"
+                            id={`nameofEmployer${index}`}
+                            name={`nameofEmployer`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
                             type="text"
-                            value={experience.employerAddress}
+                            value={experience.nameofEmployer}
                             onChange={(event) =>
                               handleInputChange(index, event)
                             }
@@ -1130,139 +1047,238 @@ const EmployeeApplicationForm = ({
                           />
                         </div>
 
-                        <div className="flex md:flex-row flex-col w-full">
-                          <div className="w-full xl:w-1/3 lg:w-1/2 pr-3 md:mb-6 mb-3">
-                            <label
-                              htmlFor={`employerPhone${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Phone number{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`employerPhone${index}`}
-                              name={`employerPhone${index}`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="tel"
-                              onChange={(e) =>
-                                setEmploymentPhoneNumber({
-                                  ...employmentPhoneNumber,
-                                  [`phone${index}`]: e.target.value,
-                                })
-                              }
-                              required
-                            />
-                            {employmentExpFormErrors[`phone${index}`] && (
-                              <p className="text-red-500">
-                                {employmentExpFormErrors[`phone${index}`]}
-                              </p>
-                            )}
-                          </div>
-
-                          <div className="w-full xl:w-2/5 lg:w-1/2 pr-3 md:mb-6 mb-3">
-                            <label
-                              htmlFor={`dateEmployedFrom${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Date Employed - From{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`dateEmployedFrom${index}`}
-                              name={`dateEmployedFrom`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="date"
-                              value={experience.dateEmployedFrom}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
-                              required
-                            />
-                          </div>
-
-                          <div className="w-full xl:w-2/5 lg:w-1/2 pr-3 md:mb-6 mb-3">
-                            <label
-                              htmlFor={`dateEmployedTo${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Date Employed - To{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`dateEmployedTo${index}`}
-                              name={`dateEmployedTo`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="date"
-                              value={experience.dateEmployedTo}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
-                              required
-                            />
-                          </div>
+                        <div className="w-full xl:w-1/4 lg:w-1/2 md:mb-6 mb-3 md:pr-14 pr-3">
+                          <label
+                            htmlFor={`supervisor${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Supervisor <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`supervisor${index}`}
+                            name={`supervisor`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                            type="text"
+                            value={experience.supervisor}
+                            onChange={(event) =>
+                              handleInputChange(index, event)
+                            }
+                            required
+                          />
                         </div>
 
-                        <div className="flex md:flex-row flex-col w-full">
-                          <div className="w-full md:mb-6 mb-3 pr-3">
-                            <label
-                              htmlFor={`jobTitleAndDuties${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Job Title and Duties{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`jobTitleAndDuties${index}`}
-                              name={`jobTitleAndDuties`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="text"
-                              value={experience.jobTitleAndDuties}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
-                              required
-                            />
-                          </div>
-                          <div className="w-full md:mb-6 mb-3 pr-3">
-                            <label
-                              htmlFor={`reasonForLeaving${index}`}
-                              className="form-label text-dark-grey"
-                            >
-                              Reason for Leaving{" "}
-                              <span className="text-red-500">*</span>
-                            </label>
-                            <input
-                              id={`reasonForLeaving${index}`}
-                              name={`reasonForLeaving`}
-                              className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
-                              type="text"
-                              value={experience.reasonForLeaving}
-                              onChange={(event) =>
-                                handleInputChange(index, event)
-                              }
-                              required
-                            />
-                          </div>
-                        </div>
+                        <div className="flex flex-col w-full xl:w-1/4 lg:w-1/2 md:mb-6 mb-3">
+                          <label className="form-label text-dark-grey">
+                            May we contact?{" "}
+                            <span className="text-red-500">*</span>
+                          </label>
+                          <div className="flex flex-row items-center md:space-x-10 space-x-3">
+                            <div className="flex flex-row items-center">
+                              <input
+                                id={`yesEmployerContact${index}`}
+                                name={`employerContact${index}`}
+                                value="Yes"
+                                type="radio"
+                                className="mr-1"
+                                checked={
+                                  selectedEmploymentRadioBtn[
+                                    `radioSet${index}`
+                                  ][0]
+                                }
+                                onChange={(event) => {
+                                  setSelectedEmploymentRadioBtn({
+                                    ...selectedEmploymentRadioBtn,
+                                    [`radioSet${index}`]: [true, false],
+                                  });
+                                }}
+                              />
+                              <label htmlFor={`yesEmployerContact${index}`}>
+                                Yes
+                              </label>
+                            </div>
 
-                        <button
-                          type="button"
-                          onClick={() => handleDeleteExperience(index)}
-                          className="bg-red-500 rounded-md text-white text-md px-4 py-2 mt-4 w-1/2"
-                        >
-                          Delete Experience
-                        </button>
+                            <div className="flex flex-row items-center">
+                              <input
+                                id={`noEmployerContact${index}`}
+                                name={`employerContact${index}`}
+                                value="No"
+                                type="radio"
+                                className="md:ml-4 mr-1"
+                                checked={
+                                  selectedEmploymentRadioBtn[
+                                    `radioSet${index}`
+                                  ][1]
+                                }
+                                onChange={(event) => {
+                                  setSelectedEmploymentRadioBtn({
+                                    ...selectedEmploymentRadioBtn,
+                                    [`radioSet${index}`]: [false, true],
+                                  });
+                                }}
+                              />
+                              <label htmlFor={`noEmployerContact${index}`}>
+                                No
+                              </label>
+                            </div>
+                          </div>
+
+                          {employmentExpFormErrors[`radio${index}`] && (
+                            <p className="text-red-500">
+                              {employmentExpFormErrors[`radio${index}`]}
+                            </p>
+                          )}
+                        </div>
                       </div>
-                    ))}
 
-                    <button
-                      type="button"
-                      className="bg-blue-500 rounded-md text-md text-white px-4 py-2 mt-4 md:mb-6 mb-3"
-                      onClick={handleAddExperience}
-                    >
-                      Add new employment experience
-                    </button>
-                  </div>
+                      <div className="flex flex-col w-full md:mb-6 mb-3 pr-3">
+                        <label
+                          htmlFor={`employerAddress${index}`}
+                          className="form-label text-dark-grey"
+                        >
+                          Street Address <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          id={`employerAddress${index}`}
+                          name={`employerAddress`}
+                          className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full xl:w-1/3 md:w-3/5 h-12 border-mischka"
+                          type="text"
+                          value={experience.employerAddress}
+                          onChange={(event) => handleInputChange(index, event)}
+                          required
+                        />
+                      </div>
+
+                      <div className="flex md:flex-row flex-col w-full">
+                        <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                          <label
+                            htmlFor={`employerPhone${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Phone number <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`employerPhone${index}`}
+                            name={`employerPhone${index}`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                            type="tel"
+                            onChange={(e) =>
+                              setEmploymentPhoneNumber({
+                                ...employmentPhoneNumber,
+                                [`phone${index}`]: e.target.value,
+                              })
+                            }
+                            required
+                          />
+                          {employmentExpFormErrors[`phone${index}`] && (
+                            <p className="text-red-500">
+                              {employmentExpFormErrors[`phone${index}`]}
+                            </p>
+                          )}
+                        </div>
+
+                        <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                          <label
+                            htmlFor={`dateEmployedFrom${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Date Employed - From{" "}
+                            <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`dateEmployedFrom${index}`}
+                            name={`dateEmployedFrom`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                            type="date"
+                            value={experience.dateEmployedFrom}
+                            onChange={(event) =>
+                              handleInputChange(index, event)
+                            }
+                            required
+                          />
+                        </div>
+
+                        <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                          <label
+                            htmlFor={`dateEmployedTo${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Date Employed - To{" "}
+                            <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`dateEmployedTo${index}`}
+                            name={`dateEmployedTo`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                            type="date"
+                            value={experience.dateEmployedTo}
+                            onChange={(event) =>
+                              handleInputChange(index, event)
+                            }
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div className="flex md:flex-row flex-col w-full">
+                        <div className="w-full xl:w-2/5 lg:w-1/2 md:mb-6 mb-3 pr-3">
+                          <label
+                            htmlFor={`jobTitleAndDuties${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Job Title and Duties{" "}
+                            <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`jobTitleAndDuties${index}`}
+                            name={`jobTitleAndDuties`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                            type="text"
+                            value={experience.jobTitleAndDuties}
+                            onChange={(event) =>
+                              handleInputChange(index, event)
+                            }
+                            required
+                          />
+                        </div>
+                        <div className="w-full xl:w-2/5 lg:w-1/2 md:mb-6 mb-3 pr-3">
+                          <label
+                            htmlFor={`reasonForLeaving${index}`}
+                            className="form-label text-dark-grey"
+                          >
+                            Reason for Leaving{" "}
+                            <span className="text-red-500">*</span>
+                          </label>
+                          <input
+                            id={`reasonForLeaving${index}`}
+                            name={`reasonForLeaving`}
+                            className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                            type="text"
+                            value={experience.reasonForLeaving}
+                            onChange={(event) =>
+                              handleInputChange(index, event)
+                            }
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteExperience(index)}
+                        className="bg-red-500 rounded-md text-white text-md px-4 py-2 mt-4 w-[170px]"
+                      >
+                        Delete Experience
+                      </button>
+                    </div>
+                  ))}
+
+                  <button
+                    type="button"
+                    className="bg-blue-500 rounded-md text-md text-white px-4 py-2 mt-4 md:mb-6 mb-3"
+                    onClick={handleAddExperience}
+                  >
+                    Add new employment experience
+                  </button>
                 </div>
 
                 <div className="w-full md:mb-6 mb-3">
@@ -2133,9 +2149,8 @@ const EmployeeApplicationForm = ({
                     htmlFor="personalReferencePhoneOrEmail1"
                     className="form-label text-dark-grey"
                   >
-                    <br />
-                    Phone Number or Email{" "}
-                    <span className="text-red-500">*</span>
+                    Phone Number or <br />
+                    Email <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="personalReferencePhoneOrEmail1"
@@ -2161,6 +2176,169 @@ const EmployeeApplicationForm = ({
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <h5 className="text-dark-grey pt-10 w-full">
+                GENERAL INFORMATION
+              </h5>
+              <hr className="w-full h-[1px] bg-dark-grey my-6" />
+              <div className="w-full md:mb-6 mb-3">
+                <label
+                  htmlFor="transportation"
+                  className="form-label text-dark-grey"
+                >
+                  If hired, would you have a reliable means of transportation to
+                  and from work? <span className="text-red-500">*</span>
+                </label>
+
+                {/* Radio buttons */}
+                <div className="flex flex-row items-center pt-2 space-x-10">
+                  <div className="flex flex-row items-center">
+                    <input
+                      id="yesTransportation "
+                      name="transportation"
+                      value="Yes"
+                      type="radio"
+                      className="mr-2"
+                      checked={selectedRadioBtn["radioSet11"][0]}
+                      onChange={() => {
+                        setSelectedRadioBtn({
+                          ...selectedRadioBtn,
+                          radioSet11: [true, false],
+                        });
+                      }}
+                    />
+                    <label htmlFor="transportation"> Yes</label>
+                  </div>
+
+                  <div className="flex flex-row items-center">
+                    <input
+                      id="noTransportation"
+                      name="transportation"
+                      value="No"
+                      type="radio"
+                      className="mr-2"
+                      checked={selectedRadioBtn["radioSet11"][1]}
+                      onChange={() => {
+                        setSelectedRadioBtn({
+                          ...selectedRadioBtn,
+                          radioSet11: [false, true],
+                        });
+                      }}
+                    />
+                    <label htmlFor="transportation"> No</label>
+                  </div>
+                </div>
+                {formErrors.radio11 && (
+                  <p className="text-red-500">{formErrors.radio11}</p>
+                )}
+              </div>
+              <div className="w-full md:mb-6 mb-3">
+                <label
+                  htmlFor="ageRequirement"
+                  className="form-label text-dark-grey"
+                >
+                  Are you at least 18 years old?{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+
+                {/* Radio buttons */}
+                <div className="flex flex-row items-center pt-2 space-x-10">
+                  <div className="flex flex-row items-center">
+                    <input
+                      id="yesAgeRequirement"
+                      name="ageRequirement"
+                      value="Yes"
+                      type="radio"
+                      className="mr-2"
+                      checked={selectedRadioBtn["radioSet12"][0]}
+                      onChange={() => {
+                        setSelectedRadioBtn({
+                          ...selectedRadioBtn,
+                          radioSet12: [true, false],
+                        });
+                      }}
+                    />
+                    <label htmlFor="ageRequirement"> Yes</label>
+                  </div>
+
+                  <div className="flex flex-row items-center">
+                    <input
+                      id="noAgeRequirement"
+                      name="ageRequirement"
+                      value="No"
+                      type="radio"
+                      className="mr-2"
+                      checked={selectedRadioBtn["radioSet12"][1]}
+                      onChange={() => {
+                        setSelectedRadioBtn({
+                          ...selectedRadioBtn,
+                          radioSet12: [false, true],
+                        });
+                      }}
+                    />
+                    <label htmlFor="ageRequirement"> No</label>
+                  </div>
+                </div>
+                <p className="pt-2">
+                  Note: If under 18, hire is subject to verification that you
+                  are of minimum legal age
+                </p>
+                {formErrors.radio12 && (
+                  <p className="text-red-500">{formErrors.radio12}</p>
+                )}
+              </div>
+              <div className="w-full md:mb-6 mb-3">
+                <label
+                  htmlFor="employmentAuthorization"
+                  className="form-label text-dark-grey"
+                >
+                  If hired, can you present evidence of your identity and legal
+                  right to work in this country?{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+
+                {/* Radio buttons */}
+                <div className="flex flex-row items-center pt-2 space-x-10">
+                  <div className="flex flex-row items-center">
+                    <input
+                      id="yesEmploymentAuthorization"
+                      name="employmentAuthorization"
+                      value="Yes"
+                      type="radio"
+                      className="mr-2"
+                      checked={selectedRadioBtn["radioSet13"][0]}
+                      onChange={() => {
+                        setSelectedRadioBtn({
+                          ...selectedRadioBtn,
+                          radioSet13: [true, false],
+                        });
+                      }}
+                    />
+                    <label htmlFor="employmentAuthorization"> Yes</label>
+                  </div>
+
+                  <div className="flex flex-row items-center">
+                    <input
+                      id="noEmploymentAuthorization"
+                      name="employmentAuthorization"
+                      value="No"
+                      type="radio"
+                      className="mr-2"
+                      checked={selectedRadioBtn["radioSet13"][1]}
+                      onChange={() => {
+                        setSelectedRadioBtn({
+                          ...selectedRadioBtn,
+                          radioSet13: [false, true],
+                        });
+                      }}
+                    />
+                    <label htmlFor="employmentAuthorization"> No</label>
+                  </div>
+                </div>
+                {formErrors.radio13 && (
+                  <p className="text-red-500">{formErrors.radio13}</p>
+                )}
               </div>
 
               {/* Submit form button */}

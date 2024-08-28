@@ -300,6 +300,11 @@ export type EmployeeApplication = {
     relationship: string;
     phoneOrEmail: string;
   }>;
+
+  // General Information
+  transportation: string;
+  ageRequirement: string;
+  employmentAuthorization: string;
 };
 
 export type CardCarouselType = {

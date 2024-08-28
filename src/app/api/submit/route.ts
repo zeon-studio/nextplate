@@ -117,7 +117,6 @@ export async function POST(request: Request) {
           "highschoolSpecialization",
         ) as string,
       },
-
       college: {
         collegeName: formData.get("collegeName") as string,
         collegeYear: formData.get("collegeYear") as string,
@@ -125,7 +124,6 @@ export async function POST(request: Request) {
         collegeAreaOfStudy: formData.get("collegeAreaOfStudy") as string,
         collegeSpecialization: formData.get("collegeSpecialization") as string,
       },
-
       graduateSchool: {
         graduateSchoolName: formData.get("graduateSchoolName") as string,
         graduateSchoolYear: formData.get("graduateSchoolYear") as string,
@@ -137,7 +135,6 @@ export async function POST(request: Request) {
           "graduateSchoolSpecialization",
         ) as string,
       },
-
       tradeSchool: {
         tradeSchoolName: formData.get("tradeSchoolName") as string,
         tradeSchoolYear: formData.get("tradeSchoolYear") as string,
@@ -149,7 +146,6 @@ export async function POST(request: Request) {
           "tradeSchoolSpecialization",
         ) as string,
       },
-
       other: {
         otherName: formData.get("otherName") as string,
         otherYear: formData.get("otherYear") as string,
@@ -157,9 +153,14 @@ export async function POST(request: Request) {
         otherAreaOfStudy: formData.get("otherAreaOfStudy") as string,
         otherSpecialization: formData.get("otherSpecialization") as string,
       },
-
       businessReferences, // Parsed business references
       personalReferences, // Parsed personal references
+
+      transportation: formData.get("transportation") as string,
+      ageRequirement: formData.get("ageRequirement") as string,
+      employmentAuthorization: formData.get(
+        "employmentAuthorization",
+      ) as string,
     });
 
     console.log("Successfully added data to Sanity");

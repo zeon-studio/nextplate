@@ -32,18 +32,22 @@ const EmployeeApplication = async ({
     <>
       <section>
         <div className="relative w-full">
-          <Image
-            src={data.imageUrl}
-            alt="Ninth Ave Foods Warehouse"
-            className="w-full lg:h-64 md:48 h-40 object-cover object-center"
-            width={3908}
-            height={1300}
-            priority
-          />
+          <div className="w-full lg:h-64 md:h-48 h-40 relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-black/10"></div>
+            <Image
+              src={data.imageUrl}
+              alt="Ninth Ave Foods Warehouse"
+              className="w-full lg:h-64 md:h-48 h-40 object-cover object-center"
+              width={3908}
+              height={1300}
+              priority
+            />
+          </div>
+
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
           {/* Centered text */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <div className="absolute  inset-0 flex flex-col items-center justify-center text-white">
             <h1 className="text-white font-primary">Employment Application</h1>
           </div>
         </div>

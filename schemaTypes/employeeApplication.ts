@@ -493,6 +493,31 @@ const employeeApplication = defineType({
         },
       ],
     }),
+
+    // General Information
+    defineField({
+      name: "transportation",
+      type: "string",
+      title:
+        "If hired, would you have a reliable means of transportation to and from work?",
+      group: "generalInformation",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "ageRequirement",
+      type: "string",
+      title: "Are you at least 18 years old?",
+      group: "generalInformation",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "employmentAuthorization",
+      type: "string",
+      title:
+        "If hired, can you present evidence of your identity and legal right to work in this country?",
+      group: "generalInformation",
+      validation: (rule) => rule.required(),
+    }),
   ],
 
   groups: [
@@ -515,6 +540,10 @@ const employeeApplication = defineType({
     {
       name: "personalReference",
       title: "Personal References",
+    },
+    {
+      name: "generalInformation",
+      title: "General Information",
     },
   ],
 
