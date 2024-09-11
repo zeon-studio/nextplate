@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 
-//  child navigation link interface
+// child navigation link interface
 export interface IChildNavigationLink {
   name: string;
   url: string;
@@ -24,7 +24,7 @@ export interface INavigationLink {
 }
 
 const Header = () => {
-  // distructuring the main menu from menu object
+  // destructuring the main menu from menu object
   const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
   // get current path
@@ -35,18 +35,20 @@ const Header = () => {
     window.scroll(0, 0);
   }, [pathname]);
 
+  // Function to close the menu
+  const closeMenu = () => {
+    const navToggle: HTMLInputElement | null = document.getElementById(
+      "nav-toggle",
+    ) as HTMLInputElement;
+    if (navToggle) {
+      navToggle.checked = false;
+    }
+  };
+
   return (
     <header
       className={`header z-30 ${settings.sticky_header && "sticky top-0"}`}
     >
-      {/* <div className="w-full h-[50px] bg-primary py-3 hidden md:block">
-        <span className="px-5 text-white font-medium">
-          Ninth Avenue Foods West: (626) 666-6666
-        </span>
-        <span className="px-5 text-white font-medium">
-          Ninth Avenue Foods East: (626) 666-6666
-        </span>
-      </div> */}
       <nav className="navbar container">
         {/* logo */}
         <div className="order-0">
@@ -89,7 +91,7 @@ const Header = () => {
               {menu.hasChildren ? (
                 <li className="nav-item nav-dropdown group relative">
                   <span
-                    className={`nav-link inline-flex items-center pr-1${
+                    className={`nav-link inline-flex items-center pr-1 ${
                       menu.children?.map(({ url }) => url).includes(pathname) ||
                       menu.children
                         ?.map(({ url }) => `${url}/`)
@@ -113,6 +115,7 @@ const Header = () => {
                               pathname === child.url) &&
                             "active"
                           }`}
+                          onClick={closeMenu} // Close menu on click
                         >
                           {child.name}
                         </Link>
@@ -128,6 +131,7 @@ const Header = () => {
                       (pathname === `${menu.url}/` || pathname === menu.url) &&
                       "active"
                     }`}
+                    onClick={closeMenu} // Close menu on click
                   >
                     {menu.name}
                   </Link>
@@ -140,6 +144,7 @@ const Header = () => {
               <Link
                 className="btn btn-outline-primary btn-sm bg-primary border-primary text-white"
                 href={navigation_button.link}
+                onClick={closeMenu} // Close menu on click
               >
                 {navigation_button.label}
               </Link>
@@ -149,7 +154,7 @@ const Header = () => {
         <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
           {settings.search && (
             <button
-              className="border-border text-dark hover:text-primary  mr-5 inline-block border-r pr-5 text-xl  "
+              className="border-border text-dark hover:text-primary  mr-5 inline-block border-r pr-5 text-xl"
               aria-label="search"
               data-search-trigger
             >
@@ -161,6 +166,7 @@ const Header = () => {
             <Link
               className="btn btn-outline-primary btn-sm hidden lg:inline-block border-primary text-primary hover:bg-dark-grey hover:border-dark-grey hover:text-white"
               href={navigation_button.link}
+              onClick={closeMenu} // Close menu on click
             >
               {navigation_button.label}
             </Link>

@@ -59,24 +59,24 @@ const About = async () => {
       <PageHeader title={title} image={image} />
       <section className="section-sm mb-8">
         <div className="container pb-24">
-          <div className="row justify-center ">
+          <div className="row justify-center">
             <div className="md:col-10 lg:col-12">
               {/* How We Got Started */}
               {features.map((feature, index: number) => (
                 <div
-                  className="flex lg:flex-row flex-col items-center"
+                  className="flex lg:flex-row flex-col items-center mx-1"
                   key={index}
                 >
                   {feature.image && (
                     <ImageFallback
-                      className="mb:md-0 md:col-8 lg:col-6 col-10 mx-auto mb-6 rounded-sm object-cover  animate-fade animate-delay-[300ms] ease-in"
+                      className="mb:md-0 md:col-8 lg:col-6  mx-auto mb-6 rounded-sm object-cover  animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
                       width={600}
                       height={600}
                       alt={title}
                     />
                   )}
-                  <div className="md:col-8 lg:col-6 col-10 items-center mx-auto lg:pl-16">
+                  <div className="md:col-8 lg:col-6 items-center mx-auto lg:pl-16">
                     <h2
                       dangerouslySetInnerHTML={markdownify(feature.title)}
                       className="mb-6 text-h3 lg:text-h2 text-primary animate-fade animate-duration-[600ms] ease-in"
