@@ -374,16 +374,15 @@ const Services = ({ data }: { data: PageData }) => {
       <div className="relative">
         <Link href={service.link}>
           <ImageFallback
-            height={1999}
-            width={1330}
+            height={2000}
+            width={1440}
             src={service.image}
             alt={service.alt}
-            className="rounded-lg ease-in duration-150 transform hover:scale-110 w-full h-full md:min-w-[200px] md:h-[580px] min-h-[470px] max-w-[500px]"
+            className="object-center-bottom rounded-lg ease-in duration-150 transform hover:scale-110 w-full h-full md:min-w-[200px] md:h-[580px] min-h-[470px] max-w-[500px]"
             style={{
               filter: "brightness(0.9)",
               objectFit: "cover",
               transition: "transform 0.5s",
-              transformOrigin: "center",
             }}
           />
         </Link>
@@ -399,13 +398,10 @@ const Services = ({ data }: { data: PageData }) => {
           {inView && index === 3 && (
             <div className="absolute z-20 xl:top-[-160px] xl:right-[280px] lg:top-[-190px] lg:right-[240px] md:top-[-190px] top-[-140px] right-[240px]">
               <div
-                className="w-[280px] xl:w-[350px] bg-gradient-to-b from-red-700 to-red-500 text-white text-lg font-semibold py-1 px-2 text-center md:h-[35px] h-[30px]"
+                className="w-[300px] xl:w-[350px] bg-gradient-to-b from-red-700 to-red-500 text-white text-lg font-semibold py-1 px-2 text-center md:h-[35px] h-[30px]"
                 style={{
                   transform: "rotate(35deg)",
                   transformOrigin: "top right",
-                  // width: "280px",
-                  // top: "-160px", // Adjust the distance from the top
-                  // right: "-30px", // Adjust the distance from the right
                   position: "absolute",
                 }}
               >

@@ -8,11 +8,11 @@ banner:
   buttons:
     - enable: true
       label: "Get in Touch"
-      classname: "btn btn-primary mr-2 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey animate-fade-up animate-delay-[500ms] ease-in rounded-full"
+      classname: "btn bg-primary mr-2 mb-2 border-2 hover:bg-dark-grey hover:border-dark-grey animate-fade-up animate-delay-[500ms] ease-in rounded-full text-white"
       link: "/contact"
     - enable: true
       label: "Learn More"
-      classname: "btn btn-primary mr-2 bg-transparent border-2 text-primary hover:border-dark-grey hover:text-dark-grey animate-fade-up animate-delay-[550ms] ease-in rounded-full"
+      classname: "btn border-dark-grey mr-2 bg-transparent border-2 text-dark-grey hover:border-primary hover:text-primary animate-fade-up animate-delay-[550ms] ease-in rounded-full"
       link: "about"
 # Features
 features:

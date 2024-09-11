@@ -25,6 +25,9 @@ const HDPEandPETSustainability = () => {
     meta_title,
     description,
     image,
+    image2,
+    alt,
+    alt2,
     sustainability_title,
     sustainability_content,
     sustainability_title_2,
@@ -77,7 +80,7 @@ const HDPEandPETSustainability = () => {
                   <div className="w-full block md:hidden pt-4">
                     <Image
                       src={image}
-                      alt="Plastic Bottles"
+                      alt={alt}
                       className="w-full h-full object-cover rounded-lg"
                       width={2400}
                       height={1600}
@@ -94,7 +97,7 @@ const HDPEandPETSustainability = () => {
               <div className="md:col-span-2 w-full lg:pl-10 col-span-3 hidden md:block">
                 <Image
                   src={image}
-                  alt="Plastic Bottles"
+                  alt={alt}
                   className="w-full h-full object-cover rounded-lg"
                   width={2400}
                   height={1600}
@@ -108,7 +111,7 @@ const HDPEandPETSustainability = () => {
             </div>
 
             <div className="relative container">
-              <div className="flex-row grid md:grid-cols-2 grid-col-1 md:gap-24 gap-8 md:pb-32 pb-24">
+              <div className="flex-row grid lg:grid-cols-2 grid-cols-1 md:pb-32 pb-24">
                 <div className="col-span-1">
                   <h2
                     className="text-primary font-primary animate-fade animate-duration-[800ms]"
@@ -117,9 +120,9 @@ const HDPEandPETSustainability = () => {
                     )}
                   />
 
-                  <blockquote className="pt-12 text-xl italic font-semibold text-dark-green font-primary animate-fade animate-duration-[850ms]">
+                  <blockquote className="lg:col-10 pt-6 text-xl italic font-semibold text-dark-green font-primary animate-fade animate-duration-[850ms]">
                     <svg
-                      className="w-8 h-8 text-dark-grey mb-4 "
+                      className="w-8 h-8 text-dark-grey mb-4"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -132,7 +135,6 @@ const HDPEandPETSustainability = () => {
                         sustainability_quote_3,
                       )}
                     />
-
                     <figcaption className="flex items-center mt-1 space-x-3 rtl:space-x-reverse">
                       <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-dark-grey opacity-50">
                         <cite className="pe-3">
@@ -163,17 +165,17 @@ const HDPEandPETSustainability = () => {
                   />
                 </div>
 
-                <div className="col-span-1">
+                <div className="col-span-1 w-full lg:pt-0 pt-8">
                   <Image
-                    src={image}
-                    alt="Plastic Bottles"
-                    className="w-full h-full object-cover rounded-lg"
-                    width={2400}
-                    height={1600}
-                    priority
+                    src={image2}
+                    alt={alt2}
+                    className="w-full h-full object-contain rounded-lg"
+                    width={2176}
+                    height={1378}
                   />
                 </div>
               </div>
+
               <div className="flex items-center justify-center md:pb-8 pb-6">
                 <div className="w-2/3 h-[1px] bg-gradient-to-r from-light-green via-green-500 to-dark-green"></div>
               </div>
@@ -189,7 +191,6 @@ const HDPEandPETSustainability = () => {
                   )}
                 />
               </div>
-
               <CardCarousel cards={cards}></CardCarousel>
             </div>
           </div>

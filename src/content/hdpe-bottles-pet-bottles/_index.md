@@ -2,8 +2,10 @@
 title: "HDPE Bottles and PET Bottles"
 meta_title: ""
 description: "this is meta description"
-image: "/images/plastic-bottles-1.jpg"
-
+image: "/images/istock-bottles.jpg"
+alt: "dairy bottles on conveyor line"
+image2: "/images/istock-plastic-processing.jpg"
+alt2: "plant processing difficulties diagram"
 
 sustainability_title: "HDPE and PET Sustainability"
 sustainability_content: "HDPE and PET containers can be manufactured to be __**100% recyclable**__. 

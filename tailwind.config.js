@@ -44,6 +44,10 @@ module.exports = {
       padding: "2rem",
     },
     extend: {
+      objectPosition: {
+        "center-bottom": "center bottom",
+      },
+
       backgroundImage: {
         "contact-us": "url('/images/contact-us-image.jpg')",
       },

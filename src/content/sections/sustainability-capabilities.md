@@ -27,7 +27,7 @@ services:
       enable: true
       label: "More Info"
       link: "/commitment-to-quality"
-  - image: "/images/boxes.jpg"
+  - image: "/images/istock-boxes-cropped.jpg"
     link: "/private-label-co-packing"
     alt: "cardboard box"
     category: "Capability"

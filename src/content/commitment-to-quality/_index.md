@@ -2,7 +2,7 @@
 title: "Commitment to Quality"
 meta_title: ""
 description: "this is meta description"
-image1: "/images/commitment-to-quality-2.jpg"
+image1: "/images/istock-commitment-to-quality.jpg"
 image2: "/images/gallery/ninth-ave-9.jpg"
 
 cutting_edge_tech_title: "Comprehensive Food Safety & Quality Program"

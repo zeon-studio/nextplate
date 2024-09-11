@@ -74,15 +74,15 @@ const Home = () => {
             height={2600}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent sm:opacity-32 opacity-0"></div>
-          <div className="absolute inset-0 bg-[#0f172a] opacity-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent opacity-10"></div>
+          <div className="absolute inset-0 bg-[#0f172a] opacity-10"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center">
+        <div className="absolute inset-0 flex justify-center items-center xl:right-32">
           <div className="container relative z-10">
-            <div className="relative xl:col-6 md:col-7">
+            <div className="relative xl:col-6 md:col-8">
               <div className="absolute inset-0 flex items-center justify-left text-left">
-                <div className="bg-slate-400 bg-opacity-20 backdrop-blur-sm shadow-md lg:px-20 lg:py-20 md:py-8 md:px-8 px-5 py-5 rounded-xl">
+                <div className="bg-slate-100 bg-opacity-50 border-t border-transparent backdrop-blur-sm shadow-md lg:p-20 md:p-8 p-5 rounded-xl">
                   <div className="py-5">
                     <h1
                       className="mb-6 text-h2 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"
@@ -90,7 +90,7 @@ const Home = () => {
                     />
 
                     <p
-                      className="text-lg font-medium animate-fade-up animate-delay-[400ms] ease-in text-dark-grey"
+                      className="text-xl font-light animate-fade-up animate-delay-[400ms] ease-in text-dark-grey"
                       dangerouslySetInnerHTML={markdownify(
                         banner.content ?? "",
                       )}
