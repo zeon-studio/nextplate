@@ -196,11 +196,9 @@ const HDPEandPETSustainability = () => {
           </div>
         </div>
 
-        <div className="mb-20">
-          <Services data={capabilities}></Services>
-        </div>
+        <Services data={capabilities}></Services>
 
-        <div className="col-10 mx-auto mb-20">
+        <div className="container mx-auto my-20">
           <h3 className="text-dark-grey text-h4 lg:text-h3">
             {sustainability_title_4}
           </h3>

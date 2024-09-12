@@ -518,6 +518,150 @@ const employeeApplication = defineType({
       group: "generalInformation",
       validation: (rule) => rule.required(),
     }),
+
+    // APPLICANT STATEMENT AND AGREEMENT
+    defineField({
+      name: "agreement1",
+      type: "object",
+      title:
+        "I hereby authorize Ninth Ave. Foods to thoroughly investigate my references, work record, education and other matters related to my suitability for employment and, further, authorize the prior employers and references I have listed to disclose to Ninth Ave. Foods all letters, reports and other information related to my work records, without giving me prior notice of such disclosure. In addition, I hereby release Ninth Ave. Foods, my former employers and all other persons, corporations, partnerships and associations from any and all claims, demands, or liabilities arising out of or in any way related to such investigation or disclosure.",
+      group: "agreement",
+      fields: [
+        defineField({
+          name: "initialHere1",
+          type: "string",
+          title: "Initial here",
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: "statementAndAgreement1",
+          type: "string",
+          title: "Agreed?",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "agreement2",
+      type: "object",
+      title:
+        "If I am employed by Ninth Ave. Foods, I understand that I am required to comply with all rules and regulations of the Ninth Ave. Foods",
+      group: "agreement",
+      fields: [
+        defineField({
+          name: "initialHere2",
+          type: "string",
+          title: "Initial here",
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: "statementAndAgreement2",
+          type: "string",
+          title: "Agreed?",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "agreement3",
+      type: "object",
+      title:
+        "If hired, I understand and agree that my employment with Ninth Ave. Foods is at-will, and that neither I, nor the Ninth Ave. Foods is required to continue the employment relationship for any specific term. I further understand that the Ninth Ave. Foods or I may terminate the employment relationship at any time, with or without cause, and with or without notice. I understand that the at-will status of my employment cannot be amended, modified, or altered in any way by any oral modifications.",
+      group: "agreement",
+      fields: [
+        defineField({
+          name: "initialHere3",
+          type: "string",
+          title: "Initial here",
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: "statementAndAgreement3",
+          type: "string",
+          title: "Agreed?",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "agreement4",
+      type: "object",
+      title:
+        "I hereby certify that the answers given by me are true and correct to the best of my knowledge. I further certify that I, the undersigned applicant, have personally completed this application. I understand that any omission or misstatement of material fact on this application or on any document used to secure employment shall be grounds for rejection of this application or for immediate discharge if I am employed, regardless of the time elapsed before discovery.",
+      group: "agreement",
+      fields: [
+        defineField({
+          name: "initialHere4",
+          type: "string",
+          title: "Initial here",
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: "statementAndAgreement4",
+          type: "string",
+          title: "Agreed?",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "agreement5",
+      type: "object",
+      title:
+        "I understand that if I am selected for hire, it will be necessary for me to provide satisfactory evidence of my identity and legal authority to work in the United States, and that federal immigration laws require me to complete an I-9 Form in this regard.",
+      group: "agreement",
+      fields: [
+        defineField({
+          name: "initialHere5",
+          type: "string",
+          title: "Initial here",
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: "statementAndAgreement5",
+          type: "string",
+          title: "Agreed?",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+    defineField({
+      name: "agreement6",
+      type: "object",
+      title:
+        "I understand that if any term, provision, or portion of this Agreement is declared void or unenforceable, it shall be severed and the remainder of this Agreement shall be enforceable.",
+      group: "agreement",
+      fields: [
+        defineField({
+          name: "initialHere6",
+          type: "string",
+          title: "Initial here",
+          validation: (rule) => rule.required(),
+        }),
+        defineField({
+          name: "statementAndAgreement6",
+          type: "string",
+          title: "Agreed?",
+          validation: (rule) => rule.required(),
+        }),
+      ],
+    }),
+
+    // Electronic signature
+    defineField({
+      name: "electronicSignature",
+      type: "string",
+      title: "Sign Your Full Name (Electronic Signature):",
+      group: "signature",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "todaysDate",
+      type: "string",
+      title: "Today's Date",
+      group: "signature",
+      validation: (rule) => rule.required(),
+    }),
   ],
 
   groups: [
@@ -544,6 +688,14 @@ const employeeApplication = defineType({
     {
       name: "generalInformation",
       title: "General Information",
+    },
+    {
+      name: "agreement",
+      title: "Applicant Statement and Agreement",
+    },
+    {
+      name: "signature",
+      title: "Electronic Signature",
     },
   ],
 

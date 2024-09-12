@@ -161,6 +161,46 @@ export async function POST(request: Request) {
       employmentAuthorization: formData.get(
         "employmentAuthorization",
       ) as string,
+
+      agreement1: {
+        initialHere1: formData.get("initialHere1") as string,
+        statementAndAgreement1: formData.get(
+          "statementAndAgreement1",
+        ) as string,
+      },
+      agreement2: {
+        initialHere2: formData.get("initialHere2") as string,
+        statementAndAgreement2: formData.get(
+          "statementAndAgreement2",
+        ) as string,
+      },
+      agreement3: {
+        initialHere3: formData.get("initialHere3") as string,
+        statementAndAgreement3: formData.get(
+          "statementAndAgreement3",
+        ) as string,
+      },
+      agreement4: {
+        initialHere4: formData.get("initialHere4") as string,
+        statementAndAgreement4: formData.get(
+          "statementAndAgreement4",
+        ) as string,
+      },
+      agreement5: {
+        initialHere5: formData.get("initialHere5") as string,
+        statementAndAgreement5: formData.get(
+          "statementAndAgreement5",
+        ) as string,
+      },
+      agreement6: {
+        initialHere6: formData.get("initialHere6") as string,
+        statementAndAgreement6: formData.get(
+          "statementAndAgreement6",
+        ) as string,
+      },
+
+      electronicSignature: formData.get("electronicSignature") as string,
+      todaysDate: formData.get("todaysDate") as string,
     });
 
     console.log("Successfully added data to Sanity");

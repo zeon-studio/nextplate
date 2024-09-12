@@ -4,6 +4,7 @@ import { FormEvent, useState, useEffect } from "react";
 import ErrorAlert from "@/partials/ErrorAlert";
 import SuccessAlert from "@/partials/SuccessAlert";
 import { Dict } from "styled-components/dist/types";
+import { stringify } from "querystring";
 
 // Dynamic employment experience
 type EmploymentExperience = {
@@ -76,6 +77,9 @@ const EmployeeApplicationForm = ({
   >(Array(employmentExperiences.length).fill(false));
   const [selectedCheckBox, setSelectedCheckBox] = useState<boolean[]>(
     Array(7).fill(false),
+  );
+  const [selectedCheckBox2, setSelectedCheckBox2] = useState<boolean[]>(
+    Array(6).fill(false),
   );
   const [isRequired, setIsRequired] = useState<boolean>(false);
   const [isRequired2, setIsRequired2] = useState<boolean>(false);
@@ -2339,6 +2343,284 @@ const EmployeeApplicationForm = ({
                 {formErrors.radio13 && (
                   <p className="text-red-500">{formErrors.radio13}</p>
                 )}
+              </div>
+
+              {/* APPLICANT STATEMENT AND AGREEMENT */}
+              <h5 className="text-dark-grey pt-10 w-full">
+                APPLICANT STATEMENT AND AGREEMENT
+              </h5>
+              <p>
+                Read and initial each paragraph below. Then, select the check
+                mark. If there is anything that you do not understand, please
+                ask.
+              </p>
+              <hr className="w-full h-[1px] bg-dark-grey my-6" />
+              <div className="flex flex-col w-full">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                  <input
+                    id="initialHere1"
+                    name="initialHere1"
+                    className="form-input rounded-none bg-white placeholder-dark-grey w-full h-12 border-mischka border-x-0 border-t-0"
+                    type="text"
+                    placeholder="Initial here..."
+                    required
+                  />
+                </div>
+                <div className="w-full py-1">
+                  <input
+                    type="checkbox"
+                    className="mr-2 rounded-sm"
+                    id="initialHereCheckbox1"
+                    name="statementAndAgreement1"
+                    checked={selectedCheckBox2[0]}
+                    value="Yes"
+                    onChange={() => {
+                      setSelectedCheckBox2((prevState) =>
+                        prevState.map((val, index) =>
+                          index === 0 ? !val : val,
+                        ),
+                      );
+                    }}
+                    required
+                  />
+                  <label htmlFor="initialHereCheckbox1">
+                    I hereby authorize Ninth Ave. Foods to thoroughly
+                    investigate my references, work record, education and other
+                    matters related to my suitability for employment and,
+                    further, authorize the prior employers and references I have
+                    listed to disclose to Ninth Ave. Foods all letters, reports
+                    and other information related to my work records, without
+                    giving me prior notice of such disclosure. In addition, I
+                    hereby release Ninth Ave. Foods, my former employers and all
+                    other persons, corporations, partnerships and associations
+                    from any and all claims, demands, or liabilities arising out
+                    of or in any way related to such investigation or
+                    disclosure.
+                  </label>
+                </div>
+
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                  <input
+                    id="initialHere2"
+                    name="initialHere2"
+                    className="form-input rounded-none bg-white placeholder-dark-grey w-full h-12 border-mischka border-x-0 border-t-0"
+                    type="text"
+                    placeholder="Initial here..."
+                    required
+                  />
+                </div>
+                <div className="w-full py-1">
+                  <input
+                    type="checkbox"
+                    className="mr-2 rounded-sm"
+                    id="initialHereCheckbox2"
+                    name="statementAndAgreement2"
+                    checked={selectedCheckBox2[1]}
+                    value="Yes"
+                    onChange={() => {
+                      setSelectedCheckBox2((prevState) =>
+                        prevState.map((val, index) =>
+                          index === 1 ? !val : val,
+                        ),
+                      );
+                    }}
+                    required
+                  />
+                  <label htmlFor="initialHereCheckbox2">
+                    If I am employed by Ninth Ave. Foods, I understand that I am
+                    required to comply with all rules and regulations of the
+                    Ninth Ave. Foods
+                  </label>
+                </div>
+
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                  <input
+                    id="initialHere3"
+                    name="initialHere3"
+                    className="form-input rounded-none bg-white placeholder-dark-grey w-full h-12 border-mischka border-x-0 border-t-0"
+                    type="text"
+                    placeholder="Initial here..."
+                    required
+                  />
+                </div>
+                <div className="w-full py-1">
+                  <input
+                    type="checkbox"
+                    className="mr-2 rounded-sm"
+                    id="initialHereCheckbox3"
+                    name="statementAndAgreement3"
+                    checked={selectedCheckBox2[2]}
+                    value="Yes"
+                    onChange={() => {
+                      setSelectedCheckBox2((prevState) =>
+                        prevState.map((val, index) =>
+                          index === 2 ? !val : val,
+                        ),
+                      );
+                    }}
+                    required
+                  />
+                  <label htmlFor="initialHereCheckbox3">
+                    If hired, I understand and agree that my employment with
+                    Ninth Ave. Foods is at-will, and that neither I, nor the
+                    Ninth Ave. Foods is required to continue the employment
+                    relationship for any specific term. I further understand
+                    that the Ninth Ave. Foods or I may terminate the employment
+                    relationship at any time, with or without cause, and with or
+                    without notice. I understand that the at-will status of my
+                    employment cannot be amended, modified, or altered in any
+                    way by any oral modifications.
+                  </label>
+                </div>
+
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                  <input
+                    id="initialHere4"
+                    name="initialHere4"
+                    className="form-input rounded-none bg-white placeholder-dark-grey w-full h-12 border-mischka border-x-0 border-t-0"
+                    type="text"
+                    placeholder="Initial here..."
+                    required
+                  />
+                </div>
+                <div className="w-full py-1">
+                  <input
+                    type="checkbox"
+                    className="mr-2 rounded-sm"
+                    id="initialHereCheckbox4"
+                    name="statementAndAgreement4"
+                    checked={selectedCheckBox2[3]}
+                    value="Yes"
+                    onChange={() => {
+                      setSelectedCheckBox2((prevState) =>
+                        prevState.map((val, index) =>
+                          index === 3 ? !val : val,
+                        ),
+                      );
+                    }}
+                    required
+                  />
+                  <label htmlFor="initialHereCheckbox4">
+                    I hereby certify that the answers given by me are true and
+                    correct to the best of my knowledge. I further certify that
+                    I, the undersigned applicant, have personally completed this
+                    application. I understand that any omission or misstatement
+                    of material fact on this application or on any document used
+                    to secure employment shall be grounds for rejection of this
+                    application or for immediate discharge if I am employed,
+                    regardless of the time elapsed before discovery.
+                  </label>
+                </div>
+
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                  <input
+                    id="initialHere5"
+                    name="initialHere5"
+                    className="form-input rounded-none bg-white placeholder-dark-grey w-full h-12 border-mischka border-x-0 border-t-0"
+                    type="text"
+                    placeholder="Initial here..."
+                    required
+                  />
+                </div>
+                <div className="w-full py-1">
+                  <input
+                    type="checkbox"
+                    className="mr-2 rounded-sm"
+                    id="initialHereCheckbox5"
+                    name="statementAndAgreement5"
+                    checked={selectedCheckBox2[4]}
+                    value="Yes"
+                    onChange={() => {
+                      setSelectedCheckBox2((prevState) =>
+                        prevState.map((val, index) =>
+                          index === 4 ? !val : val,
+                        ),
+                      );
+                    }}
+                    required
+                  />
+                  <label htmlFor="initialHereCheckbox5">
+                    I understand that if I am selected for hire, it will be
+                    necessary for me to provide satisfactory evidence of my
+                    identity and legal authority to work in the United States,
+                    and that federal immigration laws require me to complete an
+                    I-9 Form in this regard.
+                  </label>
+                </div>
+
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                  <input
+                    id="initialHere6"
+                    name="initialHere6"
+                    className="form-input rounded-none bg-white placeholder-dark-grey w-full h-12 border-mischka border-x-0 border-t-0"
+                    type="text"
+                    placeholder="Initial here..."
+                    required
+                  />
+                </div>
+                <div className="w-full py-1">
+                  <input
+                    type="checkbox"
+                    className="mr-2 rounded-sm"
+                    id="initialHereCheckbox6"
+                    name="statementAndAgreement6"
+                    checked={selectedCheckBox2[5]}
+                    value="Yes"
+                    onChange={() => {
+                      setSelectedCheckBox2((prevState) =>
+                        prevState.map((val, index) =>
+                          index === 5 ? !val : val,
+                        ),
+                      );
+                    }}
+                    required
+                  />
+                  <label htmlFor="initialHereCheckbox6">
+                    I understand that if any term, provision, or portion of this
+                    Agreement is declared void or unenforceable, it shall be
+                    severed and the remainder of this Agreement shall be
+                    enforceable.
+                  </label>
+                </div>
+              </div>
+
+              {/* Electronic Signature */}
+              <h5 className="text-dark-grey pt-10 w-full">
+                MY SIGNATURE INDICATES THAT I HAVE READ, UNDERSTAND, AND AGREED
+                TO ALL OF THE ABOVE TERMS
+              </h5>
+              <hr className="w-full h-[1px] bg-dark-grey my-6" />
+              <div className="flex md:flex-row flex-col w-full">
+                <div className="w-full xl:w-1/2 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <label htmlFor="fname" className="form-label text-dark-grey">
+                    Sign Your Full Name (Electronic Signature):{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="electronicSignature"
+                    name="electronicSignature"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div className="w-full xl:w-1/4 lg:w-1/2 pr-3 md:mb-6 mb-3">
+                  <label
+                    htmlFor="todaysDate"
+                    className="form-label text-dark-grey"
+                  >
+                    Today's Date <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    id="todaysDate"
+                    name="todaysDate"
+                    className="form-input bg-light-grey shadow-sm placeholder-dark-grey w-full h-12 border-mischka"
+                    placeholder="mm/dd/yyyy"
+                    type="date"
+                    required
+                  />
+                </div>
               </div>
 
               {/* Submit form button */}

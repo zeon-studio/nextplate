@@ -1,3 +1,4 @@
+import { initialize } from "next/dist/server/lib/render-server";
 import { PortableTextBlock } from "sanity";
 
 export type RegularPage = {
@@ -305,6 +306,36 @@ export type EmployeeApplication = {
   transportation: string;
   ageRequirement: string;
   employmentAuthorization: string;
+
+  // Applicant statement and agreement
+  agreement1: {
+    initialHere1: string;
+    statementAndAgreement1: string;
+  };
+  agreement2: {
+    initialHere2: string;
+    statementAndAgreement2: string;
+  };
+  agreement3: {
+    initialHere3: string;
+    statementAndAgreement3: string;
+  };
+  agreement4: {
+    initialHere4: string;
+    statementAndAgreement4: string;
+  };
+  agreement5: {
+    initialHere5: string;
+    statementAndAgreement5: string;
+  };
+  agreement6: {
+    initialHere6: string;
+    statementAndAgreement6: string;
+  };
+
+  // electronic signature
+  electronicSignature: string;
+  todaysDate: string;
 };
 
 export type CardCarouselType = {

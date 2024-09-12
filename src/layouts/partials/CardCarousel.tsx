@@ -60,6 +60,7 @@ const CardCarousel = ({ cards }: CardCarouselProps) => {
                   fill
                   className="rounded-lg"
                   style={{ filter: "brightness(0.8)", objectFit: "cover" }}
+                  priority
                 />
                 <div
                   className={`absolute inset-0 flex items-center justify-center px-10 ${
