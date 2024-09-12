@@ -2356,7 +2356,7 @@ const EmployeeApplicationForm = ({
               </p>
               <hr className="w-full h-[1px] bg-dark-grey my-6" />
               <div className="flex flex-col w-full">
-                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4 flex">
                   <input
                     id="initialHere1"
                     name="initialHere1"
@@ -2365,6 +2365,7 @@ const EmployeeApplicationForm = ({
                     placeholder="Initial here..."
                     required
                   />
+                  <span className="text-red-500">*</span>
                 </div>
                 <div className="w-full py-1">
                   <input
@@ -2399,7 +2400,7 @@ const EmployeeApplicationForm = ({
                   </label>
                 </div>
 
-                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4 flex">
                   <input
                     id="initialHere2"
                     name="initialHere2"
@@ -2408,6 +2409,7 @@ const EmployeeApplicationForm = ({
                     placeholder="Initial here..."
                     required
                   />
+                  <span className="text-red-500">*</span>
                 </div>
                 <div className="w-full py-1">
                   <input
@@ -2433,7 +2435,7 @@ const EmployeeApplicationForm = ({
                   </label>
                 </div>
 
-                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4 flex">
                   <input
                     id="initialHere3"
                     name="initialHere3"
@@ -2442,6 +2444,7 @@ const EmployeeApplicationForm = ({
                     placeholder="Initial here..."
                     required
                   />
+                  <span className="text-red-500">*</span>
                 </div>
                 <div className="w-full py-1">
                   <input
@@ -2473,7 +2476,7 @@ const EmployeeApplicationForm = ({
                   </label>
                 </div>
 
-                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4 flex">
                   <input
                     id="initialHere4"
                     name="initialHere4"
@@ -2482,6 +2485,7 @@ const EmployeeApplicationForm = ({
                     placeholder="Initial here..."
                     required
                   />
+                  <span className="text-red-500">*</span>
                 </div>
                 <div className="w-full py-1">
                   <input
@@ -2512,7 +2516,7 @@ const EmployeeApplicationForm = ({
                   </label>
                 </div>
 
-                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4 flex">
                   <input
                     id="initialHere5"
                     name="initialHere5"
@@ -2521,6 +2525,7 @@ const EmployeeApplicationForm = ({
                     placeholder="Initial here..."
                     required
                   />
+                  <span className="text-red-500">*</span>
                 </div>
                 <div className="w-full py-1">
                   <input
@@ -2548,7 +2553,7 @@ const EmployeeApplicationForm = ({
                   </label>
                 </div>
 
-                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4">
+                <div className="w-full lg:w-1/4 pr-3 md:mb-6 mb-3 mt-4 flex">
                   <input
                     id="initialHere6"
                     name="initialHere6"
@@ -2557,6 +2562,7 @@ const EmployeeApplicationForm = ({
                     placeholder="Initial here..."
                     required
                   />
+                  <span className="text-red-500">*</span>
                 </div>
                 <div className="w-full py-1">
                   <input
@@ -2610,7 +2616,7 @@ const EmployeeApplicationForm = ({
                     htmlFor="todaysDate"
                     className="form-label text-dark-grey"
                   >
-                    Today's Date <span className="text-red-500">*</span>
+                    Today&apos;s Date <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="todaysDate"
