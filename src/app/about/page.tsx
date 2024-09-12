@@ -58,13 +58,13 @@ const About = async () => {
       />
       <PageHeader title={title} image={image} />
       <section className="section-sm mb-8">
-        <div className="container pb-24">
+        <div className="container pb-24 px-4">
           <div className="row justify-center">
-            <div className="md:col-10 lg:col-12">
+            <div className="lg:col-12 mx-1">
               {/* How We Got Started */}
               {features.map((feature, index: number) => (
                 <div
-                  className="flex lg:flex-row flex-col items-center mx-1"
+                  className="flex lg:flex-row flex-col items-center"
                   key={index}
                 >
                   {feature.image && (
@@ -124,36 +124,38 @@ const About = async () => {
         {/* Our capabilities */}
         <Services data={capabilities} />
 
-        <div className="flex flex-col items-center justify-center py-24">
+        <div className="flex flex-col items-center justify-center px-4">
           {/* Our locations */}
           <OurLocations data={our_locations} />
 
           {/* Map */}
-          <div className="flex flex-col text-center items-center justify-center py-14 bg-light-green bg-opacity-5 w-full px-4">
-            <h2
-              dangerouslySetInnerHTML={markdownify(contact_title)}
-              className="mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
-            />
-            <p
-              className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
-              dangerouslySetInnerHTML={markdownify(contact_content)}
-            />
-            <div className="flex md:flex-row flex-col items-center md:pt-0 pt-8">
-              <div className="relative justify-center w-full lg:left-[3rem] md:left-[3rem]">
-                <PointsOfContact data={data}></PointsOfContact>
-              </div>
+          <section className="bg-light-green bg-opacity-5 w-full flex items-center justify-center">
+            <div className="flex flex-col text-center py-14">
+              <h2
+                dangerouslySetInnerHTML={markdownify(contact_title)}
+                className="mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
+              />
+              <p
+                className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
+                dangerouslySetInnerHTML={markdownify(contact_content)}
+              />
+              <div className="relative flex items-center justify-center md:flex-row flex-col md:py-0 py-8 w-full z-0">
+                <div className="">
+                  <PointsOfContact data={data}></PointsOfContact>
+                </div>
 
-              <div className="lg:w-full md:w-5/6 w-full">
-                <div className="relative 2xl:h-[45vh] xl:h-[60vh] h-[35vh] w-[340px] xl:w-[800px] md:w-[500px] md:right-[2rem] z-0">
-                  <Map
-                    center={centerCoord}
-                    position1={californiaCoord}
-                    position2={indianaCoord}
-                  />
+                <div className="w-full h-full">
+                  <div className="w-full lg:w-[700px] h-[400px] max-w-[700px] max-h-[450px]">
+                    <Map
+                      center={centerCoord}
+                      position1={californiaCoord}
+                      position2={indianaCoord}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
 
         {/* Call to Action */}

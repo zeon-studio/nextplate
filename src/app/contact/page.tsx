@@ -144,15 +144,20 @@ const Contact = async () => {
             </div>
           </div>
 
-          <div className="md:h-[50vh] xl:h-[60vh] 2xl:h-[50vh] h-[35vh] mt-20 md:mt-24 mb-24 xl:w-[1150px] xl:mx-auto">
-            <h5 className="text-dark-grey text-center pb-5">
+          <div className="flex flex-col text-center mx-auto w-full pt-24">
+            <h5 className="text-dark-grey pb-5">
               We are based in City of Industry, CA and Columbus, IN
             </h5>
-            <Map
-              center={centerCoord}
-              position1={californiaCoord}
-              position2={indianaCoord}
-            />
+
+            <div className="flex justify-center w-full">
+              <div className="w-full h-[450px] max-w-[1200px] max-h-[450px]">
+                <Map
+                  center={centerCoord}
+                  position1={californiaCoord}
+                  position2={indianaCoord}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
