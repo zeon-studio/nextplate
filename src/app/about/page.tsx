@@ -57,10 +57,10 @@ const About = async () => {
         image={image}
       />
       <PageHeader title={title} image={image} />
-      <section className="section-sm mb-8">
-        <div className="container pb-24 px-4">
-          <div className="row justify-center">
-            <div className="lg:col-12 mx-1">
+      <section className="section-sm">
+        <div className="container">
+          <div className="row justify-center mx-1">
+            <div className="lg:col-12">
               {/* How We Got Started */}
               {features.map((feature, index: number) => (
                 <div
@@ -69,7 +69,7 @@ const About = async () => {
                 >
                   {feature.image && (
                     <ImageFallback
-                      className="mb:md-0 md:col-8 lg:col-6  mx-auto mb-6 rounded-sm object-cover  animate-fade animate-delay-[300ms] ease-in"
+                      className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
                       width={600}
                       height={600}
@@ -124,12 +124,12 @@ const About = async () => {
         {/* Our capabilities */}
         <Services data={capabilities} />
 
-        <div className="flex flex-col items-center justify-center px-4">
+        <div className="flex flex-col items-center justify-center py-14 mx-[2rem]">
           {/* Our locations */}
           <OurLocations data={our_locations} />
 
           {/* Map */}
-          <section className="bg-light-green bg-opacity-5 w-full flex items-center justify-center">
+          <div className="bg-light-green bg-opacity-5 w-full flex items-center justify-center">
             <div className="flex flex-col text-center py-14">
               <h2
                 dangerouslySetInnerHTML={markdownify(contact_title)}
@@ -155,11 +155,13 @@ const About = async () => {
                 </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
 
         {/* Call to Action */}
-        <CallToAction data={callToAction}></CallToAction>
+        <div className="md:py-14 py-8">
+          <CallToAction data={callToAction}></CallToAction>
+        </div>
       </section>
     </>
   );
