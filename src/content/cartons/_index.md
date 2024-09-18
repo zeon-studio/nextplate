@@ -8,7 +8,7 @@ image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"
 
 sustainability_title: "HDPE and PET Sustainability"
-sustainability_content: "__**HDPE and PET containers**__ are designed to be __**100% recyclable**__, making them a top choice for sustainable packaging. \n\nWith many customers benefiting from the convenience of curbside recycling pickup, both HDPE and PET containers are **easily recycled**, significantly **reducing landfill waste**. Embracing curbside recycling for these materials not only supports a __**greener planet**__ but also promotes **efficient waste management practices**."
+sustainability_content: "__**HDPE and PET containers**__ are designed to be __**100% recyclable**__, making them a top choice for sustainable packaging. \n\nWith many customers benefiting from the convenience of curbside recycling pickup, both __**HDPE and PET containers**__ are **easily recycled**, significantly **reducing landfill waste**. Embracing curbside recycling for these materials not only supports a __**greener planet**__ but also promotes **efficient waste management practices**."
 
 sustainability_title_2: "Energy Efficient - Lower GHG emissions"
 sustainability_content_2: "PET and HDPE containers are mechanically recycled into recycled content or PCR pellets, promoting sustainable manufacturing"
