@@ -6,6 +6,9 @@ import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import PointsOfContact from "@/partials/PointsOfContact";
 
+// https://nodemailer.com/
+// https://www.emailjs.com/
+// https://resend.com/
 const Contact = async () => {
   const data = getListPage("contact/_index.md");
   const point_of_contact = getListPage("sections/points-of-contact.md");
