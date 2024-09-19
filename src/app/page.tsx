@@ -233,12 +233,12 @@ const Home = () => {
         <Products data={product} />
         <PlantBased data={plantBased}></PlantBased>
         <div className="flex flex-col items-center text-center mb-12 px-10">
-          <h3 className="mb-4 text-h3 lg:text-h2 text-dark-grey">
+          <h3 className="font-secondary mb-4 text-h3 lg:text-h2 text-dark-grey">
             Elevating Your Brand with
             <span className="text-primary"> Ninth Avenue Foods</span>
           </h3>
 
-          <p className="text-lg">
+          <p className="text-lg font-primary">
             From Tradition to Technology: A Heritage of <b>Excellence</b> in
             Dairy Manufacturing
           </p>

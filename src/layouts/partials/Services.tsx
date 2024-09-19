@@ -60,9 +60,9 @@ const Services = ({ data }: { data: PageData }) => {
         >
           {/* Coming Soon Ribbon */}
           {inView && index === 3 && (
-            <div className="absolute z-20 xl:top-[-225px] xl:right-[280px] lg:top-[-250px] lg:right-[260px] md:top-[-250px] md:right-[240px] top-[-140px] right-[240px]">
+            <div className="absolute z-20 xl:top-[-225px] xl:right-[280px] lg:top-[-250px] lg:right-[260px] md:top-[-250px] md:right-[240px] sm:top-[-140px] top-[-110px] right-[260px]">
               <div
-                className="w-[300px] xl:w-[350px] bg-gradient-to-b from-red-700 to-red-500 text-white text-lg font-semibold py-1 px-2 text-center md:h-[35px] h-[30px]"
+                className="w-[350px] sm:w-[300px] xl:w-[350px] bg-gradient-to-b from-red-700 to-red-500 text-white text-lg font-semibold py-1 px-2 text-center md:h-[35px] h-[30px]"
                 style={{
                   transform: "rotate(35deg)",
                   transformOrigin: "top right",
@@ -137,11 +137,11 @@ const Services = ({ data }: { data: PageData }) => {
               <div className="flex flex-col text-center md:text-left">
                 <h2
                   dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-                  className="text-primary md:text-3xl text-h3 pb-4"
+                  className="text-primary md:text-3xl text-h3 pb-4 font-secondary"
                 />
                 {data.frontmatter.description && (
                   <p
-                    className="text-lg mb-8"
+                    className="text-lg mb-8 font-primary"
                     dangerouslySetInnerHTML={markdownify(
                       data.frontmatter.description!,
                     )}

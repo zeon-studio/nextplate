@@ -28,9 +28,10 @@ const Products = ({ data }: { data: PageData }) => {
             <div className="mx-auto text-center md:col-10">
               <h5
                 dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-                className="mb-4 text-dark-grey"
+                className="mb-4 font-secondary"
               />
               <p
+                className="font-primary"
                 dangerouslySetInnerHTML={markdownify(
                   data.frontmatter.description!,
                 )}
