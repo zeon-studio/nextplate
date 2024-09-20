@@ -1,19 +1,25 @@
 "use client";
 
 import { FormEvent, useState, useEffect } from "react";
+import ErrorAlert from "@/partials/ErrorAlert";
+import SuccessMessage from "@/partials/SuccessMessage";
 
 const ContactUsForm = () => {
   const [isLoading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isFormSubmitted, setFormSubmitted] = useState<boolean>(false);
+
+  useEffect(() => {
+    console.log("isLoading: ", isLoading);
+  }, [isLoading]);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setLoading(false);
+    setLoading(true);
+    setError(null);
 
     try {
-      // Create FormData from the event target
       const formData = new FormData(event.currentTarget);
-
-      //   Submit the form data
       const response = await fetch("/api/send-email", {
         method: "POST",
         body: formData,
@@ -21,20 +27,22 @@ const ContactUsForm = () => {
 
       if (!response.ok) {
         throw new Error("Failed to submit the data. Please try again.");
+      } else {
+        setFormSubmitted(true); // Show the overlay after success
       }
-      //   else {
-      //     setSucess("Form submitted successfully!");
-      //   }
     } catch (err) {
       const error = err as Error;
+      setError(error.message); // Capture the error message to display to the user
     } finally {
       setLoading(false);
     }
   }
+
   return (
-    <>
-      {/* Form */}
-      <div className="animate-fade ease-in mx-auto md:col-6 mb-20 md:mb-0">
+    <div className="animate-fade ease-in mx-auto md:col-6 mb-20 md:mb-0">
+      {isFormSubmitted && <SuccessMessage return_to_link="/contact" />}
+
+      <div>
         <div className="flex items-center md:col-6 col-7 pb-6 py-5">
           <div className="flex-grow border opacity-40 border-t border-light-green invisible lg:visible"></div>
           <h5 className="lg:mx-4 text-dark-green text-xl font-light tracking-widest">
@@ -109,7 +117,6 @@ const ContactUsForm = () => {
               ></textarea>
             </div>
 
-            {/* Submit form button */}
             <div className="px-1">
               <button
                 type="submit"
@@ -118,7 +125,11 @@ const ContactUsForm = () => {
               >
                 <svg
                   aria-hidden="true"
-                  className={`${isLoading ? "inline w-6 h-6 text-gray-200 animate-spin fill-blue-600 mr-2" : "hidden"}`}
+                  className={`${
+                    isLoading
+                      ? "inline w-6 h-6 text-gray-200 animate-spin fill-blue-600 mr-2"
+                      : "hidden"
+                  }`}
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -132,13 +143,18 @@ const ContactUsForm = () => {
                     fill="currentFill"
                   />
                 </svg>
+
                 {isLoading ? "Loading..." : "Send message"}
               </button>
             </div>
           </div>
         </form>
+
+        <div className="pt-10">
+          {error && <ErrorAlert error_message={error} />}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   const message = formData.get("message");
 
   const subject = "NAF Website Customer Query";
-  const text = "This is a test email from Next.js!";
+  const text = "This is a customer query from the NAF website";
   const to = ["ceiaram@ninthavenuefoods.com", "madrigalceiara@gmail.com"];
   const html = `<!doctype html>
         <html lang="en">

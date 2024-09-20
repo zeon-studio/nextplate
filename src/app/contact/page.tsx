@@ -57,7 +57,7 @@ const Contact = async () => {
               We are based in City of Industry, CA and Columbus, IN
             </h5>
 
-            <div className="flex justify-center w-full">
+            <div className="flex justify-center w-full -z-10">
               <div className="w-full h-[450px] max-w-[1200px] max-h-[450px]">
                 <Map
                   center={centerCoord}

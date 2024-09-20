@@ -12,7 +12,6 @@ const EmployeeApplication = async ({
   searchParams: { [key: string]: string };
 }) => {
   const data = await getEmployeePageContent();
-  // console.log("Data: ", data);
   const callToAction = {
     frontmatter: {
       enable: true,
@@ -65,9 +64,9 @@ const EmployeeApplication = async ({
           ></EmployeeApplicationForm>
         </div>
 
-        <div className="py-20">
+        {/* <div className="py-20">
           <CallToAction data={callToAction}></CallToAction>
-        </div>
+        </div> */}
       </section>
     </>
   );

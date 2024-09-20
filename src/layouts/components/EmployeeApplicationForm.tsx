@@ -2,7 +2,7 @@
 
 import { FormEvent, useState, useEffect } from "react";
 import ErrorAlert from "@/partials/ErrorAlert";
-import SuccessAlert from "@/partials/SuccessAlert";
+import SuccessMessage from "@/partials/SuccessMessage";
 import { Dict } from "styled-components/dist/types";
 
 // Dynamic employment experience
@@ -27,9 +27,11 @@ const EmployeeApplicationForm = ({
   jobPositionID: string;
   jobPosition: string;
 }) => {
+  const [isFormSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null);
-  const [success, setSucess] = useState<string | null>(null);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  // const [success, setSucess] = useState<string | null>(null);
   const [formErrors, setFormErrors] = useState<Dict>({});
   const [employmentExpFormErrors, setEmploymentExpFormErrors] = useState<Dict>(
     {},
@@ -284,7 +286,7 @@ const EmployeeApplicationForm = ({
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
-    setError(null); // Clear previous errors when a new request starts
+    // setError(null); // Clear previous errors when a new request starts
 
     // Run validation
     const isFormValid = validateForm();
@@ -294,6 +296,7 @@ const EmployeeApplicationForm = ({
     // Check for errors after validation
     if (!isRadioBtnsValid || !isCheckBoxesValid || !isFormValid) {
       setError("Fix form errors before submitting!");
+      setIsFormValid(false);
       setLoading(false);
       return false;
     }
@@ -339,7 +342,8 @@ const EmployeeApplicationForm = ({
       if (!response.ok) {
         throw new Error("Failed to submit the data. Please try again.");
       } else {
-        setSucess("Form submitted successfully!");
+        setFormSubmitted(true); // Show the overlay after success
+        setIsFormValid(true);
       }
     } catch (err) {
       const error = err as Error;
@@ -478,6 +482,7 @@ const EmployeeApplicationForm = ({
     <>
       <section>
         <div className="animate-fade ease-in mx-auto">
+          {isFormSubmitted && <SuccessMessage return_to_link="/career" />}
           <form onSubmit={onSubmit} method="POST">
             <div className="flex flex-wrap">
               <div className="flex-col w-full">
@@ -2624,8 +2629,9 @@ const EmployeeApplicationForm = ({
         </div>
 
         <div className="md:col-5 pt-10">
-          {error && <ErrorAlert error_message={error}></ErrorAlert>}
-          {success && <SuccessAlert success_message={success}></SuccessAlert>}
+          {!isFormValid && error && !isLoading && (
+            <ErrorAlert error_message={error}></ErrorAlert>
+          )}
         </div>
       </section>
     </>
