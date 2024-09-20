@@ -121,10 +121,9 @@ const About = async () => {
           </div>
         </div>
 
-        {/* Our capabilities */}
-        <Services data={capabilities} />
-
         <div className="flex flex-col items-center justify-center py-14 mx-[2rem]">
+          {/* Our capabilities */}
+          <Services data={capabilities} />
           {/* Our locations */}
           <OurLocations data={our_locations} />
 

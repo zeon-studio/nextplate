@@ -6,5 +6,5 @@ description: "Specializing in a diverse selection of plant-based products alongs
 button:
   enable: true
   label: "Learn More"
-  link: ""
+  link: "/contact"
 ---

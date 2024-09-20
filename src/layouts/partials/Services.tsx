@@ -130,7 +130,6 @@ const Services = ({ data }: { data: PageData }) => {
   return (
     <>
       {data.frontmatter.enable && (
-        // <section className="section bg-[url('/images/staked-wave.svg')] w-full">
         <section className="section bg-light-green bg-opacity-5 w-full">
           <div className="xl:px-0 px-4 max-w-screen-xl mx-auto">
             <div className="flex flex-col md:flex-row items-center md:items-start justify-between">

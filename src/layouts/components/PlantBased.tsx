@@ -80,7 +80,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
                         <div className="flex flex-row items-center">
                           {data.frontmatter.button.label}
                           <svg
-                            className="text-primaryhover:text-white ml-1"
+                            className="hover:text-white ml-1"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             width="18"
