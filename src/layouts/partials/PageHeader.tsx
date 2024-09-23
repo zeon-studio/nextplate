@@ -30,20 +30,16 @@ const PageHeader = ({
   }, []);
 
   const parallaxStyle = {
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    width: "100%", // Full width
-    height: "350px",
-    transform: `translateY(${scrollY * 0.6}px)`, // Adjust the scroll speed (0.6 for a parallax effect)
+    transform: `translateY(${scrollY * 0.6}px)`,
   };
+
   return (
     <section className="relative">
       <div className="container text-center">
         <div
           className={`relative rounded-2xl px-8 py-14 overflow-hidden ${
             image ? "" : "bg-gradient-to-b from-light-green to-theme-light"
-          }}
-        }`}
+          }`}
         >
           {/* Parallax Image */}
           {image && (
@@ -51,13 +47,15 @@ const PageHeader = ({
               className="absolute inset-0 w-full h-full"
               style={{ zIndex: -1 }}
             >
-              <img
+              <Image
                 src={image}
                 alt="Image header"
-                style={parallaxStyle} // Apply the parallax effect
+                fill // Use fill for parallax effect
+                style={parallaxStyle}
                 className="object-cover"
-                fetchPriority="high"
-                decoding="async"
+                priority // Preload the image
+                quality={75} // Adjust image quality for performance
+                sizes="100vw" // Responsive image size
               />
               <div
                 className="absolute inset-0 bg-gradient-to-r from-black/45 to-black/10"
