@@ -17,8 +17,11 @@ const PrivateLabelCoPacking = () => {
     meta_title,
     description,
     image1,
+    alt1,
     image2,
+    alt2,
     image3,
+    alt3,
     private_label_co_packing_title,
     private_label_co_packing_content,
     private_label_co_packing_sub_title,
@@ -65,10 +68,10 @@ const PrivateLabelCoPacking = () => {
                       <div className="w-1/2">
                         <Image
                           src={image1}
-                          alt="Ninth Ave Foods Warehouse"
+                          alt={alt1}
                           className="w-full h-full object-cover rounded-xs"
-                          width={2500}
-                          height={2500}
+                          width={2400}
+                          height={1500}
                           priority
                         />
                       </div>
@@ -77,20 +80,20 @@ const PrivateLabelCoPacking = () => {
                         <div className="flex-1">
                           <Image
                             src={image2}
-                            alt="Ninth Ave Foods Warehouse"
+                            alt={alt2}
                             className="w-full h-full object-cover rounded-xs"
-                            width={2500}
-                            height={2500}
+                            width={2400}
+                            height={1500}
                             priority
                           />
                         </div>
                         <div className="flex-1">
                           <Image
                             src={image3}
-                            alt="Ninth Ave Foods Warehouse"
+                            alt={alt3}
                             className="w-full h-full object-cover rounded-xs"
-                            width={2500}
-                            height={2500}
+                            width={2400}
+                            height={1500}
                             priority
                           />
                         </div>
