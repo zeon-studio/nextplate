@@ -27,9 +27,10 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-          <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
+          {/* Uncomment to add social links */}
+          {/* <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
             <Social source={social.main} className="social-icons" />
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="border-t border-dark-grey py-7 ">

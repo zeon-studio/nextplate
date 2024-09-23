@@ -61,12 +61,20 @@
   ],
   "footer": [
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Home",
+      "url": "/"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "About Us",
+      "url": "/about"
+    },
+    {
+      "name": "Career",
+      "url": "/career"
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact"
     }
   ]
 }
