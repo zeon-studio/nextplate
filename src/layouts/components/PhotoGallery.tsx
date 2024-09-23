@@ -17,6 +17,7 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 interface Photo {
   src: string;
+  alt: string;
   width: number;
   height: number;
 }

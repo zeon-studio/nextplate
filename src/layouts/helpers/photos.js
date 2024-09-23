@@ -3,12 +3,14 @@ const generatePhotos = (galleryPhotos) => {
 
   const photos = galleryPhotos.map((photo) => ({
     src: photo.src,
+    alt: photo.alt,
     width: photo.width,
     height: photo.height,
     srcSet: breakpoints.map((breakpoint) => {
       const height = Math.round((photo.height / photo.width) * breakpoint);
       return {
         src: photo.src,
+        alt: photo.alt,
         width: breakpoint,
         height,
       };

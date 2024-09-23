@@ -14,14 +14,6 @@ import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
 import generatePhotos from "@/helpers/photos";
 
-// Templates
-// https://dorik.com/blog/service-website-examples
-// https://zeon.studio/
-// https://www.idahomilkproducts.com/
-// https://mooala.com/
-
-// Sustainability page
-// https://pachama.com/
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
@@ -32,14 +24,54 @@ const Home = () => {
 
   // Define your list of photos for this page
   const galleryPhotos = [
-    { src: "/images/gallery/ninth-ave-7.jpg", width: 3678, height: 1353 },
-    { src: "/images/gallery/ninth-ave-2.jpg", width: 2128, height: 1416 },
-    { src: "/images/gallery/ninth-ave-3.jpg", width: 2128, height: 1416 },
-    { src: "/images/gallery/ninth-ave-6.jpg", width: 2128, height: 1416 },
-    { src: "/images/gallery/ninth-ave-5.jpg", width: 2128, height: 1416 },
-    { src: "/images/gallery/ninth-ave-8.jpg", width: 2128, height: 1416 },
-    { src: "/images/gallery/ninth-ave-1.jpg", width: 2036, height: 1355 },
-    { src: "/images/gallery/ninth-ave-10.jpg", width: 1999, height: 1330 },
+    {
+      src: "/images/gallery/ninth-ave-7.jpg",
+      width: 3678,
+      height: 1353,
+      alt: "Industrial layout of NAF warehouse 1",
+    },
+    {
+      src: "/images/gallery/ninth-ave-2.jpg",
+      width: 2128,
+      height: 1416,
+      alt: "Industrial layout of NAF warehouse 2",
+    },
+    {
+      src: "/images/gallery/ninth-ave-3.jpg",
+      width: 2128,
+      height: 1416,
+      alt: "Industrial layout of NAF warehouse 3",
+    },
+    {
+      src: "/images/gallery/ninth-ave-6.jpg",
+      width: 2128,
+      height: 1416,
+      alt: "Industrial layout of NAF warehouse 4",
+    },
+    {
+      src: "/images/gallery/ninth-ave-5.jpg",
+      width: 2128,
+      height: 1416,
+      alt: "Industrial layout of NAF warehouse 5",
+    },
+    {
+      src: "/images/gallery/ninth-ave-8.jpg",
+      width: 2128,
+      height: 1416,
+      alt: "Industrial layout of NAF warehouse 6",
+    },
+    {
+      src: "/images/gallery/ninth-ave-1.jpg",
+      width: 2036,
+      height: 1355,
+      alt: "Industrial layout of NAF warehouse 7",
+    },
+    {
+      src: "/images/gallery/ninth-ave-10.jpg",
+      width: 1999,
+      height: 1330,
+      alt: "Industrial layout of NAF warehouse 8",
+    },
   ];
 
   // Generate the photos array using the generatePhotos function
@@ -168,11 +200,10 @@ const Home = () => {
               }`}
             >
               <div className="flex flex-col items-start md:col-5 pb-2">
-                <h5
+                <h4
                   className="text-dark-green font-light text-xl tracking-widest pb-1"
                   dangerouslySetInnerHTML={markdownify(feature.title)}
                 />
-                {/* <div className="flex-grow border opacity-40 border-t border-light-green w-[100px] md:visible invisible"></div> */}
               </div>
 
               <h2
