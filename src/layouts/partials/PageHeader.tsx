@@ -50,11 +50,13 @@ const PageHeader = ({
               <Image
                 src={image}
                 alt="Image header"
-                fill // Use fill for parallax effect
+                fill
                 style={parallaxStyle}
+                blurDataURL="/images/image-placeholder.png"
+                placeholder="blur"
                 className="object-cover"
                 priority // Preload the image
-                quality={75} // Adjust image quality for performance
+                quality={80} // Adjust image quality for performance
                 sizes="100vw" // Responsive image size
               />
               <div
