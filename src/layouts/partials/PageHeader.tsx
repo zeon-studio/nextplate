@@ -30,6 +30,10 @@ const PageHeader = ({
   }, []);
 
   const parallaxStyle = {
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    width: "100%", // Full width
+    height: "350px",
     transform: `translateY(${scrollY * 0.6}px)`, // Adjust the scroll speed (0.6 for a parallax effect)
   };
   return (
@@ -47,11 +51,9 @@ const PageHeader = ({
               className="absolute inset-0 w-full h-full"
               style={{ zIndex: -1 }}
             >
-              <Image
+              <img
                 src={image}
                 alt="Image header"
-                fill
-                priority // Ensures the image is loaded with high priority
                 style={parallaxStyle} // Apply the parallax effect
                 className="object-cover"
               />
