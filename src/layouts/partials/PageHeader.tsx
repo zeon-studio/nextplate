@@ -56,6 +56,8 @@ const PageHeader = ({
                 alt="Image header"
                 style={parallaxStyle} // Apply the parallax effect
                 className="object-cover"
+                fetchPriority="high"
+                decoding="async"
               />
               <div
                 className="absolute inset-0 bg-gradient-to-r from-black/45 to-black/10"
