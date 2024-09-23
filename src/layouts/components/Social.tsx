@@ -19,6 +19,7 @@ const Social = ({
         <li key={social.name}>
           <a
             aria-label={social.name}
+            title={`Visit social media ${social.name} for more company content`}
             href={social.link}
             target="_blank"
             rel="noopener noreferrer nofollow"

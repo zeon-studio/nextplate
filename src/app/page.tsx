@@ -14,6 +14,8 @@ import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
 import generatePhotos from "@/helpers/photos";
 
+// https://freetools.seobility.net/
+// Schema.org
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
@@ -270,7 +272,7 @@ const Home = () => {
           </h3>
 
           <p className="text-lg font-primary">
-            From Tradition to Technology: A Heritage of <b>Excellence</b> in
+            From Tradition to Technology: A Heritage of <b>Innovation</b> in
             Dairy Manufacturing
           </p>
         </div>

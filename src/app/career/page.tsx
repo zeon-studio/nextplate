@@ -54,6 +54,7 @@ const Career = async () => {
                 *For all employment-related inquiries, please contact{" "}
                 <a
                   href={`mailto:${data.contactEmail}`}
+                  title="Contact email for employment-realted inquiries"
                   className="font-bold text-primary"
                 >
                   {data.contactEmail}
