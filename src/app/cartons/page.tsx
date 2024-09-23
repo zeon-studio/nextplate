@@ -81,7 +81,6 @@ const Cartons = () => {
                       className="w-full h-full object-cover rounded-lg"
                       width={2400}
                       height={1600}
-                      priority
                     />
                   </div>
 
@@ -98,7 +97,6 @@ const Cartons = () => {
                   className="w-full h-full object-cover rounded-lg"
                   width={2400}
                   height={1600}
-                  priority
                 />
               </div>
             </div>

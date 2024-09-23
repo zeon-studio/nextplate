@@ -1,6 +1,6 @@
 "use client";
 
-import ImageFallback from "@/helpers/ImageFallback";
+import Image from "next/image";
 import { markdownify } from "@/lib/utils/textConverter";
 import { Service } from "@/types";
 import Link from "next/link";
@@ -37,9 +37,9 @@ const Services = ({ data }: { data: PageData }) => {
       {/* Background Image */}
       <div className="relative">
         <Link href={service.link}>
-          <ImageFallback
-            height={2000}
-            width={1440}
+          <Image
+            height={2400}
+            width={1500}
             src={service.image}
             alt={service.alt}
             className="object-center-bottom rounded-lg ease-in duration-150 transform hover:scale-110 w-full h-full md:min-w-[200px] md:h-[650px] min-h-[470px] max-w-[500px]"

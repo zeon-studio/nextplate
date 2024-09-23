@@ -68,7 +68,6 @@ const CommitmentToQuality = () => {
                           className="w-full h-full object-cover rounded-xs"
                           width={600}
                           height={400}
-                          priority
                         />
                       </div>
 
@@ -81,7 +80,6 @@ const CommitmentToQuality = () => {
                             className="w-full h-full object-cover rounded-xs"
                             width={2500}
                             height={2500}
-                            priority
                           />
                         </div>
                       </div>

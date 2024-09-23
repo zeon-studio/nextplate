@@ -1,4 +1,4 @@
-import ImageFallback from "@/helpers/ImageFallback";
+import Image from "next/image";
 import MDXContent from "@/helpers/MDXContent";
 import PageHeader from "@/partials/PageHeader";
 import { getListPage } from "@/lib/contentParser";
@@ -68,7 +68,7 @@ const About = async () => {
                   key={index}
                 >
                   {feature.image && (
-                    <ImageFallback
+                    <Image
                       className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
                       width={600}

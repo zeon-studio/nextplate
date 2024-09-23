@@ -69,9 +69,8 @@ const CuttingEdgeTechnology = () => {
                       src={image}
                       alt="Ninth Ave Foods Warehouse"
                       className="w-full h-full object-cover rounded-xs"
-                      width={3678}
-                      height={1353}
-                      priority
+                      width={2400}
+                      height={1500}
                     />
                   </div>
 

@@ -37,9 +37,8 @@ const EmployeeApplication = async ({
               src={data.imageUrl}
               alt="Ninth Ave Foods Warehouse"
               className="w-full lg:h-64 md:h-48 h-40 object-cover object-center"
-              width={3908}
-              height={1300}
-              priority
+              width={2400}
+              height={1500}
             />
           </div>
 

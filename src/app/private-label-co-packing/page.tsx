@@ -72,7 +72,6 @@ const PrivateLabelCoPacking = () => {
                           className="w-full h-full object-cover rounded-xs"
                           width={2400}
                           height={1500}
-                          priority
                         />
                       </div>
                       {/* Right column with two stacked images */}
@@ -84,7 +83,6 @@ const PrivateLabelCoPacking = () => {
                             className="w-full h-full object-cover rounded-xs"
                             width={2400}
                             height={1500}
-                            priority
                           />
                         </div>
                         <div className="flex-1">
@@ -94,7 +92,6 @@ const PrivateLabelCoPacking = () => {
                             className="w-full h-full object-cover rounded-xs"
                             width={2400}
                             height={1500}
-                            priority
                           />
                         </div>
                       </div>
