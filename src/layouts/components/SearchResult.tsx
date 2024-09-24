@@ -129,13 +129,13 @@ const SearchResult = ({
   };
 
   return (
-    <div className="search-wrapper-body">
+    <div className="search-wrapper-body text-dark-grey">
       {searchString ? (
         <div className="search-result">
           {finalResult.length > 0 ? (
             finalResult.map((result) => (
               <div className="search-result-group" key={result.group}>
-                <p className="search-result-group-title">
+                <p className="search-result-group-title font-secondary">
                   {titleify(result.group)}
                 </p>
 
@@ -143,7 +143,7 @@ const SearchResult = ({
                   <div
                     key={item.slug}
                     id="searchItem"
-                    className="search-result-item"
+                    className="search-result-item hover:bg-dark-grey font-secondary"
                   >
                     {item.frontmatter.image && (
                       <div className="search-result-item-image">
@@ -176,7 +176,7 @@ const SearchResult = ({
                           {matchContent(item.content, searchString)}
                         </p>
                       )}
-                      <div className="search-result-item-taxonomies">
+                      <div className="search-result-item-taxonomies text-stone-700">
                         {item.frontmatter.categories && (
                           <div className="mr-2">
                             <svg
