@@ -2,7 +2,7 @@
 
 import { FormEvent, useState, useEffect } from "react";
 import ErrorAlert from "@/partials/ErrorAlert";
-import SuccessMessage from "@/partials/SuccessMessage";
+import SubmissionMessage from "@/partials/SubmissionMessage";
 import { Dict } from "styled-components/dist/types";
 
 // Dynamic employment experience
@@ -28,6 +28,10 @@ const EmployeeApplicationForm = ({
   jobPosition: string;
 }) => {
   const [isFormSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [isCreateEmployeeAppSuccessful, setIsCreateEmployeeAppSuccessful] =
+    useState<boolean>(true);
+  const [createEmployeeAppErrorMsg, setCreateEmployeeAppErrorMsg] =
+    useState<string>("");
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -237,8 +241,6 @@ const EmployeeApplicationForm = ({
       /^\+?\d{1,2}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/,
     );
 
-    let emailRegex = new RegExp(/^[^@]*@[^@]*$/);
-
     if (phone && !phoneRegex.test(phone)) {
       formErrors.phone = "Invalid phone number";
     }
@@ -266,10 +268,6 @@ const EmployeeApplicationForm = ({
       }
     });
 
-    if (email && !emailRegex.test(email)) {
-      formErrors.email = "Invalid email address";
-    }
-
     // Add any errors from the employment experiences
     if (Object.keys(employmentExpFormErrors).length > 0) {
       formErrors = { ...formErrors, ...employmentExpFormErrors };
@@ -286,7 +284,6 @@ const EmployeeApplicationForm = ({
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
-    // setError(null); // Clear previous errors when a new request starts
 
     // Run validation
     const isFormValid = validateForm();
@@ -340,7 +337,15 @@ const EmployeeApplicationForm = ({
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit the data. Please try again.");
+        const errorResponse = await response.json(); // assuming the API sends back JSON error response
+        const errorMessage =
+          errorResponse.message ||
+          "Error submitting application. Please try again later.";
+
+        // Display errors to user
+        setError(errorMessage);
+        setCreateEmployeeAppErrorMsg(errorMessage);
+        setIsCreateEmployeeAppSuccessful(false);
       } else {
         setFormSubmitted(true); // Show the overlay after success
         setIsFormValid(true);
@@ -482,7 +487,25 @@ const EmployeeApplicationForm = ({
     <>
       <section>
         <div className="animate-fade ease-in mx-auto">
-          {isFormSubmitted && <SuccessMessage return_to_link="/career" />}
+          {isFormSubmitted && (
+            <SubmissionMessage
+              title="Thank you for submitting"
+              return_to_link="/career"
+              image="/images/send-mail.png"
+              message="Your form submission has been received."
+              submessage="We will be in touch with you shortly."
+            />
+          )}
+          {!isCreateEmployeeAppSuccessful && (
+            <SubmissionMessage
+              title="Error submitting application"
+              return_to_link="/career"
+              image="/images/error_message.png"
+              message={createEmployeeAppErrorMsg}
+              submessage="We apologize for the inconvenience."
+            />
+          )}
+
           <form onSubmit={onSubmit} method="POST">
             <div className="flex flex-wrap">
               <div className="flex-col w-full">

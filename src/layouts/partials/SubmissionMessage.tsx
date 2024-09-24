@@ -2,20 +2,28 @@
 
 import Image from "next/image";
 
-interface SuccessMessageProps {
-  return_to_link: string; // Expecting a string as a prop
+interface SubmissionMessageProps {
+  title: string;
+  message: string;
+  submessage?: string;
+  return_to_link: string;
+  image: string;
 }
 
-const SuccessMessage: React.FC<SuccessMessageProps> = ({ return_to_link }) => {
+const SubmissionMessage: React.FC<SubmissionMessageProps> = ({
+  title,
+  message,
+  submessage,
+  return_to_link,
+  image,
+}) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center">
-      <div className="relative bg-white py-10 px-14 rounded-md shadow-lg text-center">
-        <h3 className="font-bold text-dark-green font-primary">
-          Thank you for submitting
-        </h3>
-        <div className="flex items-center justify-center">
+      <div className="relative bg-white py-10 px-8 rounded-md shadow-lg text-center">
+        <h3 className="font-bold text-dark-green font-primary">{title}</h3>
+        <div className="flex items-center justify-center p-2">
           <Image
-            src={"/images/send-mail.png"}
+            src={image}
             width={512}
             height={512}
             alt="Message icon"
@@ -23,8 +31,8 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ return_to_link }) => {
           />
         </div>
         <div className="text-dark-grey mb-6">
-          <p>Your form submission has been received.</p>
-          <p>We will be in touch with you shortly.</p>
+          <p>{message}</p>
+          <p>{submessage}</p>
         </div>
         <a
           href={return_to_link}
@@ -51,4 +59,4 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ return_to_link }) => {
   );
 };
 
-export default SuccessMessage;
+export default SubmissionMessage;

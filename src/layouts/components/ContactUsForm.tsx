@@ -2,7 +2,7 @@
 
 import { FormEvent, useState, useEffect } from "react";
 import ErrorAlert from "@/partials/ErrorAlert";
-import SuccessMessage from "@/partials/SuccessMessage";
+import SuccessMessage from "@/partials/SubmissionMessage";
 
 const ContactUsForm = () => {
   const [isLoading, setLoading] = useState<boolean>(false);

@@ -207,11 +207,8 @@ export async function POST(request: Request) {
     return NextResponse.json({
       message: "Employee Application updated successfully!",
     });
-  } catch (err) {
-    console.log("Failed: ", err);
-    return NextResponse.json(
-      { message: "Failed to upload employee application" },
-      { status: 500 },
-    );
+  } catch (error) {
+    const err = error as Error;
+    return NextResponse.json({ message: err.message }, { status: 500 });
   }
 }
