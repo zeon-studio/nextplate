@@ -9,21 +9,11 @@ import BasicCard from "@/partials/BasicCard";
 import Capabilities from "@/components/Capabilities";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
-import { getAllTaxonomy, getTaxonomy } from "@/lib/taxonomyParser";
-import PostSidebar from "@/partials/PostSidebar";
 
 const { cutting_edge_technology_folder } = config.settings;
 
 const CuttingEdgeTechnology = () => {
   const data = getListPage(`${cutting_edge_technology_folder}/_index.md`);
-  const allCategories = getAllTaxonomy(
-    cutting_edge_technology_folder,
-    "categories",
-  );
-  const categories = getTaxonomy(cutting_edge_technology_folder, "categories");
-  const tags = getTaxonomy(cutting_edge_technology_folder, "tags");
-  console.log("CAT:  ", categories);
-
   const {
     title,
     meta_title,
@@ -126,12 +116,6 @@ const CuttingEdgeTechnology = () => {
         </div>
 
         <CallToAction data={callToAction}></CallToAction>
-
-        <PostSidebar
-          categories={categories}
-          tags={tags}
-          allCategories={allCategories}
-        />
       </section>
     </>
   );

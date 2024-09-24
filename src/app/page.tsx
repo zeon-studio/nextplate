@@ -3,7 +3,6 @@ import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
-import Testimonials from "@/partials/Testimonials";
 import Services from "@/partials/Services";
 import Products from "@/components/Products";
 import PlantBased from "@/components/PlantBased";
@@ -18,7 +17,6 @@ import generatePhotos from "@/helpers/photos";
 // Schema.org
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
-  const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
   const service = getListPage("sections/service.md");
   const plantBased = getListPage("sections/plant-based.md");
@@ -278,7 +276,6 @@ const Home = () => {
         </div>
 
         <PhotoGallery photos={photos} />
-        {/* <Testimonials data={testimonial} /> */}
         <CallToAction data={callToAction} />
       </div>
     </>
