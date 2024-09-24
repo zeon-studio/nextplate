@@ -40,7 +40,15 @@ const ContactUsForm = () => {
 
   return (
     <div className="animate-fade ease-in mx-auto md:col-6 mb-20 md:mb-0">
-      {isFormSubmitted && <SuccessMessage return_to_link="/contact" />}
+      {isFormSubmitted && (
+        <SuccessMessage
+          title="Thank you for submitting"
+          return_to_link="/contact"
+          image="/images/send-mail.png"
+          message="Your form submission has been received."
+          submessage="We will be in touch with you shortly."
+        />
+      )}
 
       <div>
         <div className="flex items-center md:col-6 col-7 pb-6 py-5">
