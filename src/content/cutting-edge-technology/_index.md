@@ -1,7 +1,8 @@
 ---
 title: "Cutting Edge Technology"
 meta_title: ""
-description: "this is meta description"
+categories: ["Capabilities"]
+tags: ["plant capabilities", "ESL capabilities", "food safety"]
 image: "/images/gallery/ninth-ave-7.jpg"
 
 cutting_edge_tech_title: "Crafting Quality Solutions for Your Brand"

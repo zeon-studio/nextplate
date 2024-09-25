@@ -1,7 +1,17 @@
 ---
 title: "Commitment to Quality"
 meta_title: ""
-description: "this is meta description"
+categories: ["Capabilities", "Food Safety", "Quality Programs"]
+tags:
+  [
+    "food safety",
+    "R&D",
+    "Sanitation",
+    "SQF program",
+    "Quality Management Systems",
+    "Allergen Control Expert Team",
+    "Program Management System",
+  ]
 image1: "/images/istock-commitment-to-quality.jpg"
 image2: "/images/gallery/ninth-ave-9.jpg"
 

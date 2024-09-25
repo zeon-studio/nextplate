@@ -1,6 +1,8 @@
 ---
 title: "Private Label & Co-Packing"
 meta_title: ""
+categories: ["Capabilities", "Labels and Packaging"]
+tags: ["private labels", "custom packaging"]
 description: "this is meta description"
 image1: "/images/gallery/gallery-2.jpg"
 alt1: "Refrigerated cold storage"
