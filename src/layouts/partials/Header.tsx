@@ -6,7 +6,7 @@ import config from "@/config/config.json";
 import menu from "@/config/menu.json";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 
 // child navigation link interface
@@ -43,6 +43,16 @@ const Header = () => {
     if (navToggle) {
       navToggle.checked = false;
     }
+  };
+
+  // Track the currently open dropdown
+  const [openDropdownIndex, setOpenDropdownIndex] = useState<number | null>(
+    null,
+  );
+
+  // Toggle the dropdown by setting the open dropdown index, close if clicked again
+  const toggleDropdown = (index: number) => {
+    setOpenDropdownIndex(openDropdownIndex === index ? null : index);
   };
 
   return (
@@ -91,7 +101,8 @@ const Header = () => {
               {menu.hasChildren ? (
                 <li className="nav-item nav-dropdown group relative">
                   <span
-                    className={`nav-link inline-flex items-center pr-1 ${
+                    onClick={() => toggleDropdown(i)} // Toggle specific dropdown
+                    className={`nav-link inline-flex items-center pr-1 cursor-pointer ${
                       menu.children?.map(({ url }) => url).includes(pathname) ||
                       menu.children
                         ?.map(({ url }) => `${url}/`)
@@ -105,23 +116,28 @@ const Header = () => {
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                   </span>
-                  <ul className="z-20 nav-dropdown-list hidden group-hover:block lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100">
-                    {menu.children?.map((child, i) => (
-                      <li className="nav-dropdown-item" key={`children-${i}`}>
-                        <Link
-                          href={child.url}
-                          className={`nav-dropdown-link block ${
-                            (pathname === `${child.url}/` ||
-                              pathname === child.url) &&
-                            "active"
-                          }`}
-                          onClick={closeMenu} // Close menu on click
-                        >
-                          {child.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {openDropdownIndex === i && (
+                    <ul
+                      id="nav-toggle-dropdown"
+                      className="z-20 nav-dropdown-list block lg:absolute"
+                    >
+                      {menu.children?.map((child, j) => (
+                        <li className="nav-dropdown-item" key={`children-${j}`}>
+                          <Link
+                            href={child.url}
+                            className={`nav-dropdown-link block ${
+                              (pathname === `${child.url}/` ||
+                                pathname === child.url) &&
+                              "active"
+                            }`}
+                            onClick={closeMenu} // Close menu on click
+                          >
+                            {child.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ) : (
                 <li className="nav-item">
