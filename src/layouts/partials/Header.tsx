@@ -101,7 +101,6 @@ const Header = () => {
               {menu.hasChildren ? (
                 <li className="nav-item nav-dropdown group relative">
                   <span
-                    onClick={() => toggleDropdown(i)} // Toggle specific dropdown
                     className={`nav-link inline-flex items-center pr-1 cursor-pointer ${
                       menu.children?.map(({ url }) => url).includes(pathname) ||
                       menu.children
@@ -116,28 +115,26 @@ const Header = () => {
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                   </span>
-                  {openDropdownIndex === i && (
-                    <ul
-                      id="nav-toggle-dropdown"
-                      className="z-20 nav-dropdown-list block lg:absolute"
-                    >
-                      {menu.children?.map((child, j) => (
-                        <li className="nav-dropdown-item" key={`children-${j}`}>
-                          <Link
-                            href={child.url}
-                            className={`nav-dropdown-link block ${
-                              (pathname === `${child.url}/` ||
-                                pathname === child.url) &&
-                              "active"
-                            }`}
-                            onClick={closeMenu} // Close menu on click
-                          >
-                            {child.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <ul
+                    id="nav-toggle-dropdown"
+                    className="z-20 nav-dropdown-list hidden group-hover:block lg:absolute"
+                  >
+                    {menu.children?.map((child, j) => (
+                      <li className="nav-dropdown-item" key={`children-${j}`}>
+                        <Link
+                          href={child.url}
+                          className={`nav-dropdown-link block ${
+                            (pathname === `${child.url}/` ||
+                              pathname === child.url) &&
+                            "active"
+                          }`}
+                          onClick={closeMenu} // Close menu on click
+                        >
+                          {child.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </li>
               ) : (
                 <li className="nav-item">
