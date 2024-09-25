@@ -1,6 +1,6 @@
 "use client";
 
-import searchData from ".json/search.json" assert { type: "json" };
+import searchData from "searchData/search.json" assert { type: "json" };
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
 

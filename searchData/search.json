@@ -1,0 +1,62 @@
+[
+  {
+    "group": "Capabilities",
+    "slug": "cutting-edge-technology",
+    "frontmatter": {
+      "title": "Cutting Edge Technology",
+      "description": "Crafting Quality Solutions for Your Brand",
+      "image": "/images/gallery/ninth-ave-7.jpg",
+      "categories": ["Capabilities"],
+      "tags": ["plant capabilities", "ESL capabilities", "food safety"]
+    },
+    "content": "Our state of the art processing plant was developed to meet and exceed the demands of a growing industry. With the same commitment to both innovation and quality, we are proud to offer fresher tasting and longer lasting products."
+  },
+  {
+    "group": "Capabilities",
+    "slug": "commitment-to-quality",
+    "frontmatter": {
+      "title": "Commitment to Quality",
+      "description": "Comprehensive Food Safety & Quality Program",
+      "image": "/images/istock-commitment-to-quality.jpg",
+      "categories": ["Capabilities", "Food Safety", "Quality Programs"],
+      "tags": [
+        "food safety",
+        "R&D",
+        "Sanitation",
+        "SQF program",
+        "Quality Management Systems",
+        "Allergen Control Expert Team",
+        "Program Management System"
+      ]
+    },
+    "content": "Food Safety and Quality is essential in our industry, and here at Ninth Avenue Foods we pride ourselves in a robust and comprehensive Food Safety and Quality Program that is tailored for each product produced."
+  },
+  {
+    "group": "Capabilities",
+    "slug": "private-label-co-packing",
+    "frontmatter": {
+      "title": "Private Label & Co-Packing",
+      "description": "Your Trusted Partner in Custom Packaging",
+      "image": "/images/private-label-co-packing-2.jpg",
+      "categories": ["Capabilities", "Labels and Packaging"],
+      "tags": ["private labels", "custom packaging"]
+    },
+    "content": "At Ninth Avenue Foods we believe that your products and our capabilities and experience is a winning combination!"
+  },
+  {
+    "group": "Sustainability",
+    "slug": "hdpe-bottles-pet-bottles",
+    "frontmatter": {
+      "title": "HDPE Bottles and PET Bottles",
+      "description": "HDPE and PET Sustainability",
+      "image": "/images/istock-bottles.jpg",
+      "categories": [
+        "Sustainability",
+        "Sustainable Packaging",
+        "Environmental Conservation"
+      ],
+      "tags": ["PET packaging", "HDPE packaging", "recyclable", "efficient"]
+    },
+    "content": "HDPE and PET containers are designed to be 100% recyclable, making them a top choice for sustainable packaging. With many customers benefiting from the convenience of curbside recycling pickup, both HDPE and PET containers are easily recycled, significantly reducing landfill waste. Embracing curbside recycling for these materials not only supports a greener planet but also promotes efficient waste management practices."
+  }
+]
