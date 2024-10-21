@@ -26,51 +26,60 @@ const Home = () => {
   const galleryPhotos = [
     {
       src: "/images/gallery/ninth-ave-7.jpg",
-      width: 3678,
-      height: 1353,
+      width: 1839,
+      height: 677,
       alt: "Industrial layout of NAF warehouse 1",
+      sizes:
+        "(min-width: 3000px) 1275px, (min-width: 2280px) 953px, (min-width: 1840px) 760px, (min-width: 1480px) 602px, (min-width: 380px) 290px, (min-width: 340px) calc(725vw - 2320px), calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-2.jpg",
       width: 2128,
       height: 1416,
       alt: "Industrial layout of NAF warehouse 2",
+      sizes: "calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-3.jpg",
       width: 2128,
       height: 1416,
       alt: "Industrial layout of NAF warehouse 3",
+      sizes: "calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-6.jpg",
       width: 2128,
       height: 1416,
       alt: "Industrial layout of NAF warehouse 4",
+      sizes: "calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-5.jpg",
       width: 2128,
       height: 1416,
       alt: "Industrial layout of NAF warehouse 5",
+      sizes: "calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-8.jpg",
       width: 2128,
       height: 1416,
       alt: "Industrial layout of NAF warehouse 6",
+      sizes: "calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-1.jpg",
       width: 2036,
       height: 1355,
       alt: "Industrial layout of NAF warehouse 7",
+      sizes: "calc(85vw - 15px)",
     },
     {
       src: "/images/gallery/ninth-ave-10.jpg",
       width: 1999,
       height: 1330,
       alt: "Industrial layout of NAF warehouse 8",
+      sizes: "calc(85vw - 15px)",
     },
   ];
 
@@ -102,8 +111,8 @@ const Home = () => {
             src={banner.image}
             alt="Ninth Ave Foods Warehouse"
             className="w-full h-full object-cover sm:object-[center_top] opacity-100 object-center"
-            width={3908}
-            height={2600}
+            width={1954}
+            height={1196}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent opacity-10"></div>
@@ -187,9 +196,9 @@ const Home = () => {
               <ImageFallback
                 src={feature.image}
                 alt="Ninth Ave Foods Industrial Warehouse"
-                className=" w-full h-full rounded-xl"
-                width={2036}
-                height={1355}
+                className="w-full h-auto rounded-xl"
+                width={650}
+                height={399}
                 priority
               />
             </div>
@@ -262,17 +271,53 @@ const Home = () => {
       <div className="mb-28">
         <Services data={service} />
         <Products data={product} />
-        <PlantBased data={plantBased}></PlantBased>
-        <div className="flex flex-col items-center text-center mb-12 px-10">
-          <h3 className="font-secondary mb-4 text-h3 lg:text-h2 text-dark-grey">
-            Elevating Your Brand with
-            <span className="text-primary"> Ninth Avenue Foods</span>
-          </h3>
+        <PlantBased data={plantBased} />
 
-          <p className="text-lg font-primary">
-            From Tradition to Technology: A Heritage of <b>Innovation</b> in
-            Dairy Manufacturing
-          </p>
+        {/* Container for the title and button */}
+        <div className="flex flex-col text-left mb-12">
+          {/* Flex container for text and button */}
+          <div className="sm:col-8 mx-auto sm:pl-10 col-9 flex justify-between">
+            <div className="flex-col">
+              <p className="text-lg font-primary">Our Image Gallery</p>
+              <h3 className="font-secondary mb-2 text-h3 lg:text-h2 text-dark-grey sm:tracking-wide">
+                Elevating Your Brand with
+                <p className="text-primary font-bold">Ninth Avenue Foods</p>
+              </h3>
+              <p className="text-lg font-primary leading-relaxed text-dark-grey max-w-4xl">
+                From Tradition to Technology: A Heritage of <b>Innovation</b> in
+                Dairy Manufacturing
+              </p>
+            </div>
+
+            {/* Button aligned to the end */}
+            <div className="mr-10 flex-row items-center text-end sm:block hidden text-primary hover:text-white my-auto">
+              {/* Add ml-auto to push the button to the end */}
+              <Link
+                className="items-center text-center flex flex-row btn border-primary rounded-full  hover:bg-dark-grey hover:border-dark-grey"
+                href=""
+                rel="noopener"
+              >
+                Inquiry us about our opportunities
+                <svg
+                  className="hover:text-white ml-1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m9 5 7 7-7 7"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </div>
 
         <PhotoGallery photos={photos} />

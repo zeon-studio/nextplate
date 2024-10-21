@@ -1,27 +1,29 @@
-import Image from "next/image";
-import type { RenderPhotoProps } from "react-photo-album";
+"use client";
 
-export default function NextJsImage({
-  photo,
-  imageProps: { alt, title, sizes, className, onClick },
-  wrapperStyle,
-}: RenderPhotoProps) {
+import Image from "next/image";
+import type { RenderImageContext, RenderImageProps } from "react-photo-album";
+
+export default function NextJsImage(
+  { alt = "", title, className, sizes, onClick }: RenderImageProps,
+  { photo, width, height }: RenderImageContext,
+) {
   return (
     <div
       style={{
-        ...wrapperStyle,
         position: "relative",
-        margin: "3px",
+        marginLeft: "5px",
+        marginRight: "5px",
         border: "5px",
       }}
     >
-      <div className="relative rounded h-full w-full overflow-hidden">
+      <div className="relative rounded overflow-hidden">
         <Image
-          fill
-          src={photo.src} // Ensure you are passing the correct src
+          width={width}
+          height={height}
+          src={photo}
           alt={alt}
           title={title}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Adjust sizes as necessary
+          sizes={sizes}
           onClick={onClick}
           placeholder={"blurDataURL" in photo ? "blur" : undefined}
           className={`${className} hover:brightness-75 ease-in duration-150 transform hover:scale-110`}

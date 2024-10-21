@@ -70,8 +70,8 @@ const PrivateLabelCoPacking = () => {
                           src={image1}
                           alt={alt1}
                           className="w-full h-full object-cover rounded-xs"
-                          width={2400}
-                          height={1500}
+                          width={1080}
+                          height={1350}
                         />
                       </div>
                       {/* Right column with two stacked images */}
@@ -80,18 +80,18 @@ const PrivateLabelCoPacking = () => {
                           <Image
                             src={image2}
                             alt={alt2}
-                            className="w-full h-full object-cover rounded-xs"
-                            width={2400}
-                            height={1500}
+                            className="w-full h-auto object-cover rounded-xs"
+                            width={640}
+                            height={360}
                           />
                         </div>
                         <div className="flex-1">
                           <Image
                             src={image3}
                             alt={alt3}
-                            className="w-full h-full object-cover rounded-xs"
-                            width={2400}
-                            height={1500}
+                            className="w-full h-auto object-cover rounded-xs"
+                            width={640}
+                            height={360}
                           />
                         </div>
                       </div>

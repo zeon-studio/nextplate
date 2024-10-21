@@ -66,8 +66,8 @@ const CommitmentToQuality = () => {
                           src={image1}
                           alt="Ninth Ave Foods Warehouse"
                           className="w-full h-full object-cover rounded-xs"
-                          width={600}
-                          height={400}
+                          width={650}
+                          height={366}
                         />
                       </div>
 
@@ -78,8 +78,8 @@ const CommitmentToQuality = () => {
                             src={image2}
                             alt="Ninth Ave Foods Warehouse"
                             className="w-full h-full object-cover rounded-xs"
-                            width={2500}
-                            height={2500}
+                            width={650}
+                            height={366}
                           />
                         </div>
                       </div>

@@ -28,7 +28,8 @@ const PlantBased = ({ data }: { data: PageData }) => {
                 src={data.frontmatter.image}
                 alt="Plant-Based Milks"
                 className="w-full h-full object-cover"
-                fill={true}
+                width={2189}
+                height={770}
               ></Image>
             </div>
             <div className="flex flex-row">

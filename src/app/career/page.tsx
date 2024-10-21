@@ -10,7 +10,6 @@ import { getJobPositions } from "../sanity/sanity.query";
 
 const Career = async () => {
   const data = await getCareerPageContent();
-  // console.log("DATA: ", data);
 
   const jobPositions: JobPosition[] = await getJobPositions();
   const callToAction = {

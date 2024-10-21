@@ -58,7 +58,8 @@ const CardCarousel = ({ cards }: CardCarouselProps) => {
                   src={card.image}
                   alt={`Card ${index + 1}`}
                   fill
-                  className="rounded-lg"
+                  className="rounded-lg w-full h-auto"
+                  sizes="(min-width: 1400px) 1252px, calc(93.15vw - 33px)"
                   style={{ filter: "brightness(0.8)", objectFit: "cover" }}
                 />
                 <div

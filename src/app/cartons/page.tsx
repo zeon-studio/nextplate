@@ -79,8 +79,8 @@ const Cartons = () => {
                       src={image}
                       alt={alt}
                       className="w-full h-full object-cover rounded-lg"
-                      width={2400}
-                      height={1600}
+                      width={2121}
+                      height={1413}
                     />
                   </div>
 
@@ -95,8 +95,8 @@ const Cartons = () => {
                   src={image}
                   alt={alt}
                   className="w-full h-full object-cover rounded-lg"
-                  width={2400}
-                  height={1600}
+                  width={2121}
+                  height={1413}
                 />
               </div>
             </div>
@@ -165,8 +165,8 @@ const Cartons = () => {
                     src={image2}
                     alt={alt2}
                     className="w-full h-full object-contain rounded-lg"
-                    width={2176}
-                    height={1378}
+                    width={1920}
+                    height={1080}
                   />
                 </div>
               </div>

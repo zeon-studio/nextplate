@@ -1,6 +1,6 @@
 "use client";
 
-import ImageFallback from "@/helpers/ImageFallback";
+import Image from "next/image";
 import { markdownify } from "@/lib/utils/textConverter";
 import { useInView } from "react-intersection-observer";
 import { Our_locations } from "@/types";
@@ -49,11 +49,11 @@ const OurLocations = ({ data }: { data: PageData }) => {
                   }`}
                 >
                   <div className="flex md:flex-row flex-col items-center justify-center">
-                    <ImageFallback
+                    <Image
                       className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                       src={locations.image}
-                      width={600}
-                      height={600}
+                      width={1280}
+                      height={720}
                       alt={locations.alt}
                     />
 
@@ -127,11 +127,11 @@ const OurLocations = ({ data }: { data: PageData }) => {
                           ))}
                       </ul>
                     </div>
-                    <ImageFallback
-                      className="mb:md-0 md:col-8 lg:col-6 mx-auto md:mt-0 mt-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
+                    <Image
+                      className="w-full h-auto mb:md-0 md:col-8 lg:col-6 mx-auto md:mt-0 mt-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                       src={locations.image}
-                      width={600}
-                      height={600}
+                      width={1280}
+                      height={720}
                       alt={locations.alt}
                     />
                   </div>

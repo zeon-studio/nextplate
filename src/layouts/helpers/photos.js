@@ -15,6 +15,7 @@ const generatePhotos = (galleryPhotos) => {
         height,
       };
     }),
+    sizes: photo.sizes,
   }));
 
   return photos;

@@ -53,11 +53,10 @@ const PageHeader = ({
                 fill
                 style={parallaxStyle}
                 blurDataURL="/images/image-placeholder.png"
-                placeholder="blur"
-                className="object-cover"
+                className="object-cover w-full h-auto"
                 priority // Preload the image
                 quality={80} // Adjust image quality for performance
-                sizes="100vw" // Responsive image size
+                sizes="(min-width: 1400px) 1286px, 93.8vw"
               />
               <div
                 className="absolute inset-0 bg-gradient-to-r from-black/45 to-black/10"

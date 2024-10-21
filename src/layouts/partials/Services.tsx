@@ -38,11 +38,11 @@ const Services = ({ data }: { data: PageData }) => {
       <div className="relative">
         <Link href={service.link}>
           <Image
-            height={2400}
-            width={1500}
+            height={2160}
+            width={1440}
             src={service.image}
             alt={service.alt}
-            className="object-center-bottom rounded-lg ease-in duration-150 transform hover:scale-110 w-full h-full md:min-w-[200px] md:h-[650px] min-h-[470px] max-w-[500px]"
+            className="object-center-bottom rounded-lg ease-in duration-150 transform hover:scale-110 w-full h-auto md:min-w-[200px] md:h-[650px] min-h-[470px] max-w-[500px]"
             style={{
               filter: "brightness(0.9)",
               objectFit: "cover",

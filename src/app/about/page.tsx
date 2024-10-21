@@ -71,8 +71,8 @@ const About = async () => {
                     <Image
                       className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
                       src={feature.image}
-                      width={600}
-                      height={600}
+                      width={1280}
+                      height={720}
                       alt={title}
                     />
                   )}
