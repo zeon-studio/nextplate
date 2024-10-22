@@ -45,7 +45,7 @@
     "react-intersection-observer": "^9.8.2",
     "react-leaflet": "^4.2.1",
     "react-lite-youtube-embed": "^2.4.0",
-    "react-photo-album": "^2.3.1",
+    "react-photo-album": "^3.0.2",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "sanity": "^3.45.0",
