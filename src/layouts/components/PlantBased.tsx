@@ -33,7 +33,7 @@ const PlantBased = ({ data }: { data: PageData }) => {
               ></Image>
             </div>
             <div className="flex flex-row">
-              <div className="inset-0 lg:px-16 px-2 py-2 row items-center justify-between ">
+              <div className="inset-0 lg:px-16 px-2 py-2 row items-center justify-between">
                 <div className="md:col-10 md:order-1 md:text-left text-center md:m-auto mt-5 mb-5">
                   <div
                     ref={ref}

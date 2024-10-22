@@ -22,5 +22,6 @@ capabilities:
       - "Soy Blends"
       - "Nondairy Creamers"
       - "Nut and Flax Milk Blends"
-      - "Many More"
+      - "Plant Based"
+      - "LTO Flavors"
 ---

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import type { RenderImageContext, RenderImageProps } from "react-photo-album";
+import { RenderImageContext, RenderImageProps } from "react-photo-album";
 
 export default function NextJsImage(
   { alt = "", title, className, sizes, onClick }: RenderImageProps,

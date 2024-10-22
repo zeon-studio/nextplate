@@ -7,7 +7,7 @@ import Services from "@/partials/Services";
 import Products from "@/components/Products";
 import PlantBased from "@/components/PlantBased";
 import PhotoGallery from "@/components/PhotoGallery";
-import { Buttons, Feature } from "@/types";
+import { Button, Buttons, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
@@ -90,6 +90,7 @@ const Home = () => {
   const {
     banner,
     features,
+    gallery,
   }: {
     banner: {
       title: string;
@@ -100,6 +101,12 @@ const Home = () => {
       buttons?: Buttons;
     };
     features: Feature[];
+    gallery: {
+      header: string;
+      title: string;
+      subtitle: string;
+      button: Button;
+    };
   } = frontmatter;
 
   return (
@@ -278,26 +285,27 @@ const Home = () => {
           {/* Flex container for text and button */}
           <div className="sm:col-8 mx-auto sm:pl-10 col-9 flex justify-between">
             <div className="flex-col">
-              <p className="text-lg font-primary">Our Image Gallery</p>
-              <h3 className="font-secondary mb-2 text-h3 lg:text-h2 text-dark-grey sm:tracking-wide">
-                Elevating Your Brand with
-                <p className="text-primary font-bold">Ninth Avenue Foods</p>
-              </h3>
-              <p className="text-lg font-primary leading-relaxed text-dark-grey max-w-4xl">
-                From Tradition to Technology: A Heritage of <b>Innovation</b> in
-                Dairy Manufacturing
-              </p>
+              <p className="text-lg font-primary">{gallery.header}</p>
+              <h3
+                className="font-secondary mb-2 text-h3 lg:text-h2 text-dark-grey sm:tracking-wide"
+                dangerouslySetInnerHTML={markdownify(gallery.title)}
+              />
+
+              <p
+                className="text-lg font-primary leading-relaxed text-dark-grey max-w-4xl"
+                dangerouslySetInnerHTML={markdownify(gallery.subtitle)}
+              />
             </div>
 
             {/* Button aligned to the end */}
-            <div className="mr-10 flex-row items-center text-end sm:block hidden text-primary hover:text-white my-auto">
+            <div className="mr-10 flex-row items-center text-end sm:block hidden text-primary hover:text-white my-auto justify-between">
               {/* Add ml-auto to push the button to the end */}
               <Link
-                className="items-center text-center flex flex-row btn border-primary rounded-full  hover:bg-dark-grey hover:border-dark-grey"
-                href=""
+                className="items-center text-sm text-center flex flex-row btn border-primary rounded-full hover:bg-dark-grey hover:border-dark-grey"
+                href={gallery.button.link}
                 rel="noopener"
               >
-                Inquiry us about our opportunities
+                {gallery.button.label}
                 <svg
                   className="hover:text-white ml-1"
                   aria-hidden="true"
