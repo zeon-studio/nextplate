@@ -3,10 +3,10 @@
 import Image from "next/image";
 import { RenderImageContext, RenderImageProps } from "react-photo-album";
 
-const NextJsImage = (
+export function NextJsImage(
   { alt = "", title, className, sizes, onClick }: RenderImageProps,
   { photo, width, height }: RenderImageContext,
-) => {
+) {
   return (
     <div
       style={{
@@ -35,6 +35,4 @@ const NextJsImage = (
       </div>
     </div>
   );
-};
-
-export default NextJsImage;
+}
