@@ -2,7 +2,6 @@
 
 import React from "react";
 import PhotoAlbum from "react-photo-album";
-import NextJsImage from "@/components/NextJsImage";
 import Lightbox from "yet-another-react-lightbox";
 import { useState } from "react";
 import "yet-another-react-lightbox/styles.css";
@@ -14,6 +13,43 @@ import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
+
+import Image from "next/image";
+import { RenderImageContext, RenderImageProps } from "react-photo-album";
+
+function NextJsImage(
+  { alt = "", title, className, sizes, onClick }: RenderImageProps,
+  { photo, width, height }: RenderImageContext,
+) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        marginLeft: "5px",
+        marginRight: "5px",
+        border: "5px",
+      }}
+    >
+      <div className="relative rounded overflow-hidden">
+        <Image
+          width={width}
+          height={height}
+          src={photo}
+          alt={alt}
+          title={title}
+          sizes={sizes}
+          onClick={onClick}
+          placeholder={"blurDataURL" in photo ? "blur" : undefined}
+          className={`${className} hover:brightness-75 ease-in duration-150 transform hover:scale-110`}
+          style={{
+            transition: "transform 0.5s",
+            transformOrigin: "center",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
 interface Photo {
   src: string;
