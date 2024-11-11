@@ -33,23 +33,31 @@ const About = ({ params }: { params: { lang: string } }) => {
                 <div className="flex justify-evenly max-w-3xl border-jonquil border-2 bg-brown rounded-lg pt-2 pb-6 px-4 shadow-md shadow-black">
                   <div>
                     <h2 className="text-white">Verdana</h2>
-                    <p className="text-xl text-white">
+                    <p className="text-xl text-white dark:text-white">
                       ABCDEFGHIJKLMNOPQRSTUVWXYZ
                     </p>
-                    <p className="text-xl text-white">
+                    <p className="text-xl text-white dark:text-white">
                       abcdefghijklmnopqrstuvwxyz
                     </p>
-                    <p className="text-xl text-white">1234567890</p>
+                    <p className="text-xl text-white dark:text-white">
+                      1234567890
+                    </p>
                   </div>
                   <div>
                     <h3>Styles</h3>
                     <ul className="list-none text-xl text-white">
-                      <li className="italic text-xl text-white">italic</li>
-                      <li className=" text-xl text-white">Regular</li>
-                      <li className="font-semibold text-xl text-white">
+                      <li className="italic text-xl text-white dark:text-white">
+                        italic
+                      </li>
+                      <li className=" text-xl text-white dark:text-white">
+                        Regular
+                      </li>
+                      <li className="font-semibold text-xl text-white dark:text-white">
                         Medium
                       </li>
-                      <li className="font-bold text-xl text-white">Bold</li>
+                      <li className="font-bold text-xl text-white dark:text-white">
+                        Bold
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -125,10 +133,12 @@ const About = ({ params }: { params: { lang: string } }) => {
                       <h4 className="text-white text-2xl">SubTitle</h4>
                     </div>
                     <div className="flex-col flex md:flex-row justify-between">
-                      <p className="text-white text-xl font-bold">
+                      <p className="text-white dark:text-white text-xl font-bold">
                         &lt;p&gt; 1.25rem
                       </p>
-                      <p className="text-white text-xl font-bold">Body</p>
+                      <p className="text-white dark:text-white text-xl font-bold">
+                        Body
+                      </p>
                     </div>
                   </div>
                 </div>
