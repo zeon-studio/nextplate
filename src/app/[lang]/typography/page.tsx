@@ -70,35 +70,45 @@ const About = ({ params }: { params: { lang: string } }) => {
                 </p>
                 <ul className="list-none flex-col justify-start">
                   <li className="text-xl">
-                    <span className="font-bold">Legibility:</span> Verdana was
-                    designed specifically for screen use, with wide spacing and
-                    clear letterforms. This makes it easier to read on digital
-                    devices, especially at smaller sizes.
+                    <span className="font-bold dark:text-white">
+                      Legibility:
+                    </span>{" "}
+                    Verdana was designed specifically for screen use, with wide
+                    spacing and clear letterforms. This makes it easier to read
+                    on digital devices, especially at smaller sizes.
                   </li>
                   <li className="text-xl">
-                    <span className="font-bold">Distinct Characters:</span> The
-                    font features distinct characters that help avoid confusion.
-                    For example, lowercase "l" (L), uppercase "I" (i), and "1"
-                    (one) are designed to be easily differentiated.
+                    <span className="font-bold dark:text-white">
+                      Distinct Characters:
+                    </span>{" "}
+                    The font features distinct characters that help avoid
+                    confusion. For example, lowercase "l" (L), uppercase "I"
+                    (i), and "1" (one) are designed to be easily differentiated.
                   </li>
                   <li className="text-xl">
-                    <span className="font-bold">Large x-height:</span> Verdana
-                    has a larger x-height, which means the height of lowercase
-                    letters is greater relative to uppercase letters. This
-                    enhances readability, especially for users with visual
+                    <span className="font-bold dark:text-white">
+                      Large x-height:
+                    </span>{" "}
+                    Verdana has a larger x-height, which means the height of
+                    lowercase letters is greater relative to uppercase letters.
+                    This enhances readability, especially for users with visual
                     impairments.
                   </li>
                   <li className="text-xl">
-                    <span className="font-bold">Simple Shapes:</span> The
-                    overall design of the font includes simple shapes and
+                    <span className="font-bold dark:text-white">
+                      Simple Shapes:
+                    </span>{" "}
+                    The overall design of the font includes simple shapes and
                     minimal decoration, which reduces visual clutter and helps
                     maintain focus on the text.
                   </li>
                   <li className="text-xl">
-                    <span className="font-bold">Wide Letter Spacing:</span> The
-                    generous spacing between letters prevents crowding, making
-                    it easier for users to track lines of text without losing
-                    their place.
+                    <span className="font-bold dark:text-white">
+                      Wide Letter Spacing:
+                    </span>{" "}
+                    The generous spacing between letters prevents crowding,
+                    making it easier for users to track lines of text without
+                    losing their place.
                   </li>
                 </ul>
                 <div>
