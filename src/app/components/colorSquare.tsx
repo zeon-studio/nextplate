@@ -36,7 +36,7 @@ const ColorSquare = ({
   return (
     <div className="flex flex-col items-center text-center">
       <motion.div
-        className={`w-36 h-36 rounded ${color} border-2 border-silver flex flex-col justify-center items-center ${textColor}`}
+        className={`w-56 h-44 rounded ${color} border-2 border-silver flex flex-col justify-center items-center ${textColor}`}
         variants={squareVariants}
         initial="hidden"
         animate="visible"

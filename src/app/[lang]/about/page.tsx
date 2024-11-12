@@ -46,7 +46,7 @@ const About = ({ params }: { params: { lang: string } }) => {
                 dangerouslySetInnerHTML={markdownify("Color Palette")}
                 className="h2 mb-6"
               />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 gap-x-20 content w-full h-full">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-20 content w-full h-full">
                 <ColorSquare
                   color="bg-primaryOrange"
                   hex="#D84012"
