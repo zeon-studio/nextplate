@@ -30,7 +30,23 @@ const About = ({ params }: { params: { lang: string } }) => {
               <h1 className="my-4">Logo</h1>
               <div className="content">
                 <p className="text-xl">
-                  The Homeplate logo showcases a unique design featuring a stylized speech bubble with a spoon and fork intersecting at its center, symbolizing sharing homemade meals and connection. The overall design, with its circular shape and speech bubble, resembles a plate, emphasizing the theme of food and hospitality. The spoon and fork represent the sharing of homemade meals, while the speech bubble signifies communication and connection within the community. The circular yellow background embodies warmth, hospitality, and the nourishing quality of home-cooked food. The tagline, "From Ours to Yours," encapsulates the core mission of our app: connecting buyers and sellers through personalized meal plans that feel as comforting as a meal made at home. The font used for "Homeplate" is bold and modern, signifying trust and community, while still maintaining a friendly and inviting appearance, aligning with the spirit of homemade sharing and quality.
+                  The Homeplate logo showcases a unique design featuring a
+                  stylized speech bubble with a spoon and fork intersecting at
+                  its center, symbolizing sharing homemade meals and connection.
+                  The overall design, with its circular shape and speech bubble,
+                  resembles a plate, emphasizing the theme of food and
+                  hospitality. The spoon and fork represent the sharing of
+                  homemade meals, while the speech bubble signifies
+                  communication and connection within the community. The
+                  circular yellow background embodies warmth, hospitality, and
+                  the nourishing quality of home-cooked food. The tagline, "From
+                  Ours to Yours," encapsulates the core mission of our app:
+                  connecting buyers and sellers through personalized meal plans
+                  that feel as comforting as a meal made at home. The font used
+                  for "Homeplate" is bold and modern, signifying trust and
+                  community, while still maintaining a friendly and inviting
+                  appearance, aligning with the spirit of homemade sharing and
+                  quality.
                 </p>
 
                 <div>
@@ -38,21 +54,25 @@ const About = ({ params }: { params: { lang: string } }) => {
                   <div className="content">
                     <div className="grid grid-cols-2 gap-8">
                       <div className="flex flex-col items-center">
-                        <p className="text-center mb-2 font-bold">Original Full Colour</p>
+                        <p className="text-center mb-2 font-bold">
+                          Original Full Colour
+                        </p>
                         <ImageFallback
                           src="/images/logo/homeplate-full-colour-logo.svg"
                           alt="Full Colour Logo"
-                          width={300}  
-                          height={300} 
+                          width={300}
+                          height={300}
                           className="logo-img"
                         />
                       </div>
                       <div className="flex flex-col items-center">
-                        <p className="text-center mb-2 font-bold">Black and White</p>
+                        <p className="text-center mb-2 font-bold">
+                          Black and White
+                        </p>
                         <ImageFallback
                           src="images/logo/homeplate-black-white-logo.svg"
                           alt="Black and White Logo"
-                          width={300}  
+                          width={300}
                           height={300}
                           className="logo-img"
                         />
@@ -62,29 +82,70 @@ const About = ({ params }: { params: { lang: string } }) => {
                         <ImageFallback
                           src="images/logo/homeplate-greyscale-logo.svg"
                           alt="Grayscale Logo"
-                          width={300}  
+                          width={300}
                           height={300}
                           className="logo-img"
                         />
                       </div>
                       <div className="flex flex-col items-center">
-                        <p className="text-center mb-2 font-bold">Monochromatic</p>
+                        <p className="text-center mb-2 font-bold">
+                          Monochromatic
+                        </p>
                         <ImageFallback
                           src="images/logo/homeplate-monochromatic-logo.svg"
                           alt="Monochromatic Logo"
-                          width={300}  
+                          width={300}
                           height={300}
                           className="logo-img"
                         />
                       </div>
                     </div>
-                    <p className="mt-6 text-center">
-                      Each logo variation serves a unique purpose for different
-                      media and use cases, ensuring that Homeplate's branding is
-                      versatile and recognizable across various contexts.
-                    </p>
                   </div>
                 </div>
+
+                <h1>Favicons</h1>
+                  <div className="container">
+                    <p className="text-xl">
+                      Each favicon has a clear space of 1/4 its length. 16px = 4px, 32px = 8px, 48px = 12px.
+                    </p>
+                    <div className="row justify-center">
+                      <div className="md:col-10 lg:col-8 text-center">
+                        <div className="flex justify-around items-center">
+                          <div className="flex flex-col items-center">
+                            <img
+                              src="/images/favicon/favicon-16x16.png"
+                              alt="16px favicon"
+                              className="mb-2"
+                              width={16}
+                              height={16}
+                            />
+                            <p className="font-bold text-lg">16px</p>
+                          </div>
+                          <div className="flex flex-col items-center">
+                            <img
+                              src="/images/favicon/favicon-32x32.png"
+                              alt="32px favicon"
+                              className="mb-2"
+                              width={32}
+                              height={32}
+                            />
+                            <p className="font-bold text-lg">32px</p>
+                          </div>
+                          <div className="flex flex-col items-center">
+                            <img
+                              src="/images/favicon/favicon-48x48.png"
+                              alt="48px favicon"
+                              className="mb-2"
+                              width={48}
+                              height={48}
+                            />
+                            <p className="font-bold text-lg">48px</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               
               </div>
             </div>
           </div>
