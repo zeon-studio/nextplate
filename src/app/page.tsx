@@ -126,7 +126,7 @@ const Home = () => {
           <div className="absolute inset-0 bg-[#0f172a] opacity-10"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center xl:right-32">
+        <div className="absolute inset-0 flex justify-center items-center xl:right-32 lg:bottom-24">
           <div className="container relative z-10">
             <div className="relative xl:col-6 md:col-8">
               <div className="absolute inset-0 flex items-center justify-left text-left">
@@ -283,7 +283,7 @@ const Home = () => {
         {/* Container for the title and button */}
         <div className="flex flex-col text-left mb-12">
           {/* Flex container for text and button */}
-          <div className="sm:col-8 mx-auto sm:pl-10 col-9 flex justify-between">
+          <div className="sm:col-10 mx-auto sm:pl-10 col-9 flex justify-between">
             <div className="flex-col">
               <p className="text-lg font-primary">{gallery.header}</p>
               <h3
@@ -298,7 +298,7 @@ const Home = () => {
             </div>
 
             {/* Button aligned to the end */}
-            <div className="mr-10 flex-row items-center text-end sm:block hidden text-primary hover:text-white my-auto justify-between">
+            <div className="mr-10 flex-row items-center text-end md:block hidden text-primary hover:text-white my-auto justify-between">
               {/* Add ml-auto to push the button to the end */}
               <Link
                 className="items-center text-sm text-center flex flex-row btn border-primary rounded-full hover:bg-dark-grey hover:border-dark-grey"

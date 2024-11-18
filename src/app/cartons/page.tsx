@@ -30,10 +30,8 @@ const Cartons = () => {
     sustainability_title_2,
     sustainability_content_2,
     sustainability_title_3,
-    sustainability_quote_3,
     sustainability_content_3,
-    sustainability_author_3,
-    sustainability_author_occupation_3,
+    sustainability_bulletpoints,
     page_header_image,
     sustainability_title_4,
     cards,
@@ -67,7 +65,7 @@ const Cartons = () => {
                       )}
                     />
                     <p
-                      className="lg:col-9 text-lg animate-fade animate-delay-[200ms] ease-in"
+                      className="lg:col-10 text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_content,
                       )}
@@ -109,55 +107,47 @@ const Cartons = () => {
               <div className="flex-row grid lg:grid-cols-2 grid-cols-1 md:pb-32 pb-24">
                 <div className="col-span-1">
                   <h2
-                    className="text-primary font-primary animate-fade animate-duration-[800ms]"
+                    className="pt-8 text-primary font-primary animate-fade animate-duration-[800ms]"
                     dangerouslySetInnerHTML={markdownify(
                       sustainability_title_3,
                     )}
                   />
-
-                  <blockquote className="lg:col-10 pt-6 text-xl italic font-semibold text-dark-green font-primary animate-fade animate-duration-[850ms]">
-                    <svg
-                      className="w-8 h-8 text-dark-grey mb-4"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 18 14"
-                    >
-                      <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
-                    </svg>
-                    <p
-                      dangerouslySetInnerHTML={markdownify(
-                        sustainability_quote_3,
-                      )}
-                    />
-                    <figcaption className="flex items-center mt-1 space-x-3 rtl:space-x-reverse">
-                      <div className="flex items-center divide-x-2 rtl:divide-x-reverse divide-dark-grey opacity-50">
-                        <cite className="pe-3">
-                          <p
-                            className="font-medium text-sm text-dark-grey"
-                            dangerouslySetInnerHTML={markdownify(
-                              sustainability_author_3,
-                            )}
-                          />
-                        </cite>
-                        <cite className="ps-3">
-                          <p
-                            className="text-sm text-gray-500"
-                            dangerouslySetInnerHTML={markdownify(
-                              sustainability_author_occupation_3,
-                            )}
-                          />
-                        </cite>
-                      </div>
-                    </figcaption>
-                  </blockquote>
-
                   <p
-                    className="pt-6 text-dark-grey text-lg animate-fade animate-duration-[850ms]"
+                    className="text-dark-grey text-lg animate-fade animate-duration-[850ms]"
                     dangerouslySetInnerHTML={markdownify(
                       sustainability_content_3,
                     )}
                   />
+                  <div className="items-center w-full md:w-auto pt-6">
+                    <ul>
+                      {sustainability_bulletpoints &&
+                        sustainability_bulletpoints.map((bullet: string) => (
+                          <li className="relative mb-5 pl-8" key={bullet}>
+                            <svg
+                              className="w-7 h-7 absolute left-0 text-[#65a30d]"
+                              aria-hidden="true"
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                stroke="currentColor"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M19 12H5m14 0-4 4m4-4-4-4"
+                              />
+                            </svg>
+                            <span
+                              className="text-lg font-light text-dark-grey"
+                              dangerouslySetInnerHTML={markdownify(bullet)}
+                            />
+                          </li>
+                        ))}
+                    </ul>
+                  </div>
                 </div>
 
                 <div className="col-span-1 w-full lg:pt-0 pt-8">

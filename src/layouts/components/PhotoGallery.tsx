@@ -36,37 +36,35 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos }) => {
   return (
     <>
       <section>
-        <div className="lg:px-10 pb-28 bg-white flex justify-center items-center text-center">
-          <div className="md:col-9 col-12">
-            <div
-              ref={ref}
-              className={`mx-auto md:col-11 col-10 ${inView ? "animate-fade" : ""}`}
-            >
-              <PhotoAlbum
-                photos={photos}
-                layout="rows"
-                onClick={({ index }) => setIndex(index)}
-                render={{ image: NextJsImage }}
-                defaultContainerWidth={1200}
-                breakpoints={[290, 950, 1200, 1500, 2000]}
-              />
-            </div>
+        <div className="pb-28 px-4 bg-white flex justify-center items-center text-center">
+          <div
+            ref={ref}
+            className={`col-12 xl:col-10 ${inView ? "animate-fade" : ""}`}
+          >
+            <PhotoAlbum
+              photos={photos}
+              layout="rows"
+              onClick={({ index }) => setIndex(index)}
+              render={{ image: NextJsImage }}
+              defaultContainerWidth={1200}
+              breakpoints={[290, 500, 599, 950, 1200, 1500, 2000]}
+            />
           </div>
-
-          <Lightbox
-            styles={{
-              container: {
-                backgroundColor: "rgba(0, 0, 0, 0.9)",
-              },
-            }}
-            slides={photos}
-            open={index >= 0}
-            index={index}
-            close={() => setIndex(-1)}
-            // enable optional lightbox plugins
-            plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
-          />
         </div>
+
+        <Lightbox
+          styles={{
+            container: {
+              backgroundColor: "rgba(0, 0, 0, 0.9)",
+            },
+          }}
+          slides={photos}
+          open={index >= 0}
+          index={index}
+          close={() => setIndex(-1)}
+          // enable optional lightbox plugins
+          plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+        />
       </section>
     </>
   );

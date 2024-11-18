@@ -1,5 +1,5 @@
 ---
-title: "HDPE Bottles and PET Bottles"
+title: "Cartons"
 meta_title: ""
 description: "this is meta description"
 image: "/images/istock-bottles.jpg"
@@ -7,27 +7,20 @@ alt: "dairy bottles on conveyor line"
 image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"
 
-sustainability_title: "HDPE and PET Sustainability"
-sustainability_content: "__**HDPE and PET containers**__ are designed to be __**100% recyclable**__, making them a top choice for sustainable packaging. \n\nWith many customers benefiting from the convenience of curbside recycling pickup, both __**HDPE and PET containers**__ are **easily recycled**, significantly **reducing landfill waste**. Embracing curbside recycling for these materials not only supports a __**greener planet**__ but also promotes **efficient waste management practices**."
+sustainability_title: "Sustainable Cartons"
+sustainability_content: "Our __**cartons**__ are designed with __**sustainability**__ in mind, minimizing environmental impact while maintaining product quality. Crafted from __**100% recyclable**__ and __**renewable**__ forest fibers, they offer an eco-conscious choice for both brands and consumers.\n\n <h3>__**100% Renewable Forest Materials**__</h3>These cartons are crafted using fibers sourced solely from __**renewable**__, certified forests, ensuring __**responsible**__ forestry practices. Each carton is available with __**Forest Stewardship Council (FSC)**__ and Sustainable __**Forestry Initiative (SFI)**__ certifications, offering assurance of environmentally responsible sourcing."
 
-sustainability_title_2: "Energy Efficient - Lower GHG emissions"
-sustainability_content_2: "PET and HDPE containers are mechanically recycled into recycled content or PCR pellets, promoting sustainable manufacturing"
+sustainability_title_2: "Reducing Carbon Footprint and Plastic Use"
+sustainability_content_2: "Innovative cartons designed to minimize plastic and extend product freshness sustainably"
 
-sustainability_title_3: "PET Packaging"
-sustainability_quote_3:
-  "“PET is efficent, light, recycable, with unmatched scope
-  for recycled content. A sustainable package must first
-  serve its essential function: to protect its content,
-  delivering it safely with all its taste, thereby form and
-  other features intact, thereby eliminating waste through
-  product damage and spoilage. PET does all and more. -
-  NAPCOR”"
-sustainability_content_3: "__**PET**__ is the most recycled plastic worldwide, with **1.5 billion pounds** of PET bottles and containers recovered each year in the U.S. This high recycling rate highlights PET’s role in **sustainable packaging** and **environmental conservation**."
-sustainability_author_3: "PETRA"
-sustainability_author_occupation_3: "PET Resin Association"
-sustainability_title_4: "Heres why you should switch to PET bottles"
+sustainability_title_3: "Commitment to Recycling and Sustainability"
+sustainability_content_3: "As part of our commitment to __**sustainability**__, we choose cartons that are __**fully recyclable**__ and contribute to diverse recycling streams. While FDA standards currently restrict the use of recycled fiber in liquid food packaging, the cartons we use are designed to be __**highly recyclable**__, supporting __**repurposing efforts**__, including:"
+sustainability_bulletpoints:
+  - "__**Grade 52:**__ Used in tissue paper production"
+  - "__**Grade 54:**__ Used in mixed paper products"
+  - "__**Construction materials:**__ Converted into sustainable options like roof tiles and wall boards"
 
-page_header_image: "/images/plastic-bottles-3.jpg"
+page_header_image: "/images/cartons.jpg"
 
 # Card
 card:
@@ -40,16 +33,16 @@ card:
 
 # Card Carousel
 cards:
-  - image: "/images/card-carousel/carbon-footprint.jpg"
-    text: "Mechanical recycling has an approximate 50% lower GHG emission rate vs the production of virgin HDPE and PET resin"
-    title: "Efficient"
-    subtitle: "Reduced Carbon Footprint"
-  - image: "/images/card-carousel/recycle-materials.jpg"
-    text: "HDPE and PET containers can be produced with 100% recycled content or PCR"
-    title: "Recycled"
-    subtitle: "100% Recycled Materials"
-  - image: "/images/card-carousel/transportation.jpg"
-    text: "HDPE and PET containers are lightweight which helps to lowers fuel usage for product transportation"
-    title: "Lightweight"
-    subtitle: "Fuel-Efficient Transportation"
+  - image: "/images/card-carousel/sustainable.jpg"
+    text: "These cartons significantly lower CO₂ emissions compared to traditional packaging, making them a more sustainable choice for liquid food products"
+    title: "Reduced Carbon Footprint"
+    subtitle: "Minimizing Environmental Impact"
+  - image: "/images/card-carousel/plastic-bottles.jpg"
+    text: "Plastic content in these cartons has been reduced from 35% to under 20% maximizing the use of renewable natural fibers"
+    title: "Lowering Plastic Content"
+    subtitle: "Innovative Design for Plastic Reduction"
+  - image: "/images/card-carousel/extend-shelf-life.jpg"
+    text: "Incorporating Extended Shelf Life (ESL) technology helps keep products fresher longer and reduces food waste"
+    title: "Reducing Waste"
+    subtitle: "Extending Product Freshness with Environmentally Friendly Technology"
 ---

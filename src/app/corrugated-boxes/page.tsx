@@ -67,7 +67,7 @@ const CorrugatedBoxes = () => {
                       )}
                     />
                     <p
-                      className="lg:col-9 text-lg animate-fade animate-delay-[200ms] ease-in"
+                      className="lg:col-10 text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_content,
                       )}

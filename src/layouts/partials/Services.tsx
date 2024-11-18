@@ -74,7 +74,7 @@ const Services = ({ data }: { data: PageData }) => {
             </div>
           )}
           <div className="flex flex-col">
-            <div className="bg-white w-[90px] rounded-md text-center mb-2">
+            <div className="bg-white w-1/3 rounded-md text-center mb-2">
               <p
                 className="text-sm font-medium uppercase p-1 tracking-wide"
                 dangerouslySetInnerHTML={markdownify(service.category)}
