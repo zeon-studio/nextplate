@@ -3,19 +3,12 @@
 import Logo from "@/components/Logo";
 import Social from "@/components/Social";
 import config from "@/config/config.json";
+import menu from "@/config/menu.json";
 import social from "@/config/social.json";
-import { slugSelector } from "@/lib/utils/slugSelector";
 import { markdownify } from "@/lib/utils/textConverter";
-import { INavigationLink } from "@/types";
 import Link from "next/link";
 
-const Footer = ({
-  lang,
-  menu,
-}: {
-  lang: string;
-  menu: { footer: INavigationLink[] };
-}) => {
+const Footer = () => {
   const { copyright } = config.params;
 
   return (
@@ -23,13 +16,13 @@ const Footer = ({
       <div className="container">
         <div className="row items-center py-10">
           <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
-            <Logo lang={lang} />
+            <Logo />
           </div>
           <div className="mb-8 text-center lg:col-6 lg:mb-0">
             <ul>
               {menu.footer.map((menu) => (
                 <li className="m-3 inline-block" key={menu.name}>
-                  <Link href={slugSelector(lang, menu.url)}>{menu.name}</Link>
+                  <Link href={menu.url}>{menu.name}</Link>
                 </li>
               ))}
             </ul>

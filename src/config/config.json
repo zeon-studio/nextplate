@@ -16,13 +16,10 @@
     "search": true,
     "sticky_header": true,
     "theme_switcher": true,
-    "default_theme": "light",
+    "default_theme": "dark",
     "pagination": 2,
     "summary_length": 200,
-    "blog_folder": "blog",
-    "default_language": "en",
-    "disable_languages": [],
-    "default_language_in_subdir": false
+    "blog_folder": "blog"
   },
 
   "params": {

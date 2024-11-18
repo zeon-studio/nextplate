@@ -1,56 +1,45 @@
 const fs = require("fs");
 const path = require("path");
 const matter = require("gray-matter");
-const languages = require("../src/config/language.json");
 
+const CONTENT_DEPTH = 2;
 const JSON_FOLDER = "./.json";
-const CONTENT_ROOT = "src/content";
-const CONTENT_DEPTH = 3;
-const BLOG_FOLDER = "blog";
+const BLOG_FOLDER = "src/content/blog";
 
 // get data from markdown
 const getData = (folder, groupDepth) => {
-  // get paths
-  const getPaths = languages
-    .map((lang) => {
-      const dir = path.join(CONTENT_ROOT, lang.contentDir, folder);
-      return fs
-        .readdirSync(dir)
-        .filter(
-          (filename) =>
-            !filename.startsWith("_") &&
-            (filename.endsWith(".md") || filename.endsWith(".mdx")),
-        )
-        .map((filename) => {
-          const filepath = path.join(dir, filename);
-          const stats = fs.statSync(filepath);
-          const isFolder = stats.isDirectory();
+  const getPath = fs.readdirSync(folder);
+  const removeIndex = getPath.filter((item) => !item.startsWith("_"));
 
-          if (isFolder) {
-            return getData(filepath, groupDepth);
-          } else {
-            const file = fs.readFileSync(filepath, "utf-8");
-            const { data, content } = matter(file);
-            const pathParts = filepath.split(path.sep);
-            const slug =
-              data.slug ||
-              pathParts
-                .slice(CONTENT_DEPTH)
-                .join("/")
-                .replace(/\.[^/.]+$/, "");
-            const group = pathParts[groupDepth];
+  const getPaths = removeIndex.flatMap((filename) => {
+    const filepath = path.join(folder, filename);
+    const stats = fs.statSync(filepath);
+    const isFolder = stats.isDirectory();
 
-            return {
-              lang: lang.languageCode,
-              group: group,
-              slug: slug,
-              frontmatter: data,
-              content: content,
-            };
-          }
-        });
-    })
-    .flat();
+    if (isFolder) {
+      return getData(filepath, groupDepth);
+    } else if (filename.endsWith(".md") || filename.endsWith(".mdx")) {
+      const file = fs.readFileSync(filepath, "utf-8");
+      const { data, content } = matter(file);
+      const pathParts = filepath.split(path.sep);
+      const slug =
+        data.slug ||
+        pathParts
+          .slice(CONTENT_DEPTH)
+          .join("/")
+          .replace(/\.[^/.]+$/, "");
+      const group = pathParts[groupDepth];
+
+      return {
+        group: group,
+        slug: slug,
+        frontmatter: data,
+        content: content,
+      };
+    } else {
+      return [];
+    }
+  });
 
   const publishedPages = getPaths.filter(
     (page) => !page.frontmatter?.draft && page,
@@ -67,7 +56,7 @@ try {
   // create json files
   fs.writeFileSync(
     `${JSON_FOLDER}/posts.json`,
-    JSON.stringify(getData(BLOG_FOLDER, 3)),
+    JSON.stringify(getData(BLOG_FOLDER, 2)),
   );
 
   // merger json files for search

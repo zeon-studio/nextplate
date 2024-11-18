@@ -1,5 +1,10 @@
+import SearchModal from "@/components/SearchModal";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
+import TwSizeIndicator from "@/helpers/TwSizeIndicator";
+import Footer from "@/partials/Footer";
+import Header from "@/partials/Header";
+import Providers from "@/partials/Providers";
 import "@/styles/main.scss";
 
 export default function RootLayout({
@@ -50,7 +55,15 @@ export default function RootLayout({
         />
       </head>
 
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body suppressHydrationWarning={true}>
+        <TwSizeIndicator />
+        <Providers>
+          <Header />
+          <SearchModal />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
+      </body>
     </html>
   );
 }

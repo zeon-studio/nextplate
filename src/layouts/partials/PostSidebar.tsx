@@ -1,27 +1,20 @@
-import config from "@/config/config.json";
-import { getTranslations } from "@/lib/languageParser";
-import { slugSelector } from "@/lib/utils/slugSelector";
 import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
-const { blog_folder } = config.settings;
 
-const PostSidebar = async ({
+const PostSidebar = ({
   tags,
   categories,
   allCategories,
-  lang,
 }: {
   tags: string[];
   categories: string[];
   allCategories: string[];
-  lang: string;
 }) => {
-  const { categories: categoryTitle } = await getTranslations(lang);
   return (
     <div className="lg:col-4">
       {/* <!-- categories --> */}
       <div className="mb-8">
-        <h5 className="mb-6">{categoryTitle}</h5>
+        <h5 className="mb-6">Categories</h5>
         <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
           <ul className="space-y-4">
             {categories.map((category: string) => {
@@ -32,7 +25,7 @@ const PostSidebar = async ({
                 <li key={category}>
                   <Link
                     className="flex justify-between hover:text-primary dark:hover:text-darkmode-primary"
-                    href={slugSelector(lang, `/categories/${category}`)}
+                    href={`/categories/${category}`}
                   >
                     {humanize(category)} <span>({count})</span>
                   </Link>
@@ -52,7 +45,7 @@ const PostSidebar = async ({
                 <li className="inline-block" key={tag}>
                   <Link
                     className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-dark"
-                    href={slugSelector(lang, `/tags/${tag}`)}
+                    href={`/tags/${tag}`}
                   >
                     {humanize(tag)}
                   </Link>

@@ -36,6 +36,7 @@
 - 📝 Write and update content in Markdown / MDX
 - 💬 Disqus Comment
 - 🔳 Syntax Highlighting
+- 🌏 Multilingual Support (i18n)
 
 ### 📄 15+ Pre-designed Pages
 

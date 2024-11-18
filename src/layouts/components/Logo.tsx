@@ -1,13 +1,12 @@
 "use client";
 
 import config from "@/config/config.json";
-import { slugSelector } from "@/lib/utils/slugSelector";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Logo = ({ src, lang }: { src?: string; lang: string }) => {
+const Logo = ({ src }: { src?: string }) => {
   // destructuring items from config object
   const {
     logo,
@@ -36,7 +35,7 @@ const Logo = ({ src, lang }: { src?: string; lang: string }) => {
   const logoPath = src ? src : resolvedLogo;
 
   return (
-    <Link href={slugSelector(lang, "")} className="navbar-brand inline-block">
+    <Link href="/" className="navbar-brand inline-block">
       {logoPath ? (
         <Image
           width={logo_width.replace("px", "") * 2}
