@@ -4,6 +4,7 @@ import Image from "next/image";
 import { markdownify } from "@/lib/utils/textConverter";
 import { useInView } from "react-intersection-observer";
 import { Capability } from "@/types";
+import ExpandableImage from "./ExpandableImage";
 
 interface PageData {
   frontmatter: {
@@ -40,7 +41,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                       ref={ref2}
                       className="flex flex-col items-center md:w-[400px] mb-5 md:mb-0"
                     >
-                      <Image
+                      <ExpandableImage
                         className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] mb-5 object-cover shadow-lg ${inView2 ? "animate-fade-right animate-ease-linear" : ""}`}
                         src={capability.image}
                         alt={capability.alt}
@@ -90,7 +91,7 @@ const Capabilities = ({ data }: { data: PageData }) => {
                   {/* Right Image */}
                   {index === 1 && (
                     <div className="flex flex-col items-center md:w-[400px]">
-                      <Image
+                      <ExpandableImage
                         className={`md:rounded-full rounded-sm lg:w-80 lg:h-80 md:w-60 md:h-60 w-[400px] object-cover shadow-lg ${inView1 ? "animate-fade-right animate-ease-linear animate-delay-[1300ms]" : ""}`}
                         src={capability.image}
                         alt={capability.alt}

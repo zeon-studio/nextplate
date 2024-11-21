@@ -8,7 +8,7 @@ label: "Reach Us for More Insights"
 # Services
 services:
   - image: "/images/cartons.jpg"
-    link: "/cutting-edge-technology"
+    link: "/cartons"
     alt: "cartons"
     category: "Sustainability"
     title: "Cartons"
@@ -16,9 +16,9 @@ services:
     button:
       enable: true
       label: "More info"
-      link: "/cutting-edge-technology"
+      link: "/cartons"
   - image: "/images/bottles.jpg"
-    link: "/commitment-to-quality"
+    link: "/hdpe-bottles-pet-bottles"
     alt: "plastic bottles"
     category: "Sustainability"
     title: "HDPE Bottles and PET Bottles"
@@ -26,9 +26,9 @@ services:
     button:
       enable: true
       label: "More Info"
-      link: "/commitment-to-quality"
+      link: "/hdpe-bottles-pet-bottles"
   - image: "/images/istock-boxes-cropped.jpg"
-    link: "/private-label-co-packing"
+    link: "/corrugated-boxes"
     alt: "cardboard box"
     category: "Sustainability"
     title: "Corrugated Boxes"
@@ -36,5 +36,5 @@ services:
     button:
       enable: true
       label: "More Info"
-      link: "/private-label-co-packing"
+      link: "/corrugated-boxes"
 ---

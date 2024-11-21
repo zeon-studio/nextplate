@@ -18,7 +18,7 @@ banner:
 features:
   - title: "WELCOME TO"
     subtitle: "Ninth Avenue Foods"
-    image: "/images/banner-image.jpg"
+    image: "/images/ninth-ave-warehouse.jpg"
     content: "__**Ninth Avenue Foods**__ is a fourth generation family-owned and operated company with a long-standing history of quality and service in the dairy industry. As innovation has lead to growth and success, family values and commitment to quality has remained the same."
     bulletpoints:
       - "State-of-the-art **ESL manufacturing facilities**"

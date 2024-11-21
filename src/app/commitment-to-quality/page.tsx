@@ -6,6 +6,7 @@ import Sidebar from "@/partials/SideBar";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
+import ExpandableImage from "@/components/ExpandableImage";
 
 const { commitment_to_quality_folder } = config.settings;
 
@@ -61,8 +62,8 @@ const CommitmentToQuality = () => {
                   <div className="mx-auto py-8 md:px-4 animate-fade animate-delay-[300ms] ease-in px-4">
                     <div className="relative flex sm:flex-row flex-col gap-1">
                       {/* Left image */}
-                      <div className="sm:w-1/2">
-                        <Image
+                      <div className="flex sm:w-1/2">
+                        <ExpandableImage
                           src={image1}
                           alt="Ninth Ave Foods Warehouse"
                           className="w-full h-full object-cover rounded-xs"
@@ -74,7 +75,7 @@ const CommitmentToQuality = () => {
                       {/* Right column with two stacked images */}
                       <div className="flex flex-col gap-2 sm:w-5/6 mx-auto">
                         <div className="flex-1">
-                          <Image
+                          <ExpandableImage
                             src={image2}
                             alt="Ninth Ave Foods Warehouse"
                             className="w-full h-full object-cover rounded-xs"

@@ -6,6 +6,7 @@ import Sidebar from "@/partials/SideBar";
 import SeoMeta from "@/partials/SeoMeta";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
+import ExpandableImage from "@/components/ExpandableImage";
 
 const { private_label_co_packing_folder } = config.settings;
 
@@ -65,8 +66,8 @@ const PrivateLabelCoPacking = () => {
                   <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
                     <div className="relative flex gap-2">
                       {/* Left image */}
-                      <div className="w-1/2">
-                        <Image
+                      <div className="flex w-1/2">
+                        <ExpandableImage
                           src={image1}
                           alt={alt1}
                           className="w-full h-full object-cover rounded-xs"
@@ -77,7 +78,7 @@ const PrivateLabelCoPacking = () => {
                       {/* Right column with two stacked images */}
                       <div className="flex flex-col gap-2 w-1/2">
                         <div className="flex-1">
-                          <Image
+                          <ExpandableImage
                             src={image2}
                             alt={alt2}
                             className="w-full h-auto object-cover rounded-xs"
@@ -86,7 +87,7 @@ const PrivateLabelCoPacking = () => {
                           />
                         </div>
                         <div className="flex-1">
-                          <Image
+                          <ExpandableImage
                             src={image3}
                             alt={alt3}
                             className="w-full h-auto object-cover rounded-xs"

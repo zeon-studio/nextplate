@@ -10,6 +10,7 @@ import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
 import CardCarousel from "@/partials/CardCarousel";
 import Services from "@/partials/Services";
+import ExpandableImage from "@/components/ExpandableImage";
 
 const { cartons_folder } = config.settings;
 
@@ -27,6 +28,8 @@ const Cartons = () => {
     alt2,
     sustainability_title,
     sustainability_content,
+    sustainability_subcontent_title,
+    sustainability_subcontent,
     sustainability_title_2,
     sustainability_content_2,
     sustainability_title_3,
@@ -62,6 +65,18 @@ const Cartons = () => {
                       className="lg:col-6 col-11 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_title,
+                      )}
+                    />
+                    <p
+                      className="lg:col-10 text-lg animate-fade animate-delay-[200ms] ease-in"
+                      dangerouslySetInnerHTML={markdownify(
+                        sustainability_content,
+                      )}
+                    />
+                    <h3
+                      className="text-primary pt-4 pb-2 text-h3 animate-fade animate-duration-[600ms] ease-in"
+                      dangerouslySetInnerHTML={markdownify(
+                        sustainability_subcontent_title,
                       )}
                     />
                     <p
@@ -150,8 +165,8 @@ const Cartons = () => {
                   </div>
                 </div>
 
-                <div className="col-span-1 w-full lg:pt-0 pt-8">
-                  <Image
+                <div className="col-span-1 w-full lg:pt-0 pt-8 flex">
+                  <ExpandableImage
                     src={image2}
                     alt={alt2}
                     className="w-full h-full object-contain rounded-lg"

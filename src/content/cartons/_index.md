@@ -8,7 +8,9 @@ image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"
 
 sustainability_title: "Sustainable Cartons"
-sustainability_content: "Our __**cartons**__ are designed with __**sustainability**__ in mind, minimizing environmental impact while maintaining product quality. Crafted from __**100% recyclable**__ and __**renewable**__ forest fibers, they offer an eco-conscious choice for both brands and consumers.\n\n <h3>__**100% Renewable Forest Materials**__</h3>These cartons are crafted using fibers sourced solely from __**renewable**__, certified forests, ensuring __**responsible**__ forestry practices. Each carton is available with __**Forest Stewardship Council (FSC)**__ and Sustainable __**Forestry Initiative (SFI)**__ certifications, offering assurance of environmentally responsible sourcing."
+sustainability_content: "Our __**cartons**__ are designed with __**sustainability**__ in mind, minimizing environmental impact while maintaining product quality. Crafted from __**100% recyclable**__ and __**renewable**__ forest fibers, they offer an eco-conscious choice for both brands and consumers."
+sustainability_subcontent_title: "100% Renewable Forest Materials"
+sustainability_subcontent: "These cartons are crafted using fibers sourced solely from __**renewable**__, certified forests, ensuring __**responsible**__ forestry practices. Each carton is available with __**Forest Stewardship Council (FSC)**__ and Sustainable __**Forestry Initiative (SFI)**__ certifications, offering assurance of environmentally responsible sourcing."
 
 sustainability_title_2: "Reducing Carbon Footprint and Plastic Use"
 sustainability_content_2: "Innovative cartons designed to minimize plastic and extend product freshness sustainably"

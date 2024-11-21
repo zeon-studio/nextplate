@@ -12,6 +12,12 @@ import { useMemo } from "react";
 import Services from "@/partials/Services";
 import CallToAction from "@/partials/CallToAction";
 import OurLocations from "@/components/OurLocations";
+import ExpandableImage from "@/components/ExpandableImage";
+import {
+  CALIFORNIA_COORD,
+  INDIANA_COORD,
+  calculateCenterCoordinates,
+} from "@/lib/utils/geoUtils";
 
 const About = async () => {
   const data = getListPage("about/_index.md");
@@ -30,15 +36,11 @@ const About = async () => {
     contact_content,
   } = frontmatter;
   const { features }: { features: Feature[] } = frontmatter;
+  const centerCoord = calculateCenterCoordinates(
+    CALIFORNIA_COORD,
+    INDIANA_COORD,
+  );
 
-  // Explicitly typed as a tuple.
-  const californiaCoord: [number, number] = [
-    34.02963095004345, -117.97370799183287,
-  ];
-  const indianaCoord: [number, number] = [
-    39.924201236649864, -85.96258788368951,
-  ];
-  const centerCoord: [number, number] = [37.97691609334666, -98.96814793776119];
   const Map = useMemo(
     () =>
       dynamic(() => import("@/partials/Map"), {
@@ -68,12 +70,12 @@ const About = async () => {
                   key={index}
                 >
                   {feature.image && (
-                    <Image
-                      className="mb:md-0 md:col-8 lg:col-6 mx-auto mb-6 rounded-sm object-cover animate-fade animate-delay-[300ms] ease-in"
+                    <ExpandableImage
                       src={feature.image}
-                      width={1280}
-                      height={720}
-                      alt={title}
+                      alt={feature.title}
+                      className="mb:md-0 rounded-sm mx-auto mb-6 animate-fade animate-delay-[300ms] ease-in"
+                      width={1920}
+                      height={1080}
                     />
                   )}
                   <div className="md:col-8 lg:col-6 items-center mx-auto lg:pl-16">
@@ -130,9 +132,9 @@ const About = async () => {
           {/* Map */}
           <div className="bg-light-green bg-opacity-5 w-full flex items-center justify-center">
             <div className="flex flex-col text-center py-14">
-              <h2
+              <h3
                 dangerouslySetInnerHTML={markdownify(contact_title)}
-                className="mb-6 text-primary animate-fade animate-duration-[600ms] ease-in"
+                className="mb-6 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
               />
               <p
                 className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
@@ -147,8 +149,8 @@ const About = async () => {
                   <div className="w-full lg:w-[700px] h-[400px] max-w-[700px] max-h-[450px]">
                     <Map
                       center={centerCoord}
-                      position1={californiaCoord}
-                      position2={indianaCoord}
+                      position1={CALIFORNIA_COORD}
+                      position2={INDIANA_COORD}
                     />
                   </div>
                 </div>

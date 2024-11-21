@@ -9,6 +9,7 @@ import BasicCard from "@/partials/BasicCard";
 import Capabilities from "@/components/Capabilities";
 import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
+import ExpandableImage from "@/components/ExpandableImage";
 
 const { cutting_edge_technology_folder } = config.settings;
 
@@ -64,7 +65,7 @@ const CuttingEdgeTechnology = () => {
                     />
                   </div>
                   <div className="mx-auto py-8 animate-fade animate-delay-[300ms] ease-in">
-                    <Image
+                    <ExpandableImage
                       src={image}
                       alt="Ninth Ave Foods Warehouse"
                       className="w-full h-auto object-cover rounded-xs"

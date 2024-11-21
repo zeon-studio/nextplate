@@ -6,6 +6,11 @@ import dynamic from "next/dynamic";
 import { useMemo } from "react";
 import PointsOfContact from "@/partials/PointsOfContact";
 import ContactUsForm from "@/components/ContactUsForm";
+import {
+  CALIFORNIA_COORD,
+  INDIANA_COORD,
+  calculateCenterCoordinates,
+} from "@/lib/utils/geoUtils";
 
 const Contact = async () => {
   const data = getListPage("contact/_index.md");
@@ -15,14 +20,10 @@ const Contact = async () => {
   const { title, description, meta_title, image, page_header_image } =
     frontmatter;
   const { contact_form_action } = config.params;
-  // Explicitly typed as a tuple.
-  const californiaCoord: [number, number] = [
-    34.02963095004345, -117.97370799183287,
-  ];
-  const indianaCoord: [number, number] = [
-    39.924201236649864, -85.96258788368951,
-  ];
-  const centerCoord: [number, number] = [37.97691609334666, -98.96814793776119];
+  const centerCoord = calculateCenterCoordinates(
+    CALIFORNIA_COORD,
+    INDIANA_COORD,
+  );
 
   const Map = useMemo(
     () =>
@@ -61,8 +62,8 @@ const Contact = async () => {
               <div className="w-full h-[450px] max-w-[1200px] max-h-[450px]">
                 <Map
                   center={centerCoord}
-                  position1={californiaCoord}
-                  position2={indianaCoord}
+                  position1={CALIFORNIA_COORD}
+                  position2={INDIANA_COORD}
                 />
               </div>
             </div>

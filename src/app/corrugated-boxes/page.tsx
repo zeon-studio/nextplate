@@ -10,6 +10,7 @@ import CallToAction from "@/partials/CallToAction";
 import Image from "next/image";
 import CardCarousel from "@/partials/CardCarousel";
 import Services from "@/partials/Services";
+import ExpandableImage from "@/components/ExpandableImage";
 
 const { corrugated_boxes_folder } = config.settings;
 
@@ -160,8 +161,8 @@ const CorrugatedBoxes = () => {
                   />
                 </div>
 
-                <div className="col-span-1 w-full lg:pt-0 pt-8">
-                  <Image
+                <div className="col-span-1 w-full lg:pt-0 pt-8 flex">
+                  <ExpandableImage
                     src={image2}
                     alt={alt2}
                     className="w-full h-full object-contain rounded-lg"
