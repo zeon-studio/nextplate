@@ -1,13 +1,6 @@
 ---
 # Banner
-banner:
-  title: "Le modèle de démarrage ultime dont vous avez besoin pour démarrer votre prochain projet"
-  content: "Nextplate est un modèle de démarrage gratuit construit avec Next et TailwindCSS, fournissant tout ce dont vous avez besoin pour démarrer votre projet Next et gagner un temps précieux."
-  image: "/images/banner.png"
-  button:
-    enable: true
-    label: "Commencez gratuitement"
-    link: "https://github.com/zeon-studio/nextplate"
+
 
 # Features
 features:

@@ -22,7 +22,6 @@ export default async function Layout({
         <Header lang={params.lang} menu={menu} />
         <SearchModal lang={params.lang} />
         <main>{children}</main>
-        <Footer lang={params.lang} menu={menu} />
       </Providers>
     </>
   );
