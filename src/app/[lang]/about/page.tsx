@@ -132,8 +132,9 @@ const About = ({ params }: { params: { lang: string } }) => {
               />
               <p className="text-center mb-6">
                 Here are some examples of how our design principles come
-                together in the app. The meal example highlights how colors
-                enhance visuals, while the profile screen showcases usability.
+                together in the app. From meal listings to user profiles, our
+                color palette and accessibility guidelines are applied
+                consistently throughout the user interface.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
