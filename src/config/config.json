@@ -30,11 +30,7 @@
     "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
   },
 
-  "navigation_button": {
-    "enable": true,
-    "label": "Get Started",
-    "link": "https://github.com/zeon-studio/nextplate"
-  },
+
 
   "disqus": {
     "enable": true,

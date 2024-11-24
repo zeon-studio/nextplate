@@ -19,29 +19,25 @@ const Footer = ({
   const { copyright } = config.params;
 
   return (
-    <footer className="bg-theme-light dark:bg-darkmode-theme-light">
+    <footer className="bg-white dark:bg-darkmode-theme-light">
+      <div className="border-t border-border py-7 dark:border-darkmode-border"></div>
       <div className="container">
-        <div className="row items-center py-10">
+        <div className="row items-center py-10 justify-between">
           <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
             <Logo lang={lang} />
           </div>
-          <div className="mb-8 text-center lg:col-6 lg:mb-0">
-            <ul>
-              {menu.footer.map((menu) => (
-                <li className="m-3 inline-block" key={menu.name}>
-                  <Link href={slugSelector(lang, menu.url)}>{menu.name}</Link>
-                </li>
-              ))}
+
+          {/* Team Names Section */}
+          <div className="text-center lg:col-3 lg:text-left">
+            <h3 className="font-bold text-lg mb-4">Our Team</h3>
+            <ul className="space-y-2">
+              <li>Byron Dray</li>
+              <li>Kyle Eeles</li>
+              <li>Denis Liu</li>
             </ul>
           </div>
-          <div className="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-            <Social source={social.main} className="social-icons" />
-          </div>
-        </div>
-      </div>
-      <div className="border-t border-border py-7 dark:border-darkmode-border">
-        <div className="container text-center text-light dark:text-darkmode-light">
-          <p dangerouslySetInnerHTML={markdownify(copyright)} />
+
+          {/* Additional Content (Optional) */}
         </div>
       </div>
     </footer>

@@ -8,20 +8,7 @@
 <h2 align="center"> <a target="_blank" href="https://zeon.studio/preview?project=nextplate" rel="nofollow">👀 Demo</a> | <a  target="_blank" href="https://pagespeed.web.dev/analysis/https-nextplate-netlify-app/zttnq0z42d?form_factor=desktop">Page Speed (100%)🚀</a>
 </h2>
 
-<p align=center>
 
-  <a href="https://github.com/vercel/next.js/releases/tag/v14.1.0" alt="Contributors">
-    <img src="https://img.shields.io/static/v1?label=NEXTJS&message=14.1&color=000&logo=nextjs" />
-  </a>
-
-  <a href="https://github.com/zeon-studio/nextplate/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zeon-studio/nextplate" alt="license"></a>
-
-  <img src="https://img.shields.io/github/languages/code-size/zeon-studio/nextplate" alt="code size">
-
-  <a href="https://github.com/zeon-studio/nextplate/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zeon-studio/nextplate" alt="contributors"></a>
-</p>
 
 ## 📌 Key Features
 

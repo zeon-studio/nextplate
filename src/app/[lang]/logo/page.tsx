@@ -103,6 +103,54 @@ const About = ({ params }: { params: { lang: string } }) => {
                   </div>
                 </div>
 
+                
+                <div className="container">
+                  <h1>Spacing</h1>
+                  <div className="row justify-center">
+                    <div className="md:col-10 lg:col-7">
+                      <div className="flex flex-col gap-8 items-center">
+                        {/* First Image */}
+                        <div className="flex flex-col items-center">
+                          <img
+                            src="/images/logo/homeplate-logo-spacing-1.svg"
+                            alt="homeplate logo spacing 1"
+                            className="logo-guideline max-w-full h-auto"
+                          />
+                        </div>
+
+                        {/* Second Image */}
+                        <div className="flex flex-col items-center">
+                          <img
+                            src="/images/logo/homeplate-logo-spacing-2.svg"
+                            alt="homeplate logo spacing 2"
+                            className="logo-guideline max-w-full h-auto"
+                          />
+                        </div>
+
+                        {/* Third Image */}
+                        <div className="flex flex-col items-center">
+                          <img
+                            src="/images/logo/homeplate-logo-spacing-3.svg"
+                            alt="homeplate logo spacing 3"
+                            className="logo-guideline max-w-full h-auto"
+                          />
+                        </div>
+
+                        {/* Fourth Image */}
+                        <div className="flex flex-col items-center">
+                          <img
+                            src="/images/logo/homeplate-logo-spacing-4.svg"
+                            alt="homeplate logo spacing 4"
+                            className="logo-guideline max-w-full h-auto"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+               
                 <h1>Favicons</h1>
                   <div className="container">
                     <p className="text-xl">
