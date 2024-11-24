@@ -7,6 +7,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
+import Image from "next/image";
 
 const About = ({ params }: { params: { lang: string } }) => {
   const language = getLanguageObj(params.lang);
@@ -24,8 +25,8 @@ const About = ({ params }: { params: { lang: string } }) => {
         description={description}
         image={image}
       />
-      <section className="section-sm">
-        <div className="container mb-36">
+      <section className="section-sm mb-20">
+        <div className="container">
           <div className="row justify-center">
             <div className="text-center md:col-10 lg:col-7">
               <h2
@@ -46,7 +47,7 @@ const About = ({ params }: { params: { lang: string } }) => {
                 dangerouslySetInnerHTML={markdownify("Color Palette")}
                 className="h2 mb-6"
               />
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-x-20 content w-full h-full">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <ColorSquare
                   color="bg-primaryOrange"
                   hex="#D84012"
@@ -82,6 +83,77 @@ const About = ({ params }: { params: { lang: string } }) => {
                   description="This deep brown conveys warmth and earthiness, adding a grounded, reliable feel to the app's aesthetic."
                   delay={0.3}
                 />
+              </div>
+
+              <hr className="my-6 border-t border-primaryOrange w-3/4 mx-auto mt-10" />
+
+              <h2
+                dangerouslySetInnerHTML={markdownify("Color Accessibility")}
+                className="h2 mb-6"
+              />
+              <p className="text-center mb-6">
+                Accessibility is a priority for our design. Ensuring that text
+                and visuals are legible for all users is crucial to creating an
+                inclusive experience. Below are examples of contrast
+                accessibility checks for key elements in our design.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <Image
+                    src="/images/white-orange-contrast.png"
+                    alt="White and Orange Contrast Example"
+                    width={300}
+                    height={200}
+                    className="rounded-lg shadow-lg"
+                  />
+                  <p className="mt-2 text-sm text-gray-600">
+                    White text on orange background.
+                  </p>
+                </div>
+                <div>
+                  <Image
+                    src="/images/brown-white-contrast.png"
+                    alt="Brown and White Contrast Example"
+                    width={300}
+                    height={200}
+                    className="rounded-lg shadow-lg"
+                  />
+                  <p className="mt-2 text-sm text-gray-600">
+                    Brown text on white background.
+                  </p>
+                </div>
+              </div>
+
+              <hr className="my-6 border-t border-primaryOrange w-3/4 mx-auto mt-10" />
+
+              <h2
+                dangerouslySetInnerHTML={markdownify("Design Examples")}
+                className="h2 mb-6"
+              />
+              <p className="text-center mb-6">
+                Here are some examples of how our design principles come
+                together in the app. The meal example highlights how colors
+                enhance visuals, while the profile screen showcases usability.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <Image
+                    src="/images/meal-example.png"
+                    alt="Meal Example"
+                    width={300}
+                    height={200}
+                    className="rounded-lg shadow-lg"
+                  />
+                </div>
+                <div>
+                  <Image
+                    src="/images/profile-example.png"
+                    alt="Profile Example"
+                    width={300}
+                    height={200}
+                    className="rounded-lg shadow-lg"
+                  />
+                </div>
               </div>
             </div>
           </div>
