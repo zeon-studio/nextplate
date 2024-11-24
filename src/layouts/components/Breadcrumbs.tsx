@@ -19,7 +19,7 @@ const Breadcrumbs = ({
 
   let parts = [
     {
-      label: "Home",
+      label: "Logo",
       href: "/",
       "aria-label": pathname === "/" ? "page" : undefined,
     },

@@ -45,6 +45,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        primaryOrange: "#D84012",
+        silver: "#C1CCCE",
+        jonquil: "#FCCE0B",
+        brown: "#442A00",
         text: theme.colors.default.text_color.default,
         light: theme.colors.default.text_color.light,
         dark: theme.colors.default.text_color.dark,

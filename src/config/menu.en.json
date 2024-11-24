@@ -1,7 +1,7 @@
 {
   "main": [
     {
-      "name": "Home",
+      "name": "Logo",
       "url": "/"
     },
     {
@@ -9,8 +9,8 @@
       "url": "/about"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Typography",
+      "url": "/typography"
     }
   ],
   "footer": [

@@ -1,6 +1,6 @@
 {
   "site": {
-    "title": "Nextplate",
+    "title": "HomePlate",
     "base_url": "https://nextplate.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/logo-darkmode.png",
     "logo_width": "150",
     "logo_height": "27",
-    "logo_text": "Nextplate"
+    "logo_text": "HomePlate"
   },
 
   "settings": {
