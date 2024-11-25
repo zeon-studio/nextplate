@@ -19,8 +19,8 @@ const About = ({ params }: { params: { lang: string } }) => {
   return (
     <>
       <SeoMeta
-        title="HomePlate Typography Styles"
-        meta_title="Typography"
+        title="HomePlate Style Guide"
+        meta_title="HomePlate"
         description="An explanation of the typeface and styling used in HomePlate's website."
         image={image}
       />

@@ -20,8 +20,8 @@ const About = ({ params }: { params: { lang: string } }) => {
   return (
     <>
       <SeoMeta
-        title={title}
-        meta_title={meta_title}
+        title="HomePlate Style Guide"
+        meta_title="HomePlate"
         description={description}
         image={image}
       />

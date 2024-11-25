@@ -15,6 +15,10 @@
     {
       "name": "Graphics",
       "url": "/graphics"
+    },
+    {
+      "name": "References",
+      "url": "/references"
     }
   ],
   "footer": [
