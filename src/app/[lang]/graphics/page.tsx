@@ -18,20 +18,16 @@ const About = ({ params }: { params: { lang: string } }) => {
   return (
     <>
       <SeoMeta
-        title="HomePlate Style Guide"
-        meta_title="HomePlate"
+        title="HomePlate Typography Styles"
+        meta_title="Typography"
         description="An explanation of the typeface and styling used in HomePlate's website."
         image={image}
       />
-      <section className="section-sm mb-20">
+      <section className="section-sm">
         <div className="container">
           <div className="row justify-center">
-            <div className="text-center md:col-10 lg:col-7">
-              
-              <h2
-                dangerouslySetInnerHTML={markdownify("Logo")}
-                className="h2 mb-6"
-              />
+            <div className="md:col-10 lg:col-7">
+              <h1 className="my-4">Logo</h1>
               <div className="content">
                 <p className="text-xl">
                   The Homeplate logo showcases a unique design featuring a
@@ -53,13 +49,8 @@ const About = ({ params }: { params: { lang: string } }) => {
                   quality.
                 </p>
 
-                <hr className="my-6 border-t border-primaryOrange w-3/4 mx-auto" />
-
                 <div>
-                  <h2
-                    dangerouslySetInnerHTML={markdownify("Logo Variations")}
-                    className="h2 mb-6"
-                  />
+                  <h1>Logo Variations</h1>
                   <div className="content">
                     <div className="grid grid-cols-2 gap-8">
                       <div className="flex flex-col items-center">
@@ -112,14 +103,9 @@ const About = ({ params }: { params: { lang: string } }) => {
                   </div>
                 </div>
 
-                <hr className="my-6 border-t border-primaryOrange w-3/4 mx-auto" />
-
                 
                 <div className="container">
-                  <h2
-                    dangerouslySetInnerHTML={markdownify("Spacing")}
-                    className="h2 mb-6"
-                  />
+                  <h1>Spacing</h1>
                   <div className="row justify-center">
                     <div className="md:col-10 lg:col-7">
                       <div className="flex flex-col gap-8 items-center">
@@ -163,12 +149,9 @@ const About = ({ params }: { params: { lang: string } }) => {
                   </div>
                 </div>
 
-                <hr className="my-6 border-t border-primaryOrange w-3/4 mx-auto" />
+
                
-                <h2
-                  dangerouslySetInnerHTML={markdownify("Favicons")}
-                  className="h2 mb-6"
-                />
+                <h1>Favicons</h1>
                   <div className="container">
                     <p className="text-xl">
                       Each favicon has a clear space of 1/4 its length. 16px = 4px, 32px = 8px, 48px = 12px.

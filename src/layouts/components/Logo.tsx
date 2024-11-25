@@ -41,12 +41,11 @@ const Logo = ({ src, lang }: { src?: string; lang: string }) => {
         <Image
           width={logo_width.replace("px", "") * 2}
           height={logo_height.replace("px", "") * 2}
-          src={"/images/HomePlate_Logo.png"}
+          src={"/images/HomePlate_Logo2.png"}
           alt={title}
           priority
           style={{
-            height: 90,
-            width: 90,
+            
             marginLeft: 10,
           }}
         />

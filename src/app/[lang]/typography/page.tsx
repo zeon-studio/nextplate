@@ -24,11 +24,14 @@ const About = ({ params }: { params: { lang: string } }) => {
         description="An explanation of the typeface and styling used in HomePlate's website."
         image={image}
       />
-      <section className="section-sm">
+      <section className="section-sm mb-20">
         <div className="container">
           <div className="row justify-center">
-            <div className="md:col-10 lg:col-7">
-              <h1 className="my-4">Typography</h1>
+            <div className="text-center md:col-10 lg:col-7">
+              <h2
+                dangerouslySetInnerHTML={markdownify("Typography")}
+                className="h2 mb-6"
+              />
               <div className="content">
                 <div className="flex justify-evenly max-w-3xl border-jonquil border-2 bg-brown rounded-lg pt-2 pb-6 px-4 shadow-md shadow-black">
                   <div>
@@ -111,8 +114,14 @@ const About = ({ params }: { params: { lang: string } }) => {
                     losing their place.
                   </li>
                 </ul>
+
+                <hr className="my-6 border-t border-primaryOrange w-3/4 mx-auto" />
+
                 <div>
-                  <h1>Font Sizing</h1>
+                  <h2
+                    dangerouslySetInnerHTML={markdownify("Font Sizing")}
+                    className="h2 mb-6"
+                  />
                   <p className="text-xl">
                     HomePlate uses a slightly larger value for the minimum font
                     size than the default rem value set by browsers. This
