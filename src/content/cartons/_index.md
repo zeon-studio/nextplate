@@ -12,7 +12,7 @@ sustainability_content: "Our __**cartons**__ are designed with **sustainability*
 sustainability_subcontent_title: "100% Renewable Forest Materials"
 sustainability_subcontent: "These __**cartons**__ are crafted using fibers sourced solely from **renewable**, certified forests, ensuring **responsible** forestry practices. Each carton is available with __**Forest Stewardship Council (FSC)**__ and Sustainable __**Forestry Initiative (SFI)**__ certifications, offering assurance of environmentally responsible sourcing."
 
-sustainability_title_2: "Reducing Carbon Footprint and Plastic Use"
+sustainability_title_2: "Sustainable Cartons - Reduce Plastic & Maximize Freshness"
 sustainability_content_2: "Innovative cartons designed to minimize plastic and extend product freshness sustainably"
 
 sustainability_title_3: "Commitment to Recycling and Sustainability"
@@ -43,7 +43,7 @@ cards:
     text: "Plastic content in these cartons has been reduced from 35% to under 20% maximizing the use of renewable natural fibers"
     title: "Lowering Plastic Content"
     subtitle: "Innovative Design for Plastic Reduction"
-  - image: "/images/card-carousel/extend-shelf-life.jpg"
+  - image: "/images/card-carousel/food-waste.jpg"
     text: "Incorporating Extended Shelf Life (ESL) technology helps keep products fresher longer and reduces food waste"
     title: "Reducing Waste"
     subtitle: "Extending Product Freshness with Environmentally Friendly Technology"
