@@ -8,15 +8,15 @@ image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"
 
 sustainability_title: "Sustainable Cartons"
-sustainability_content: "Our __**cartons**__ are designed with __**sustainability**__ in mind, minimizing environmental impact while maintaining product quality. Crafted from __**100% recyclable**__ and __**renewable**__ forest fibers, they offer an eco-conscious choice for both brands and consumers."
+sustainability_content: "Our __**cartons**__ are designed with **sustainability** in mind, minimizing environmental impact while maintaining product quality. Crafted from __**100% recyclable**__ and **renewable** forest fibers, they offer an eco-conscious choice for both brands and consumers."
 sustainability_subcontent_title: "100% Renewable Forest Materials"
-sustainability_subcontent: "These cartons are crafted using fibers sourced solely from __**renewable**__, certified forests, ensuring __**responsible**__ forestry practices. Each carton is available with __**Forest Stewardship Council (FSC)**__ and Sustainable __**Forestry Initiative (SFI)**__ certifications, offering assurance of environmentally responsible sourcing."
+sustainability_subcontent: "These __**cartons**__ are crafted using fibers sourced solely from **renewable**, certified forests, ensuring **responsible** forestry practices. Each carton is available with __**Forest Stewardship Council (FSC)**__ and Sustainable __**Forestry Initiative (SFI)**__ certifications, offering assurance of environmentally responsible sourcing."
 
 sustainability_title_2: "Reducing Carbon Footprint and Plastic Use"
 sustainability_content_2: "Innovative cartons designed to minimize plastic and extend product freshness sustainably"
 
 sustainability_title_3: "Commitment to Recycling and Sustainability"
-sustainability_content_3: "As part of our commitment to __**sustainability**__, we choose cartons that are __**fully recyclable**__ and contribute to diverse recycling streams. While FDA standards currently restrict the use of recycled fiber in liquid food packaging, the cartons we use are designed to be __**highly recyclable**__, supporting __**repurposing efforts**__, including:"
+sustainability_content_3: "As part of our commitment to **sustainability**, we choose cartons that are **fully recyclable** and contribute to diverse recycling streams. While FDA regulations currently limit the use of recycled fiber in liquid food packaging, our __**cartons**__ are designed for **maximum recyclability**, supporting efforts to **repurpose** materials effectively, including:"
 sustainability_bulletpoints:
   - "__**Grade 52:**__ Used in tissue paper production"
   - "__**Grade 54:**__ Used in mixed paper products"
