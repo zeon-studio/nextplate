@@ -19,7 +19,7 @@ import {
   calculateCenterCoordinates,
 } from "@/lib/utils/geoUtils";
 
-const About = async () => {
+const About = () => {
   const data = getListPage("about/_index.md");
   const capabilities = getListPage("about/capabilities.md");
   const callToAction = getListPage("sections/call-to-action.md");

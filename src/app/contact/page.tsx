@@ -12,7 +12,7 @@ import {
   calculateCenterCoordinates,
 } from "@/lib/utils/geoUtils";
 
-const Contact = async () => {
+const Contact = () => {
   const data = getListPage("contact/_index.md");
   const point_of_contact = getListPage("sections/points-of-contact.md");
 
