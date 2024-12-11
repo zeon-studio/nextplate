@@ -24,7 +24,6 @@ const useLoadMore = (
 
   useEffect(() => {
     loadItems(0, loadPerClick);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mounted]);
 
   const loadItemsFinished = Number(items.length) == Number(loadedItems.length);

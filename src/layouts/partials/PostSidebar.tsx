@@ -1,9 +1,7 @@
-import config from "@/config/config.json";
 import { getTranslations } from "@/lib/languageParser";
 import { slugSelector } from "@/lib/utils/slugSelector";
 import { humanize } from "@/lib/utils/textConverter";
 import Link from "next/link";
-const { blog_folder } = config.settings;
 
 const PostSidebar = async ({
   tags,
