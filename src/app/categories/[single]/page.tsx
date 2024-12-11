@@ -26,7 +26,8 @@ export const generateStaticParams: StaticParams = () => {
   return paths;
 };
 
-const CategorySingle = ({ params }: { params: { single: string } }) => {
+const CategorySingle = async (props: { params: Promise<{ single: string }> }) => {
+  const params = await props.params;
   const posts: Post[] = getSinglePage(blog_folder);
   const filterByCategories = taxonomyFilter(posts, "categories", params.single);
   const sortedPosts = sortByDate(filterByCategories);

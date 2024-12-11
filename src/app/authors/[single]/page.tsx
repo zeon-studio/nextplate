@@ -22,7 +22,8 @@ export const generateStaticParams: () => { single?: string }[] = () => {
   return paths;
 };
 
-const AuthorSingle = ({ params }: { params: { single: string } }) => {
+const AuthorSingle = async (props: { params: Promise<{ single: string }> }) => {
+  const params = await props.params;
   const authors: Author[] = getSinglePage("authors");
   const author = authors.filter((page) => page.slug === params.single)[0];
   const { frontmatter, content } = author;
