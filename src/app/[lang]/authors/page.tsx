@@ -7,7 +7,8 @@ import SeoMeta from "@/partials/SeoMeta";
 import { Author } from "@/types";
 import path from "path";
 
-const Authors = ({ params }: { params: { lang: string } }) => {
+const Authors = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const authorIndex: Author = getListPage(
     path.join(language.contentDir, "authors/_index.md"),

@@ -3,30 +3,39 @@
 import {
   KeyboardEvent,
   ReactElement,
-  RefObject,
+  ReactNode,
   useEffect,
   useRef,
   useState,
 } from "react";
 
-function Tabs({ children }: { children: ReactElement[] }) {
+// Define an interface for Tab props
+interface TabProps {
+  name: string;
+  children: ReactNode;
+}
+
+// Extend ReactElement to include our custom props
+type TabElement = ReactElement<TabProps>;
+
+function Tabs({ children }: { children: TabElement[] }) {
   const [active, setActive] = useState(0);
-  //select tabItems
-  const tabItemsRef: RefObject<HTMLElement[]> = useRef([]);
+  const tabItemsRef = useRef<(HTMLElement | null)[]>([]);
   const [defaultFocus, setDefaultFocus] = useState(false);
 
   useEffect(() => {
     if (defaultFocus) {
-      //@ts-ignore
-      tabItemsRef.current[active].focus();
+      tabItemsRef.current[active]?.focus();
     } else {
       setDefaultFocus(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
-  //change tab item on click
-  const handleKeyDown = (event: KeyboardEvent<EventTarget>, index: number) => {
+  // Typed handleKeyDown
+  const handleKeyDown = (
+    event: KeyboardEvent<HTMLLIElement>,
+    index: number,
+  ) => {
     if (event.key === "Enter" || event.key === " ") {
       setActive(index);
     } else if (event.key === "ArrowRight") {
@@ -39,23 +48,24 @@ function Tabs({ children }: { children: ReactElement[] }) {
   return (
     <div className="tab">
       <ul className="tab-nav" role="tablist">
-        {children.map((item: ReactElement, index: number) => (
+        {children.map((item, index) => (
           <li
             key={index}
-            className={`tab-nav-item ${index === active && "active"}`}
+            className={`tab-nav-item ${index === active ? "active" : ""}`}
             role="tab"
             tabIndex={index === active ? 0 : -1}
             onClick={() => setActive(index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
-            //@ts-ignore
-            ref={(ref) => (tabItemsRef.current[index] = ref)}
+            ref={(ref) => {
+              tabItemsRef.current[index] = ref;
+            }}
           >
             {item.props.name}
           </li>
         ))}
       </ul>
 
-      {children.map((data: ReactElement, index: number) => (
+      {children.map((data, index) => (
         <div
           key={index}
           className={`tab-content ${index === active ? "block" : "hidden"}`}

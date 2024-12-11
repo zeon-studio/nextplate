@@ -15,7 +15,8 @@ import path from "path";
 const { blog_folder, pagination } = config.settings;
 
 // for all regular pages
-const Posts = ({ params }: { params: { lang: string } }) => {
+const Posts = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const postIndex: Post = getListPage(
     path.join(language.contentDir, `${blog_folder}/_index.md`),

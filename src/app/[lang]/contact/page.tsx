@@ -11,7 +11,8 @@ import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
 
-const Contact = async ({ params }: { params: { lang: string } }) => {
+const Contact = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "contact/_index.md"),

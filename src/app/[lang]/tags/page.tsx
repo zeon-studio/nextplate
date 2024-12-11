@@ -13,7 +13,8 @@ import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 import path from "path";
 
-const tags = async ({ params }: { params: { lang: string } }) => {
+const tags = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
   const { blog_folder } = config.settings;
   const language = getLanguageObj(params.lang);
   const tags = getTaxonomy(path.join(language.contentDir, blog_folder), "tags");

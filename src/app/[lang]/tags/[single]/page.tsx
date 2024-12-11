@@ -15,11 +15,12 @@ import path from "path";
 const { blog_folder } = config.settings;
 type StaticParams = () => { single: string; lang: string }[];
 
-const TagSingle = ({
-  params,
-}: {
-  params: { single: string; lang: string };
-}) => {
+const TagSingle = async (
+  props: {
+    params: Promise<{ single: string; lang: string }>;
+  }
+) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),

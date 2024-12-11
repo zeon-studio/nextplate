@@ -8,7 +8,8 @@ import SeoMeta from "@/partials/SeoMeta";
 import { RegularPage } from "@/types";
 import path from "path";
 
-const About = ({ params }: { params: { lang: string } }) => {
+const About = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const data: RegularPage = getListPage(
     path.join(language.contentDir, "about/_index.md"),

@@ -21,11 +21,12 @@ import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 
 const { blog_folder } = config.settings;
 
-const PostSingle = async ({
-  params,
-}: {
-  params: { single: string; lang: string };
-}) => {
+const PostSingle = async (
+  props: {
+    params: Promise<{ single: string; lang: string }>;
+  }
+) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const {
     related_post,

@@ -13,11 +13,12 @@ import path from "path";
 
 const { blog_folder } = config.settings;
 
-const CategorySingle = ({
-  params,
-}: {
-  params: { single: string; lang: string };
-}) => {
+const CategorySingle = async (
+  props: {
+    params: Promise<{ single: string; lang: string }>;
+  }
+) => {
+  const params = await props.params;
   const language = getLanguageObj("en");
   const posts: Post[] = getSinglePage(
     path.join(language.contentDir, blog_folder),
