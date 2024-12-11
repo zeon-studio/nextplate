@@ -23,11 +23,12 @@ export const generateStaticParams = () => {
 };
 
 // for all regular pages
-const RegularPages = ({
-  params,
-}: {
-  params: { regular: string; lang: string };
-}) => {
+const RegularPages = async (
+  props: {
+    params: Promise<{ regular: string; lang: string }>;
+  }
+) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const regularData = getSinglePage(path.join(language.contentDir, "pages"));
   const data = regularData.filter(

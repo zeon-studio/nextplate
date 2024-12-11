@@ -10,11 +10,12 @@ import SeoMeta from "@/partials/SeoMeta";
 import { Author, Post } from "@/types";
 import path from "path";
 
-const AuthorSingle = ({
-  params,
-}: {
-  params: { single: string; lang: string };
-}) => {
+const AuthorSingle = async (
+  props: {
+    params: Promise<{ single: string; lang: string }>;
+  }
+) => {
+  const params = await props.params;
   const language = getLanguageObj(params.lang);
   const authors: Author[] = getSinglePage(
     path.join(language.contentDir, "authors"),

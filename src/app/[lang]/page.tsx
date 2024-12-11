@@ -21,7 +21,8 @@ export async function generateStaticParams() {
   }));
 }
 
-const Home = ({ params }: { params: { lang: string } }) => {
+const Home = async (props: { params: Promise<{ lang: string }> }) => {
+  const params = await props.params;
   const lang = params.lang;
   const language = languages.find(
     (language) => language.languageCode === lang,
