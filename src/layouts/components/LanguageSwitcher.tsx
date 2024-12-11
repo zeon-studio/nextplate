@@ -1,8 +1,7 @@
 import languages from "@/config/language.json";
-import { getDefaultLanguage } from "@/lib/languageParser";
 import { slugSelector } from "@/lib/utils/slugSelector";
 import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function LanguageSwitcher({
   className,
@@ -11,7 +10,6 @@ export default function LanguageSwitcher({
   className?: string;
   lang: string;
 }) {
-  const defaultLang = useMemo(getDefaultLanguage, []);
   const [language, setLanguage] = useState(lang);
   const router = useRouter();
   const pathname = usePathname();
@@ -26,6 +24,7 @@ export default function LanguageSwitcher({
         slugSelector(locale, pathname.split("/").slice(sliceNumber).join("/")),
       );
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [pathname],
   );
 
