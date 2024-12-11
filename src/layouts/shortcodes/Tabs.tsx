@@ -26,7 +26,7 @@ function Tabs({ children }: { children: ReactElement<TabProps>[] }) {
     } else {
       setDefaultFocus(true);
     }
-  }, [active]);
+  }, [active, defaultFocus]);
 
   // Change tab item on key down
   const handleKeyDown = (
