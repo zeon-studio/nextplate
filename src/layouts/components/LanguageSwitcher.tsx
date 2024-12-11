@@ -24,6 +24,7 @@ export default function LanguageSwitcher({
         slugSelector(locale, pathname.split("/").slice(sliceNumber).join("/")),
       );
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [pathname],
   );
 
