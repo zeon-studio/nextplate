@@ -41,7 +41,8 @@ function spreadPages(num: number): number[] {
 }
 
 // for all regular pages
-const Posts = ({ params }: { params: { page: number } }) => {
+const Posts = async (props: { params: Promise<{ page: number }> }) => {
+  const params = await props.params;
   const postIndex: Post = getListPage(`${blog_folder}/_index.md`);
   const { title, meta_title, description, image } = postIndex.frontmatter;
   const posts: Post[] = getSinglePage(blog_folder);

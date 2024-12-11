@@ -29,7 +29,8 @@ export const generateStaticParams: () => { single: string }[] = () => {
   return paths;
 };
 
-const PostSingle = ({ params }: { params: { single: string } }) => {
+const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
+  const params = await props.params;
   const posts: Post[] = getSinglePage(blog_folder);
   const post = posts.filter((page) => page.slug === params.single)[0];
 
