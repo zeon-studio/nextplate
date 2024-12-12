@@ -65,11 +65,11 @@ const Home = () => {
           <div className="absolute inset-0 bg-[#0f172a] opacity-0"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center xl:right-72 lg:top-[85px]">
+        <div className="absolute inset-0 flex justify-center items-center xl:right-72 lg:top-[-90px]">
           <div className="container relative z-10">
-            <div className="relative xl:col-6 md:col-8">
+            <div className="relative 2xl:col-5 xl:col-6 md:col-8">
               <div className="absolute inset-0 flex items-center justify-left text-left">
-                <div className="bg-slate-100 bg-opacity-65 border-t border-transparent backdrop-blur-sm shadow-md lg:p-10 md:p-4 p-5 rounded-xl">
+                <div className="bg-slate-100 bg-opacity-65 border-t border-transparent backdrop-blur-sm shadow-md 2xl:p-14 lg:p-10 md:p-4 p-5 rounded-xl">
                   <div className="py-4">
                     <h1
                       className="mb-6 text-h2 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"
