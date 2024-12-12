@@ -73,8 +73,8 @@ export async function POST(request: Request) {
       },
     ];
 
-    // Log the form data for debugging
-    console.log("Form Data:", Object.fromEntries(formData.entries()));
+    // // Log the form data for debugging
+    // console.log("Form Data:", Object.fromEntries(formData.entries()));
 
     // Send data to Sanity
     const result = await createEmployeeApplication({

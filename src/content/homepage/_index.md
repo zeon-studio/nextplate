@@ -3,7 +3,7 @@
 banner:
   title: "Quality Meets __Innovation__"
   content: "Coupling **cutting-edge technology** with a **long-standing commitment** to doing things the **RIGHT WAY**, **__Ninth Avenue Foods__** is a manufacturing facility ready to take your product or brand to the next level."
-  image: "/images/banner-image.jpg"
+  image: "/images/ninth-ave-warehouse-3.jpg"
   subimage: "/images/sub-banner-image.jpg"
   buttons:
     - enable: true

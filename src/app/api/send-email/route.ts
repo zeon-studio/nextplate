@@ -1,5 +1,6 @@
 import { sendEmail } from "sendgrid"; // Adjust the path based on your project structure
 import { NextRequest, NextResponse } from "next/server";
+import { parseEnvList } from "@/helpers/PraseEnvHelpers";
 
 export async function POST(req: NextRequest) {
   // Extract data from the request
@@ -12,7 +13,8 @@ export async function POST(req: NextRequest) {
 
   const subject = "NAF Website Customer Query";
   const text = "This is a customer query from the NAF website";
-  const to = ["ceiaram@ninthavenuefoods.com", "madrigalceiara@gmail.com"];
+  const to = parseEnvList(process.env.SENDGRID_TO_EMAIL);
+
   const html = `<!doctype html>
         <html lang="en">
           <head>

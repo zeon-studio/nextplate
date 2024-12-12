@@ -51,26 +51,26 @@ const Home = () => {
   return (
     <>
       <SeoMeta />
-      <section className="section pt-0 pb-0 relative lg:h-[800px] sm:h-full h-[500px]">
+      <section className="section pt-0 pb-0 relative lg:h-[780px] sm:h-full h-[500px]">
         <div className="relative w-full h-full">
           <Image
             src={banner.image}
             alt="Ninth Ave Foods Warehouse"
-            className="w-full h-full object-cover sm:object-[center_top] opacity-100 object-center"
-            width={1954}
-            height={1196}
+            className="w-full h-full object-cover opacity-100 object-center"
+            width={2000}
+            height={1400}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-l from-[#18181b] via-transparent to-transparent opacity-10"></div>
-          <div className="absolute inset-0 bg-[#0f172a] opacity-10"></div>
+          <div className="absolute inset-0 bg-[#0f172a] opacity-0"></div>
         </div>
 
-        <div className="absolute inset-0 flex justify-center items-center xl:right-32 lg:bottom-24">
+        <div className="absolute inset-0 flex justify-center items-center xl:right-72 lg:top-[85px]">
           <div className="container relative z-10">
             <div className="relative xl:col-6 md:col-8">
               <div className="absolute inset-0 flex items-center justify-left text-left">
-                <div className="bg-slate-100 bg-opacity-50 border-t border-transparent backdrop-blur-sm shadow-md lg:p-20 md:p-8 p-5 rounded-xl">
-                  <div className="py-5">
+                <div className="bg-slate-100 bg-opacity-55 border-t border-transparent backdrop-blur-sm shadow-md lg:p-10 md:p-4 p-5 rounded-xl">
+                  <div className="py-4">
                     <h1
                       className="mb-6 text-h2 lg:text-h1 animate-fade-up animate-duration-[600ms] text-dark-grey"
                       dangerouslySetInnerHTML={markdownify(banner.title)}
