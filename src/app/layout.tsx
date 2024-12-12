@@ -55,7 +55,10 @@ export default function RootLayout({
         />
       </head>
 
-      <body suppressHydrationWarning={true}>
+      <body
+        suppressHydrationWarning={true}
+        className="flex flex-col min-h-screen items-center [&>*]:w-full [&>footer]:mt-auto"
+      >
         <TwSizeIndicator />
         <Providers>
           <Header />
