@@ -30,16 +30,6 @@ export const generateStaticParams = () => {
   return paths;
 };
 
-function spreadPages(num: number): number[] {
-  let pages = [];
-
-  for (let i = 2; i <= num; i++) {
-    pages.push(i);
-  }
-
-  return pages;
-}
-
 // for all regular pages
 const Posts = async (props: { params: Promise<{ page: number }> }) => {
   const params = await props.params;
