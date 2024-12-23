@@ -1,9 +1,7 @@
+import "server-only";
 import { groq } from "next-sanity";
 import { client } from "./sanity.client";
 import type { EmployeeApplication } from "@/types";
-import jobPosition from "schemaTypes/jobPosition";
-import { error } from "console";
-import { NextResponse } from "next/server";
 
 // https://www.freecodecamp.org/news/how-to-build-a-portfolio-site-with-sanity-and-nextjs/
 
@@ -99,5 +97,57 @@ export async function createEmployeeApplication(
     const err = error as Error;
     console.error(err.message);
     throw new Error(err.message);
+  }
+}
+
+export async function deleteEmployeeApplication(id: string) {
+  try {
+    await client.delete(id);
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting document:", error);
+    throw new Error("Failed to delete document.");
+  }
+}
+
+// Fetch all employee applications for preview
+export async function getEmployeeApplications(): Promise<
+  EmployeeApplication[]
+> {
+  try {
+    const applications = await client.fetch(
+      groq`*[_type == "employeeApplication"]{
+        _id,
+        fname,
+        mname,
+        lname,
+        jobPosition,
+        jobPositionID,
+        dateOfApplication
+      }`,
+      {},
+      {
+        cache: "no-store",
+      },
+    );
+    return applications;
+  } catch (error) {
+    console.error("Error fetching employee applications:", error);
+    throw new Error("Failed to fetch employee applications.");
+  }
+}
+
+export async function deleteSelectedEmployeeApplications(ids: string[]) {
+  try {
+    const transaction = client.transaction();
+    ids.forEach((id) => {
+      transaction.delete(id);
+    });
+    const result = await transaction.commit();
+
+    return { deletedCount: result.documentIds.length }; // Return the number of deleted documents
+  } catch (error) {
+    console.error("Error deleting selected applications:", error);
+    throw error;
   }
 }

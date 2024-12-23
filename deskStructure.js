@@ -8,10 +8,7 @@ export const myStructure = (S) =>
         .title("Page Content")
         .child(
           S.list()
-            // Sets a title for our new list
             .title("Page Content Documents")
-            // Add items to the array
-            // Each will pull one of our new singletons
             .items([
               S.listItem()
                 .title("Career Page Content")
@@ -29,7 +26,7 @@ export const myStructure = (S) =>
                 ),
             ]),
         ),
-      // We also need to remove the new singletons from the main list
+      // Exclude careerPageContent and employeePageContent from the main list
       ...S.documentTypeListItems().filter(
         (listItem) =>
           !["careerPageContent", "employeePageContent"].includes(

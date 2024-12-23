@@ -1,7 +1,7 @@
 ---
 enable: true
 title: "Sustainability Capabilities"
-description: "Recyclable materials designed to **reduce waste** and support **sustainability**"
+description: "Recyclable materials designed to **__reduce waste__** and support **__sustainability__**"
 link: "/contact"
 label: "Reach Us for More Insights"
 
