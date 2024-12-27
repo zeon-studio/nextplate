@@ -10,6 +10,7 @@ import Link from "next/link";
 
 const Footer = () => {
   const { copyright } = config.params;
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-theme-light">
@@ -35,7 +36,8 @@ const Footer = () => {
       </div>
       <div className="border-t border-dark-grey py-7 ">
         <div className="container text-center text-dark-grey">
-          <p dangerouslySetInnerHTML={markdownify(copyright)} />
+          ©{currentYear}
+          <span dangerouslySetInnerHTML={markdownify(copyright)} />
         </div>
       </div>
     </footer>
