@@ -7,7 +7,7 @@ label: "Reach Us for More Insights"
 
 # Services
 services:
-  - image: "/images/cartons.jpg"
+  - image: "/images/rockview-cartons-2.jpg"
     link: "/cartons"
     alt: "cartons"
     category: "Sustainability"

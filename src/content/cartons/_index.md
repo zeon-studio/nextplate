@@ -22,7 +22,7 @@ sustainability_bulletpoints:
   - "__**Grade 54:**__ Used in mixed paper products"
   - "__**Construction materials:**__ Converted into sustainable options like roof tiles and wall boards"
 
-page_header_image: "/images/cartons.jpg"
+page_header_image: "/images/rockview-cartons-4.jpg"
 
 # Card
 card:
