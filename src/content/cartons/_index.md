@@ -2,7 +2,7 @@
 title: "Cartons"
 meta_title: ""
 description: "this is meta description"
-image: "/images/cartons-1.jpg"
+image: "/images/rockview-cartons-5.jpg"
 alt: "Rock View cartons on conveyor line"
 image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"

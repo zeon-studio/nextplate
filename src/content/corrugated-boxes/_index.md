@@ -1,8 +1,8 @@
 ---
-title: "HDPE Bottles and PET Bottles"
+title: "Corrugated Boxes"
 meta_title: ""
 description: "this is meta description"
-image: "/images/istock-bottles.jpg"
+image: "/images/istock-boxes-3.jpg"
 alt: "dairy bottles on conveyor line"
 image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"
@@ -27,7 +27,7 @@ sustainability_author_3: "PETRA"
 sustainability_author_occupation_3: "PET Resin Association"
 sustainability_title_4: "Heres why you should switch to PET bottles"
 
-page_header_image: "/images/plastic-bottles-3.jpg"
+page_header_image: "/images/istock-boxes-2.jpg"
 
 # Card
 card:
