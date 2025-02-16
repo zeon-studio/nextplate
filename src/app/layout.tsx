@@ -1,6 +1,6 @@
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
-import "@/styles/main.scss";
+import "@/styles/main.css";
 
 export default function RootLayout({
   children,

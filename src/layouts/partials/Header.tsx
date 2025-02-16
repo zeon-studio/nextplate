@@ -23,7 +23,6 @@ const Header = ({
   const { main }: { main: INavigationLink[] } = menu;
   const { navigation_button, settings } = config;
   const pathname = usePathname();
-  console.log(pathname);
 
   // scroll to top on route change
   useEffect(() => {

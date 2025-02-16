@@ -70,13 +70,9 @@ const path = require("path");
 
   function removeDarkMode(configFile) {
     const { filePath, patterns } = configFile;
-    if (filePath === "tailwind.config.js") {
-      removeDarkModeFromFiles(filePath, patterns);
-    } else {
-      const contentFile = JSON.parse(fs.readFileSync(filePath, "utf8"));
-      patterns.forEach((pattern) => deleteNestedProperty(contentFile, pattern));
-      fs.writeFileSync(filePath, JSON.stringify(contentFile));
-    }
+    const contentFile = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    patterns.forEach((pattern) => deleteNestedProperty(contentFile, pattern));
+    fs.writeFileSync(filePath, JSON.stringify(contentFile));
   }
 
   function deleteNestedProperty(obj, propertyPath) {
