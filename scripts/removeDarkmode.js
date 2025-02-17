@@ -1,13 +1,9 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 (function () {
   const rootDirs = ["src/app", "src/hooks", "src/layouts", "src/styles"];
   const configFiles = [
-    {
-      filePath: "tailwind.config.js",
-      patterns: ["darkmode:\\s*{[^}]*},", 'darkMode:\\s*"class",'],
-    },
     { filePath: "src/config/theme.json", patterns: ["colors.darkmode"] },
   ];
 
@@ -34,11 +30,10 @@ const path = require("path");
     try {
       fs.unlinkSync(asset);
       console.log(`${path.basename(asset)} deleted successfully!`);
-    } catch (error) {
+    } catch {
       console.error(`${asset} not found`);
     }
   }
-
   rootDirs.forEach(removeDarkModeFromPages);
   configFiles.forEach(removeDarkMode);
 

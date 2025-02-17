@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
-const matter = require("gray-matter");
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
 
 const CONTENT_DEPTH = 2;
 const JSON_FOLDER = "./.json";
@@ -60,7 +60,9 @@ try {
   );
 
   // merger json files for search
-  const posts = require(`../${JSON_FOLDER}/posts.json`);
+  const posts = JSON.parse(
+    fs.readFileSync(`${JSON_FOLDER}/posts.json`, "utf8"),
+  );
   const search = [...posts];
   fs.writeFileSync(`${JSON_FOLDER}/search.json`, JSON.stringify(search));
 } catch (err) {
