@@ -1,7 +1,8 @@
-const readline = require("node:readline/promises");
-const fs = require("fs");
-const path = require("path");
-const languages = require("../src/config/language.json");
+import fs from "fs";
+import path from "path";
+
+const languagesPath = path.join("src", "config", "language.json");
+const languages = JSON.parse(fs.readFileSync(languagesPath, "utf8"));
 
 const englishLang = languages.filter((item) => item.languageCode === "en");
 const filterLangs = languages.filter((item) => item.languageCode !== "en");
