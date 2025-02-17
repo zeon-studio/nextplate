@@ -45,7 +45,7 @@ const Categories = async (props: { params: Promise<{ lang: string }> }) => {
                 <li className="m-3 inline-block" key={category}>
                   <Link
                     href={slugSelector(params.lang, `/categories/${category}`)}
-                    className="block rounded bg-theme-light px-4 py-2 text-xl text-dark dark:bg-darkmode-theme-light dark:text-darkmode-dark"
+                    className="block rounded bg-light px-4 py-2 text-xl text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark"
                   >
                     {humanize(category)}{" "}
                     <span className="ml-2 rounded bg-body px-2 dark:bg-darkmode-body">

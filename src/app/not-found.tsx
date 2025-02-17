@@ -29,7 +29,7 @@ export default function NotFound() {
             <div className="container">
               <div className="row justify-center">
                 <div className="sm:col-10 md:col-8 lg:col-6">
-                  <span className="text-[8rem] block font-bold text-dark dark:text-darkmode-dark">
+                  <span className="text-[8rem] block font-bold text-text-dark dark:text-darkmode-text-dark">
                     404
                   </span>
                   <h1 className="h2 mb-4">{page_not_found}</h1>

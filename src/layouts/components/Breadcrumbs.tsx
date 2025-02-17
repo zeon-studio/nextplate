@@ -49,7 +49,7 @@ const Breadcrumbs = ({
                 {label}
               </Link>
             ) : (
-              <span className="text-light dark:text-darkmode-light">
+              <span className="text-text-light dark:text-darkmode-text-light">
                 {label}
               </span>
             )}

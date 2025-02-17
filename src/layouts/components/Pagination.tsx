@@ -38,7 +38,7 @@ const Pagination = ({
                   ? `${section ? "/" + section : "/"}`
                   : `${section ? "/" + section : ""}/page/${currentPage - 1}`,
               )}
-              className="rounded px-2 py-1.5 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
+              className="rounded px-2 py-1.5 text-text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
             >
               <span className="sr-only">Previous</span>
               <svg
@@ -56,7 +56,7 @@ const Pagination = ({
               </svg>
             </Link>
           ) : (
-            <span className="rounded px-2 py-1.5 text-light">
+            <span className="rounded px-2 py-1.5 text-text-light">
               <span className="sr-only">Previous</span>
               <svg
                 viewBox="0 0 20 20"
@@ -80,7 +80,7 @@ const Pagination = ({
               {pagination === currentPage ? (
                 <span
                   aria-current="page"
-                  className="rounded bg-primary px-4 py-2 text-white dark:bg-darkmode-primary dark:text-dark"
+                  className="rounded bg-primary px-4 py-2 text-white dark:bg-darkmode-primary dark:text-text-dark"
                 >
                   {pagination}
                 </span>
@@ -94,7 +94,7 @@ const Pagination = ({
                   )}
                   passHref
                   aria-current="page"
-                  className="rounded px-4 py-2 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
+                  className="rounded px-4 py-2 text-text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
                 >
                   {pagination}
                 </Link>
@@ -109,7 +109,7 @@ const Pagination = ({
                 lang,
                 `${section ? "/" + section : ""}/page/${currentPage + 1}`,
               )}
-              className="rounded px-2 py-1.5 text-dark hover:bg-theme-light dark:text-darkmode-dark dark:hover:bg-darkmode-theme-light"
+              className="rounded px-2 py-1.5 text-text-dark hover:bg-light dark:text-darkmode-text-dark dark:hover:bg-darkmode-light"
             >
               <span className="sr-only">Next</span>
               <svg
@@ -127,7 +127,7 @@ const Pagination = ({
               </svg>
             </Link>
           ) : (
-            <span className="rounded px-2 py-1.5 text-light">
+            <span className="rounded px-2 py-1.5 text-text-light">
               <span className="sr-only">Next</span>
               <svg
                 viewBox="0 0 20 20"

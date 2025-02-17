@@ -4,7 +4,7 @@
 }
 
 .swiper-pagination-bullet {
-  @apply h-2.5 w-2.5 rounded-full bg-theme-light opacity-100 dark:bg-darkmode-theme-light;
+  @apply h-2.5 w-2.5 rounded-full bg-light opacity-100 dark:bg-darkmode-light;
 }
 
 .swiper-pagination-bullet-active {

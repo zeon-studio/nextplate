@@ -42,7 +42,7 @@ const Header = ({
         <input id="nav-toggle" type="checkbox" className="hidden" />
         <label
           htmlFor="nav-toggle"
-          className="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1"
+          className="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"
         >
           <svg
             id="show-button"
@@ -135,7 +135,7 @@ const Header = ({
         <div className="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
           {settings.search && (
             <button
-              className="border-border text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
+              className="border-border text-text-dark hover:text-primary dark:border-darkmode-border mr-5 inline-block border-r pr-5 text-xl dark:text-white dark:hover:text-darkmode-primary"
               aria-label="search"
               data-search-trigger
             >
@@ -147,7 +147,7 @@ const Header = ({
           {activeLanguages.length > 1 && (
             <LanguageSwitcher
               lang={lang}
-              className="mr-5 pl-2 py-1 dark:bg-darkmode-theme-light rounded"
+              className="mr-5 pl-2 py-1 dark:bg-darkmode-light rounded"
             />
           )}
           {navigation_button.enable && (

@@ -20,7 +20,7 @@ const PostSidebar = async ({
       {/* <!-- categories --> */}
       <div className="mb-8">
         <h5 className="mb-6">{categoryTitle}</h5>
-        <div className="rounded bg-theme-light p-8 dark:bg-darkmode-theme-light">
+        <div className="rounded bg-light p-8 dark:bg-darkmode-light">
           <ul className="space-y-4">
             {categories.map((category: string) => {
               const count = allCategories.filter(
@@ -43,13 +43,13 @@ const PostSidebar = async ({
       {/* <!-- tags --> */}
       <div className="mb-8">
         <h5 className="mb-6">Tags</h5>
-        <div className="rounded bg-theme-light p-6 dark:bg-darkmode-theme-light">
+        <div className="rounded bg-light p-6 dark:bg-darkmode-light">
           <ul>
             {tags.map((tag: string) => {
               return (
                 <li className="inline-block" key={tag}>
                   <Link
-                    className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-dark"
+                    className="m-1 block rounded bg-white px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-body dark:hover:bg-darkmode-primary dark:hover:text-text-dark"
                     href={slugSelector(lang, `/tags/${tag}`)}
                   >
                     {humanize(tag)}
