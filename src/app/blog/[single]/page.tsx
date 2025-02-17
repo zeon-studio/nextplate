@@ -110,7 +110,7 @@ const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
                     {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">
                         <Link
-                          className="m-1 block rounded bg-theme-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-theme-light dark:hover:bg-darkmode-primary dark:hover:text-dark"
+                          className="m-1 block rounded bg-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark"
                           href={`/tags/${slugify(tag)}`}
                         >
                           {humanize(tag)}
