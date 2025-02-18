@@ -12,7 +12,7 @@
     "postbuild": "next-sitemap",
     "lint": "next lint",
     "format": "prettier -w ./src",
-    "generate-json": "node scripts/jsonGenerator.js",
+    "generate-json": "node scripts/jsonGenerator.mjs",
     "remove-darkmode": "node scripts/removeDarkmode.js && yarn format",
     "remove-multilang": "node scripts/removeMultilang.js && yarn format"
   },
