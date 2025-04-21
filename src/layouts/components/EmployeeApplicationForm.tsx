@@ -96,20 +96,20 @@ const EmployeeApplicationForm = ({
     }
   }, [employmentExperiences.length]);
 
-  useEffect(() => {
-    console.log("Phone: ", phone);
-    console.log("Email: ", email);
-    console.log("Selected Radio Btn: ", selectedRadioBtn);
-    console.log("Selected Checkbox: ", selectedCheckBox);
-    console.log("Employment Phone Number: ", employmentPhoneNumber);
-  }, [
-    phone,
-    email,
-    selectedRadioBtn,
-    selectedEmploymentRadioBtn,
-    selectedCheckBox,
-    employmentPhoneNumber,
-  ]);
+  // useEffect(() => {
+  //   console.log("Phone: ", phone);
+  //   console.log("Email: ", email);
+  //   console.log("Selected Radio Btn: ", selectedRadioBtn);
+  //   console.log("Selected Checkbox: ", selectedCheckBox);
+  //   console.log("Employment Phone Number: ", employmentPhoneNumber);
+  // }, [
+  //   phone,
+  //   email,
+  //   selectedRadioBtn,
+  //   selectedEmploymentRadioBtn,
+  //   selectedCheckBox,
+  //   employmentPhoneNumber,
+  // ]);
 
   const validateCheckBoxes = (): boolean => {
     if (!selectedCheckBox.includes(true)) {
@@ -236,9 +236,8 @@ const EmployeeApplicationForm = ({
   const validateForm = (): boolean => {
     let formErrors: { [key: string]: string } = {};
     let employmentExpFormErrors: { [key: string]: string } = {};
-
     let phoneRegex = new RegExp(
-      /^\+?\d{1,2}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/,
+      /^(\+1\s?)?(\(?\d{3}\)?[\s-]?)\d{3}[\s-]?\d{4}$/,
     );
 
     if (phone && !phoneRegex.test(phone)) {

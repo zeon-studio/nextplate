@@ -1,7 +1,7 @@
 ---
 enable: true
-title: "__Our Capabilities__"
-description: "Let our **small company values** combined with **big company capabilities** work to your advantage."
+title: "Our Capabilities"
+description: "Let our **__small company values__** combined with **__big company capabilities__** work to your advantage"
 link: "/contact"
 label: "Reach Us for More Insights"
 

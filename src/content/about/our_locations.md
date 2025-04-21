@@ -1,20 +1,28 @@
 ---
-title: "Our Locations"
-subtitle: "Headquartered in Southern California, **__Ninth Avenue Foods__** is an American company with owners and key decision makers on site available for consultation. [Indiana location subtitle]\n\nRegardless of your specific needs our experienced team will produce your products to the most exacting standards. Let our **small company values** combined with **big company capabilities** work to your advantage."
+title: "From West Coast Innovation to Midwest Reach"
+subtitle: "With over 50 years of experience rooted in our **__City of Industry, California__** headquarters, Ninth Avenue Foods has built a reputation for **quality**, **innovation**, and **family-driven values**. Now, with the expansion to a **new state-of-the-art facility** in **__Columbus, Indiana__**, we’re proud to extend that same commitment to excellence to the **heart of the Midwest**. Together, both locations position us to better serve partners and customers across the country with __cutting-edge technology__, __efficient distribution__, and a __personal touch__ in everything we do."
 
 our_locations:
   - image: "/images/ninth-ave-warehouse.jpg"
     alt: "City of Industry Warehouse"
-    location_title: "California"
-    location_content: "Located in City of Industry, our California location offers [key services/specialties]. With a team of [number] dedicated professionals, we are here to [key focus]."
+    location_title: "Ninth Avenue Foods Industry, CA"
+    location_content: "Based in **__City of Industry, California__**, Ninth Avenue Foods is a **fourth-generation**, **family-owned** company with over **50 years of experience** in the dairy industry. Known for our commitment to quality and personal service, we combine __cutting-edge technology__ with time-honored values to bring innovative beverage products from concept to shelf."
     bulletpoints:
-      - "State-of-the-art **ESL manufacturing facilities**"
-      - "**50+ years** of industry experience"
+      - "**__State-of-the-art ESL facility__** – Built for **high-quality** dairy and beverage manufacturing"
+      - "**__Family-owned for four generations__** – Rooted in tradition, driven by **innovation**"
+      - "**__From concept to launch__** – Full-service **production support** under one roof"
+      - "**__Innovation-driven__** – Advanced processes for both **traditional** and **plant-based beverages**"
+      - "**__Customer-focused approach__** – A personal touch and **commitment** to going the extra mile"
+      - "**__Strategic California location__** – Serving **West Coast markets** with efficiency and scale"
   - image: "/images/banner-image.jpg"
     alt: "Columbus Warehouse"
-    location_title: "Indiana"
-    location_content: "Located in Columbus, our Indiana location offers [key services/specialties]. With a team of [number] dedicated professionals, we are here to [key focus]."
+    location_title: "Ninth Avenue Foods Columbus, IN"
+    location_content: "**__Ninth Avenue Foods__** is proud to announce the opening of our **new Midwest headquarters** and production facility in **__Columbus, Indiana__**—our **first location outside of California**. Strategically chosen for its **skilled workforce**, **strong community values**, and **prime location** in the heart of the Midwest, Columbus will play a vital role in our continued growth and innovation in both __dairy__ and __plant-based__ beverage production."
     bulletpoints:
-      - "State-of-the-art **ESL manufacturing facilities**"
-      - "**50+ years** of industry experience"
+      - "**__260,000 sq ft facility__** – A modern beverage production plant for **dairy** and **plant-based** products"
+      - "**__Strategic midwest location__** – Ideal for **logistics** and **regional** distribution"
+      - "**__101 new jobs by end of 2024__** – **Strengthening** the local workforce and economy"
+      - "**__Public-private collaboration__** – Backed by the **Greater Columbus EDC** and **local partners**"
+      - "**__STEM & manufacturing hub__** – Aligned with Columbus' strength in **engineering** and **education**"
+      - "**__Community-focused expansion__** – Rooted in a welcoming, **family-friendly** environment"
 ---

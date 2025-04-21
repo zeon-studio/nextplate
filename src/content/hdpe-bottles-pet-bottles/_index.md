@@ -25,7 +25,7 @@ sustainability_quote_3:
 sustainability_content_3: "__**PET**__ is the most recycled plastic worldwide, with **1.5 billion pounds** of PET bottles and containers recovered each year in the U.S. This high recycling rate highlights PET’s role in **sustainable packaging** and **environmental conservation**."
 sustainability_author_3: "PETRA"
 sustainability_author_occupation_3: "PET Resin Association"
-sustainability_title_4: "Heres why you should switch to PET bottles"
+sustainability_title_4: "Here's why you should switch to PET bottles"
 
 page_header_image: "/images/plastic-bottles-3.jpg"
 

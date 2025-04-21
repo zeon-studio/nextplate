@@ -7,8 +7,10 @@ alt: "dairy bottles on conveyor line"
 image2: "/images/istock-plastic-processing.jpg"
 alt2: "plant processing difficulties diagram"
 
-sustainability_title: "HDPE and PET Sustainability"
-sustainability_content: "__**HDPE and PET containers**__ are designed to be __**100% recyclable**__, making them a top choice for sustainable packaging. \n\nWith many customers benefiting from the convenience of curbside recycling pickup, both __**HDPE and PET containers**__ are **easily recycled**, significantly **reducing landfill waste**. Embracing curbside recycling for these materials not only supports a __**greener planet**__ but also promotes **efficient waste management practices**."
+sustainability_title: "Sustainable Corrugated Boxes"
+sustainability_content: "**__Corrugated boxes__** are one of the most sustainable and widely recycled packaging solutions available today. \n\nMade primarily from renewable resources like paper and cardboard, corrugated boxes are designed to be easily recyclable and biodegradable. With a high recovery rate through curbside recycling programs, these boxes help minimize environmental impact and reduce landfill waste."
+sustainability_subcontent_title: "Efficient, Recyclable Packaging"
+sustainability_subcontent: "Choosing corrugated packaging supports a circular economy by promoting fiber reuse and reducing the need for new raw materials, making it a sustainable choice for both businesses and consumers."
 
 sustainability_title_2: "Energy Efficient - Lower GHG emissions"
 sustainability_content_2: "PET and HDPE containers are mechanically recycled into recycled content or PCR pellets, promoting sustainable manufacturing"

@@ -120,7 +120,7 @@ const Cartons = () => {
 
             <div className="relative container">
               <div className="flex-row grid lg:grid-cols-2 grid-cols-1 md:pb-32 pb-24">
-                <div className="col-span-1">
+                <div className="col-span-1 lg:pr-8">
                   <h2
                     className="pt-8 text-primary font-primary animate-fade animate-duration-[800ms]"
                     dangerouslySetInnerHTML={markdownify(
@@ -165,11 +165,11 @@ const Cartons = () => {
                   </div>
                 </div>
 
-                <div className="col-span-1 w-full lg:pt-0 pt-8 flex">
+                <div className="col-span-1 lg:pt-0 pt-8 items-center flex">
                   <ExpandableImage
                     src={image2}
                     alt={alt2}
-                    className="w-full h-full object-contain rounded-lg"
+                    className="w-full h-full object-contain rounded-sm"
                     width={1920}
                     height={1080}
                   />

@@ -28,6 +28,8 @@ const CorrugatedBoxes = () => {
     alt2,
     sustainability_title,
     sustainability_content,
+    sustainability_subcontent_title,
+    sustainability_subcontent,
     sustainability_title_2,
     sustainability_content_2,
     sustainability_title_3,
@@ -62,7 +64,7 @@ const CorrugatedBoxes = () => {
                 <div className="row">
                   <div className="relative">
                     <h3
-                      className="lg:col-6 col-11 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
+                      className="lg:col-9 col-11 text-primary pb-2 text-h3 lg:text-h1 animate-fade animate-duration-[600ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_title,
                       )}
@@ -71,6 +73,18 @@ const CorrugatedBoxes = () => {
                       className="lg:col-10 text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         sustainability_content,
+                      )}
+                    />
+                    <h3
+                      className="text-primary pt-4 pb-2 text-h3 animate-fade animate-duration-[600ms] ease-in"
+                      dangerouslySetInnerHTML={markdownify(
+                        sustainability_subcontent_title,
+                      )}
+                    />
+                    <p
+                      className="lg:col-10 text-lg animate-fade animate-delay-[200ms] ease-in"
+                      dangerouslySetInnerHTML={markdownify(
+                        sustainability_subcontent,
                       )}
                     />
                   </div>
@@ -102,7 +116,7 @@ const CorrugatedBoxes = () => {
               </div>
             </div>
 
-            <div className="flex items-center justify-center md:py-20 py-16">
+            {/* <div className="flex items-center justify-center md:py-20 py-16">
               <div className="w-full h-[1px] bg-gradient-to-r from-light-green via-green-500 to-dark-green"></div>
             </div>
 
@@ -188,18 +202,18 @@ const CorrugatedBoxes = () => {
                 />
               </div>
               <CardCarousel cards={cards}></CardCarousel>
-            </div>
+            </div> */}
           </div>
         </div>
 
         <Services data={capabilities}></Services>
 
-        <div className="container mx-auto my-20">
+        {/* <div className="container mx-auto my-20">
           <h3 className="text-dark-grey text-h4 lg:text-h3">
             {sustainability_title_4}
           </h3>
           <MDXContent content={content}></MDXContent>
-        </div>
+        </div> */}
 
         <CallToAction data={callToAction}></CallToAction>
       </section>

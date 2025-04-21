@@ -4,7 +4,7 @@ meta_title: ""
 description: "this is meta description"
 image: "/images/rockview-cartons-5.jpg"
 alt: "Rock View cartons on conveyor line"
-image2: "/images/istock-plastic-processing.jpg"
+image2: "/images/rockview-cartons-4.jpg"
 alt2: "plant processing difficulties diagram"
 
 sustainability_title: "Sustainable Cartons"
@@ -21,6 +21,8 @@ sustainability_bulletpoints:
   - "__**Grade 52:**__ Used in tissue paper production"
   - "__**Grade 54:**__ Used in mixed paper products"
   - "__**Construction materials:**__ Converted into sustainable options like roof tiles and wall boards"
+
+sustainability_title_4: "Elevating your brand with sustainable carton solutions"
 
 page_header_image: "/images/rockview-cartons-4.jpg"
 
