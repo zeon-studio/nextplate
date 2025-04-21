@@ -74,15 +74,15 @@ const OurLocations = ({ data }: { data: PageData }) => {
                       className="mb-6 text-primary font-primary animate-fade animate-duration-[600ms] ease-in"
                     />
                     <p
-                      className="md:pb-8 text-dark-grey text-md animate-fade animate-delay-[200ms] ease-in"
+                      className="md:pb-5 text-dark-grey text-md animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         locations.location_content,
                       )}
                     />
-                    <ul className="animate-fade-up animate-delay-[400ms] ease-in text-sm">
+                    <ul className="animate-fade-up animate-delay-[400ms] ease-in text-md">
                       {locations.bulletpoints &&
                         locations.bulletpoints.map((bullet: string) => (
-                          <li className="relative mb-4 pl-6" key={bullet}>
+                          <li className="relative mb-1 pl-6" key={bullet}>
                             <FaCheck
                               color="#65a30d"
                               className={"absolute left-0 top-1.5"}
