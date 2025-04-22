@@ -81,7 +81,7 @@ const About = () => {
                   <div className="md:col-8 lg:col-6 items-center mx-auto lg:pl-16">
                     <h2
                       dangerouslySetInnerHTML={markdownify(feature.title)}
-                      className="mb-6 text-h3 lg:text-h2 animate-fade animate-duration-[600ms] ease-in"
+                      className="mb-6 text-h3 lg:text-h2 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
                     />
                     <div className="content">
                       <p

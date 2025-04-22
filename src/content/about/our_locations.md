@@ -1,6 +1,6 @@
 ---
 title: "From West Coast Innovation to Midwest Reach"
-subtitle: "With over 50 years of experience rooted in our **__City of Industry, California__** headquarters, Ninth Avenue Foods has built a reputation for **quality**, **innovation**, and **family-driven values**. Now, with the expansion to a **new state-of-the-art facility** in **__Columbus, Indiana__**, we’re proud to extend that same commitment to excellence to the **heart of the Midwest**. Together, both locations position us to better serve partners and customers across the country with __cutting-edge technology__, __efficient distribution__, and a __personal touch__ in everything we do."
+subtitle: "With over 50 years of experience rooted in our **__City of Industry, California__** headquarters, Ninth Avenue Foods has built a reputation for **quality**, **innovation**, and **family-driven values**.\n\nNow, with the expansion to a **new state-of-the-art facility** in **__Columbus, Indiana__**, we’re proud to extend that same commitment to excellence to the **heart of the Midwest**. Together, both locations position us to better serve partners and customers across the country with __cutting-edge technology__, __efficient distribution__, and a __personal touch__ in everything we do."
 
 our_locations:
   - image: "/images/ninth-ave-warehouse.jpg"

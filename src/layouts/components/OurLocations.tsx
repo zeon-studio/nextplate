@@ -28,7 +28,7 @@ const OurLocations = ({ data }: { data: PageData }) => {
         <div className="text-center bg-[#f2f4ef] rounded-lg p-5 shadow-md">
           <h2
             dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-            className="mb-6 text-center text-dark-grey animate-fade animate-duration-[600ms] ease-in"
+            className="mb-6 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
           />
           <p
             className="md:pb-8 text-dark-grey text-md animate-fade animate-delay-[200ms] ease-in lg:px-24"
@@ -71,10 +71,10 @@ const OurLocations = ({ data }: { data: PageData }) => {
                       dangerouslySetInnerHTML={markdownify(
                         locations.location_title,
                       )}
-                      className="mb-6 text-primary font-primary animate-fade animate-duration-[600ms] ease-in"
+                      className="mb-2 text-primary font-primary animate-fade animate-duration-[600ms] ease-in"
                     />
                     <p
-                      className="md:pb-5 text-dark-grey text-md animate-fade animate-delay-[200ms] ease-in"
+                      className="pb-3 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
                       dangerouslySetInnerHTML={markdownify(
                         locations.location_content,
                       )}
