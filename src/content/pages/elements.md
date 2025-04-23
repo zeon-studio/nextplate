@@ -248,10 +248,10 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 ### Youtube video
 
-<Youtube id="ZEe-IFezQok" title="Play:Youtube"/>
+<Youtube id="C0DPdy98e4c" title="Play:Youtube"/>
 
 ---
 
 ### Custom video
 
-<Video width="100%" src="https://joy1.videvo.net/videvo_files/video/free/video0467/large_watermarked/_import_61516692993d77.04238324_preview.mp4" />
+<Video width="100%" src="https://www.w3schools.com/html/mov_bbb.mp4" />
