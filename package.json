@@ -1,6 +1,6 @@
 {
   "name": "nextplate",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Nextjs and Tailwindcss boilerplate",
   "author": "zeon.studio",
   "license": "MIT",
@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",
+    "@justinribeiro/lite-youtube": "^1.7.1",
     "date-fns": "^4.1.0",
     "disqus-react": "^1.1.6",
     "github-slugger": "^2.0.0",
@@ -35,7 +36,6 @@
     "react-dom": "19.1.0",
     "react-gtm-module": "^2.0.11",
     "react-icons": "^5.5.0",
-    "react-lite-youtube-embed": "^2.4.0",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "swiper": "^11.2.6"
