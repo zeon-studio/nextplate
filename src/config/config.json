@@ -34,7 +34,7 @@
   },
 
   "google_tag_manager": {
-    "enable": true,
+    "enable": false,
     "gtm_id": "GTM-XXXXXX"
   },
 
