@@ -1,6 +1,6 @@
 {
   "name": "nextplate",
-  "version": "4.1.2",
+  "version": "4.2.0",
   "description": "Nextjs and Tailwindcss boilerplate",
   "author": "zeon.studio",
   "license": "MIT",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@justinribeiro/lite-youtube": "^1.7.1",
+    "@next/third-parties": "^15.3.1",
     "date-fns": "^4.1.0",
     "disqus-react": "^1.1.6",
     "github-slugger": "^2.0.0",

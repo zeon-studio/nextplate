@@ -6,6 +6,7 @@ import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
 import "@/styles/main.css";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export default function RootLayout({
   children,
@@ -18,6 +19,12 @@ export default function RootLayout({
 
   return (
     <html suppressHydrationWarning={true} lang="en">
+      {/* google tag manager */}
+      {config.google_tag_manager.enable && (
+        <GoogleTagManager gtmId={config.google_tag_manager.gtm_id} />
+      )}
+
+      {/* head */}
       <head>
         {/* responsive meta */}
         <meta
@@ -55,6 +62,7 @@ export default function RootLayout({
         />
       </head>
 
+      {/* body */}
       <body suppressHydrationWarning={true}>
         <TwSizeIndicator />
         <Providers>
