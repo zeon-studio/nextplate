@@ -47,7 +47,7 @@ const PostSingle = async (props: {
     date,
     tags,
   } = frontmatter;
-  const similarPosts = similarItems(post, posts, post.slug!);
+  const similarPosts = similarItems(post, posts, post.slug!)?.slice(0, 3);
 
   return (
     <>
