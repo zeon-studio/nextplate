@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
         `;
   try {
     // Call sendEmail with subject and text, recipients are defined in the sendEmail function
-    await sendEmail(to, subject, text, html);
+    await sendEmail(to, subject, text, html, email);
     return NextResponse.json(
       { message: "Email sent successfully" },
       { status: 200 },
