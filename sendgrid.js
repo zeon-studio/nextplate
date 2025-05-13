@@ -5,7 +5,7 @@ export const sendEmail = async (to, subject, text, html, replyTo) => {
 
   const msg = {
     to,
-    from: process.env.SENDGRID_FROM_EMAIL,
+    from: replyTo,
     subject,
     text,
     html,

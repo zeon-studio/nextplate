@@ -1,0 +1,12 @@
+{
+  "api": {
+    "projectId": "s1zzqnwp",
+    "dataset": "production"
+  },
+  "env": {
+    "SANITY_STUDIO_ENV": "production"
+  },
+  "cli": {
+    "enabled": true
+  }
+}
