@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
   const email = formData.get("email");
   const interest = formData.get("interest");
   const message = formData.get("message");
+  const from = process.env.SENDGRID_FROM_EMAIL;
 
   const subject = "NAF Website Customer Query";
   const text = "This is a customer query from the NAF website";
@@ -87,7 +88,7 @@ export async function POST(req: NextRequest) {
         `;
   try {
     // Call sendEmail with subject and text, recipients are defined in the sendEmail function
-    await sendEmail(to, subject, text, html, email);
+    await sendEmail(to, from, subject, text, html, email);
     return NextResponse.json(
       { message: "Email sent successfully" },
       { status: 200 },
