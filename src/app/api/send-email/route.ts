@@ -1,6 +1,6 @@
 import { sendEmail } from "sendgrid"; // Adjust the path based on your project structure
 import { NextRequest, NextResponse } from "next/server";
-import { parseEnvList } from "@/helpers/PraseEnvHelpers";
+import { parseEnvList } from "@/lib/PraseEnvHelpers";
 
 export async function POST(req: NextRequest) {
   // Extract data from the request
