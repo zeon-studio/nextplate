@@ -10,11 +10,13 @@ export async function POST(req: NextRequest) {
   const email = formData.get("email");
   const interest = formData.get("interest");
   const message = formData.get("message");
-  const from = process.env.SENDGRID_FROM_EMAIL;
+  // const from = process.env.SENDGRID_FROM_EMAIL;
+  const from = "inquiries@ninthavenuefoods.com";
 
   const subject = "NAF Website Customer Query";
   const text = "This is a customer query from the NAF website";
-  const to = parseEnvList(process.env.SENDGRID_TO_EMAIL);
+  // const to = parseEnvList(process.env.SENDGRID_TO_EMAIL);
+  const to = "inquiries@ninthavenuefoods.com";
 
   const html = `<!doctype html>
         <html lang="en">
