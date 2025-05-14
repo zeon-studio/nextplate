@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.2",
+    "@sanity/export": "^3.44.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.45.0",
     "@sendgrid/mail": "^8.1.3",
