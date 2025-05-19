@@ -19,8 +19,8 @@ const Logo = ({ src, lang }: { src?: string; lang: string }) => {
   }: {
     logo: string;
     logo_darkmode: string;
-    logo_width: any;
-    logo_height: any;
+    logo_width: string | number;
+    logo_height: string | number;
     logo_text: string;
     title: string;
   } = config.site;
@@ -35,18 +35,22 @@ const Logo = ({ src, lang }: { src?: string; lang: string }) => {
       : logo;
   const logoPath = src ? src : resolvedLogo;
 
+  // Convert width and height to numbers
+  const width = typeof logo_width === 'string' ? parseInt((logo_width as string).replace("px", "")) : logo_width;
+  const height = typeof logo_height === 'string' ? parseInt((logo_height as string).replace("px", "")) : logo_height;
+
   return (
     <Link href={slugSelector(lang, "")} className="navbar-brand inline-block">
       {logoPath ? (
         <Image
-          width={logo_width.replace("px", "") * 2}
-          height={logo_height.replace("px", "") * 2}
+          width={width * 2}
+          height={height * 2}
           src={logoPath}
           alt={title}
           priority
           style={{
-            height: logo_height.replace("px", "") + "px",
-            width: logo_width.replace("px", "") + "px",
+            height: `${height}px`,
+            width: `${width}px`,
           }}
         />
       ) : logo_text ? (
