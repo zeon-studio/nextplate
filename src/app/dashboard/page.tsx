@@ -1,5 +1,8 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
+
 
 export default function page(){
    
@@ -28,7 +31,9 @@ export default function page(){
                         <p className="text-gray-600 dark:text-gray-400">This is your dashboard where you can manage your account and settings.</p>
                         <div className="mt-6">
                             <button className="btn btn-primary w-full">Go to Settings</button>
-                            <button className="btn btn-primary w-full mt-4"> Log out <Link href="/home" ></Link></button>
+                            <button className="btn btn-primary w-full mt-4" ><Link href="/">Logout</Link></button>
+                             {/* <button className="btn btn-primary w-full mt-4" onClick={() => signOut()}>Logout</button> */}
+
                         </div>
                     </div>
                 </div>
