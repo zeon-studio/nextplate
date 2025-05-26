@@ -12,6 +12,7 @@
       "name": "Elements",
       "url": "/elements"
     },
+    
     {
       "name": "Pages",
       "url": "",
@@ -42,6 +43,10 @@
           "url": "/404"
         }
       ]
+    },
+    {
+      "name": "Sign In",
+      "url":"/login"
     }
   ],
   "footer": [
