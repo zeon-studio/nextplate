@@ -130,7 +130,7 @@ const About = () => {
           <OurLocations data={our_locations} />
 
           {/* Map */}
-          <div className="bg-light-green bg-opacity-5 w-full flex items-center justify-center">
+          <div className="bg-pastel-green w-full flex items-center justify-center">
             <div className="flex flex-col text-center py-14">
               <h3
                 dangerouslySetInnerHTML={markdownify(contact_title)}
@@ -141,12 +141,10 @@ const About = () => {
                 dangerouslySetInnerHTML={markdownify(contact_content)}
               />
               <div className="relative flex items-center justify-center md:flex-row flex-col md:py-0 py-8 w-full z-0">
-                <div className="">
-                  <PointsOfContact data={data}></PointsOfContact>
-                </div>
+                <PointsOfContact data={data}></PointsOfContact>
 
-                <div className="w-full h-full">
-                  <div className="w-full lg:w-[700px] h-[400px] max-w-[700px] max-h-[450px]">
+                <div className="w-full h-full px-8">
+                  <div className="w-full lg:w-[660px] h-[400px] max-w-auto max-h-auto">
                     <Map
                       center={centerCoord}
                       position1={CALIFORNIA_COORD}

@@ -51,7 +51,7 @@ const ContactUsForm = () => {
       )}
 
       <div>
-        <div className="flex items-center md:col-6 col-7 pb-6 py-5">
+        <div className="flex items-center md:col-6 col-7 pb-6 py-5 m-8">
           <div className="flex-grow border opacity-40 border-t border-light-green invisible lg:visible"></div>
           <h5 className="lg:mx-4 text-dark-green text-xl font-light tracking-widest">
             Let&apos;s Connect
