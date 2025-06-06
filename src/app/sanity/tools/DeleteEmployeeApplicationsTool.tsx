@@ -17,19 +17,24 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
         const response = await fetch("/api/sanity-get-employee-applications");
         if (response.ok) {
           const data = await response.json();
-          setApplications(data);
 
-          const jobPositionIds = data
-            .map((app: any) => app.jobPositionID?._ref)
-            .filter(Boolean);
+          if (Array.isArray(data)) {
+            setApplications(data);
 
-          fetchJobPositions(jobPositionIds);
+            const jobPositionIds = data
+              .map((app: any) => app.jobPositionID?._ref)
+              .filter(Boolean);
+
+            fetchJobPositions(jobPositionIds);
+          } else {
+            setApplications([]); // Make sure table doesn’t crash
+          }
         } else {
           setStatus("Failed to fetch applications");
         }
       } catch (error) {
         console.error("Error fetching applications:", error);
-        setStatus("Error fetching applications.");
+        setStatus("Error fetching applications: " + String(error));
       }
     };
 
