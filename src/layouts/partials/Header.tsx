@@ -55,9 +55,7 @@ const Header = () => {
     >
       <nav className="navbar container font-secondary">
         <div className="order-0">
-          <Link href={"/"}>
-            <Logo />
-          </Link>
+          <Logo />
         </div>
 
         <input id="nav-toggle" type="checkbox" className="hidden" />
