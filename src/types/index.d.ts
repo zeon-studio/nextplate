@@ -194,6 +194,7 @@ export type JobPosition = {
   _id: string;
   jobTitle: string;
   location: string;
+  jobDescription: string;
 };
 
 export type User = {

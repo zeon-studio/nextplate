@@ -25,6 +25,7 @@ export async function getJobPositions() {
         _id,
         _createdAt,
         jobTitle,
+        jobDescription,
         location,
       }`,
     {},

@@ -10,20 +10,6 @@ interface JobPositionProps {
 }
 
 const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
-  // // Refresh the current route
-  // const router = useRouter();
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const intervalId = setInterval(() => {
-  //       console.log("Refreshing job positions...");
-  //       router.refresh();
-  //     }, 10000); // Refresh every 10 seconds
-
-  //     // Cleanup the interval on component unmount
-  //     return () => clearInterval(intervalId);
-  //   }
-  // }, [router]);
-
   return (
     <>
       <div>
@@ -31,12 +17,12 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
           jobPositions.map((data: JobPosition) => (
             <div
               key={data._id}
-              className="flex flex-row items-center justify-between bg-light-grey shadow-md rounded-lg mb-4 md:px-10 px-5 py-3"
+              className="flex flex-col items-center justify-between bg-light-grey shadow-md rounded-lg mb-4 md:px-10 px-5 py-3"
             >
               <div className="flex flex-col">
-                <div className="flex flex-row items-center">
+                <div className="flex flex-row items-center text-center">
                   <svg
-                    className="md:w-6 md:h-6 w-5 h-5 text-dark-grey mr-2"
+                    className="md:w-7 md:h-7 w-5 h-5 text-dark-grey mr-2"
                     aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -54,8 +40,8 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                     {data.jobTitle}
                   </h4>
                 </div>
-
-                <div className="flex flex-row items-center">
+                <p className="py-2 md:text-lg text-sm">{data.jobDescription}</p>
+                <div className="flex flex-row items-center pb-3">
                   <svg
                     className="md:w-5 md:h-5 w-4 h-4 mr-1 text-medium-green"
                     aria-hidden="true"
@@ -76,17 +62,17 @@ const JobPositionCard = ({ jobPositions }: JobPositionProps) => {
                     {data.location}
                   </h5>
                 </div>
+                <Link
+                  key={data._id}
+                  className="bg-primary hover:bg-dark-grey rounded-md p-2 flex justify-center md:w-[220px] w-[120px] text-white font-bold"
+                  href={{
+                    pathname: `/career/employee-application/${slugify(data.jobTitle)}`,
+                    query: data,
+                  }}
+                >
+                  <p className="md:text-lg text-xs">Apply to this position</p>
+                </Link>
               </div>
-              <Link
-                key={data._id}
-                className="bg-primary hover:bg-dark-grey rounded-md p-2 text-white font-bold"
-                href={{
-                  pathname: `/career/employee-application/${slugify(data.jobTitle)}`,
-                  query: data,
-                }}
-              >
-                <p className="md:text-lg text-xs">Apply to this position</p>
-              </Link>
             </div>
           ))}
       </div>

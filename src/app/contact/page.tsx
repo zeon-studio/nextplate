@@ -53,7 +53,7 @@ const Contact = () => {
       <PageHeader title={title} image={page_header_image} />
       <section className="section-sm">
         <div className="container">
-          <div className="flex flex-col justify-center items-center text-center pb-16">
+          <div className="flex flex-col justify-center items-center text-center pb-8">
             <div className="flex flex-row  items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

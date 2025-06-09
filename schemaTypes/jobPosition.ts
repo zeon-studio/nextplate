@@ -23,6 +23,13 @@ const jobPosition = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: "jobDescription",
+      title: "Job Description",
+      type: "string",
+      description: "Enter a short job description",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: "location",
       title: "Location",
       type: "string",

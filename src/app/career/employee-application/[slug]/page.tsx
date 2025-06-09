@@ -41,6 +41,10 @@ const EmployeeApplication = async ({
 
         <div className="lg:col-8 md:col-11 col-9 mx-auto">
           <p className="mx-auto pb-10">{data.formDescription}</p>
+          <p className="text-dark-grey pb-10">
+            <span className="font-bold">Job Description: </span>
+            {searchParams.jobDescription}
+          </p>
           <EmployeeApplicationForm
             jobPositionID={searchParams._id}
             jobPosition={searchParams.jobTitle}
