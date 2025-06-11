@@ -1,6 +1,6 @@
 ---
 title: "From West Coast Innovation to Midwest Reach"
-subtitle: "With over 50 years in __**City of Industry, California**__, Ninth Avenue Foods is built on quality, innovation, and family values. Our new, state-of-the-art facility in __**Columbus, Indiana**__ brings that same commitment to the heart of the Midwest. We’re strengthening our reach with advanced technology, efficient distribution, and a personal touch"
+subtitle: "With over 50 years in __**City of Industry, California**__, Ninth Avenue Foods is built on quality, innovation, and family values. Our new, state-of-the-art facility in __**Columbus, Indiana**__ brings that same commitment to the heart of the Midwest"
 
 our_locations:
   - image: "/images/ninth-ave-warehouse.jpg"
@@ -17,7 +17,7 @@ our_locations:
   - image: "/images/banner-image.jpg"
     alt: "Columbus Warehouse"
     location_title: "Ninth Avenue Foods Columbus, IN"
-    location_content: "**__Ninth Avenue Foods__** is proud to announce the opening of our **new Midwest headquarters** and production facility in **__Columbus, Indiana__**—our **first location outside of California**. Strategically chosen for its **skilled workforce**, **strong community values**, and **prime location** in the heart of the Midwest, Columbus will play a vital role in our continued growth and innovation in both __dairy__ and __plant-based__ beverage production."
+    location_content: "**__Ninth Avenue Foods__** is proud to announce the opening of our **new Midwest headquarters** and production facility in **__Columbus, Indiana__**. Strategically chosen for its **skilled workforce**, **strong community values**, and **prime location** in the heart of the Midwest, Columbus will play a vital role in our continued growth and innovation in both __dairy__ and __plant-based__ beverage production."
     bulletpoints:
       - "**__260,000 sq ft facility__** – A modern beverage production plant for **dairy** and **plant-based** products"
       - "**__Strategic midwest location__** – Ideal for **logistics** and **regional** distribution"

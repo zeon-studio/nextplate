@@ -9,7 +9,7 @@ description: "this is meta description"
 
 draft: false
 contact_title: "Our Locations on the Map"
-contact_content: "We are proud to showcase our **__state-of-the-art__** manufacturing facilities. Here’s where you can find us:"
+contact_content: "We are proud to showcase our **__state-of-the-art__** manufacturing facilities\n**Here’s where you can find us:**"
 
 features:
   - title: "How It All Started"

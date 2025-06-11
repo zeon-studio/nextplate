@@ -43,37 +43,44 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
 
   const fetchJobPositions = async (ids: string[]) => {
     const uniqueIds = [...new Set(ids)];
+
+    const idsToFetch = uniqueIds.filter((id) => !jobPositions[id]);
+
+    if (idsToFetch.length === 0) return;
+
     const newJobPositions: Record<
       string,
       { jobTitle: string; location: string }
     > = {};
 
-    for (const id of uniqueIds) {
-      if (!jobPositions[id]) {
+    await Promise.all(
+      idsToFetch.map(async (id) => {
         try {
           const response = await fetch(`/api/sanity-get-job-position?id=${id}`);
+          console.log("Response: ", response);
           if (response.ok) {
             const data = await response.json();
             newJobPositions[id] = {
-              jobTitle: data.jobTitle || "Position no longer available",
-              location: data.location || "Location not available",
+              jobTitle: data.jobTitle,
+              location: data.location,
             };
           } else {
             newJobPositions[id] = {
-              jobTitle: "Position no longer available",
-              location: "Location not available",
+              jobTitle: "",
+              location: "",
             };
           }
         } catch (error) {
           console.error(`Error fetching job position for ID ${id}:`, error);
           newJobPositions[id] = {
-            jobTitle: "Position no longer available",
-            location: "Location not available",
+            jobTitle: `Error fetching job position (error: ${error})`,
+            location: `Error fetching location (error: ${error})`,
           };
         }
-      }
-    }
+      }),
+    );
 
+    // Important: this merges jobPositions correctly
     setJobPositions((prev) => ({ ...prev, ...newJobPositions }));
   };
 
@@ -148,11 +155,10 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
           </thead>
           <tbody>
             {applications.map((app) => {
+              console.log("Applications: ", app);
               const jobPositionID = app.jobPositionID?._ref;
               const job = jobPositions[jobPositionID] || {};
-              const isUnavailable =
-                job.jobTitle === "Position no longer available" ||
-                job.location === "Location not available";
+              const isUnavailable = job.jobTitle === "" || job.location === "";
 
               return (
                 <tr key={app._id} className={isUnavailable ? "bg-red-100" : ""}>
@@ -169,21 +175,21 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
                   </td>
                   <td
                     className={`border border-gray-300 px-4 py-2 ${
-                      job.jobTitle === "Position no longer available"
-                        ? "text-red-600 font-bold"
-                        : ""
+                      job.jobTitle === "" ? "text-red-600 font-bold" : ""
                     }`}
                   >
-                    {job.jobTitle || "Loading..."}
+                    {job.jobTitle
+                      ? job.jobTitle
+                      : `${app.jobPosition} no longer exists`}
                   </td>
                   <td
                     className={`border border-gray-300 px-4 py-2 ${
-                      job.location === "Location not available"
-                        ? "text-red-600 font-bold"
-                        : ""
+                      job.location === "" ? "text-red-600 font-bold" : ""
                     }`}
                   >
-                    {job.location || "Loading..."}
+                    {job.location
+                      ? job.location
+                      : `${job.location} no longer exists`}
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
                     {jobPositionID || "Position no longer exists"}

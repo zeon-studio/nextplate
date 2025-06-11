@@ -99,7 +99,10 @@ export async function POST(request: Request) {
       accommodation: formData.get("accommodation") as string,
       accommodationMessage: formData.get("accommodationMessage") as string,
       jobPositionID: formData.get("jobPositionID") as string,
-      jobPosition: formData.get("jobPosition") as string,
+      jobSnapshot: {
+        jobTitle: formData.get("jobTitle") as string,
+        jobLocation: formData.get("jobLocation") as string,
+      },
       employmentExperiences, // Parsed employment experiences
       termination: formData.get("termination") as string,
       terminationMessage: formData.get("terminationMessage") as string,

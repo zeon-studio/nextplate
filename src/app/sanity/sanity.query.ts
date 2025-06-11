@@ -122,7 +122,7 @@ export async function getEmployeeApplications(): Promise<
         fname,
         mname,
         lname,
-        jobPosition,
+        jobSnapshot,
         jobPositionID,
         dateOfApplication
       }`,
@@ -151,4 +151,14 @@ export async function deleteSelectedEmployeeApplications(ids: string[]) {
     console.error("Error deleting selected applications:", error);
     throw error;
   }
+}
+
+export async function getJobSanpshot(jobPositionID: string) {
+  const jobData = await getJobPositionById(jobPositionID);
+  const jobSnapshot = {
+    jobTitle: jobData?.jobTitle || "Unknown title",
+    jobLocation: jobData?.location || "Unknown location",
+  };
+
+  return jobSnapshot;
 }

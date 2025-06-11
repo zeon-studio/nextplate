@@ -18,6 +18,26 @@ const employeeApplication = defineType({
       validation: (rule) => rule.required(),
     }),
 
+    // Preserve fields
+    defineField({
+      name: "jobSnapshot",
+      type: "object",
+      title: "Job Snapshot",
+      description: "Snapshot of job data at the time of application",
+      fields: [
+        {
+          name: "jobTitle",
+          type: "string",
+          title: "Job Title",
+        },
+        {
+          name: "jobLocation",
+          type: "string",
+          title: "Job Location",
+        },
+      ],
+    }),
+
     defineField({
       name: "jobPosition",
       type: "string",

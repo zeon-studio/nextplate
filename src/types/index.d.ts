@@ -227,7 +227,6 @@ export type EmployeeApplication = {
   accommodation: string;
   accommodationMessage: string;
   jobPositionID: string;
-  jobPosition: string;
 
   // Employment experiences should be an array of objects
   employmentExperiences: Array<{
@@ -246,6 +245,12 @@ export type EmployeeApplication = {
   terminationMessage: string;
   employmentGaps: string;
   employmentQualifications: string;
+
+  // Preserve job details
+  jobSnapshot: {
+    jobTitle: string;
+    jobLocation: string;
+  };
 
   // Education
   highschool: {

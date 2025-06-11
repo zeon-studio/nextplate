@@ -22,40 +22,40 @@ const OurLocations = ({ data }: { data: PageData }) => {
   });
 
   return (
-    <section ref={ref1} className="section-sm 2xl:col-9 xl:col-10">
+    <section ref={ref1} className="section-sm">
       {/* Our location */}
-      <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center justify-center text-center">
-          <h2
-            dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-            className="mb-6 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
-          />
-          <p
-            className="md:pb-8 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in col-10"
-            dangerouslySetInnerHTML={markdownify(data.frontmatter.subtitle)}
-          />
+      <div className="container">
+        <div className="flex flex-col items-center justify-center mx-1">
+          <div className="flex flex-col items-center justify-center text-center">
+            <h2
+              dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
+              className="mb-6 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
+            />
+            <p
+              className="text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
+              dangerouslySetInnerHTML={markdownify(data.frontmatter.subtitle)}
+            />
 
-          <div className="sm:w-1/2 w-3/4 h-[2px] bg-gradient-to-r from-light-green via-green-500 to-dark-green my-4"></div>
-        </div>
+            <div className="sm:w-1/2 w-3/4 h-[2px] bg-gradient-to-r from-light-green via-green-500 to-dark-green mt-4"></div>
+          </div>
 
-        <div className="flex flex-col items-center justify-center lg:pt-10 pt-8">
-          {data.frontmatter.our_locations.map(
-            (locations: Our_locations, index) => (
-              <div
-                key={index}
-                className={`w-full py-12 ${
-                  inView1
-                    ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
-                    : ""
-                }`}
-              >
+          <div className="flex flex-col items-center justify-center">
+            {data.frontmatter.our_locations.map(
+              (locations: Our_locations, index) => (
                 <div
-                  className={`flex flex-col-reverse lg:flex-row ${
-                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } gap-8 items-center w-full`}
+                  key={index}
+                  className={`w-full pt-20 ${
+                    inView1
+                      ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
+                      : ""
+                  }`}
                 >
-                  {/* Image */}
-                  <div className="w-full lg:w-1/2">
+                  <div
+                    className={`flex flex-col-reverse lg:flex-row ${
+                      index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    } gap-8 items-center w-full`}
+                  >
+                    {/* Image */}
                     <ExpandableImage
                       className="w-full h-auto rounded-md shadow-md object-cover"
                       src={locations.image}
@@ -63,35 +63,35 @@ const OurLocations = ({ data }: { data: PageData }) => {
                       height={720}
                       alt={locations.alt}
                     />
-                  </div>
 
-                  {/* Text */}
-                  <div className="w-full lg:w-1/2 px-4">
-                    <h4
-                      dangerouslySetInnerHTML={markdownify(
-                        locations.location_title,
-                      )}
-                      className="mb-2 text-primary font-primary text-xl animate-fade animate-duration-[600ms] ease-in"
-                    />
-                    <p
-                      className="pb-3 text-dark-grey text-md animate-fade animate-delay-[200ms] ease-in"
-                      dangerouslySetInnerHTML={markdownify(
-                        locations.location_content,
-                      )}
-                    />
-                    <ul className="animate-fade-up animate-delay-[400ms] ease-in text-md py-2 list-disc pl-5">
-                      {locations.bulletpoints?.map((point, i) => (
-                        <li
-                          key={i}
-                          dangerouslySetInnerHTML={markdownify(point)}
-                        />
-                      ))}
-                    </ul>
+                    {/* Text */}
+                    <div className="w-full">
+                      <h3
+                        dangerouslySetInnerHTML={markdownify(
+                          locations.location_title,
+                        )}
+                        className="mb-2 text-primary font-primary animate-fade animate-duration-[600ms] ease-in"
+                      />
+                      <p
+                        className="pb-3 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
+                        dangerouslySetInnerHTML={markdownify(
+                          locations.location_content,
+                        )}
+                      />
+                      <ul className="animate-fade-up animate-delay-[400ms] ease-in text-lg py-2 list-disc pl-5">
+                        {locations.bulletpoints?.map((point, i) => (
+                          <li
+                            key={i}
+                            dangerouslySetInnerHTML={markdownify(point)}
+                          />
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ),
-          )}
+              ),
+            )}
+          </div>
         </div>
       </div>
     </section>

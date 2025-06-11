@@ -1,6 +1,9 @@
 import EmployeeApplicationForm from "@/components/EmployeeApplicationForm";
 import Image from "next/image";
-import { getEmployeePageContent } from "@/app/sanity/sanity.query";
+import {
+  getEmployeePageContent,
+  getJobSanpshot,
+} from "@/app/sanity/sanity.query";
 
 const EmployeeApplication = async ({
   params,
@@ -9,7 +12,8 @@ const EmployeeApplication = async ({
   params: { slug: string };
   searchParams: { [key: string]: string };
 }) => {
-  const data = await getEmployeePageContent();
+  const employeeApplication = await getEmployeePageContent();
+  const jobSnapshot = await getJobSanpshot(searchParams._id);
 
   return (
     <>
@@ -18,7 +22,7 @@ const EmployeeApplication = async ({
           <div className="w-full lg:h-64 md:h-48 h-40 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-black/10"></div>
             <Image
-              src={data.imageUrl}
+              src={employeeApplication.imageUrl}
               alt="Ninth Ave Foods Warehouse"
               className="w-full lg:h-64 md:h-48 h-40 object-cover object-center"
               width={1839}
@@ -40,14 +44,15 @@ const EmployeeApplication = async ({
         </div>
 
         <div className="lg:col-8 md:col-11 col-9 mx-auto">
-          <p className="mx-auto pb-10">{data.formDescription}</p>
+          <p className="mx-auto pb-10">{employeeApplication.formDescription}</p>
           <p className="text-dark-grey pb-10">
             <span className="font-bold">Job Description: </span>
             {searchParams.jobDescription}
           </p>
           <EmployeeApplicationForm
             jobPositionID={searchParams._id}
-            jobPosition={searchParams.jobTitle}
+            jobTitle={jobSnapshot.jobTitle}
+            jobLocation={jobSnapshot.jobLocation}
           ></EmployeeApplicationForm>
         </div>
       </section>

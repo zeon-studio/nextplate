@@ -22,10 +22,12 @@ type EmploymentExperienceList = EmploymentExperience[];
 
 const EmployeeApplicationForm = ({
   jobPositionID,
-  jobPosition,
+  jobTitle,
+  jobLocation,
 }: {
   jobPositionID: string;
-  jobPosition: string;
+  jobTitle: string;
+  jobLocation: string;
 }) => {
   const [isFormSubmitted, setFormSubmitted] = useState<boolean>(false);
   const [isCreateEmployeeAppSuccessful, setIsCreateEmployeeAppSuccessful] =
@@ -327,7 +329,8 @@ const EmployeeApplicationForm = ({
       // Append the experiences array as a JSON string to the formData
       formData.append("employmentExperiences", JSON.stringify(experiences));
       formData.append("jobPositionID", jobPositionID); // Add this data to be connected content
-      formData.append("jobPosition", jobPosition);
+      formData.append("jobTitle", jobTitle);
+      formData.append("jobLocation", jobLocation);
 
       // Submit the form data
       const response = await fetch("/api/submit", {
