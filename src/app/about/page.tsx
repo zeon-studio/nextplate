@@ -123,38 +123,40 @@ const About = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center py-14">
-          {/* Our capabilities */}
-          <Services data={capabilities} />
-          {/* Our locations */}
-          <OurLocations data={our_locations} />
+        <div className="container">
+          <div className="flex flex-col items-center justify-center py-14  mx-1">
+            {/* Our capabilities */}
+            <Services data={capabilities} />
+            {/* Our locations */}
+            <OurLocations data={our_locations} />
+          </div>
+        </div>
 
-          {/* Map Section */}
-          <div className="bg-pastel-green w-full flex items-center justify-center">
-            <div className="flex flex-col lg:flex-row w-full">
-              {/* Left Side - Text Content */}
-              <div className="lg:w-1/2 w-full flex flex-col justify-center text-center items-center mt-8">
-                <h3
-                  dangerouslySetInnerHTML={markdownify(contact_title)}
-                  className="mb-1 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
+        {/* Map Section */}
+        <div className="bg-pastel-green w-full flex items-center justify-center">
+          <div className="flex flex-col lg:flex-row w-full">
+            {/* Left Side - Text Content */}
+            <div className="lg:w-1/2 w-full flex flex-col justify-center text-center items-center mt-8">
+              <h3
+                dangerouslySetInnerHTML={markdownify(contact_title)}
+                className="mb-1 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
+              />
+              <p
+                className="text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
+                dangerouslySetInnerHTML={markdownify(contact_content)}
+              />
+
+              <PointsOfContact data={data} />
+            </div>
+
+            {/* Right Side - Full Height & Width Map */}
+            <div className="lg:w-4/5 w-full h-auto flex">
+              <div className="w-full h-[400px] lg:h-auto z-0">
+                <Map
+                  center={centerCoord}
+                  position1={CALIFORNIA_COORD}
+                  position2={INDIANA_COORD}
                 />
-                <p
-                  className="text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
-                  dangerouslySetInnerHTML={markdownify(contact_content)}
-                />
-
-                <PointsOfContact data={data} />
-              </div>
-
-              {/* Right Side - Full Height & Width Map */}
-              <div className="lg:w-4/5 w-full h-auto flex">
-                <div className="w-full h-[400px] lg:h-auto z-0">
-                  <Map
-                    center={centerCoord}
-                    position1={CALIFORNIA_COORD}
-                    position2={INDIANA_COORD}
-                  />
-                </div>
               </div>
             </div>
           </div>

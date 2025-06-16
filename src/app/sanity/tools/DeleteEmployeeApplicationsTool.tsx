@@ -25,7 +25,7 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
               .map((app: any) => app.jobPositionID?._ref)
               .filter(Boolean);
 
-            fetchJobPositions(jobPositionIds);
+            await fetchJobPositions(jobPositionIds);
           } else {
             setApplications([]); // Make sure table doesn’t crash
           }
@@ -57,19 +57,12 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
       idsToFetch.map(async (id) => {
         try {
           const response = await fetch(`/api/sanity-get-job-position?id=${id}`);
+          const data = await response.json();
           console.log("Response: ", response);
-          if (response.ok) {
-            const data = await response.json();
-            newJobPositions[id] = {
-              jobTitle: data.jobTitle,
-              location: data.location,
-            };
-          } else {
-            newJobPositions[id] = {
-              jobTitle: "",
-              location: "",
-            };
-          }
+          newJobPositions[id] = {
+            jobTitle: data.jobTitle,
+            location: data.location,
+          };
         } catch (error) {
           console.error(`Error fetching job position for ID ${id}:`, error);
           newJobPositions[id] = {
@@ -140,16 +133,19 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
                 Name
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left">
-                Job Position
+                Job Title
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left">
-                Location
+                Job Location
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left">
                 Job Position ID
               </th>
               <th className="border border-gray-300 px-4 py-2 text-left">
                 Date of Application
+              </th>
+              <th className="border border-gray-300 px-4 py-2 text-left">
+                Is Job Position still Available?
               </th>
             </tr>
           </thead>
@@ -158,7 +154,8 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
               console.log("Applications: ", app);
               const jobPositionID = app.jobPositionID?._ref;
               const job = jobPositions[jobPositionID] || {};
-              const isUnavailable = job.jobTitle === "" || job.location === "";
+              const isUnavailable =
+                job.jobTitle === undefined || job.location === undefined;
 
               return (
                 <tr key={app._id} className={isUnavailable ? "bg-red-100" : ""}>
@@ -180,7 +177,7 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
                   >
                     {job.jobTitle
                       ? job.jobTitle
-                      : `${app.jobPosition} no longer exists`}
+                      : `${app.jobSnapshot.jobTitle}`}
                   </td>
                   <td
                     className={`border border-gray-300 px-4 py-2 ${
@@ -189,13 +186,26 @@ const DeleteEmployeeApplicationsToolComponent: React.FC = () => {
                   >
                     {job.location
                       ? job.location
-                      : `${job.location} no longer exists`}
+                      : `${app.jobSnapshot.jobLocation}`}
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
                     {jobPositionID || "Position no longer exists"}
                   </td>
                   <td className="border border-gray-300 px-4 py-2">
                     {app.dateOfApplication}
+                  </td>
+
+                  <td className="border border-gray-300 px-4 py-2">
+                    {isUnavailable ? (
+                      <span>
+                        The <b>{app.jobSnapshot.jobTitle}</b> title at location{" "}
+                        <b>{app.jobSnapshot.jobLocation}</b> no longer exists
+                      </span>
+                    ) : (
+                      <span>
+                        <b>Yes</b>
+                      </span>
+                    )}
                   </td>
                 </tr>
               );

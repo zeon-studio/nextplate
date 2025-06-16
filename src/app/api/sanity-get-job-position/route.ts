@@ -21,7 +21,7 @@ export async function GET(request: Request) {
 
     if (!jobPositions || jobPositions.length === 0) {
       return NextResponse.json(
-        { message: "No job positions found" },
+        { message: "Job position does not exist" },
         { status: 404 },
       );
     }
