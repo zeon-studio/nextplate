@@ -1,0 +1,66 @@
+{
+  "media": {
+    "root": "public/images",
+    "public": "public/"
+  },
+  "content": {
+    "root": "src/content"
+  },
+  "themeConfig": [],
+  "arrangement": [
+    {
+      "type": "file",
+      "targetPath": "src/content/homepage/_index.md",
+      "groupName": "Homepage"
+    },
+    {
+      "type": "file",
+      "targetPath": "src/content/about/_index.md",
+      "groupName": "About"
+    },
+    {
+      "type": "file",
+      "targetPath": "src/content/contact/_index.md",
+      "groupName": "Contact"
+    },
+    {
+      "type": "file",
+      "targetPath": "src/content/blog/_index.md",
+      "groupName": "Blog-Index"
+    },
+    {
+      "type": "folder",
+      "targetPath": "src/content/blog",
+      "groupName": "Blogs",
+      "include": "*.md, *.mdx",
+      "exclude": "!*index.md, !index*"
+    },
+    {
+      "type": "file",
+      "targetPath": "src/content/authors/_index.md",
+      "groupName": "Author-Index"
+    },
+    {
+      "type": "folder",
+      "targetPath": "src/content/authors",
+      "groupName": "Authors",
+      "include": "*.md, *.mdx",
+      "exclude": "!*index.md"
+    },
+    {
+      "type": "folder",
+      "targetPath": "src/content/pages",
+      "groupName": "pages",
+      "include": "*.md",
+      "exclude": "!*index.md"
+    },
+    {
+      "type": "folder",
+      "targetPath": "src/content/sections",
+      "groupName": "Sections",
+      "include": "*.md",
+      "exclude": ""
+    }
+  ],
+  "showCommitModal": false
+}
