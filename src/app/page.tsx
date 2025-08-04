@@ -131,7 +131,7 @@ const Home = () => {
         </div>
       </section>
 
-      {features.map((feature, index: number) => (
+      { features.map((feature, index: number) => (
         <section key={index} className="section-sm xl:mx-20 mx-8">
           <div className="row items-center justify-center">
             <div
@@ -140,7 +140,7 @@ const Home = () => {
               }`}
             >
               <ExpandableImage
-                src={feature.image}
+                src={feature.image ?? ""}
                 alt="Ninth Ave Foods Industrial Warehouse"
                 className="w-full h-auto rounded-lg"
                 width={1920}

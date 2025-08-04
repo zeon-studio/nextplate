@@ -22,6 +22,10 @@ features:
       label: "Contact Us"
       link: "contact"
 
+locations_title: "From West Coast Innovation to Midwest Reach"
+locations_subtitle: "With over 50 years in City of Industry, California, Ninth Avenue Foods is built on quality, innovation, and family values. Our new, state-of-the-art facility in Columbus, Indiana brings that same commitment to the heart of the Midwest"
+locations_subtitle2: "Find more details about our locations below"
+
 # Point of Contact Locations
 pointOfContactLocations:
   - title: "Our locations:"

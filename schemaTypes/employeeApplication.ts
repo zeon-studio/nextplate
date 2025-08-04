@@ -1,6 +1,7 @@
 import { defineField, defineType } from "sanity";
 import { BiSolidFile } from "react-icons/bi";
 
+// https://www.sanity.io/docs/studio/file-type
 const employeeApplication = defineType({
   name: "employeeApplication",
   title: "Employee Application",
@@ -9,6 +10,15 @@ const employeeApplication = defineType({
   icon: BiSolidFile,
 
   fields: [
+    // Field with accept option set to PDF
+    defineField({
+      name: "pdfFile",
+      type: "file",
+      options: {
+        accept: "application/pdf",
+      },
+    }),
+
     defineField({
       name: "jobPositionID",
       type: "reference",

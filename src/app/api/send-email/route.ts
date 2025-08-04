@@ -1,4 +1,4 @@
-import { sendEmail } from "sendgrid"; // Adjust the path based on your project structure
+import { sendEmail } from "@/lib/sendgrid"; // Adjust the path based on your project structure
 import { NextRequest, NextResponse } from "next/server";
 import { parseEnvList } from "@/lib/PraseEnvHelpers";
 
