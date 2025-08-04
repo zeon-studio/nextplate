@@ -4,7 +4,7 @@ import Image from "next/image";
 import { markdownify } from "@/lib/utils/textConverter";
 import { useInView } from "react-intersection-observer";
 import { Our_locations } from "@/types";
-import { FaCheck } from "react-icons/fa6";
+import { HiArrowLongRight } from "react-icons/hi2";
 import ExpandableImage from "./ExpandableImage";
 
 interface PageData {
@@ -24,73 +24,67 @@ const OurLocations = ({ data }: { data: PageData }) => {
   return (
     <section ref={ref1}>
       {/* Our location */}
+
       <div className="flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center justify-center text-center">
-          <h2
-            dangerouslySetInnerHTML={markdownify(data.frontmatter.title)}
-            className="mb-6 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
-          />
-          <p
-            className="text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
-            dangerouslySetInnerHTML={markdownify(data.frontmatter.subtitle)}
-          />
-
-          <div className="sm:w-1/2 w-3/4 h-[2px] bg-gradient-to-r from-light-green via-green-500 to-dark-green mt-4"></div>
-        </div>
-
-        <div className="flex flex-col items-center justify-center">
-          {data.frontmatter.our_locations.map(
-            (locations: Our_locations, index) => (
+        {data.frontmatter.our_locations.map(
+          (locations: Our_locations, index) => (
+            <div
+              key={index}
+              className={`w-full pt-20 ${
+                inView1
+                  ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
+                  : ""
+              }`}
+            >
               <div
-                key={index}
-                className={`w-full pt-20 ${
-                  inView1
-                    ? "animate-fade-up animate-duration-[500ms] animate-delay-[400ms]"
-                    : ""
-                }`}
+                className={`flex flex-col lg:flex-row items-center ${
+                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse mt-14"
+                } md:gap-8 gap-12 items-center`}
               >
-                <div
-                  className={`flex flex-col lg:flex-row ${
-                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } gap-8 items-center w-full`}
-                >
-                  {/* Image */}
+                {/* Image */}
+                <div className="lg:h-[570px] md:h-[400px] h-[250px] sm:h-[350px] xl:w-5/6 w-full relative bottom-20">
+                  <h3
+                    dangerouslySetInnerHTML={markdownify(
+                      locations.location_title,
+                    )}
+                    className="mb-8 text-dark-grey font-primary animate-fade animate-duration-[600ms] ease-in"
+                  />
                   <ExpandableImage
-                    className="w-full h-auto rounded-md shadow-md object-cover"
+                    className="rounded-sm shadow-md"
                     src={locations.image}
-                    width={1280}
-                    height={720}
+                    fill
                     alt={locations.alt}
                   />
+                </div>
 
-                  {/* Text */}
-                  <div className="lg:col-6 w-full">
-                    <h3
-                      dangerouslySetInnerHTML={markdownify(
-                        locations.location_title,
-                      )}
-                      className="mb-2 text-primary font-primary animate-fade animate-duration-[600ms] ease-in"
-                    />
-                    <p
-                      className="pb-3 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
-                      dangerouslySetInnerHTML={markdownify(
-                        locations.location_content,
-                      )}
-                    />
-                    <ul className="animate-fade-up animate-delay-[400ms] ease-in text-lg py-2 list-disc pl-5">
-                      {locations.bulletpoints?.map((point, i) => (
-                        <li
-                          key={i}
-                          dangerouslySetInnerHTML={markdownify(point)}
+                {/* Text */}
+                <div
+                  className={`flex flex-col xl:w-4/5 w-full  ${
+                    index % 2 === 0 ? "" : ""
+                  } `}
+                >
+                  <p
+                    className="pb-6 text-dark-grey text-lg animate-fade animate-delay-[200ms] ease-in"
+                    dangerouslySetInnerHTML={markdownify(
+                      locations.location_content,
+                    )}
+                  />
+                  <ul className="animate-fade-up animate-delay-[400ms] ease-in text-lg lg:col-9">
+                    {locations.bulletpoints?.map((point, i) => (
+                      <li className="relative mb-4 pl-6" key={i}>
+                        <HiArrowLongRight
+                          color="#65a30d"
+                          className={"absolute left-0 top-1.5"}
                         />
-                      ))}
-                    </ul>
-                  </div>
+                        <span dangerouslySetInnerHTML={markdownify(point)} />
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            ),
-          )}
-        </div>
+            </div>
+          ),
+        )}
       </div>
     </section>
   );

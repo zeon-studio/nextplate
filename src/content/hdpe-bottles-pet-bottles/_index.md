@@ -41,7 +41,7 @@ card:
 # Card Carousel
 cards:
   - image: "/images/card-carousel/carbon-footprint.jpg"
-    text: "Mechanical recycling has an approximate 50% lower GHG emission rate vs the production of virgin HDPE and PET resin"
+    text: "Bottles made with recycled HDPE or PET produce up to 50% fewer emissions than those made with new plastic"
     title: "Efficient"
     subtitle: "Reduced Carbon Footprint"
   - image: "/images/card-carousel/recycle-materials.jpg"

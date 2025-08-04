@@ -4,15 +4,18 @@ import { useEffect, useState } from "react";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { humanize } from "@/lib/utils/textConverter";
 import Image from "next/image";
+import { markdownify } from "@/lib/utils/textConverter";
 
 const PageHeader = ({
   title,
   subtitle,
   image,
+  variant = "default",
 }: {
   title: string;
   subtitle?: string;
   image?: string;
+  variant?: "default" | "overlayTextBox" | "minimalOverlay";
 }) => {
   const [scrollY, setScrollY] = useState(0);
 
@@ -66,24 +69,62 @@ const PageHeader = ({
           )}
 
           {/* Title, Subtitle, and Breadcrumbs */}
-          <div className="relative">
-            <h1 className={`${image ? "text-white" : "text-dark-grey"}`}>
-              {humanize(title)}
-            </h1>
-            <p
-              className={`sm:text-xl sm:col-7 mx-auto ${
-                image ? "text-white" : "text-dark-grey"
-              }`}
-            >
-              {subtitle ? humanize(subtitle) : ""}
-            </p>
-            <Breadcrumbs
-              className={`mt-6 text-lg ${
-                image ? "text-white" : "text-dark-grey"
-              }`}
-              spanClassName={`${image ? "text-white" : "text-primary"}`}
-            />
-          </div>
+
+          {variant === "default" && (
+            <div className="relative">
+              <h1 className={`${image ? "text-white" : "text-dark-grey"}`}>
+                {humanize(title)}
+              </h1>
+              <p
+                className={`sm:text-xl sm:col-7 mx-auto ${
+                  image ? "text-white" : "text-dark-grey"
+                }`}
+              >
+                {subtitle ? humanize(subtitle) : ""}
+              </p>
+              <Breadcrumbs
+                className={`mt-6 text-lg ${
+                  image ? "text-white" : "text-dark-grey"
+                }`}
+                spanClassName={`${image ? "text-white" : "text-primary"}`}
+              />
+            </div>
+          )}
+
+          {variant === "overlayTextBox" && (
+            <div className="relative">
+              <div className="absolute left-[470px] top-28">
+                <Image
+                  src={"/images/sustainability/planet-earth.png"}
+                  alt="Ninth Ave Foods Warehouse"
+                  className="w-[150px] h-[150px]"
+                  width={300}
+                  height={300}
+                />
+              </div>
+              <div className="flex flex-col justify-start text-left sm:col-6">
+                <h1 className={`${image ? "text-white" : "text-dark-grey"} `}>
+                  {humanize(title)}
+                </h1>
+
+                <p
+                  className={`sm:text-xl bg-primary rounded-xs p-9 m-10 ${
+                    image ? "text-white" : "text-dark-grey"
+                  }`}
+                  dangerouslySetInnerHTML={markdownify(
+                    subtitle ? subtitle : "",
+                  )}
+                />
+              </div>
+
+              <Breadcrumbs
+                className={`mt-6 text-lg ${
+                  image ? "text-white" : "text-dark-grey"
+                }`}
+                spanClassName={`${image ? "text-white" : "text-primary"}`}
+              />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -5,19 +5,39 @@ import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-const ExpandableImage = ({ src, alt, className, width, height }: any) => {
+interface ExpandableImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+  width?: number;
+  height?: number;
+  fill?: boolean;
+  priority?: boolean;
+}
+
+const ExpandableImage = ({
+  src,
+  alt,
+  className = "",
+  width,
+  height,
+  fill = false,
+  priority = false,
+}: ExpandableImageProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      {/* Thumbnail Image */}
-      <div className={`cursor-pointer`} onClick={() => setIsOpen(true)}>
+      <div
+        className={`${fill ? "relative w-full h-full" : ""} cursor-pointer`}
+        onClick={() => setIsOpen(true)}
+      >
         <Image
           src={src}
           alt={alt}
-          width={width}
-          height={height}
-          className={`${className} relative w-full h-full`}
+          className={`${fill ? "object-cover" : ""} ${className}`}
+          {...(fill ? { fill: true, sizes: "100vw" } : { width, height })}
+          priority={priority}
         />
       </div>
 
@@ -26,10 +46,10 @@ const ExpandableImage = ({ src, alt, className, width, height }: any) => {
         <Lightbox
           open={isOpen}
           close={() => setIsOpen(false)}
-          slides={[{ src }]} // You can add more images to the slides array if needed
+          slides={[{ src }]}
           render={{
-            buttonPrev: () => null, // Disable previous button
-            buttonNext: () => null, // Disable next button
+            buttonPrev: () => null,
+            buttonNext: () => null,
           }}
         />
       )}

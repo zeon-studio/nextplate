@@ -1,12 +1,9 @@
 ---
-title: "From West Coast Innovation to Midwest Reach"
-subtitle: "With over 50 years in __**City of Industry, California**__, Ninth Avenue Foods is built on quality, innovation, and family values. Our new, state-of-the-art facility in __**Columbus, Indiana**__ brings that same commitment to the heart of the Midwest"
-
 our_locations:
   - image: "/images/ninth-ave-warehouse.jpg"
     alt: "City of Industry Warehouse"
     location_title: "Ninth Avenue Foods Industry, CA"
-    location_content: "Based in **__City of Industry, California__**, Ninth Avenue Foods is a **fourth-generation**, **family-owned** company with over **50 years of experience** in the dairy industry. Known for our commitment to quality and personal service, we combine __cutting-edge technology__ with time-honored values to bring innovative beverage products from concept to shelf."
+    location_content: "Based in **__City of Industry, California__**, Ninth Avenue Foods is a fourth-generation, family-owned dairy company with over **__50 years of experience__**. We blend advanced technology with traditional values to deliver **high-quality**, **innovative** beverage products."
     bulletpoints:
       - "**__State-of-the-art ESL facility__** – Built for **high-quality** dairy and beverage manufacturing"
       - "**__Family-owned for four generations__** – Rooted in tradition, driven by **innovation**"
@@ -17,7 +14,7 @@ our_locations:
   - image: "/images/banner-image.jpg"
     alt: "Columbus Warehouse"
     location_title: "Ninth Avenue Foods Columbus, IN"
-    location_content: "**__Ninth Avenue Foods__** is proud to announce the opening of our **new Midwest headquarters** and production facility in **__Columbus, Indiana__**. Strategically chosen for its **skilled workforce**, **strong community values**, and **prime location** in the heart of the Midwest, Columbus will play a vital role in our continued growth and innovation in both __dairy__ and __plant-based__ beverage production."
+    location_content: "Ninth Avenue Foods is excited to open our **__new__** Midwest headquarters and production facility in **__Columbus, Indiana__**. Chosen for its skilled workforce, community values, and central location, Columbus will be key to our growth in both **dairy** and **plant-based** beverage production."
     bulletpoints:
       - "**__260,000 sq ft facility__** – A modern beverage production plant for **dairy** and **plant-based** products"
       - "**__Strategic midwest location__** – Ideal for **logistics** and **regional** distribution"

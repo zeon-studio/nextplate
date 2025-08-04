@@ -78,7 +78,7 @@ const About = () => {
                       height={1080}
                     />
                   )}
-                  <div className="md:col-8 lg:col-6 items-center mx-auto lg:pl-16">
+                  <div className="lg:col-6 items-center mx-auto lg:pl-16">
                     <h2
                       dangerouslySetInnerHTML={markdownify(feature.title)}
                       className="mb-6 text-h3 lg:text-h2 text-dark-grey animate-fade animate-duration-[600ms] ease-in"
@@ -123,17 +123,45 @@ const About = () => {
           </div>
         </div>
 
-        <div className="container">
-          <div className="flex flex-col items-center justify-center py-14  mx-1">
-            {/* Our capabilities */}
-            <Services data={capabilities} />
-            {/* Our locations */}
+        <div className="flex flex-col items-center justify-center py-14">
+          <Services data={capabilities} />
+          <div className="flex flex-col items-center py-8 bg-primary w-full">
+            <h2
+              dangerouslySetInnerHTML={markdownify(
+                data.frontmatter.locations_title,
+              )}
+              className="mb-6 text-white animate-fade animate-duration-[600ms] ease-in lg:col-8 col-10"
+            />
+            <p
+              className="text-white text-lg animate-fade animate-delay-[200ms] ease-in lg:col-8 col-10"
+              dangerouslySetInnerHTML={markdownify(
+                data.frontmatter.locations_subtitle,
+              )}
+            />
+
+            <div className="flex flex-col pt-4 items-start lg:col-8 col-10">
+              <p
+                className="text-white text-lg animate-fade animate-delay-[200ms] ease-in"
+                dangerouslySetInnerHTML={markdownify(
+                  data.frontmatter.locations_subtitle2,
+                )}
+              />
+              <Image
+                height={50}
+                width={50}
+                src="/images/down-arrow.png"
+                alt="down-arrow"
+                className="flex relative h-8 w-8 right-3 mt-4"
+              />
+            </div>
+          </div>
+          <div className="w-5/6 py-14">
             <OurLocations data={our_locations} />
           </div>
         </div>
 
         {/* Map Section */}
-        <div className="bg-pastel-green w-full flex items-center justify-center">
+        <div className="bg-pastel-green w-full flex items-center justify-center px-4">
           <div className="flex flex-col lg:flex-row w-full">
             {/* Left Side - Text Content */}
             <div className="lg:w-1/2 w-full flex flex-col justify-center text-center items-center mt-8">
