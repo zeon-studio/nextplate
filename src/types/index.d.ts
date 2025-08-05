@@ -173,6 +173,13 @@ export type Card = {
   button: Button;
 };
 
+export type Highlight = {
+  logo?: string;
+  title: string;
+  subtitle: string;
+  detail: string;
+};
+
 export type ProfileType = {
   _id: string;
   fullName: string;

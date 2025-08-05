@@ -1,10 +1,8 @@
-import Image from "next/image";
-import MDXContent from "@/helpers/MDXContent";
 import PageHeader from "@/partials/PageHeader";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
-import { Feature } from "@/types";
+import { Feature, Highlight } from "@/types";
 import Link from "next/link";
 import PointsOfContact from "@/partials/PointsOfContact";
 import dynamic from "next/dynamic";
@@ -13,6 +11,7 @@ import Services from "@/partials/Services";
 import CallToAction from "@/partials/CallToAction";
 import OurLocations from "@/components/OurLocations";
 import ExpandableImage from "@/components/ExpandableImage";
+import HighlightBanner from "@/partials/HighlightBanner";
 import {
   CALIFORNIA_COORD,
   INDIANA_COORD,
@@ -35,6 +34,8 @@ const About = () => {
     contact_title,
     contact_content,
   } = frontmatter;
+  const { locations_highlight }: { locations_highlight: Highlight } =
+    frontmatter;
   const { features }: { features: Feature[] } = frontmatter;
   const centerCoord = calculateCenterCoordinates(
     CALIFORNIA_COORD,
@@ -125,36 +126,7 @@ const About = () => {
 
         <div className="flex flex-col items-center justify-center py-14">
           <Services data={capabilities} />
-          <div className="flex flex-col items-center py-8 bg-primary w-full">
-            <h2
-              dangerouslySetInnerHTML={markdownify(
-                data.frontmatter.locations_title,
-              )}
-              className="mb-6 text-white animate-fade animate-duration-[600ms] ease-in lg:col-8 col-10"
-            />
-            <p
-              className="text-white text-lg animate-fade animate-delay-[200ms] ease-in lg:col-8 col-10"
-              dangerouslySetInnerHTML={markdownify(
-                data.frontmatter.locations_subtitle,
-              )}
-            />
-
-            <div className="flex flex-col pt-4 items-start lg:col-8 col-10">
-              <p
-                className="text-white text-lg animate-fade animate-delay-[200ms] ease-in"
-                dangerouslySetInnerHTML={markdownify(
-                  data.frontmatter.locations_subtitle2,
-                )}
-              />
-              <Image
-                height={50}
-                width={50}
-                src="/images/down-arrow.png"
-                alt="down-arrow"
-                className="flex relative h-8 w-8 right-3 mt-4"
-              />
-            </div>
-          </div>
+          <HighlightBanner data={locations_highlight} />
           <div className="w-5/6 py-14">
             <OurLocations data={our_locations} />
           </div>
