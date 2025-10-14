@@ -34,6 +34,7 @@ const Contact = async () => {
                     className="form-input"
                     placeholder="John Doe"
                     type="text"
+                    required
                   />
                 </div>
                 <div className="mb-6">
@@ -46,6 +47,7 @@ const Contact = async () => {
                     className="form-input"
                     placeholder="john.doe@email.com"
                     type="email"
+                    required
                   />
                 </div>
                 <div className="mb-6">
@@ -58,6 +60,7 @@ const Contact = async () => {
                     className="form-input"
                     placeholder="Message goes here..."
                     rows={8}
+                    required
                   ></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary">
