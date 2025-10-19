@@ -10,7 +10,7 @@
 
 <p align=center>
 
-  <a href="https://github.com/vercel/next.js/releases/tag/v15.5.5" alt="Contributors">
+  <a href="https://github.com/vercel/next.js/releases/tag/v15.5.6" alt="Contributors">
     <img src="https://img.shields.io/static/v1?label=NEXTJS&message=15.5&color=000&logo=nextjs" />
   </a>
 
@@ -60,7 +60,7 @@
 
 ### 📦 Dependencies
 
-- next 15.5+
+- next 15.6+
 - node v22.10+
 - npm v10.2+
 - tailwind v4.0+

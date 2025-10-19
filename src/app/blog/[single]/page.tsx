@@ -74,7 +74,7 @@ const PostSingle = async (props: { params: Promise<{ single: string }> }) => {
                 dangerouslySetInnerHTML={markdownify(title)}
                 className="h2 mb-4"
               />
-              <ul className="mb-4">
+              <ul className="mb-8">
                 <li className="mr-4 inline-block">
                   <Link href={`/authors/${slugify(author)}`}>
                     <FaRegUserCircle className={"-mt-1 mr-2 inline-block"} />
