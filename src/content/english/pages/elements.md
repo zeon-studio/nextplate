@@ -2,6 +2,7 @@
 title: "Elements"
 meta_title: ""
 description: "this is meta description"
+image: ""
 draft: false
 ---
 
@@ -133,7 +134,8 @@ window.addEventListener("load", (e) => {
 
 ### Button
 
-<Button label="Button" link="#" style="solid"/>
+<Button label="Solid" link="#" style="solid"/>
+<Button label="Outline" link="#" style="outline"/>
 
 ---
 

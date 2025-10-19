@@ -1,7 +1,8 @@
 ---
 title: Privacy
-meta_title: ''
+meta_title: ""
 description: this is meta description
+image: ""
 draft: false
 ---
 

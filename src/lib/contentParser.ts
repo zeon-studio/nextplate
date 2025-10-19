@@ -26,9 +26,14 @@ export const getListPage = (filePath: string) => {
 
   const pageData = readFile(pageDataPath);
   const { content, data: frontmatter } = matter(pageData);
+  const parsedFrontmatter = parseFrontmatter(frontmatter);
+
+  if (parsedFrontmatter.draft) {
+    notFound();
+  }
 
   return {
-    frontmatter: parseFrontmatter(frontmatter),
+    frontmatter: parsedFrontmatter,
     content,
   };
 };

@@ -5,7 +5,7 @@ export type RegularPage = {
     description?: string;
     meta_title?: string;
     layout?: string;
-    draft?: boolean;
+    draft: boolean;
   };
   content: string;
   slug?: string;
@@ -21,7 +21,7 @@ export type Post = {
     author: string;
     tags: string[];
     date?: string;
-    draft?: boolean;
+    draft: boolean;
   };
   slug?: string;
   content?: string;
@@ -33,6 +33,7 @@ export type Author = {
     image?: string;
     description?: string;
     meta_title?: string;
+    draft: boolean;
     social: [
       {
         name: string;
