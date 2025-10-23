@@ -1,10 +1,11 @@
 "use client";
 
 import searchData from ".json/search.json" assert { type: "json" };
+import { useI18n } from "@/locales/client";
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
 
-const SearchModal = ({ lang }: { lang: string }) => {
+const SearchModal = () => {
   const [searchString, setSearchString] = useState("");
 
   // handle input change
@@ -41,12 +42,9 @@ const SearchModal = ({ lang }: { lang: string }) => {
     }
   };
 
-  // filter language specific search data
-  const filterSearchData = searchData.filter((item) => item.lang === lang);
-
   // get search result
   const startTime = performance.now();
-  const searchResult = doSearch(filterSearchData);
+  const searchResult = doSearch(searchData);
   const endTime = performance.now();
   const totalTime = ((endTime - startTime) / 1000).toFixed(3);
 
@@ -128,6 +126,8 @@ const SearchModal = ({ lang }: { lang: string }) => {
     });
   }, [searchString]);
 
+  const t = useI18n();
+
   return (
     <div id="searchModal" className="search-modal">
       <div id="searchModalOverlay" className="search-modal-overlay" />
@@ -167,7 +167,7 @@ const SearchModal = ({ lang }: { lang: string }) => {
           </label>
           <input
             id="searchInput"
-            placeholder="Search..."
+            placeholder={t("search")}
             className="search-wrapper-header-input"
             type="input"
             name="search"
@@ -177,11 +177,7 @@ const SearchModal = ({ lang }: { lang: string }) => {
             autoComplete="off"
           />
         </div>
-        <SearchResult
-          searchResult={searchResult}
-          searchString={searchString}
-          lang={lang}
-        />
+        <SearchResult searchResult={searchResult} searchString={searchString} />
         <div className="search-wrapper-footer">
           <span className="flex items-center">
             <kbd>
@@ -224,8 +220,9 @@ const SearchModal = ({ lang }: { lang: string }) => {
           </span>
           {searchString && (
             <span>
-              <strong>{searchResult.length} </strong> results - in{" "}
-              <strong>{totalTime} </strong> seconds
+              <strong>{searchResult.length} </strong> {t("search_results")} -{" "}
+              {t("search_in")} <strong>{totalTime} </strong>{" "}
+              {t("search_seconds")}
             </span>
           )}
           <span>

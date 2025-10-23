@@ -2,8 +2,12 @@ import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 
 // get all taxonomies from frontmatter
-export const getTaxonomy = (folder: string, name: string): Array<string> => {
-  const singlePages = getSinglePage(folder);
+export const getTaxonomy = async (
+  folder: string,
+  name: string,
+  disableCurrentLocale = false,
+): Promise<string[]> => {
+  const singlePages = await getSinglePage(folder, disableCurrentLocale);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
   let taxonomies = [];
   for (let i = 0; i < taxonomyPages?.length; i++) {
@@ -17,8 +21,8 @@ export const getTaxonomy = (folder: string, name: string): Array<string> => {
   return taxonomy;
 };
 
-export const getAllTaxonomy = (folder: string, name: string) => {
-  const singlePages = getSinglePage(folder);
+export const getAllTaxonomy = async (folder: string, name: string) => {
+  const singlePages = await getSinglePage(folder);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
   let taxonomies = [];
   for (let i = 0; i < taxonomyPages?.length; i++) {

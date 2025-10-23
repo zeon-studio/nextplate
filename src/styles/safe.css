@@ -11,7 +11,7 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply block;
 }
 
-/* swiper pagination  */
+/* swiper pagination */
 .swiper-pagination {
   @apply mt-9 flex items-center justify-center space-x-2 text-center;
 }

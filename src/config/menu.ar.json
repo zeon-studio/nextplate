@@ -1,0 +1,57 @@
+{
+  "main": [
+    {
+      "name": "الرئيسية",
+      "url": "/"
+    },
+    {
+      "name": "حول",
+      "url": "/about"
+    },
+    {
+      "name": "العناصر",
+      "url": "/elements"
+    },
+    {
+      "name": "الصفحات",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "اتصل بنا",
+          "url": "/contact"
+        },
+        {
+          "name": "مدونة",
+          "url": "/blog"
+        },
+        {
+          "name": "المؤلفون",
+          "url": "/authors"
+        },
+        {
+          "name": "التصنيفات",
+          "url": "/categories"
+        },
+        {
+          "name": "الكلمات المفتاحية",
+          "url": "/tags"
+        },
+        {
+          "name": "صفحة 404",
+          "url": "/404"
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "العناصر",
+      "url": "/elements"
+    },
+    {
+      "name": "سياسة الخصوصية",
+      "url": "/privacy-policy"
+    }
+  ]
+}

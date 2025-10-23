@@ -1,51 +1,28 @@
-import languages from "@/config/language.json";
-import { slugSelector } from "@/lib/utils/slugSelector";
-import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useState } from "react";
+import config from "@/config/config.json";
+import { useChangeLocale, useCurrentLocale } from "@/locales/client";
 
+const localeConfig = config.internationalization;
 export default function LanguageSwitcher({
   className,
-  lang,
 }: {
   className?: string;
-  lang: string;
 }) {
-  const [language, setLanguage] = useState(lang);
-  const router = useRouter();
-  const pathname = usePathname();
-
-  const redirectedPathName = useCallback(
-    (locale: string) => {
-      const hasLocale = languages.some((lang) => {
-        return pathname.includes(lang.languageCode);
-      });
-      const sliceNumber = hasLocale ? 2 : 1;
-      router.push(
-        slugSelector(locale, pathname.split("/").slice(sliceNumber).join("/")),
-      );
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [pathname],
-  );
+  const changeLocale = useChangeLocale({ preserveSearchParams: true });
+  const currentLocale = useCurrentLocale();
 
   return (
     <select
       name="language"
-      value={language}
+      value={currentLocale}
       className={className}
       onChange={(e) => {
         const language = e.target.value;
-        setLanguage(language);
-        redirectedPathName(language);
+        changeLocale(language as any);
       }}
     >
-      {languages.map((language) => (
-        <option
-          key={language.languageCode}
-          id={language.languageCode}
-          value={language.languageCode.toLowerCase()}
-        >
-          {language.languageName}
+      {localeConfig.locales.map((locale) => (
+        <option key={locale} id={locale} value={locale}>
+          {localeConfig.localeDetails.find((l) => l.value === locale)?.name}
         </option>
       ))}
     </select>

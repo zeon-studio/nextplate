@@ -1,10 +1,14 @@
+"server only";
+
+import config from "@/config/config.json";
+import { getCurrentLocale } from "@/locales/server";
 import fs from "fs";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
 import path from "path";
-
 const contentPath = "src/content";
 
+const localeConfig = config.internationalization;
 // Helper function to read file content
 const readFile = (filePath: string) => {
   return fs.readFileSync(filePath, "utf-8");
@@ -16,9 +20,21 @@ const parseFrontmatter = (frontmatter: any) => {
   return JSON.parse(frontmatterString);
 };
 
-// get list page data, ex: _index.md
-export const getListPage = (filePath: string) => {
-  const pageDataPath = path.join(contentPath, filePath);
+export const getListPage = async (filePath: string, locale?: string) => {
+  const currentLocale = await getCurrentLocale();
+  const finalLocale = locale || currentLocale;
+  let pageDataPath = path.join(contentPath, finalLocale, filePath);
+
+  // Fallback to default locale if file doesn't exist in current locale
+  if (!fs.existsSync(pageDataPath)) {
+    if (localeConfig.enablePageLocaleFallback) {
+      pageDataPath = path.join(
+        contentPath,
+        localeConfig.defaultLocale,
+        filePath,
+      );
+    }
+  }
 
   if (!fs.existsSync(pageDataPath)) {
     notFound();
@@ -39,8 +55,14 @@ export const getListPage = (filePath: string) => {
 };
 
 // get all single pages, ex: blog/post.md
-export const getSinglePage = (folder: string) => {
-  const folderPath = path.join(contentPath, folder);
+export const getSinglePage = async (
+  folder: string,
+  disableCurrentLocale = false,
+) => {
+  const currentLocale = disableCurrentLocale
+    ? localeConfig.defaultLocale
+    : await getCurrentLocale();
+  let folderPath = path.join(contentPath, currentLocale, folder);
 
   if (!fs.existsSync(folderPath) || !fs.lstatSync(folderPath).isDirectory()) {
     notFound();
@@ -52,6 +74,7 @@ export const getSinglePage = (folder: string) => {
     file.match(/^(?!_)/),
   );
 
+  // TODO: Handle fallback to default locale if no files found in current locale
   const singlePages = filterSingleFiles.map((filename) => {
     const slug = filename.replace(".md", "");
     const filePath = path.join(folderPath, filename);

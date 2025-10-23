@@ -1,19 +1,13 @@
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { humanize } from "@/lib/utils/textConverter";
-import React from "react";
 
-const PageHeader = ({
-  title,
-  children,
-}: {
-  title: string;
-  children?: React.ReactNode;
-}) => {
+const PageHeader = ({ title }: { title: string }) => {
   return (
     <section>
       <div className="container text-center">
         <div className="rounded-2xl bg-gradient-to-b from-body to-light px-8 py-14 dark:from-darkmode-body dark:to-darkmode-light">
           <h1>{humanize(title)}</h1>
-          {children}
+          <Breadcrumbs className="mt-6" />
         </div>
       </div>
     </section>

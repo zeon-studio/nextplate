@@ -1,38 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 
-import {
+import React, {
   KeyboardEvent,
   ReactElement,
-  ReactNode,
+  RefObject,
   useEffect,
   useRef,
   useState,
 } from "react";
 
-// Define an interface for Tab props
+// Define an interface for the Tab props
 interface TabProps {
   name: string;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-// Extend ReactElement to include our custom props
-type TabElement = ReactElement<TabProps>;
-
-function Tabs({ children }: { children: TabElement[] }) {
+function Tabs({ children }: { children: ReactElement<TabProps>[] }) {
   const [active, setActive] = useState(0);
-  const tabItemsRef = useRef<(HTMLElement | null)[]>([]);
+  const tabItemsRef: RefObject<HTMLElement[]> = useRef([]);
   const [defaultFocus, setDefaultFocus] = useState(false);
 
   useEffect(() => {
     if (defaultFocus) {
-      tabItemsRef.current[active]?.focus();
+      tabItemsRef.current?.[active]?.focus();
     } else {
       setDefaultFocus(true);
     }
-  }, [active]);
+  }, [active, defaultFocus]);
 
-  // Typed handleKeyDown
+  // Change tab item on key down
   const handleKeyDown = (
     event: KeyboardEvent<HTMLLIElement>,
     index: number,
@@ -58,7 +54,11 @@ function Tabs({ children }: { children: TabElement[] }) {
             onClick={() => setActive(index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             ref={(ref) => {
-              tabItemsRef.current[index] = ref;
+              if (ref) {
+                const current = tabItemsRef.current || [];
+                current[index] = ref;
+                tabItemsRef.current = current;
+              }
             }}
           >
             {item.props.name}

@@ -1,0 +1,22 @@
+export default {
+  full_name: "Full Name",
+  full_name_placeholder: "Enter your full name",
+  mail: "Working Mail",
+  mail_placeholder: "john.doe@email.com",
+  message: "Anything else?",
+  message_placeholder: "Message goes here...",
+  submit: "Submit",
+  read_more: "Read More",
+  categories: "Categories",
+  tags: "Tags",
+  share: "Share",
+  related_posts: "Related Posts",
+  page_not_found: "Page not found",
+  page_not_found_content:
+    "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+  back_to_home: "back to home",
+  search: "Search...",
+  search_results: "results",
+  search_in: "in",
+  search_seconds: "seconds",
+} as const;

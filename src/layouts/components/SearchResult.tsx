@@ -1,11 +1,10 @@
 "use client";
 
-import { slugSelector } from "@/lib/utils/slugSelector";
 import { plainify, titleify } from "@/lib/utils/textConverter";
+import { useCurrentLocale } from "@/locales/client";
 import Image from "next/image";
 
 export interface ISearchItem {
-  lang: string;
   group: string;
   slug: string;
   frontmatter: {
@@ -37,12 +36,17 @@ export interface ISearchGroup {
 const SearchResult = ({
   searchResult,
   searchString,
-  lang,
 }: {
   searchResult: ISearchItem[];
   searchString: string;
-  lang: string;
 }) => {
+  const currentLocale = useCurrentLocale();
+
+  // Filter results by current locale
+  const filteredResults = searchResult.filter(
+    (item) => item.group === currentLocale,
+  );
+
   // generate search result group
   const generateSearchGroup = (searchResult: ISearchItem[]) => {
     const joinDataByGroup: ISearchGroup[] = searchResult.reduce(
@@ -75,7 +79,7 @@ const SearchResult = ({
     );
     return joinDataByGroup;
   };
-  const finalResult = generateSearchGroup(searchResult);
+  const finalResult = generateSearchGroup(filteredResults);
 
   // match marker
   const matchMarker = (text: string, substring: string) => {
@@ -161,7 +165,7 @@ const SearchResult = ({
                     )}
                     <div className="search-result-item-body">
                       <a
-                        href={`${slugSelector(lang, item.slug)}`}
+                        href={`/${item.slug}`}
                         className="search-result-item-title search-result-item-link"
                       >
                         {matchUnderline(item.frontmatter.title, searchString)}

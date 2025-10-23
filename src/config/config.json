@@ -16,13 +16,28 @@
     "search": true,
     "sticky_header": true,
     "theme_switcher": true,
-    "default_theme": "light",
+    "default_theme": "dark",
     "pagination": 2,
     "summary_length": 200,
-    "blog_folder": "blog",
-    "default_language": "en",
-    "disable_languages": [],
-    "default_language_in_subdir": false
+    "blog_folder": "blog"
+  },
+
+  "internationalization": {
+    "defaultLocale": "en",
+    "locales": ["en", "fr"],
+    "localeDetails": [
+      {
+        "name": "English",
+        "flag": "/images/uk.svg",
+        "value": "en"
+      },
+      {
+        "name": "French",
+        "flag": "/images/fr.svg",
+        "value": "fr"
+      }
+    ],
+    "enablePageLocaleFallback": true
   },
 
   "params": {

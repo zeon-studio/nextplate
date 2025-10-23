@@ -1,0 +1,22 @@
+export default {
+  full_name: "Nom complet",
+  full_name_placeholder: "Entrez votre nom complet",
+  mail: "Adresse e-mail professionnelle",
+  mail_placeholder: "john.doe@email.com",
+  message: "Autre chose ?",
+  message_placeholder: "Votre message ici...",
+  submit: "Envoyer",
+  read_more: "En savoir plus",
+  categories: "Catégories",
+  tags: "Tags",
+  share: "Partager",
+  related_posts: "Articles connexes",
+  page_not_found: "Page non trouvée",
+  page_not_found_content:
+    "La page que vous recherchez a peut-être été supprimée, renommée ou est temporairement indisponible.",
+  back_to_home: "Retour à l'accueil",
+  search: "Recherche...",
+  search_results: "résultats",
+  search_in: "dans",
+  search_seconds: "secondes",
+} as const;
