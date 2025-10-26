@@ -1,13 +1,6 @@
 "use client";
 
-import React, {
-  KeyboardEvent,
-  ReactElement,
-  RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { KeyboardEvent, ReactElement, useRef, useState } from "react";
 
 // Define an interface for the Tab props
 interface TabProps {
@@ -17,16 +10,7 @@ interface TabProps {
 
 function Tabs({ children }: { children: ReactElement<TabProps>[] }) {
   const [active, setActive] = useState(0);
-  const tabItemsRef: RefObject<HTMLElement[]> = useRef([]);
-  const [defaultFocus, setDefaultFocus] = useState(false);
-
-  useEffect(() => {
-    if (defaultFocus) {
-      tabItemsRef.current?.[active]?.focus();
-    } else {
-      setDefaultFocus(true);
-    }
-  }, [active, defaultFocus]);
+  const tabItemsRef = useRef<Array<HTMLElement | null>>([]);
 
   // Change tab item on key down
   const handleKeyDown = (
@@ -54,11 +38,9 @@ function Tabs({ children }: { children: ReactElement<TabProps>[] }) {
             onClick={() => setActive(index)}
             onKeyDown={(e) => handleKeyDown(e, index)}
             ref={(ref) => {
-              if (ref) {
-                const current = tabItemsRef.current || [];
-                current[index] = ref;
-                tabItemsRef.current = current;
-              }
+              const current = tabItemsRef.current || [];
+              current[index] = ref;
+              tabItemsRef.current = current;
             }}
           >
             {item.props.name}
