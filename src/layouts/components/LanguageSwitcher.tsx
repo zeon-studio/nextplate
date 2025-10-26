@@ -20,9 +20,9 @@ export default function LanguageSwitcher({
         changeLocale(language as any);
       }}
     >
-      {localeConfig.locales.map((locale) => (
-        <option key={locale} id={locale} value={locale}>
-          {localeConfig.localeDetails.find((l) => l.value === locale)?.name}
+      {localeConfig.localeDetails.map((locale) => (
+        <option key={locale.value} id={locale.value} value={locale.value}>
+          {locale.name}
         </option>
       ))}
     </select>
