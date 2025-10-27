@@ -31,7 +31,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
       <ol className="inline-flex" role="list">
         {parts.map(({ label, ...attrs }, index) => (
           <li className="mx-1 capitalize" role="listitem" key={index}>
-            {index > 0 && <span className="inlin-block mr-1">/</span>}
+            {index > 0 && <span className="inline-block mr-1">/</span>}
             {index !== parts.length - 1 ? (
               <Link
                 className="text-primary dark:text-darkmode-primary"
