@@ -28,12 +28,14 @@ const BlogCard = async ({ data }: { data: Post }) => {
       <ul className="mb-4">
         <li className="mr-4 inline-block">
           <Link href={`/authors/${slugify(author)}`}>
-            <FaRegUserCircle className={"-mt-1 mr-2 inline-block"} />
+            <FaRegUserCircle
+              className={"-mt-1 ltr:mr-2 rtl:ml-2 inline-block"}
+            />
             {humanize(author)}
           </Link>
         </li>
         <li className="mr-4 inline-block">
-          <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
+          <FaRegFolder className={"-mt-1 ltr:mr-2 rtl:ml-2 inline-block"} />
           {categories?.map((category: string, index: number) => (
             <Link key={index} href={`/categories/${slugify(category)}`}>
               {humanize(category)}

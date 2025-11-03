@@ -36,7 +36,7 @@
 }
 
 .notice-head svg {
-  @apply mr-3;
+  @apply ltr:mr-3 rtl:ml-3;
 }
 
 .notice-head p {

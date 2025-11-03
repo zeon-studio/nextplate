@@ -53,7 +53,7 @@
   @apply absolute top-0 right-0 bottom-0 left-0 z-10 content-[""];
 }
 .search-result-item-image {
-  @apply shrink-0 mr-3.5;
+  @apply shrink-0 ltr:mr-3.5 rtl:ml-3.5;
 }
 .search-result-item-image img {
   @apply w-[60px] h-[60px] md:w-[100px] md:h-[100px] rounded-[4px] object-cover;
