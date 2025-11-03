@@ -53,19 +53,11 @@ draft: false
 
 [Je suis un lien de style en ligne avec titre](https://www.google.com "Page d'accueil de Google")
 
-[Je suis un lien de style référence][texte de référence arbitraire insensible à la casse]
-
 [Je suis une référence relative à un fichier de dépôt](../blob/master/LICENSE)
-
-Ou laissez-le vide et utilisez le [texte du lien lui-même].
 
 example.com (mais pas sur Github, par exemple).
 
 Un peu de texte pour montrer que les liens de référence peuvent suivre plus tard.
-
-[texte de référence arbitraire insensible à la casse]: https://www.themefisher.com
-[1]: https://gethugothemes.com
-[texte du lien lui-même]: https://www.getjekyllthemes.com
 
 ---
 
