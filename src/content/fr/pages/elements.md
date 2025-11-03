@@ -57,8 +57,6 @@ draft: false
 
 [Je suis une référence relative à un fichier de dépôt](../blob/master/LICENSE)
 
-[Vous pouvez utiliser des numéros pour les définitions de liens de style référence][1]
-
 Ou laissez-le vide et utilisez le [texte du lien lui-même].
 
 example.com (mais pas sur Github, par exemple).
