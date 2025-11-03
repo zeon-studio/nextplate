@@ -3,6 +3,7 @@ import config from "@/config/config.json";
 import theme from "@/config/theme.json";
 import TwSizeIndicator from "@/helpers/TwSizeIndicator";
 import { getLocaleMenu } from "@/lib/getLocaleMenu";
+import { getDir } from "@/lib/utils/checkRTL";
 import { I18nProviderClient } from "@/locales/client";
 import { getStaticParams } from "@/locales/server";
 import Footer from "@/partials/Footer";
@@ -22,11 +23,14 @@ export default async function RootLayout({
   const pf = theme.fonts.font_family.primary;
   const sf = theme.fonts.font_family.secondary;
 
-  const locale = await params.then((p) => p.locale);
+  const { locale } = await params;
   const currentLocaleMenu = await getLocaleMenu(locale);
 
+  // RTL Support
+  const dir = await getDir();
+
   return (
-    <html suppressHydrationWarning={true} lang={locale}>
+    <html suppressHydrationWarning={true} lang={locale} dir={dir}>
       {/* google tag manager */}
       {config.google_tag_manager.enable && (
         <GoogleTagManager gtmId={config.google_tag_manager.gtm_id} />

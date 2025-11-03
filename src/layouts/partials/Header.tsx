@@ -4,6 +4,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
+import { getDirClient } from "@/lib/utils/checkRTLClient";
 import { SiteMenu } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,6 +38,8 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
   }, [pathname]);
 
   // return <div>{JSON.stringify(menus)}</div>;
+
+  const dir = getDirClient();
 
   return (
     <header
@@ -164,7 +167,7 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
           <ThemeSwitcher className="mr-5" />
           {navigation_button.enable && (
             <Link
-              className="btn btn-outline-primary btn-sm hidden lg:inline-block"
+              className={`btn btn-outline-primary btn-sm hidden lg:inline-block in-rtl:mr-5`}
               href={navigation_button.link}
             >
               {navigation_button.label}

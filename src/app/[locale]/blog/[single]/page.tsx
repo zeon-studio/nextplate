@@ -76,12 +76,16 @@ export default async function PostSingle(props: {
               <ul className="mb-8">
                 <li className="mr-4 inline-block">
                   <Link href={`/authors/${slugify(author)}`}>
-                    <FaRegUserCircle className={"-mt-1 mr-2 inline-block"} />
+                    <FaRegUserCircle
+                      className={"-mt-1 ltr:mr-2 rtl:ml-2 inline-block"}
+                    />
                     {humanize(author)}
                   </Link>
                 </li>
                 <li className="mr-4 inline-block">
-                  <FaRegFolder className={"-mt-1 mr-2 inline-block"} />
+                  <FaRegFolder
+                    className={"-mt-1 ltr:mr-2 rtl:ml-2 inline-block"}
+                  />
                   {categories?.map((category: string, index: number) => (
                     <Link
                       key={category}
@@ -94,7 +98,7 @@ export default async function PostSingle(props: {
                 </li>
                 {date && (
                   <li className="mr-4 inline-block">
-                    <FaRegClock className="-mt-1 mr-2 inline-block" />
+                    <FaRegClock className="-mt-1 ltr:mr-2 rtl:ml-2 inline-block" />
                     {dateFormat(date)}
                   </li>
                 )}
@@ -104,7 +108,7 @@ export default async function PostSingle(props: {
               </div>
               <div className="row items-start justify-between">
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">
-                  <h5 className="mr-3">Tags :</h5>
+                  <h5 className="ltr:mr-3 rtl:ml-3">Tags :</h5>
                   <ul>
                     {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">
@@ -119,7 +123,7 @@ export default async function PostSingle(props: {
                   </ul>
                 </div>
                 <div className="flex items-center lg:col-4">
-                  <h5 className="mr-3">{t("share")} :</h5>
+                  <h5 className="ltr:mr-3 rtl:ml-3">{t("share")} :</h5>
                   <Share
                     className="social-icons"
                     title={title}

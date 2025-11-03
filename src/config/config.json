@@ -26,6 +26,11 @@
     "defaultLocale": "en",
     "locales": [
       {
+        "name": "Arabic",
+        "flag": "/images/ar.svg",
+        "value": "ar"
+      },
+      {
         "name": "English",
         "flag": "/images/uk.svg",
         "value": "en"
@@ -36,7 +41,8 @@
         "value": "fr"
       }
     ],
-    "enablePageLocaleFallback": true
+    "enablePageLocaleFallback": true,
+    "enableRTL": true
   },
 
   "params": {
