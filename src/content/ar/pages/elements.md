@@ -66,7 +66,6 @@ example.com (ولكن ليس على Github ، على سبيل المثال).
 قليلا من النص لإظهار أن الروابط المرجعية يمكن أن تتبع لاحقًا.
 
 [نص مرجعي عشوائي غير حساس لحالة الأحرف]: https://www.themefisher.com
-[1]: https://gethugothemes.com
 [نص الرابط نفسه]: https://www.getjekyllthemes.com
 
 ---
