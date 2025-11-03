@@ -24,8 +24,7 @@
 
   "internationalization": {
     "defaultLocale": "en",
-    "locales": ["en", "fr"],
-    "localeDetails": [
+    "locales": [
       {
         "name": "English",
         "flag": "/images/uk.svg",

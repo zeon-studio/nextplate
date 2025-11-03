@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 const localeConfig = configFile.internationalization;
 
 const I18nMiddleware = createI18nMiddleware({
-  locales: localeConfig.locales,
+  locales: localeConfig.locales.map((loc) => loc.value),
   defaultLocale: localeConfig.defaultLocale,
   urlMappingStrategy: "rewriteDefault",
 });

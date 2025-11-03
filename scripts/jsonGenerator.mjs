@@ -59,12 +59,12 @@ try {
   const allPosts = [];
 
   localeConfig.locales.forEach((locale) => {
-    const posts = getData(`src/content/${locale}/blog`, 2);
+    const posts = getData(`src/content/${locale.value}/blog`, 2);
     allPosts.push(...posts);
 
     // optionally save per-locale files
     fs.writeFileSync(
-      `${JSON_FOLDER}/posts-${locale}.json`,
+      `${JSON_FOLDER}/posts-${locale.value}.json`,
       JSON.stringify(posts),
     );
   });
