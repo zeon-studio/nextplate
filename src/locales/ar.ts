@@ -19,4 +19,6 @@ export default {
   search_results: "نتائج",
   search_in: "في",
   search_seconds: "ثواني",
+  announcement:
+    "<span class='text-center block'>♥️ هل تحب Nextplate؟ <a class='underline' href='https://github.com/zeon-studio/nextplate' target='_blank' rel='noopener'>شكرًا لك على ⭐️ على Github</a></span>",
 } as const;

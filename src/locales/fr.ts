@@ -19,4 +19,6 @@ export default {
   search_results: "résultats",
   search_in: "dans",
   search_seconds: "secondes",
+  announcement:
+    "<span class='text-center block'>♥️ Vous aimez Nextplate? <a class='underline' href='https://github.com/zeon-studio/nextplate' target='_blank' rel='noopener'>Merci de ⭐️ sur Github</a></span>",
 } as const;

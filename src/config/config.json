@@ -12,6 +12,11 @@
     "logo_text": "Nextplate"
   },
 
+  "announcement": {
+    "enable": true,
+    "expire_days": 7
+  },
+
   "settings": {
     "search": true,
     "sticky_header": true,

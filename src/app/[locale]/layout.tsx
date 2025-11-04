@@ -1,6 +1,7 @@
 import SearchModal from "@/components/SearchModal";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
+import Announcement from "@/helpers/Announcement";
 import TwSizeIndicator from "@/helpers/TwSizeIndicator";
 import { getLocaleMenu } from "@/lib/getLocaleMenu";
 import { getDir } from "@/lib/utils/checkRTL";
@@ -67,9 +68,8 @@ export default async function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href={`https://fonts.googleapis.com/css2?family=${pf}${
-            sf ? "&family=" + sf : ""
-          }&display=swap`}
+          href={`https://fonts.googleapis.com/css2?family=${pf}${sf ? "&family=" + sf : ""
+            }&display=swap`}
           rel="stylesheet"
         />
       </head>
@@ -79,6 +79,7 @@ export default async function RootLayout({
         <TwSizeIndicator />
         <Providers>
           <I18nProviderClient locale={locale}>
+            <Announcement locale={locale} />
             <Header currentLocaleMenu={currentLocaleMenu} />
             <SearchModal />
             <main>{children}</main>
