@@ -7,6 +7,7 @@
 .pnp.js
 yarn.lock
 package-lock.json
+/public/sitemap-0.xml
 
 # testing
 /coverage

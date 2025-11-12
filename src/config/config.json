@@ -57,7 +57,7 @@
 
   "navigation_button": {
     "enable": true,
-    "label": "Get Started",
+    "label": "i18n_get_started",
     "link": "https://github.com/zeon-studio/nextplate"
   },
 

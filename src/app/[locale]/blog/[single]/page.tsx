@@ -108,7 +108,7 @@ export default async function PostSingle(props: {
               </div>
               <div className="row items-start justify-between">
                 <div className="mb-10 flex items-center lg:col-5 lg:mb-0">
-                  <h5 className="ltr:mr-3 rtl:ml-3">Tags :</h5>
+                  <h5 className="ltr:mr-3 rtl:ml-3">{t("tags")} :</h5>
                   <ul>
                     {tags?.map((tag: string) => (
                       <li key={tag} className="inline-block">

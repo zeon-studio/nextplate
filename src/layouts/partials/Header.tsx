@@ -4,7 +4,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
-import { getDirClient } from "@/lib/utils/checkRTLClient";
+import { useI18n } from "@/locales/client";
 import { SiteMenu } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,7 +39,7 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
 
   // return <div>{JSON.stringify(menus)}</div>;
 
-  const dir = getDirClient();
+  const t = useI18n();
 
   return (
     <header
@@ -145,7 +145,7 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
                 className="btn btn-outline-primary btn-sm"
                 href={navigation_button.link}
               >
-                {navigation_button.label}
+                {t(navigation_button.label as "i18n_get_started")}
               </Link>
             </li>
           )}
@@ -170,7 +170,7 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
               className={`btn btn-outline-primary btn-sm hidden lg:inline-block in-rtl:mr-5`}
               href={navigation_button.link}
             >
-              {navigation_button.label}
+              {t(navigation_button.label as "i18n_get_started")}
             </Link>
           )}
         </div>

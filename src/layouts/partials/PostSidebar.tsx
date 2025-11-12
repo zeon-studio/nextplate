@@ -1,7 +1,8 @@
 import { humanize } from "@/lib/utils/textConverter";
+import { getI18n } from "@/locales/server";
 import Link from "next/link";
 
-const PostSidebar = ({
+const PostSidebar = async ({
   tags,
   categories,
   allCategories,
@@ -10,11 +11,12 @@ const PostSidebar = ({
   categories: string[];
   allCategories: string[];
 }) => {
+  const t = await getI18n();
   return (
     <div className="lg:col-4">
       {/* <!-- categories --> */}
       <div className="mb-8">
-        <h5 className="mb-6">Categories</h5>
+        <h5 className="mb-6">{t("categories")}</h5>
         <div className="rounded bg-light p-8 dark:bg-darkmode-light">
           <ul className="space-y-4">
             {categories.map((category: string) => {
@@ -37,7 +39,7 @@ const PostSidebar = ({
       </div>
       {/* <!-- tags --> */}
       <div className="mb-8">
-        <h5 className="mb-6">Tags</h5>
+        <h5 className="mb-6">{t("tags")}</h5>
         <div className="rounded bg-light p-6 dark:bg-darkmode-light">
           <ul>
             {tags.map((tag: string) => {

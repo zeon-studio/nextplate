@@ -21,4 +21,5 @@ export default {
   search_seconds: "secondes",
   announcement:
     "<span class='text-center block'>♥️ Vous aimez Nextplate? <a class='underline' href='https://github.com/zeon-studio/nextplate' target='_blank' rel='noopener'>Merci de ⭐️ sur Github</a></span>",
+  i18n_get_started: "Commencer",
 } as const;
