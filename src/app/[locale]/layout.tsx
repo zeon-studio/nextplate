@@ -68,8 +68,9 @@ export default async function RootLayout({
           crossOrigin="anonymous"
         />
         <link
-          href={`https://fonts.googleapis.com/css2?family=${pf}${sf ? "&family=" + sf : ""
-            }&display=swap`}
+          href={`https://fonts.googleapis.com/css2?family=${pf}${
+            sf ? "&family=" + sf : ""
+          }&display=swap`}
           rel="stylesheet"
         />
       </head>
