@@ -1,10 +1,11 @@
 "use client";
 
 import config from "@/config/config.json";
+import useMounted from "@/hooks/useMounted";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 
 const Logo = ({ src }: { src?: string }) => {
   // destructuring items from config object
@@ -25,31 +26,51 @@ const Logo = ({ src }: { src?: string }) => {
   } = config.site;
 
   const { theme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
-  const resolvedLogo =
-    mounted && (theme === "dark" || resolvedTheme === "dark")
-      ? logo_darkmode
-      : logo;
-  const logoPath = src ? src : resolvedLogo;
+  // Helper to parse sizes like "24px" or number values.
+  const parseSize = (value: string | number | undefined, fallback = 0) => {
+    if (typeof value === "number")
+      return Number.isFinite(value) ? value : fallback;
+    if (!value) return fallback;
+    const s = String(value).trim();
+    const numeric = s.endsWith("px") ? s.slice(0, -2) : s;
+    const n = Number.parseInt(numeric, 10);
+    return Number.isFinite(n) ? n : fallback;
+  };
 
-  // Convert width and height to numbers
-  const width = typeof logo_width === 'string' ? parseInt((logo_width as string).replace("px", "")) : logo_width;
-  const height = typeof logo_height === 'string' ? parseInt((logo_height as string).replace("px", "")) : logo_height;
+  const { imgWidth, imgHeight, resolvedLogo } = useMemo(() => {
+    const w = parseSize(logo_width, 0);
+    const h = parseSize(logo_height, 0);
+    const resolved =
+      mounted && (theme === "dark" || resolvedTheme === "dark")
+        ? logo_darkmode
+        : logo;
+    return { imgWidth: w, imgHeight: h, resolvedLogo: resolved };
+  }, [
+    logo_width,
+    logo_height,
+    logo,
+    logo_darkmode,
+    mounted,
+    theme,
+    resolvedTheme,
+  ]);
+
+  const logoPath = src ?? resolvedLogo;
 
   return (
     <Link href="/" className="navbar-brand inline-block">
       {logoPath ? (
         <Image
-          width={width * 2}
-          height={height * 2}
+          width={imgWidth * 2}
+          height={imgHeight * 2}
           src={logoPath}
-          alt={title}
+          alt={title || "Site logo"}
           priority
           style={{
-            height: `${height}px`,
-            width: `${width}px`,
+            height: `${imgHeight}px`,
+            width: `${imgWidth}px`,
           }}
         />
       ) : logo_text ? (

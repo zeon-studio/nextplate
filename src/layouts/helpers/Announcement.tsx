@@ -55,9 +55,13 @@ const Announcement: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (enable && content && !Cookies.get("announcement-close")) {
-      setIsVisible(true);
-    }
+    if (typeof window === "undefined") return;
+    const id = setTimeout(() => {
+      if (enable && content && !Cookies.get("announcement-close")) {
+        setIsVisible(true);
+      }
+    }, 0);
+    return () => clearTimeout(id);
   }, []);
 
   const handleClose = () => {
@@ -73,9 +77,7 @@ const Announcement: React.FC = () => {
 
   return (
     <div className="relative z-999 bg-body dark:bg-darkmode-body shadow-[1px_0_10px_7px_rgba(154,154,154,0.11)] px-4 py-4 pr-12 md:text-lg transition-all duration-300">
-      <p
-        dangerouslySetInnerHTML={markdownify(content)}
-      />
+      <p dangerouslySetInnerHTML={markdownify(content)} />
       <button
         onClick={handleClose}
         className="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer flex items-center justify-center w-7 h-7 border border-border dark:border-darkmode-border rounded-full text-xl transition-colors duration-200"

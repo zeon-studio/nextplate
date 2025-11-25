@@ -1,6 +1,6 @@
 {
   "name": "nextplate",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "Nextjs and Tailwindcss boilerplate",
   "author": "zeon.studio",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "build": "yarn generate-json && next build",
     "preview": "next start",
     "postbuild": "next-sitemap",
-    "lint": "next lint",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.mjs",
     "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"

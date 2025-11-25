@@ -8,7 +8,11 @@ const useOs = () => {
   // get Os
   const [os, setOs] = useState(false);
   useEffect(() => {
-    setOs(navigator.platform.indexOf("Mac") > -1);
+    if (typeof navigator === "undefined") return;
+    const id = setTimeout(() => {
+      setOs(navigator.platform.indexOf("Mac") > -1);
+    }, 0);
+    return () => clearTimeout(id);
   }, []);
 
   return os;
