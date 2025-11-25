@@ -1,14 +1,14 @@
 "use client";
 
 import config from "@/config/config.json";
+import useMounted from "@/hooks/useMounted";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
-const ThemeSwitcher = ({ className }: { className: string }) => {
+const ThemeSwitcher = ({ className = "" }: { className?: string }) => {
   const { theme_switcher } = config.settings;
-  const [mounted, setMounted] = useState(false);
+  const mounted = useMounted();
   const { theme, setTheme, resolvedTheme } = useTheme();
-  useEffect(() => setMounted(true), []);
+  const isDark = theme === "dark" || resolvedTheme === "dark";
 
   return (
     <>
@@ -17,13 +17,8 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
           <input
             id="theme-switcher"
             type="checkbox"
-            checked={mounted && (theme === "dark" || resolvedTheme === "dark")}
-            onClick={() =>
-              setTheme(
-                theme === "dark" || resolvedTheme === "dark" ? "light" : "dark",
-              )
-            }
-            readOnly
+            checked={mounted && isDark}
+            onChange={() => setTheme(isDark ? "light" : "dark")}
           />
           <label htmlFor="theme-switcher">
             <span className="sr-only">theme switcher</span>

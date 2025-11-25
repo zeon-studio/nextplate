@@ -1,6 +1,6 @@
 @import "tailwindcss";
-@plugin "../tailwind-plugin/tw-theme";
-@plugin "../tailwind-plugin/tw-bs-grid";
+@plugin "../tailwind-plugin/tw-theme.mjs";
+@plugin "../tailwind-plugin/tw-bs-grid.mjs";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 

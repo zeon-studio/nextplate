@@ -9,7 +9,7 @@ export const getTaxonomy = async (
 ): Promise<string[]> => {
   const singlePages = await getSinglePage(folder, disableCurrentLocale);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
-  let taxonomies = [];
+  const taxonomies = [];
   for (let i = 0; i < taxonomyPages?.length; i++) {
     const taxonomyArray = taxonomyPages[i];
     for (let j = 0; j < taxonomyArray?.length; j++) {
@@ -24,7 +24,7 @@ export const getTaxonomy = async (
 export const getAllTaxonomy = async (folder: string, name: string) => {
   const singlePages = await getSinglePage(folder);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
-  let taxonomies = [];
+  const taxonomies = [];
   for (let i = 0; i < taxonomyPages?.length; i++) {
     const taxonomyArray = taxonomyPages[i];
     for (let j = 0; j < taxonomyArray?.length; j++) {

@@ -27,7 +27,7 @@ const Cookies = {
 
     let cookieString = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
 
-    for (let key in opts) {
+    for (const key in opts) {
       if (!opts[key]) continue;
       cookieString += `; ${key}`;
       if (opts[key] !== true) {
@@ -42,7 +42,7 @@ const Cookies = {
     if (typeof document === "undefined") return null;
 
     const cookies = document.cookie.split("; ");
-    for (let cookie of cookies) {
+    for (const cookie of cookies) {
       const [key, value] = cookie.split("=");
       if (decodeURIComponent(key) === name) {
         return decodeURIComponent(value);
@@ -64,16 +64,13 @@ const Announcement: React.FC<AnnouncementProps> = () => {
     const announcementContent = t("announcement");
 
     const hasCookie = Cookies.get("announcement-close");
-    // console.log("Announcement Debug:", {
-    //   enable,
-    //   announcementContent,
-    //   hasCookie,
-    //   locale,
-    // });
-
-    if (enable && announcementContent && !hasCookie) {
-      setIsVisible(true);
-    }
+    if (typeof window === "undefined") return;
+    const id = setTimeout(() => {
+      if (enable && announcementContent && !hasCookie) {
+        setIsVisible(true);
+      }
+    }, 0);
+    return () => clearTimeout(id);
   }, [t]);
 
   const handleClose = () => {

@@ -1,6 +1,6 @@
-const plugin = require("tailwindcss/plugin");
+import plugin from "tailwindcss/plugin";
 
-module.exports = plugin.withOptions(() => {
+export default plugin.withOptions(() => {
   return ({ addComponents }) => {
     const gridColumns = 12;
     const gridGutterWidth = "1.5rem";

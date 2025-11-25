@@ -1,5 +1,5 @@
-const plugin = require("tailwindcss/plugin");
-const themeConfig = require("../config/theme.json");
+import plugin from "tailwindcss/plugin";
+import themeConfig from "../config/theme.json" with { type: "json" };
 
 // Helper to extract a clean font name.
 const findFont = (fontStr) =>
@@ -81,7 +81,7 @@ const colorsMap = {};
   });
 });
 
-module.exports = plugin.withOptions(() => {
+export default plugin.withOptions(() => {
   return function ({ addBase, addUtilities, matchUtilities }) {
     // Default vars on :root; dark vars on .dark
     addBase({

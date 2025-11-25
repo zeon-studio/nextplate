@@ -9,7 +9,7 @@ const useWindow = (size: number) => {
   const [windowSize, setWindowSize] = useState(size || 768);
   useEffect(() => {
     function viewport() {
-      let width = Math.max(
+      const width = Math.max(
         document.documentElement.clientWidth,
         window.innerWidth || 0,
       );

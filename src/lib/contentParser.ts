@@ -62,7 +62,7 @@ export const getSinglePage = async (
   const currentLocale = disableCurrentLocale
     ? localeConfig.defaultLocale
     : await getCurrentLocale();
-  let folderPath = path.join(contentPath, currentLocale, folder);
+  const folderPath = path.join(contentPath, currentLocale, folder);
 
   if (!fs.existsSync(folderPath) || !fs.lstatSync(folderPath).isDirectory()) {
     notFound();

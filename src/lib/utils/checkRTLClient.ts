@@ -16,7 +16,7 @@ const rtlLocales = [
   "az-IR", // Azeri (Iran) - specific locale for RTL
 ];
 
-export function getDirClient() {
+export function useDirClient() {
   const locale = useCurrentLocale();
   const dir =
     config.internationalization.enableRTL && rtlLocales.includes(locale)

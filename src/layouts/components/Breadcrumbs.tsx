@@ -8,7 +8,7 @@ const Breadcrumbs = ({ className }: { className?: string }) => {
   const pathname = usePathname();
 
   const paths = pathname.split("/").filter((x) => x);
-  let parts = [
+  const parts = [
     {
       label: "Home",
       href: "/",
