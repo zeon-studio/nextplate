@@ -1,4 +1,4 @@
-const config = require("./src/config/config.json");
+import config from "./src/config/config.json" with { type: "json" };
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -8,4 +8,4 @@ const nextConfig = {
   output: "standalone",
 };
 
-module.exports = nextConfig;
+export default nextConfig;

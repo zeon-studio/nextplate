@@ -19,7 +19,7 @@ export const generateStaticParams = () => {
   const allPost: Post[] = getSinglePage(blog_folder);
   const allSlug: string[] = allPost.map((item) => item.slug!);
   const totalPages = Math.ceil(allSlug.length / pagination);
-  let paths: { page: string }[] = [];
+  const paths: { page: string }[] = [];
 
   for (let i = 1; i < totalPages; i++) {
     paths.push({

@@ -5,7 +5,7 @@ import { slugify } from "@/lib/utils/textConverter";
 export const getTaxonomy = (folder: string, name: string): Array<string> => {
   const singlePages = getSinglePage(folder);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
-  let taxonomies = [];
+  const taxonomies = [];
   for (let i = 0; i < taxonomyPages?.length; i++) {
     const taxonomyArray = taxonomyPages[i];
     for (let j = 0; j < taxonomyArray?.length; j++) {
@@ -20,7 +20,7 @@ export const getTaxonomy = (folder: string, name: string): Array<string> => {
 export const getAllTaxonomy = (folder: string, name: string) => {
   const singlePages = getSinglePage(folder);
   const taxonomyPages = singlePages.map((page) => page.frontmatter[name]);
-  let taxonomies = [];
+  const taxonomies = [];
   for (let i = 0; i < taxonomyPages?.length; i++) {
     const taxonomyArray = taxonomyPages[i];
     for (let j = 0; j < taxonomyArray?.length; j++) {
