@@ -3,9 +3,9 @@ import { createI18nClient } from "next-international/client";
 
 // Build a static mapping of locale -> import function.
 const clientLocales = {
-  ar: () => import("./ar"),
-  en: () => import("./en"),
-  fr: () => import("./fr"),
+  ar: () => import("../i18n/ar.json"),
+  en: () => import("../i18n/en.json"),
+  fr: () => import("../i18n/fr.json"),
 };
 
 export const {
