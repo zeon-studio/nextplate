@@ -6,10 +6,11 @@ const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
 const CONTENT_DEPTH = 2;
 const JSON_FOLDER = "./.json";
+const SEARCHABLE_FOLDERS = config.settings.searchable_folders;
 const localeConfig = config.internationalization;
 
 // get data from markdown
-const getData = (folder, groupDepth) => {
+const getData = (folder, groupDepth, locale) => {
   const getPath = fs.readdirSync(folder);
   const removeIndex = getPath.filter((item) => !item.startsWith("_"));
 
@@ -35,7 +36,13 @@ const getData = (folder, groupDepth) => {
       return {
         group: group,
         slug: slug,
-        frontmatter: data,
+        locale: locale || null,
+        frontmatter: {
+          title: data.title || "",
+          description: data.description || "",
+          categories: data.categories || [],
+          tags: data.tags || [],
+        },
         content: content,
       };
     } else {
@@ -56,25 +63,37 @@ try {
   }
 
   // create json files for each locale
-  const allPosts = [];
+  const jsonFiles = {};
+
+  SEARCHABLE_FOLDERS.forEach(key => {
+    jsonFiles[key] = [];
+  });
+
 
   localeConfig.locales.forEach((locale) => {
-    const posts = getData(`src/content/${locale.value}/blog`, 2);
-    allPosts.push(...posts);
+    SEARCHABLE_FOLDERS.forEach((folder) => {
+      const folderPosts = getData(`src/content/${locale.value}/${folder}`, 3, locale.value);
+      jsonFiles[folder].push(...folderPosts);
+    });
 
-    // optionally save per-locale files
-    fs.writeFileSync(
-      `${JSON_FOLDER}/posts-${locale.value}.json`,
-      JSON.stringify(posts),
-    );
   });
 
   // save combined posts from all locales
-  fs.writeFileSync(`${JSON_FOLDER}/posts.json`, JSON.stringify(allPosts));
+  Object.keys(jsonFiles).forEach((key) => {
+    fs.writeFileSync(
+      `${JSON_FOLDER}/${key}.json`,
+      JSON.stringify(jsonFiles[key]),
+    );
+  });
 
   // merger json files for search
-  const search = [...allPosts];
+  const search = [];
+  Object.keys(jsonFiles).forEach((key) => {
+    search.push(...jsonFiles[key]);
+  });
+
   fs.writeFileSync(`${JSON_FOLDER}/search.json`, JSON.stringify(search));
+
 } catch (err) {
   console.error(err);
 }

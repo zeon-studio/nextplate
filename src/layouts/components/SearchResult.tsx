@@ -1,12 +1,13 @@
 "use client";
 
 import { plainify, titleify } from "@/lib/utils/textConverter";
-import { useCurrentLocale } from "@/locales/client";
+import { useCurrentLocale, useI18n } from "@/locales/client";
 import Image from "next/image";
 
 export interface ISearchItem {
   group: string;
   slug: string;
+  locale: string;
   frontmatter: {
     title: string;
     image?: string;
@@ -41,10 +42,11 @@ const SearchResult = ({
   searchString: string;
 }) => {
   const currentLocale = useCurrentLocale();
+  const t = useI18n();
 
   // Filter results by current locale
   const filteredResults = searchResult.filter(
-    (item) => item.group === currentLocale,
+    (item) => item.locale === currentLocale,
   );
 
   // generate search result group
@@ -259,13 +261,13 @@ const SearchResult = ({
                 ></path>
               </svg>
               <p className="mt-4">
-                No results for &quot;<strong>{searchString}</strong>&quot;
+                {t("no_result_for")} &quot;<strong>{searchString}</strong>&quot;
               </p>
             </div>
           )}
         </div>
       ) : (
-        <div className="py-8 text-center">Type something to search...</div>
+        <div className="py-8 text-center">{t("type_something_to_search")}</div>
       )}
     </div>
   );

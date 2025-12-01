@@ -19,5 +19,10 @@
   "search_in": "dans",
   "search_seconds": "secondes",
   "announcement": "<span class='text-center block'>♥️ Vous aimez Nextplate? <a class='underline' href='https://github.com/zeon-studio/nextplate' target='_blank' rel='noopener'>Merci de ⭐️ sur Github</a></span>",
-  "i18n_get_started": "Commencer"
+  "i18n_get_started": "Commencer",
+  "type_something_to_search": "Tapez quelque chose pour rechercher",
+  "no_result_for": "Aucun résultat trouvé pour",
+  "to_navigate": "pour naviguer",
+  "to_select": "pour sélectionner",
+  "to_close": "pour fermer"
 }
