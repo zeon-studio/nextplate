@@ -1,10 +1,12 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+const configPath = path.join(process.cwd(), "src", "config", "config.json");
+const config = JSON.parse(fs.readFileSync(configPath, "utf8"));
 
 const CONTENT_DEPTH = 2;
 const JSON_FOLDER = "./.json";
-const BLOG_FOLDER = "src/content/blog";
+const SEARCHABLE_FOLDERS = config.settings.searchable_folders;
 
 // get data from markdown
 const getData = (folder, groupDepth) => {
@@ -33,7 +35,12 @@ const getData = (folder, groupDepth) => {
       return {
         group: group,
         slug: slug,
-        frontmatter: data,
+        frontmatter: {
+          title: data.title || "",
+          description: data.description || "",
+          categories: data.categories || [],
+          tags: data.tags || [],
+        },
         content: content,
       };
     } else {
@@ -54,16 +61,30 @@ try {
   }
 
   // create json files
-  fs.writeFileSync(
-    `${JSON_FOLDER}/posts.json`,
-    JSON.stringify(getData(BLOG_FOLDER, 2)),
-  );
+  const jsonFiles = {};
+  SEARCHABLE_FOLDERS.forEach((key) => {
+    jsonFiles[key] = [];
+  });
+
+  SEARCHABLE_FOLDERS.forEach((folder) => {
+    const folderPosts = getData(`src/content/${folder}`, 2);
+    jsonFiles[folder].push(...folderPosts);
+  });
+
+  // save each json file
+  Object.keys(jsonFiles).forEach((key) => {
+    fs.writeFileSync(
+      `${JSON_FOLDER}/${key}.json`,
+      JSON.stringify(jsonFiles[key]),
+    );
+  });
 
   // merger json files for search
-  const posts = JSON.parse(
-    fs.readFileSync(`${JSON_FOLDER}/posts.json`, "utf8"),
-  );
-  const search = [...posts];
+  const search = [];
+  Object.keys(jsonFiles).forEach((key) => {
+    search.push(...jsonFiles[key]);
+  });
+
   fs.writeFileSync(`${JSON_FOLDER}/search.json`, JSON.stringify(search));
 } catch (err) {
   console.error(err);

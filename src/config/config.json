@@ -14,6 +14,7 @@
 
   "settings": {
     "search": true,
+    "searchable_folders": ["blog", "authors"],
     "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "dark",

@@ -176,7 +176,8 @@ const SearchResult = ({
                         </p>
                       )}
                       <div className="search-result-item-taxonomies">
-                        {item.frontmatter.categories && (
+                        {item.frontmatter.categories &&
+                        item.frontmatter.categories.length > 0 ? (
                           <div className="mr-2">
                             <svg
                               width="14"
@@ -198,8 +199,9 @@ const SearchResult = ({
                               ),
                             )}
                           </div>
-                        )}
-                        {item.frontmatter.tags && (
+                        ) : null}
+                        {item.frontmatter.tags &&
+                        item.frontmatter.tags.length > 0 ? (
                           <div className="mr-2">
                             <svg
                               width="14"
@@ -219,7 +221,7 @@ const SearchResult = ({
                               </span>
                             ))}
                           </div>
-                        )}
+                        ) : null}
                       </div>
                     </div>
                   </div>
