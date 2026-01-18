@@ -138,6 +138,14 @@ const Header = () => {
               <Link
                 className="btn btn-outline-primary btn-sm"
                 href={navigation_button.link}
+                target={
+                  navigation_button.link.startsWith("http") ? "_blank" : "_self"
+                }
+                rel={
+                  navigation_button.link.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
               >
                 {navigation_button.label}
               </Link>
@@ -159,6 +167,14 @@ const Header = () => {
             <Link
               className="btn btn-outline-primary btn-sm hidden lg:inline-block"
               href={navigation_button.link}
+              target={
+                navigation_button.link.startsWith("http") ? "_blank" : "_self"
+              }
+              rel={
+                navigation_button.link.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
             >
               {navigation_button.label}
             </Link>
