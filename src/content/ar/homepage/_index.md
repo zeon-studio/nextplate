@@ -6,8 +6,8 @@ banner:
   image: "/images/banner_ar.png"
   button:
     enable: true
-    label: "ابدأ مجانًا"
-    link: "https://github.com/zeon-studio/nextplate"
+    label: "انشر وعدل أونلاين 🚀"
+    link: "https://app.sitepins.com/new/clone?name=Nextplarte&repository=https://github.com/zeon-studio/nextplate/tree/multilingual"
 
 # Fonctionnalités
 features:

@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Nextplate",
-    "base_url": "https://nextplate.netlify.app",
+    "base_url": "https://nextplate-multilang.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -59,7 +59,7 @@
   "navigation_button": {
     "enable": true,
     "label": "i18n_get_started",
-    "link": "https://github.com/zeon-studio/nextplate"
+    "link": "https://github.com/zeon-studio/nextplate/tree/multilingual"
   },
 
   "google_tag_manager": {

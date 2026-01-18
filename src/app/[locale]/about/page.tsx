@@ -24,13 +24,13 @@ const Page = async (props: { params: Promise<PageParams> }) => {
       <section className="section-sm">
         <div className="container">
           <div className="row justify-center">
-            <div className="text-center md:col-10 lg:col-7">
+            <div className="md:col-10 lg:col-8">
               {image && (
                 <ImageFallback
-                  className="mx-auto mb-6 rounded-lg"
+                  className="mx-auto mb-6 rounded"
                   src={image}
-                  width={200}
-                  height={200}
+                  width={1200}
+                  height={600}
                   alt={title}
                 />
               )}

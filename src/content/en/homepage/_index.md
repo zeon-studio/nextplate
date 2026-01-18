@@ -6,8 +6,8 @@ banner:
   image: "/images/banner.png"
   button:
     enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/nextplate"
+    label: "Fork Deploy and Edit Online 🚀"
+    link: "https://app.sitepins.com/new/clone?name=Nextplarte&repository=https://github.com/zeon-studio/nextplate/tree/multilingual"
 
 # Features
 features:

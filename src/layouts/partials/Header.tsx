@@ -144,6 +144,14 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
               <Link
                 className="btn btn-outline-primary btn-sm"
                 href={navigation_button.link}
+                target={
+                  navigation_button.link.startsWith("http") ? "_blank" : "_self"
+                }
+                rel={
+                  navigation_button.link.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
               >
                 {t(navigation_button.label as "i18n_get_started")}
               </Link>
@@ -169,6 +177,14 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
             <Link
               className={`btn btn-outline-primary btn-sm hidden lg:inline-block in-rtl:mr-5`}
               href={navigation_button.link}
+              target={
+                navigation_button.link.startsWith("http") ? "_blank" : "_self"
+              }
+              rel={
+                navigation_button.link.startsWith("http")
+                  ? "noopener noreferrer"
+                  : undefined
+              }
             >
               {t(navigation_button.label as "i18n_get_started")}
             </Link>
