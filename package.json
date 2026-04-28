@@ -1,6 +1,6 @@
 {
   "name": "nextplate",
-  "version": "5.6.2",
+  "version": "5.7.0",
   "description": "Nextjs and Tailwindcss boilerplate",
   "author": "zeon.studio",
   "license": "MIT",
@@ -9,10 +9,11 @@
     "dev": "concurrently \"node scripts/themeGenerator.mjs --watch\" \"yarn generate-json && next dev\"",
     "build": "node scripts/themeGenerator.mjs && yarn generate-json && next build",
     "preview": "next start",
-    "postbuild": "next-sitemap",
+    "postbuild": "next-sitemap && node scripts/llmsGenerator.mjs",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.mjs",
+    "generate-llms": "node scripts/llmsGenerator.mjs",
     "remove-darkmode": "node scripts/removeDarkmode.mjs && yarn format"
   },
   "dependencies": {
@@ -48,9 +49,12 @@
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "glob": "^13.0.6",
+    "node-html-parser": "^7.1.0",
     "sharp": "0.34.5",
     "tailwind-bootstrap-grid": "^7.0.0",
     "tailwindcss": "^4.2.1",
+    "turndown": "^7.2.4",
     "typescript": "5.9.3"
   },
   "resolutions": {

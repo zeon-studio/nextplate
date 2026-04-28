@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .json/
+.generated/
 .pnp.js
 yarn.lock
 package-lock.json
@@ -17,6 +18,11 @@ package-lock.json
 
 # production
 /build
+
+# llms generated files
+public/*.md
+public/llms.txt
+public/llms-full.txt
 
 # misc
 .DS_Store

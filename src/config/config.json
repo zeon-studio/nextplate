@@ -55,5 +55,13 @@
     "meta_author": "Themefisher",
     "meta_image": "/images/og-image.png",
     "meta_description": "Next Boilerplate"
+  },
+
+  "llms": {
+    "generate_llms_txt": true,
+    "generate_llms_full_txt": false,
+    "generate_individual_md": false,
+    "include": [],
+    "exclude": []
   }
 }
