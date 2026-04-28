@@ -34,6 +34,7 @@
 - 📞 Support contact form
 - 📱 Fully responsive
 - 📝 Write and update content in Markdown / MDX
+- 🤖 LLM-ready docs generation (`llms.txt`, `llms-full.txt`, and per-page `.md`)
 - 💬 Disqus Comment
 - 🔳 Syntax Highlighting
 
@@ -80,6 +81,61 @@ npm run dev
 
 ```bash
 npm run build
+```
+
+### 👉 Generate LLM Files
+
+After build, this project can generate LLM-friendly files from your built HTML:
+
+- `llms.txt` (index of pages)
+- `llms-full.txt` (full combined content)
+- optional per-page Markdown files
+
+Use one of these ways:
+
+```bash
+# included in build
+npm run build
+
+# or run manually after build
+npm run generate-llms
+```
+
+Configuration is in `src/config/config.json` under `llms`:
+
+- `generate_llms_txt`: create `llms.txt`
+- `generate_llms_full_txt`: create `llms-full.txt`
+- `generate_individual_md`: create individual `.md` files
+- `include`: include only selected routes/globs (empty = all)
+- `exclude`: exclude routes/globs
+
+**Include / Exclude patterns:**
+
+`include` overrides `exclude` — use `exclude` to remove broad sections, then `include` to add back specific pages.
+
+| Pattern    | Matches                                          |
+| ---------- | ------------------------------------------------ |
+| `/blog`    | exact `/blog`                                    |
+| `/blog/`   | `/blog` and everything under it                  |
+| `/blog/*`  | one segment under `/blog/` (e.g. `/blog/post-1`) |
+| `/blog/**` | any depth under `/blog/`                         |
+
+Exclude all blog pages, then add back only single posts:
+
+```json
+"llms": {
+  "exclude": ["/blog/"],
+  "include": ["/blog/*"]
+}
+```
+
+Exclude everything, then whitelist only authors and blog singles:
+
+```json
+"llms": {
+  "exclude": ["/"],
+  "include": ["/authors", "/authors/*", "/blog/*"]
+}
 ```
 
 ### 👉 Build and Run With Docker
