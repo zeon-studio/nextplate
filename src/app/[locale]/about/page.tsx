@@ -4,11 +4,11 @@ import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { PageParams, RegularPage } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 
 const Page = async (props: { params: Promise<PageParams> }) => {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
   const data: RegularPage = await getListPage("about/_index.md");
   const { frontmatter, content } = data;
   const { title, meta_title, description, image } = frontmatter;

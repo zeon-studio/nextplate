@@ -1,9 +1,9 @@
-import { getI18n } from "@/locales/server";
+import { getTranslations } from "next-intl/server";
 import SeoMeta from "@/partials/SeoMeta";
 import Link from "next/link";
 
 const NotFound = async () => {
-  const t = await getI18n();
+  const t = await getTranslations();
   return (
     <>
       <SeoMeta title={"Page Not Found"} />

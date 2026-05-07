@@ -1,7 +1,7 @@
 "server only";
 
 import config from "@/config/config.json";
-import { getCurrentLocale } from "@/locales/server";
+import { getLocale } from "next-intl/server";
 import fs from "fs";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
@@ -21,7 +21,7 @@ const parseFrontmatter = (frontmatter: any) => {
 };
 
 export const getListPage = async (filePath: string, locale?: string) => {
-  const currentLocale = await getCurrentLocale();
+  const currentLocale = await getLocale();
   const finalLocale = locale || currentLocale;
   let pageDataPath = path.join(contentPath, finalLocale, filePath);
 
@@ -61,7 +61,7 @@ export const getSinglePage = async (
 ) => {
   const currentLocale = disableCurrentLocale
     ? localeConfig.defaultLocale
-    : await getCurrentLocale();
+    : await getLocale();
   const folderPath = path.join(contentPath, currentLocale, folder);
 
   if (!fs.existsSync(folderPath) || !fs.lstatSync(folderPath).isDirectory()) {

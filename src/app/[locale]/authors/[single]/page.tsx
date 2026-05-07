@@ -7,7 +7,7 @@ import { getSinglePage } from "@/lib/contentParser";
 import { slugify } from "@/lib/utils/textConverter";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author, PageParams, Post } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 // remove dynamicParams
@@ -17,7 +17,7 @@ export default async function AuthorSingle(props: {
   params: Promise<PageParams>;
 }) {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
 
   const authors: Author[] = await getSinglePage("authors");
   const author = authors.filter((page) => page.slug === params.single)[0];

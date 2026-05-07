@@ -7,10 +7,10 @@ import { getSinglePage } from "@/lib/contentParser";
 import dateFormat from "@/lib/utils/dateFormat";
 import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
-import { getI18n } from "@/locales/server";
+import { getTranslations } from "next-intl/server";
 import SeoMeta from "@/partials/SeoMeta";
 import { Post } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
@@ -23,7 +23,7 @@ export default async function PostSingle(props: {
   params: Promise<{ single: string; locale: string }>;
 }) {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
 
   const posts: Post[] = await getSinglePage(blog_folder);
   const post = posts.filter((page) => page.slug === params.single)[0];
@@ -44,7 +44,7 @@ export default async function PostSingle(props: {
   } = frontmatter;
   const similarPosts = similarItems(post, posts, post.slug!)?.slice(0, 3);
 
-  const t = await getI18n();
+  const t = await getTranslations();
 
   return (
     <>

@@ -1,5 +1,8 @@
+"use client";
+
 import config from "@/config/config.json";
-import { useChangeLocale, useCurrentLocale } from "@/locales/client";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "@/i18n/routing";
 
 const localeConfig = config.internationalization;
 export default function LanguageSwitcher({
@@ -7,17 +10,22 @@ export default function LanguageSwitcher({
 }: {
   className?: string;
 }) {
-  const changeLocale = useChangeLocale({ preserveSearchParams: true });
-  const currentLocale = useCurrentLocale();
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const changeLocale = (nextLocale: string) => {
+    router.replace(pathname, { locale: nextLocale });
+  };
 
   return (
     <select
       name="language"
-      value={currentLocale}
+      value={locale}
       className={className}
       onChange={(e) => {
         const language = e.target.value;
-        changeLocale(language as any);
+        changeLocale(language);
       }}
     >
       {localeConfig.locales.map((locale) => (

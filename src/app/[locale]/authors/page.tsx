@@ -1,14 +1,14 @@
 import AuthorCard from "@/components/AuthorCard";
 import { getListPage, getSinglePage } from "@/lib/contentParser";
-import { getStaticParams } from "@/locales/server";
+import { routing } from "@/i18n/routing";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { Author, PageParams } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 
 const Page = async (props: { params: Promise<PageParams> }) => {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
   const authorIndex: Author = await getListPage("authors/_index.md");
   const authors: Author[] = await getSinglePage("authors");
   const { title, meta_title, description, image } = authorIndex.frontmatter;
@@ -39,5 +39,5 @@ const Page = async (props: { params: Promise<PageParams> }) => {
 export default Page;
 
 export function generateStaticParams() {
-  return getStaticParams();
+  return routing.locales.map((locale) => ({ locale }));
 }

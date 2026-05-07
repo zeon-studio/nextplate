@@ -4,7 +4,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
-import { useI18n } from "@/locales/client";
+import { useTranslations } from "next-intl";
 import { SiteMenu } from "@/types";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,7 +39,7 @@ const Header = ({ currentLocaleMenu }: { currentLocaleMenu: SiteMenu }) => {
 
   // return <div>{JSON.stringify(menus)}</div>;
 
-  const t = useI18n();
+  const t = useTranslations();
 
   return (
     <header

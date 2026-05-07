@@ -1,5 +1,5 @@
 import config from "@/config/config.json";
-import { useCurrentLocale } from "@/locales/client";
+import { useLocale } from "next-intl";
 
 const rtlLocales = [
   "ar", // Arabic
@@ -17,7 +17,7 @@ const rtlLocales = [
 ];
 
 export function useDirClient() {
-  const locale = useCurrentLocale();
+  const locale = useLocale();
   const dir =
     config.internationalization.enableRTL && rtlLocales.includes(locale)
       ? "rtl"
