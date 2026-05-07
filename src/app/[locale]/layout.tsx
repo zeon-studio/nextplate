@@ -5,13 +5,15 @@ import Announcement from "@/helpers/Announcement";
 import TwSizeIndicator from "@/helpers/TwSizeIndicator";
 import { getLocaleMenu } from "@/lib/getLocaleMenu";
 import { getDir } from "@/lib/utils/checkRTL";
-import { I18nProviderClient } from "@/locales/client";
-import { getStaticParams } from "@/locales/server";
+import { routing } from "@/i18n/routing";
 import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
 import "@/styles/main.css";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
 
 export default async function RootLayout({
   children,
@@ -25,10 +27,17 @@ export default async function RootLayout({
   const sf = theme.fonts.font_family.secondary;
 
   const { locale } = await params;
+
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
   const currentLocaleMenu = await getLocaleMenu(locale);
 
   // RTL Support
   const dir = await getDir();
+
+  const messages = await getMessages();
 
   return (
     <html suppressHydrationWarning={true} lang={locale} dir={dir}>
@@ -78,13 +87,13 @@ export default async function RootLayout({
       <body suppressHydrationWarning={true} className="antialiased">
         <TwSizeIndicator />
         <Providers>
-          <I18nProviderClient locale={locale}>
+          <NextIntlClientProvider messages={messages}>
             <Announcement locale={locale} />
             <Header currentLocaleMenu={currentLocaleMenu} />
             <SearchModal />
             <main>{children}</main>
             <Footer currentLocaleMenu={currentLocaleMenu} />
-          </I18nProviderClient>
+          </NextIntlClientProvider>
         </Providers>
       </body>
     </html>
@@ -92,5 +101,5 @@ export default async function RootLayout({
 }
 
 export function generateStaticParams() {
-  return getStaticParams();
+  return routing.locales.map((locale) => ({ locale }));
 }

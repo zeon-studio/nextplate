@@ -1,12 +1,12 @@
 import ImageFallback from "@/helpers/ImageFallback";
 import { getListPage } from "@/lib/contentParser";
 import { markdownify } from "@/lib/utils/textConverter";
-import { getStaticParams } from "@/locales/server";
+import { routing } from "@/i18n/routing";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
 import { Button, Feature } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 // import { Button, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
@@ -15,7 +15,7 @@ export default async function Home(props: {
   params: Promise<{ locale: string }>;
 }) {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
   const homepage = await getListPage("homepage/_index.md");
   const testimonial = await getListPage("sections/testimonial.md");
   const callToAction = await getListPage("sections/call-to-action.md");
@@ -133,5 +133,5 @@ export default async function Home(props: {
 }
 
 export function generateStaticParams() {
-  return getStaticParams();
+  return routing.locales.map((locale) => ({ locale }));
 }

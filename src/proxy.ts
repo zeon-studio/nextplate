@@ -1,19 +1,13 @@
-// middleware.ts
-import configFile from "@/config/config.json";
-import { createI18nMiddleware } from "next-international/middleware";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 import { NextRequest } from "next/server";
-const localeConfig = configFile.internationalization;
 
-const I18nMiddleware = createI18nMiddleware({
-  locales: localeConfig.locales.map((loc) => loc.value),
-  defaultLocale: localeConfig.defaultLocale,
-  urlMappingStrategy: "rewriteDefault",
-});
-
-export function proxy(request: NextRequest) {
-  return I18nMiddleware(request);
+export default function proxy(request: NextRequest) {
+  return createMiddleware(routing)(request);
 }
 
 export const config = {
-  matcher: ["/((?!api|static|.*\\..*|_next|favicon.png|robots.txt).*)"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|robots.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
 };

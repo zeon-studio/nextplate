@@ -8,7 +8,7 @@ import { humanize } from "@/lib/utils/textConverter";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { PageParams, Post } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 
 const { blog_folder } = config.settings;
 
@@ -27,7 +27,7 @@ export const generateStaticParams = async () => {
 
 const CategorySingle = async (props: { params: Promise<PageParams> }) => {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
   const posts: Post[] = await getSinglePage(blog_folder);
   const filterByCategories = taxonomyFilter(posts, "categories", params.single);
   const sortedPosts = sortByDate(filterByCategories);

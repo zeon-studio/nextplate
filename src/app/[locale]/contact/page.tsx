@@ -1,19 +1,19 @@
 import config from "@/config/config.json";
 import { getListPage } from "@/lib/contentParser";
-import { getI18n } from "@/locales/server";
+import { getTranslations } from "next-intl/server";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { PageParams, RegularPage } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 
 const Contact = async (props: { params: Promise<PageParams> }) => {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
   const data: RegularPage = await getListPage("contact/_index.md");
   const { frontmatter } = data;
   const { title, description, meta_title, image } = frontmatter;
   const { contact_form_action } = config.params;
-  const t = await getI18n();
+  const t = await getTranslations();
   return (
     <>
       <SeoMeta

@@ -8,7 +8,7 @@ import PageHeader from "@/partials/PageHeader";
 import PostSidebar from "@/partials/PostSidebar";
 import SeoMeta from "@/partials/SeoMeta";
 import { PageParams, Post } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 
 const { blog_folder, pagination } = config.settings;
 
@@ -34,7 +34,7 @@ export const generateStaticParams = async () => {
 // for all regular pages
 export default async function Posts(props: { params: Promise<PageParams> }) {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
   const postIndex: Post = await getListPage(`${blog_folder}/_index.md`);
   const { title, meta_title, description, image } = postIndex.frontmatter;
   const posts: Post[] = await getSinglePage(blog_folder);

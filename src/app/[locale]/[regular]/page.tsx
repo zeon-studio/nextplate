@@ -3,7 +3,7 @@ import { getSinglePage } from "@/lib/contentParser";
 import PageHeader from "@/partials/PageHeader";
 import SeoMeta from "@/partials/SeoMeta";
 import { PageParams, RegularPage } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 // remove dynamicParams
@@ -12,7 +12,7 @@ export const dynamicParams = false;
 // for all regular pages
 const RegularPages = async (props: { params: Promise<PageParams> }) => {
   const params = await props.params;
-  setStaticParamsLocale(params.locale as string);
+  setRequestLocale(params.locale as string);
 
   const regularData = await getSinglePage("pages");
   const data = regularData.filter(

@@ -1,7 +1,7 @@
 "use client";
 
 import { plainify, titleify } from "@/lib/utils/textConverter";
-import { useCurrentLocale, useI18n } from "@/locales/client";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 
 export interface ISearchItem {
@@ -41,8 +41,8 @@ const SearchResult = ({
   searchResult: ISearchItem[];
   searchString: string;
 }) => {
-  const currentLocale = useCurrentLocale();
-  const t = useI18n();
+  const currentLocale = useLocale();
+  const t = useTranslations();
 
   // Filter results by current locale
   const filteredResults = searchResult.filter(

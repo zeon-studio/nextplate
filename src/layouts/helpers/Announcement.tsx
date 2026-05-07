@@ -2,7 +2,7 @@
 
 import config from "@/config/config.json";
 import { markdownify } from "@/lib/utils/textConverter";
-import { useI18n } from "@/locales/client";
+import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 
 const { enable, expire_days } = config.announcement;
@@ -58,10 +58,10 @@ const Cookies = {
 
 const Announcement: React.FC<AnnouncementProps> = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const t = useI18n();
+  const t = useTranslations();
 
   useEffect(() => {
-    const announcementContent = t("announcement");
+    const announcementContent = t.raw("announcement");
 
     const hasCookie = Cookies.get("announcement-close");
     if (typeof window === "undefined") return;
@@ -80,7 +80,7 @@ const Announcement: React.FC<AnnouncementProps> = () => {
     setIsVisible(false);
   };
 
-  const announcementContent = t("announcement");
+  const announcementContent = t.raw("announcement");
 
   if (!enable || !isVisible || !announcementContent) {
     return null;

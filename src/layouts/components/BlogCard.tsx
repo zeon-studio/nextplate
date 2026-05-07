@@ -2,7 +2,7 @@ import config from "@/config/config.json";
 import ImageFallback from "@/helpers/ImageFallback";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
-import { getI18n } from "@/locales/server";
+import { getTranslations } from "next-intl/server";
 import { Post } from "@/types";
 import Link from "next/link";
 import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
@@ -10,7 +10,7 @@ import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 const BlogCard = async ({ data }: { data: Post }) => {
   const { summary_length, blog_folder } = config.settings;
   const { title, image, author, categories, date } = data.frontmatter;
-  const t = await getI18n();
+  const t = await getTranslations();
   return (
     <div className="bg-body dark:bg-darkmode-body">
       {image && (

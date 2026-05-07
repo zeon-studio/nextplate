@@ -1,7 +1,7 @@
 "use client";
 
 import searchData from ".json/search.json" with { type: "json" };
-import { useI18n } from "@/locales/client";
+import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import SearchResult, { type ISearchItem } from "./SearchResult";
 
@@ -126,7 +126,7 @@ const SearchModal = () => {
     });
   }, [searchString]);
 
-  const t = useI18n();
+  const t = useTranslations();
 
   return (
     <div id="searchModal" className="search-modal">

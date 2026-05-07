@@ -1,5 +1,5 @@
 import config from "@/config/config.json";
-import { getCurrentLocale } from "@/locales/server";
+import { getLocale } from "next-intl/server";
 
 const rtlLocales = [
   "ar", // Arabic
@@ -17,7 +17,7 @@ const rtlLocales = [
 ];
 
 export async function getDir() {
-  const locale = await getCurrentLocale();
+  const locale = await getLocale();
   const dir =
     config.internationalization.enableRTL && rtlLocales.includes(locale)
       ? "rtl"

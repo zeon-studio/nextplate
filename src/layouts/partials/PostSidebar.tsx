@@ -1,5 +1,5 @@
 import { humanize } from "@/lib/utils/textConverter";
-import { getI18n } from "@/locales/server";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 const PostSidebar = async ({
@@ -11,7 +11,7 @@ const PostSidebar = async ({
   categories: string[];
   allCategories: string[];
 }) => {
-  const t = await getI18n();
+  const t = await getTranslations();
   return (
     <div className="lg:col-4">
       {/* <!-- categories --> */}
