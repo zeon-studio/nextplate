@@ -1,20 +1,20 @@
 {
   "name": "nextplate",
-  "version": "5.7.0",
+  "version": "5.8.0",
   "description": "Nextjs and Tailwindcss boilerplate",
   "author": "zeon.studio",
   "license": "MIT",
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "pnpm@11.5.1",
   "scripts": {
-    "dev": "concurrently \"node scripts/themeGenerator.mjs --watch\" \"yarn generate-json && next dev\"",
-    "build": "node scripts/themeGenerator.mjs && yarn generate-json && next build",
+    "dev": "concurrently \"node scripts/themeGenerator.mjs --watch\" \"node scripts/jsonGenerator.mjs && next dev\"",
+    "build": "node scripts/themeGenerator.mjs && node scripts/jsonGenerator.mjs && next build",
     "preview": "next start",
     "postbuild": "next-sitemap && node scripts/llmsGenerator.mjs",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.mjs",
     "generate-llms": "node scripts/llmsGenerator.mjs",
-    "remove-darkmode": "node scripts/removeDarkmode.mjs && yarn format"
+    "remove-darkmode": "node scripts/removeDarkmode.mjs && pnpm format"
   },
   "dependencies": {
     "@justinribeiro/lite-youtube": "^1.9.0",

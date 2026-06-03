@@ -28,7 +28,8 @@ export const getListPage = (filePath: string) => {
   const { content, data: frontmatter } = matter(pageData);
   const parsedFrontmatter = parseFrontmatter(frontmatter);
 
-  if (parsedFrontmatter.draft) {
+  const buildDrafts = process.argv.includes("--buildDrafts") || process.env.BUILD_DRAFTS === "true";
+  if (!buildDrafts && parsedFrontmatter.draft) {
     notFound();
   }
 
@@ -66,11 +67,15 @@ export const getSinglePage = (folder: string) => {
     };
   });
 
+  const buildDrafts = process.argv.includes("--buildDrafts") || process.env.BUILD_DRAFTS === "true";
+  const buildFuture = process.argv.includes("--buildFuture") || process.env.BUILD_FUTURE === "true";
+  const now = new Date();
+
   const publishedPages = singlePages.filter(
-    (page) => !page.frontmatter.draft && page,
+    (page) => (buildDrafts || !page.frontmatter.draft) && page,
   );
   const filterByDate = publishedPages.filter(
-    (page) => new Date(page.frontmatter.date || new Date()) <= new Date(),
+    (page) => buildFuture || new Date(page.frontmatter.date || new Date()) <= now,
   );
 
   return filterByDate;
