@@ -1,6 +1,6 @@
 [build]
 publish = ".next"
-command = "yarn build"
+command = "pnpm build"
 
 [functions]
 included_files = ["src/content/**"]
