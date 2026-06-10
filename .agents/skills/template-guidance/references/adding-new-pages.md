@@ -32,6 +32,7 @@ If the page requires custom React components, complex layouts, or API data fetch
 
 1. **Create the Route Directory**: Create a folder in `src/app/` (e.g., `src/app/my-custom-page/`).
 2. **Create the `page.tsx` file**:
+
    ```tsx
    import SeoMeta from "@/partials/SeoMeta";
 
@@ -54,6 +55,7 @@ If the page requires custom React components, complex layouts, or API data fetch
      );
    }
    ```
+
 3. **Add to Navigation**: To make the page visible in the header, edit `src/config/menu.json` and add an object to the `main` array:
    ```json
    {
@@ -67,3 +69,4 @@ If the page requires custom React components, complex layouts, or API data fetch
 - **DO NOT** create a `pages/` directory at the root. This project strictly uses the `app/` router.
 - **DO NOT** forget to add `<SeoMeta />` or `export const metadata = {}` when creating a code-driven page. Without it, the page will lack proper SEO tags.
 - **DO NOT** manually create routes in `src/app/` for markdown files that are already handled by the `[regular]` catch-all route, as this will cause route conflicts.
+- **DO NOT** guess the component structure for layouts. Always verify how existing custom pages implement them to ensure you are using the correct top-level components (rather than incorrectly using sub-components).
