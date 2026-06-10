@@ -1,8 +1,3 @@
----
-name: styling-and-theming
-description: How to customize styles without breaking things in this Next.js template. Covers Tailwind CSS v4 usage, CSS variables, dark mode implementation, and where NOT to touch. Use when a user wants to change primary colors, fonts, or tweak the design system.
----
-
 # Styling and Theming
 
 This template uses **Tailwind CSS v4** combined with a custom **dynamic theming engine** powered by JSON configurations.

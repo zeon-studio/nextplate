@@ -1,8 +1,3 @@
----
-name: project-architecture
-description: A high-level map of the entire codebase for this Next.js template. Explains what each major folder/file does, what to edit vs what to never touch, and how data flows from content files to rendered pages. Use to understand the overarching system before making complex structural changes.
----
-
 # Project Architecture
 
 This skill provides a high-level map of the Next.js template ecosystem, built on Next.js 16.1+ App Router and Tailwind CSS v4.

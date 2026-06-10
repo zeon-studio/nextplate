@@ -1,8 +1,3 @@
----
-name: adding-new-pages
-description: Step-by-step guide for safely adding a new page in this Next.js template. Covers file placement, routing conventions, layout usage, and metadata setup. Use when a user asks to add a new page, route, or section to the website.
----
-
 # Adding New Pages
 
 This skill explains how to add new pages utilizing the Next.js App Router paradigm combined with this template's custom Markdown architecture.

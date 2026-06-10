@@ -1,8 +1,3 @@
----
-name: component-usage
-description: How existing components work and how to use/extend them in this Next.js template. Covers props, variants, and patterns used across the codebase (e.g., BlogCard, Pagination, SearchModal). Use when a user needs to understand or modify the UI components.
----
-
 # Component Usage
 
 This skill explains how the UI component architecture is structured in this Next.js template and how to use the existing components.

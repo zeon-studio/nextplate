@@ -1,8 +1,3 @@
----
-name: page-configuration
-description: How to configure and customize existing pages and global site settings in this Next.js template. Covers site config files, navigation structure, SEO metadata, and per-page settings. Use when a user wants to change site titles, navigation links, social media links, or global parameters.
----
-
 # Page and Site Configuration
 
 This skill explains how to configure global settings, navigation, social links, and SEO metadata in this Next.js template.

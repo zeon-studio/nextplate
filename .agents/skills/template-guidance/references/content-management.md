@@ -1,8 +1,3 @@
----
-name: content-management
-description: How to add, edit, and update page content (e.g., blog posts, pages, or custom collections) in this Next.js template architecture. Instructs agents to dynamically check `src/content/` for available collections. Includes frontmatter fields, required vs optional fields, file naming conventions, and image handling. Use when managing content or editing markdown/MDX files.
----
-
 # Content Management
 
 This skill explains how to manage content collections within this Next.js template architecture.

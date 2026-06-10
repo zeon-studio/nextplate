@@ -1,8 +1,3 @@
----
-name: script-usage
-description: How to run the custom pnpm scripts (dev, build, generators) included in this Next.js template. Use when a user needs to start the server, build the site, or regenerate specific assets like search indices, LLM docs, or themes.
----
-
 # Script Usage
 
 This skill explains the custom Node.js scripts and `pnpm` commands available in this Next.js template ecosystem.
