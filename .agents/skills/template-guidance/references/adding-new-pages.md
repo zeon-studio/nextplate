@@ -24,7 +24,8 @@ If the page is mainly text and images (like an "About" or "Privacy Policy" page)
    ---
    Your markdown content goes here.
    ```
-3. **How it renders**: The file `src/app/[regular]/page.tsx` acts as a catch-all route. It automatically detects the slug (e.g., `/my-new-page`), looks for it in `src/content/`, parses it using `next-mdx-remote` or `marked`, and renders it using a default page layout.
+3. **Using Shortcodes**: Before using any shortcodes or custom components in your markdown, you **must** read and review the available shortcodes in the `src/layouts/shortcodes` directory to avoid MDX errors.
+4. **How it renders**: The file `src/app/[regular]/page.tsx` acts as a catch-all route. It automatically detects the slug (e.g., `/my-new-page`), looks for it in `src/content/`, parses it using `next-mdx-remote` or `marked`, and renders it using a default page layout.
 
 ### Method 2: Adding a Code-Driven Page (App Router)
 
@@ -70,3 +71,4 @@ If the page requires custom React components, complex layouts, or API data fetch
 - **DO NOT** forget to add `<SeoMeta />` or `export const metadata = {}` when creating a code-driven page. Without it, the page will lack proper SEO tags.
 - **DO NOT** manually create routes in `src/app/` for markdown files that are already handled by the `[regular]` catch-all route, as this will cause route conflicts.
 - **DO NOT** guess the component structure for layouts. Always verify how existing custom pages implement them to ensure you are using the correct top-level components (rather than incorrectly using sub-components).
+- **DO NOT** use shortcodes in markdown without first reading the components in `src/layouts/shortcodes`. This helps avoid MDX rendering errors caused by using non-existent or incorrectly formatted shortcodes.
