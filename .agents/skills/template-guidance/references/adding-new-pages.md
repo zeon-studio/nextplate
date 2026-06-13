@@ -24,7 +24,8 @@ If the page is mainly text and images (like an "About" or "Privacy Policy" page)
    ---
    Your markdown content goes here.
    ```
-3. **How it renders**: The file `src/app/[regular]/page.tsx` acts as a catch-all route. It automatically detects the slug (e.g., `/my-new-page`), looks for it in `src/content/`, parses it using `next-mdx-remote` or `marked`, and renders it using a default page layout.
+3. **Using Shortcodes**: Before using any shortcodes or custom components in your markdown, you **must** read and review the available shortcodes in the `src/layouts/shortcodes` directory to avoid MDX errors.
+4. **How it renders**: The file `src/app/[regular]/page.tsx` acts as a catch-all route. It automatically detects the slug (e.g., `/my-new-page`), looks for it in `src/content/`, parses it using `next-mdx-remote` or `marked`, and renders it using a default page layout.
 
 ### Method 2: Adding a Code-Driven Page (App Router)
 
